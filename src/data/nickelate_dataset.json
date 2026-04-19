@@ -9,7 +9,8 @@
       "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
       "pressure_class": "Ambient",
       "notes": "First ambient film report. 14 samples, Tc,onset 26.2-42.4K. Diamagnetic response confirmed.",
-      "tags": ["film", "ambient", "timeline", "screener"]
+      "tags": ["film", "ambient", "timeline", "screener"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 2, "material": "La₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -20,7 +21,8 @@
       "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
       "pressure_class": "Ambient",
       "notes": "Lowest onset Tc sample from same study.",
-      "tags": ["film", "ambient"]
+      "tags": ["film", "ambient"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 3, "material": "(La,Pr)₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -31,7 +33,8 @@
       "doping": "Pr-substituted", "oxygen_treatment": "in-situ oxidation",
       "pressure_class": "Ambient",
       "notes": "La,Pr variant. Ambient pressure.",
-      "tags": ["film", "ambient", "screener"]
+      "tags": ["film", "ambient", "screener"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 4, "material": "(La,Pr)₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -42,7 +45,8 @@
       "doping": "Pr-substituted", "oxygen_treatment": "in-situ full oxygenation",
       "pressure_class": "Ambient",
       "notes": "Record ambient onset Tc. Extreme non-equilibrium GAE growth. Strange-metal α~1 at highest Tc.",
-      "tags": ["film", "ambient", "record", "timeline", "screener"]
+      "tags": ["film", "ambient", "record", "timeline", "screener"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": "https://arxiv.org/abs/2512.04708"
     },
     {
       "id": 5, "material": "La₃Ni₂O₇", "substrate": "LaAlO₃", "substrate_a": 3.790,
@@ -53,7 +57,8 @@
       "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
       "pressure_class": "Ambient",
       "notes": "Strain-tuning study. Partially relaxed. Under 20GPa: onset ~60K.",
-      "tags": ["film", "ambient", "screener"]
+      "tags": ["film", "ambient", "screener"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 6, "material": "La₃Ni₂O₇", "substrate": "NdGaO₃", "substrate_a": 3.863,
@@ -64,7 +69,8 @@
       "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
       "pressure_class": "Ambient",
       "notes": "Tensile strained. Under 20GPa: onset ~28K.",
-      "tags": ["film", "ambient", "screener"]
+      "tags": ["film", "ambient", "screener"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 7, "material": "La₃Ni₂O₇", "substrate": "SrTiO₃", "substrate_a": 3.905,
@@ -75,7 +81,8 @@
       "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
       "pressure_class": "Ambient",
       "notes": "Tensile strained, no SC at ambient. Under 20GPa: onset ~10K.",
-      "tags": ["film", "ambient", "screener"]
+      "tags": ["film", "ambient", "screener"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 8, "material": "La₂PrNi₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -86,7 +93,8 @@
       "doping": "Pr on La site", "oxygen_treatment": "ozone anneal",
       "pressure_class": "Ambient",
       "notes": "BKT-like transition. TBKT=9K. ~2% compressive strain confirmed by STEM.",
-      "tags": ["film", "ambient", "timeline"]
+      "tags": ["film", "ambient", "timeline"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 9, "material": "La₃₋ₓSrₓNi₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -97,7 +105,8 @@
       "doping": "Sr-doped (optimal)", "oxygen_treatment": null,
       "pressure_class": "Ambient",
       "notes": "Sr doping study. Jc > 1.4 kA/cm² at 2K. μ₀Hc∥(0) = 83.7T. Superconducting dome found.",
-      "tags": ["film", "ambient"]
+      "tags": ["film", "ambient"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 10, "material": "(La,Pr)₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -106,20 +115,22 @@
       "source": "arXiv:2603.29531", "arxiv": "2603.29531",
       "film_a": null, "film_c": null, "thickness": null,
       "doping": "Pr-substituted", "oxygen_treatment": null,
-      "pressure_class": "Ambient",
-      "notes": "Under 0.3GPa: 62K onset. Under 2.0GPa: 68.5K onset. Resistance dip linked to oxygen vacancies.",
-      "tags": ["film", "ambient"]
+      "pressure_class": "Film + pressure",
+      "notes": "Under 0.3GPa: 62K onset. Under 2.0GPa: 68.5K onset (see id=15). Resistance dip linked to oxygen vacancies.",
+      "tags": ["film", "pressure"],
+      "pressure_gpa": 0.3, "pressure_range": null, "pressure_confidence": "exact", "source_url": "https://arxiv.org/abs/2603.29531"
     },
     {
       "id": 11, "material": "La₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
       "strain": -2.01, "onset_tc": 48.5, "zero_r_tc": null,
-      "growth_method": null, "group": "Wen et al.", "year": 2025,
+      "growth_method": null, "group": "Li, Sun, Bötzel et al.", "year": 2025,
       "source": "Nat. Commun. (2026)", "arxiv": "2507.10399",
       "film_a": null, "film_c": null, "thickness": null,
       "doping": "undoped", "oxygen_treatment": null,
       "pressure_class": "Film + pressure",
-      "notes": "Film + pressure: onset enhanced from ~30K to 48.5K max at moderate P. Dome-shaped.",
-      "tags": ["film", "pressure"]
+      "notes": "Compressively strained bilayer nickelate film under pressure. Tc,onset 48.5 K at 7 GPa (Fig. 3f). Related higher-pressure data point from same paper: 61.5 K at 9 GPa — see id=23.",
+      "tags": ["film", "pressure"],
+      "pressure_gpa": 7.0, "pressure_range": null, "pressure_confidence": "exact", "source_url": "https://arxiv.org/abs/2507.10399"
     },
     {
       "id": 12, "material": "Nickelate superstructures", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -130,7 +141,8 @@
       "doping": "engineered layers", "oxygen_treatment": null,
       "pressure_class": "Ambient",
       "notes": "1212 and 2323 superstructures SC at 46-50K onset. 1313 NOT SC. γII hole pocket at zone corner is required for SC.",
-      "tags": ["film", "ambient", "timeline"]
+      "tags": ["film", "ambient", "timeline"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 13, "material": "La₃₋ₓSrₓNi₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -141,7 +153,8 @@
       "doping": "Sr dome (x=0-0.38)", "oxygen_treatment": "HP O₂ anneal",
       "pressure_class": "Ambient",
       "notes": "SUPERCONDUCTING DOME mapped. Tc stable for x=0-0.21, suppressed near x≈0.38. Hall sign change at optimal doping — electron-hole crossover like cuprates. T-linear resistivity beyond dome.",
-      "tags": ["film", "ambient", "timeline"]
+      "tags": ["film", "ambient", "timeline"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 14, "material": "La₃₋ₓSrₓNi₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -152,7 +165,8 @@
       "doping": "Sr optimal", "oxygen_treatment": null,
       "pressure_class": "Ambient",
       "notes": "Jc > 1.4 kA/cm² at 2K. μ₀Hc∥(0) = 83.7T, μ₀Hc⊥(0) = 110.3T. KEY FINDING: O vacancies on PLANAR NiO₂ sites in films (vs APICAL in bulk) — strain shifts vacancy site preference.",
-      "tags": ["film", "ambient"]
+      "tags": ["film", "ambient"],
+      "pressure_gpa": 0.0001, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 15, "material": "(La,Pr)₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
@@ -163,7 +177,8 @@
       "doping": "Pr-substituted", "oxygen_treatment": null,
       "pressure_class": "Film + pressure",
       "notes": "Film + 2.0 GPa pressure: onset 68.5K (up from 62K at 0.3 GPa). Resistance dip above SC transition = oxygen vacancy indicator. Pressure delocalizes trapped electrons at vacancy sites.",
-      "tags": ["film", "pressure", "timeline"]
+      "tags": ["film", "pressure", "timeline"],
+      "pressure_gpa": 2.0, "pressure_range": null, "pressure_confidence": "exact", "source_url": "https://arxiv.org/abs/2603.29531"
     },
     {
       "id": 16, "material": "La₃Ni₂O₇", "substrate": "LaAlO₃", "substrate_a": 3.790,
@@ -174,7 +189,8 @@
       "doping": "undoped", "oxygen_treatment": "ozone",
       "pressure_class": "Film + pressure",
       "notes": "Under 20 GPa pressure. Compressive strain + pressure yields 60K. c/a ratio is the key parameter.",
-      "tags": ["film", "pressure"]
+      "tags": ["film", "pressure"],
+      "pressure_gpa": 20, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 17, "material": "La₃Ni₂O₇", "substrate": "NdGaO₃", "substrate_a": 3.863,
@@ -185,7 +201,8 @@
       "doping": "undoped", "oxygen_treatment": "ozone",
       "pressure_class": "Film + pressure",
       "notes": "Tensile strained film under 20 GPa. Even tensile films superconduct under enough pressure.",
-      "tags": ["film", "pressure"]
+      "tags": ["film", "pressure"],
+      "pressure_gpa": 20, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 18, "material": "La₃Ni₂O₇", "substrate": "SrTiO₃", "substrate_a": 3.905,
@@ -196,7 +213,8 @@
       "doping": "undoped", "oxygen_treatment": "ozone",
       "pressure_class": "Film + pressure",
       "notes": "Tensile film under 20 GPa: only 10K. Confirms tensile strain is strongly detrimental.",
-      "tags": ["film", "pressure"]
+      "tags": ["film", "pressure"],
+      "pressure_gpa": 20, "pressure_range": null, "pressure_confidence": "exact", "source_url": null
     },
     {
       "id": 19, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
@@ -207,7 +225,8 @@
       "doping": "undoped", "oxygen_treatment": null,
       "pressure_class": "Pressure only",
       "notes": "First signatures of SC near 80K at 14-43 GPa.",
-      "tags": ["bulk", "pressure", "timeline"]
+      "tags": ["bulk", "pressure", "timeline"],
+      "pressure_gpa": 29.5, "pressure_range": [14, 43], "pressure_confidence": "approximate", "source_url": null
     },
     {
       "id": 20, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
@@ -218,7 +237,8 @@
       "doping": "undoped", "oxygen_treatment": null,
       "pressure_class": "Pressure only",
       "notes": "Zero resistance confirmed in single crystals under pressure.",
-      "tags": ["bulk", "pressure", "timeline"]
+      "tags": ["bulk", "pressure", "timeline"],
+      "pressure_gpa": 25, "pressure_range": [20, 40], "pressure_confidence": "inferred", "source_url": null
     },
     {
       "id": 21, "material": "La₂PrNi₂O₇", "substrate": null, "substrate_a": null,
@@ -229,7 +249,8 @@
       "doping": "Pr-substituted", "oxygen_treatment": null,
       "pressure_class": "Pressure only",
       "notes": "CONFIRMED bulk HTSC: onset 82.5K, zero-R 60K, 97% shielding.",
-      "tags": ["bulk", "pressure", "timeline"]
+      "tags": ["bulk", "pressure", "timeline"],
+      "pressure_gpa": 18, "pressure_range": [15, 25], "pressure_confidence": "inferred", "source_url": null
     },
     {
       "id": 22, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
@@ -240,7 +261,20 @@
       "doping": null, "oxygen_treatment": null,
       "pressure_class": "Pressure only",
       "notes": "New bulk Tc record in pressurized nickelate single crystals.",
-      "tags": ["bulk", "pressure", "record", "timeline"]
+      "tags": ["bulk", "pressure", "record", "timeline"],
+      "pressure_gpa": 36, "pressure_range": [30, 45], "pressure_confidence": "inferred", "source_url": null
+    },
+    {
+      "id": 23, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
+      "strain": null, "onset_tc": 61.5, "zero_r_tc": null,
+      "growth_method": null, "group": "Li, Sun, Bötzel et al.", "year": 2025,
+      "source": "Nat. Commun. (2026)", "arxiv": "2507.10399",
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": null,
+      "pressure_class": "Film + pressure",
+      "notes": "Same paper as id=11 (arXiv:2507.10399). Higher-pressure data point: Tc,onset 61.5 K at 9 GPa. Substrate / growth_method / film lattice params not verified from abstract — flagged for review.",
+      "tags": ["film", "pressure"],
+      "pressure_gpa": 9.0, "pressure_range": null, "pressure_confidence": "exact", "source_url": "https://arxiv.org/abs/2507.10399"
     }
   ],
 

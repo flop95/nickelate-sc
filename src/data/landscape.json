@@ -1,0 +1,97 @@
+{
+  "_note": "Reference materials for chart rendering in FigureOne. Literature values curated for plotting context; cite primary sources before using these numbers for research claims. See nickelate_dataset.json for the peer-reviewed nickelate measurement record. Pressures in GPa, Tc in K. Ambient pressure = 0.0001 GPa (≈ 1 atm).",
+  "_provenance": "Ported from the nickelate.sc Claude Design bundle (data.js, MATERIALS array), 2026-04-19. Ambient convention changed from design-bundle 0.001 GPa to physically accurate 0.0001 GPa. One entry (Sr3Ni2O7) was design-bundle internal scratch and has been re-labeled as such in its ref.",
+  "_schema": {
+    "id": "string — stable identifier",
+    "formula": "string — Unicode subscript-aware formula",
+    "P": "number — pressure in GPa",
+    "Tc": "number — critical temperature in K",
+    "family": "'nickelate' | 'cuprate' | 'hydride' | 'pnictide' | 'conv' | 'wildcard'",
+    "measured": "boolean — true = experimentally observed, false = predicted/unverified",
+    "isAnchor": "boolean? — verified landmark used for ranking",
+    "isFailure": "boolean? — known non-superconductor; boundary-defining",
+    "pressureEnhanced": "boolean? — pressure-enhanced variant of a material that also appears at ambient",
+    "proposalRound": "1 | 2 | 3 — screening round (candidates only)",
+    "rank": "number? — screening rank (candidates only)",
+    "nearest": "string? — id of nearest anchor in feature space (candidates only)",
+    "inTarget": "boolean? — candidate lies in the target zone",
+    "year": "number — publication year (anchors / failures)",
+    "ref": "string — short citation (anchors / failures)",
+    "reason": "string? — failure mode description (failures only)"
+  },
+  "materials": [
+    { "id": "La3Ni2O7",       "formula": "La₃Ni₂O₇",            "P": 29.5,  "Tc": 80,  "family": "nickelate", "measured": true, "isAnchor": true,  "year": 2023, "ref": "Sun et al., Nature 621, 493" },
+    { "id": "La4Ni3O10",      "formula": "La₄Ni₃O₁₀",           "P": 20,    "Tc": 30,  "family": "nickelate", "measured": true, "isAnchor": true,  "year": 2024, "ref": "Zhu et al., Nature 631, 531" },
+    { "id": "Nd0.8Sr0.2NiO2", "formula": "Nd₀.₈Sr₀.₂NiO₂",      "P": 0.0001, "Tc": 15,  "family": "nickelate", "measured": true, "isAnchor": true,  "year": 2019, "ref": "Li et al., Nature 572, 624" },
+    { "id": "Pr0.8Sr0.2NiO2", "formula": "Pr₀.₈Sr₀.₂NiO₂",      "P": 0.0001, "Tc": 14,  "family": "nickelate", "measured": true, "isAnchor": true,  "year": 2020, "ref": "Osada et al., Adv. Mater. 33, 2104083" },
+
+    { "id": "YBCO",           "formula": "YBa₂Cu₃O₇",           "P": 0.0001, "Tc": 92,  "family": "cuprate",   "measured": true, "isAnchor": true,  "year": 1987, "ref": "Wu et al., PRL 58, 908" },
+    { "id": "Hg1223",         "formula": "HgBa₂Ca₂Cu₃O₈",       "P": 30,    "Tc": 164, "family": "cuprate",   "measured": true, "isAnchor": true,  "pressureEnhanced": true, "year": 1994, "ref": "Chu et al., Nature 365, 323" },
+    { "id": "Hg1223_amb",     "formula": "HgBa₂Ca₂Cu₃O₈",       "P": 0.0001, "Tc": 133, "family": "cuprate",   "measured": true, "isAnchor": true,  "year": 1993, "ref": "Schilling et al., Nature 363, 56" },
+    { "id": "Bi2223",         "formula": "Bi₂Sr₂Ca₂Cu₃O₁₀",     "P": 0.0001, "Tc": 110, "family": "cuprate",   "measured": true, "isAnchor": true,  "year": 1988, "ref": "Maeda et al., JJAP 27, L209" },
+    { "id": "Bi2212",         "formula": "Bi₂Sr₂CaCu₂O₈",       "P": 0.0001, "Tc": 85,  "family": "cuprate",   "measured": true, "isAnchor": true,  "year": 1988, "ref": "Tarascon et al., PRB 37, 9382" },
+    { "id": "Tl2223",         "formula": "Tl₂Ba₂Ca₂Cu₃O₁₀",     "P": 0.0001, "Tc": 127, "family": "cuprate",   "measured": true, "isAnchor": true,  "year": 1988, "ref": "Sheng & Hermann, Nature 332, 138" },
+    { "id": "LSCO",           "formula": "La₁.₈₅Sr₀.₁₅CuO₄",    "P": 0.0001, "Tc": 38,  "family": "cuprate",   "measured": true, "isAnchor": true,  "year": 1986, "ref": "Bednorz & Müller, Z. Phys. B 64, 189" },
+
+    { "id": "LaH10",          "formula": "LaH₁₀",               "P": 170,   "Tc": 250, "family": "hydride",   "measured": true, "isAnchor": true,  "year": 2019, "ref": "Drozdov et al., Nature 569, 528" },
+    { "id": "H3S",            "formula": "H₃S",                 "P": 155,   "Tc": 203, "family": "hydride",   "measured": true, "isAnchor": true,  "year": 2015, "ref": "Drozdov et al., Nature 525, 73" },
+    { "id": "YH9",            "formula": "YH₉",                 "P": 200,   "Tc": 243, "family": "hydride",   "measured": true, "isAnchor": true,  "year": 2021, "ref": "Kong et al., Nat. Commun. 12, 5075" },
+    { "id": "CaH6",           "formula": "CaH₆",                "P": 172,   "Tc": 215, "family": "hydride",   "measured": true, "isAnchor": true,  "year": 2022, "ref": "Ma et al., PRL 128, 167001" },
+
+    { "id": "FeSe",           "formula": "FeSe",                "P": 0.0001, "Tc": 8,   "family": "pnictide",  "measured": true, "isAnchor": true,  "year": 2008, "ref": "Hsu et al., PNAS 105, 14262" },
+    { "id": "FeSe_STO",       "formula": "FeSe / SrTiO₃",       "P": 0.0001, "Tc": 65,  "family": "pnictide",  "measured": true, "isAnchor": true,  "year": 2012, "ref": "Wang et al., Chin. Phys. Lett. 29, 037402" },
+    { "id": "LaFeAsO",        "formula": "LaFeAsO₀.₉F₀.₁",      "P": 0.0001, "Tc": 26,  "family": "pnictide",  "measured": true, "isAnchor": true,  "year": 2008, "ref": "Kamihara et al., JACS 130, 3296" },
+    { "id": "SmFeAsO",        "formula": "SmFeAsO₀.₉F₀.₁",      "P": 0.0001, "Tc": 55,  "family": "pnictide",  "measured": true, "isAnchor": true,  "year": 2008, "ref": "Ren et al., CPL 25, 2215" },
+    { "id": "Ba122",          "formula": "Ba(Fe₀.₉Co₀.₁)₂As₂",  "P": 0.0001, "Tc": 22,  "family": "pnictide",  "measured": true, "isAnchor": true,  "year": 2008, "ref": "Sefat et al., PRL 101, 117004" },
+    { "id": "BaFe2As2",       "formula": "BaFe₂As₂ (K-doped)",  "P": 0.0001, "Tc": 38,  "family": "pnictide",  "measured": true, "isAnchor": true,  "year": 2008, "ref": "Rotter et al., PRL 101, 107006" },
+
+    { "id": "MgB2",           "formula": "MgB₂",                "P": 0.0001, "Tc": 39,  "family": "conv",      "measured": true, "isAnchor": true,  "year": 2001, "ref": "Nagamatsu et al., Nature 410, 63" },
+    { "id": "Nb3Ge",          "formula": "Nb₃Ge",               "P": 0.0001, "Tc": 23,  "family": "conv",      "measured": true, "isAnchor": true,  "year": 1973, "ref": "Gavaler, APL 23, 480" },
+    { "id": "Nb3Sn",          "formula": "Nb₃Sn",               "P": 0.0001, "Tc": 18,  "family": "conv",      "measured": true, "isAnchor": true,  "year": 1954, "ref": "Matthias et al., PR 95, 1435" },
+    { "id": "NbTi",           "formula": "NbTi",                "P": 0.0001, "Tc": 10,  "family": "conv",      "measured": true, "isAnchor": true,  "year": 1962, "ref": "Berlincourt, CM 33, 10" },
+    { "id": "Pb",             "formula": "Pb",                  "P": 0.0001, "Tc": 7.2, "family": "conv",      "measured": true, "isAnchor": true,  "year": 1913, "ref": "Onnes, CPL 133b" },
+
+    { "id": "Sr2RuO4",        "formula": "Sr₂RuO₄",             "P": 0.0001, "Tc": 1.5, "family": "wildcard",  "measured": true, "isAnchor": true,  "year": 1994, "ref": "Maeno et al., Nature 372, 532" },
+    { "id": "UTe2",           "formula": "UTe₂",                "P": 0.0001, "Tc": 1.6, "family": "wildcard",  "measured": true, "isAnchor": true,  "year": 2019, "ref": "Ran et al., Science 365, 684" },
+
+    { "id": "La2NiO4",        "formula": "La₂NiO₄",             "P": 0.0001, "Tc": 2,   "family": "nickelate", "measured": true, "isFailure": true, "year": 1989, "ref": "Buttrey et al., PRB 40, 3295", "reason": "insulating antiferromagnet" },
+    { "id": "NdNiO3",         "formula": "NdNiO₃",              "P": 0.0001, "Tc": 2,   "family": "nickelate", "measured": true, "isFailure": true, "year": 1991, "ref": "Torrance et al., PRB 45, 8209", "reason": "MIT; no SC reported" },
+    { "id": "Sr3Ni2O7",       "formula": "Sr₃Ni₂O₇",            "P": 8,      "Tc": 2,   "family": "nickelate", "measured": true, "isFailure": true, "year": 2024, "ref": "design-bundle scratch entry (not a published result)", "reason": "no SC up to 8 GPa" },
+
+    { "id": "C01", "formula": "Nd₆Ni₅O₁₂",           "P": 0.0001, "Tc": 22,  "family": "nickelate", "measured": false, "rank": 1,  "nearest": "La3Ni2O7", "proposalRound": 1 },
+    { "id": "C02", "formula": "La₆Ni₅O₁₂",           "P": 0.0001, "Tc": 35,  "family": "nickelate", "measured": false, "rank": 2,  "nearest": "La3Ni2O7", "proposalRound": 1 },
+    { "id": "C03", "formula": "Pr₃Ni₂O₇",            "P": 0.0001, "Tc": 48,  "family": "nickelate", "measured": false, "rank": 3,  "nearest": "La3Ni2O7", "proposalRound": 1 },
+    { "id": "C04", "formula": "Nd₃Ni₂O₇",            "P": 0.0001, "Tc": 55,  "family": "nickelate", "measured": false, "rank": 4,  "nearest": "La3Ni2O7", "proposalRound": 1 },
+    { "id": "C05", "formula": "La₂PrNi₂O₇",          "P": 0.0001, "Tc": 62,  "family": "nickelate", "measured": false, "rank": 5,  "nearest": "La3Ni2O7", "proposalRound": 2 },
+    { "id": "C06", "formula": "La₂NdNi₂O₇",          "P": 0.0001, "Tc": 70,  "family": "nickelate", "measured": false, "rank": 6,  "nearest": "La3Ni2O7", "proposalRound": 2 },
+    { "id": "C07", "formula": "Nd₀.₅Sr₀.₅NiO₂",      "P": 0.0001, "Tc": 20,  "family": "nickelate", "measured": false, "rank": 7,  "nearest": "Nd0.8Sr0.2NiO2" },
+    { "id": "C08", "formula": "La₀.₈Sr₀.₂NiO₂",      "P": 0.0001, "Tc": 12,  "family": "nickelate", "measured": false, "rank": 8,  "nearest": "Nd0.8Sr0.2NiO2" },
+
+    { "id": "C11",  "formula": "Hg₂Ba₂CaCu₃O₈",       "P": 10,    "Tc": 118, "family": "cuprate",   "measured": false, "rank": 11, "nearest": "Hg1223" },
+    { "id": "C12",  "formula": "HgBa₂Ca₃Cu₄O₁₀",      "P": 25,    "Tc": 140, "family": "cuprate",   "measured": false, "rank": 12, "nearest": "Hg1223", "proposalRound": 3 },
+    { "id": "C13",  "formula": "TlBa₂Ca₂Cu₃O₉",       "P": 8,     "Tc": 122, "family": "cuprate",   "measured": false, "rank": 13, "nearest": "Tl2223" },
+    { "id": "C14",  "formula": "Bi₂Sr₂Ca₃Cu₄O₁₂",     "P": 5,     "Tc": 95,  "family": "cuprate",   "measured": false, "rank": 14, "nearest": "Bi2223" },
+    { "id": "C14b", "formula": "TlBa₂CaCu₂O₇",        "P": 0.05,  "Tc": 80,  "family": "cuprate",   "measured": false, "rank": 26, "nearest": "Tl2223" },
+    { "id": "C14c", "formula": "Bi₂Sr₂CaCu₂O₈ (K)",   "P": 0.3,   "Tc": 92,  "family": "cuprate",   "measured": false, "rank": 27, "nearest": "Bi2212" },
+
+    { "id": "C15", "formula": "LaBeH₈",               "P": 90,    "Tc": 185, "family": "hydride",   "measured": false, "rank": 15, "nearest": "LaH10", "proposalRound": 3 },
+    { "id": "C16", "formula": "Y₀.₅Ca₀.₅H₆",          "P": 180,   "Tc": 255, "family": "hydride",   "measured": false, "rank": 16, "nearest": "YH9" },
+    { "id": "C17", "formula": "LuH₃",                 "P": 5,     "Tc": 50,  "family": "hydride",   "measured": false, "rank": 17, "nearest": "LaH10" },
+    { "id": "C18", "formula": "CaH₁₂",                "P": 150,   "Tc": 195, "family": "hydride",   "measured": false, "rank": 18, "nearest": "CaH6" },
+
+    { "id": "C20",  "formula": "FeSe / KTaO₃",         "P": 0.0001, "Tc": 58,  "family": "pnictide",  "measured": false, "rank": 20, "nearest": "FeSe_STO", "proposalRound": 2 },
+    { "id": "C21",  "formula": "FeSe / BaTiO₃",        "P": 0.0001, "Tc": 52,  "family": "pnictide",  "measured": false, "rank": 21, "nearest": "FeSe_STO" },
+    { "id": "C21b", "formula": "LiFeAs (strained)",    "P": 0.01,   "Tc": 32,  "family": "pnictide",  "measured": false, "rank": 28, "nearest": "LaFeAsO" },
+    { "id": "C21c", "formula": "KFe₂As₂ (pressurized)","P": 2,      "Tc": 24,  "family": "pnictide",  "measured": false, "rank": 29, "nearest": "BaFe2As2" },
+    { "id": "C21d", "formula": "Ca₀.₅Nd₀.₅FeAs₂",      "P": 0.0001, "Tc": 42,  "family": "pnictide",  "measured": false, "rank": 19, "nearest": "SmFeAsO" },
+
+    { "id": "C30", "formula": "MgB₂ (C-doped)",        "P": 0.0001, "Tc": 42,  "family": "conv",      "measured": false, "rank": 30, "nearest": "MgB2" },
+    { "id": "C31", "formula": "Nb₃(Al,Ge)",            "P": 0.0001, "Tc": 21,  "family": "conv",      "measured": false, "rank": 31, "nearest": "Nb3Ge" },
+
+    { "id": "C32", "formula": "URu₂Si₂ (strained)",    "P": 0.5,    "Tc": 3,   "family": "wildcard",  "measured": false, "rank": 32, "nearest": "UTe2" },
+
+    { "id": "C23", "formula": "La₃Ni₂O₇ (epi.)",       "P": 0.0001, "Tc": 148, "family": "nickelate", "measured": false, "rank": 23, "nearest": "La3Ni2O7", "proposalRound": 3, "inTarget": true },
+    { "id": "C24", "formula": "La₂PrNi₂O₇ (epi.)",     "P": 0.0001, "Tc": 162, "family": "nickelate", "measured": false, "rank": 24, "nearest": "La3Ni2O7", "proposalRound": 3, "inTarget": true },
+    { "id": "C25", "formula": "La₃Ni₂O₇ (strained)",   "P": 0.002,  "Tc": 175, "family": "nickelate", "measured": false, "rank": 25, "nearest": "La3Ni2O7", "proposalRound": 3, "inTarget": true }
+  ]
+}
