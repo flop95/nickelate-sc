@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>nickelate.sc — Vol. 1, No. 1</title>
+<meta name="description" content="A ranked screening platform for ambient-pressure superconductivity. Vol. 1, No. 1 — April 2026.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/Serif/cmunrm.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/Serif/cmunti.woff2') format('woff2');
+    font-weight: 400; font-style: italic; font-display: swap;
+  }
+
+  :root {
+    --paper: #F5F0E1;
+    --ink: #1A1814;
+    --ink-emph: #0A0907;
+    --ink-25: rgba(26, 24, 20, 0.25);
+    --ink-15: rgba(26, 24, 20, 0.15);
+    --ink-08: rgba(26, 24, 20, 0.08);
+
+    --f-display: 'Bodoni Moda', 'Bodoni 72', 'Didot', serif;
+    --f-body: 'STIX Two Text', 'Libre Caslon Text', 'New Century Schoolbook', 'Century Schoolbook', Georgia, serif;
+    --f-cm: 'Latin Modern Roman', 'CMU Serif', 'Computer Modern', 'STIX Two Text', Cambria, serif;
+
+    --s-4: 4px; --s-8: 8px; --s-12: 12px; --s-16: 16px; --s-20: 20px; --s-24: 24px;
+    --s-32: 32px; --s-40: 40px; --s-48: 48px; --s-64: 64px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    margin: 0; padding: 0;
+    font-family: var(--f-body);
+    font-size: 12px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'kern', 'onum';
+  }
+
+  .t-9  { font-size: 9px;  }
+  .t-10 { font-size: 10px; }
+  .t-11 { font-size: 11px; }
+  .t-12 { font-size: 12px; }
+  .t-14 { font-size: 14px; }
+  .t-18 { font-size: 18px; }
+  .t-24 { font-size: 24px; }
+  .t-display { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.005em; color: var(--ink-emph); }
+  .t-body    { font-family: var(--f-body); color: var(--ink); }
+  .t-cm      { font-family: var(--f-cm); color: var(--ink); font-feature-settings: 'tnum'; }
+  .t-sc      { font-family: var(--f-body); text-transform: uppercase; letter-spacing: 0.08em;
+               font-variant-caps: all-small-caps; font-size-adjust: 0.5; color: var(--ink); }
+  b, strong { font-weight: 700; color: var(--ink-emph); }
+  i, em { font-style: italic; }
+  a { color: inherit; text-decoration: none; border-bottom: 0.5px solid var(--ink-25); transition: border-color 120ms; }
+  a:hover { border-bottom-color: var(--ink-emph); }
+  sub { font-size: 0.72em; line-height: 0; letter-spacing: 0; }
+
+  /* ============================================================
+     Page shell
+     ============================================================ */
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--s-40) var(--s-48) var(--s-48);
+    position: relative;
+  }
+
+  /* Masthead */
+  .masthead {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding-bottom: var(--s-8);
+    border-bottom: 2px solid var(--ink-emph);
+    margin-bottom: var(--s-24);
+  }
+  .masthead .brand {
+    font-family: var(--f-display);
+    font-size: 38px;
+    letter-spacing: -0.01em;
+    color: var(--ink-emph);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .masthead .issue {
+    font-family: var(--f-cm);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink);
+  }
+  .running-head {
+    display: flex; justify-content: space-between;
+    font-family: var(--f-cm); font-style: italic; font-size: 10px;
+    color: var(--ink); opacity: 0.75;
+    padding: 2px 0 0 0;
+    margin-bottom: var(--s-40);
+  }
+
+  /* ============================================================
+     Editorial — lede + body prose with drop cap
+     ============================================================ */
+  .editorial {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--s-48);
+    padding: var(--s-8) 0 var(--s-32) 0;
+    border-bottom: 0.5px solid var(--ink-25);
+    margin-bottom: var(--s-40);
+  }
+  .editorial .lede {
+    font-family: var(--f-display);
+    font-size: 20px;
+    line-height: 1.35;
+    color: var(--ink-emph);
+    text-wrap: balance;
+    font-weight: 400;
+  }
+  .editorial .body { font-size: 12.5px; }
+  .editorial .body p {
+    margin: 0 0 var(--s-8) 0;
+    text-wrap: pretty;
+  }
+  .editorial .body p + p { text-indent: 1.2em; }
+  .editorial .body p:first-child::first-letter {
+    font-family: var(--f-display);
+    float: left;
+    font-size: 46px;
+    line-height: 0.9;
+    padding: 3px 8px 0 0;
+    color: var(--ink-emph);
+    font-weight: 400;
+  }
+  .editorial .signoff {
+    font-family: var(--f-cm);
+    font-style: italic;
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: var(--s-12);
+  }
+
+  /* ============================================================
+     Table of contents
+     ============================================================ */
+  .toc {
+    margin-bottom: var(--s-48);
+  }
+  .toc-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: var(--s-20);
+    padding-bottom: var(--s-4);
+    border-bottom: 1px solid var(--ink-emph);
+  }
+  .toc-head .title {
+    font-family: var(--f-display);
+    font-size: 16px;
+    color: var(--ink-emph);
+  }
+  .toc-head .rubric {
+    font-family: var(--f-cm);
+    font-style: italic;
+    font-size: 10px;
+    opacity: 0.7;
+  }
+
+  .toc-entries { display: flex; flex-direction: column; }
+  .toc-entry {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: var(--s-20);
+    padding: var(--s-12) 0;
+    border-bottom: 0.5px dashed var(--ink-15);
+    align-items: baseline;
+  }
+  .toc-entry:last-child { border-bottom: none; }
+  .toc-entry .no {
+    font-family: var(--f-cm);
+    font-style: italic;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .toc-entry .entry-title {
+    font-family: var(--f-display);
+    font-size: 15px;
+    color: var(--ink-emph);
+    line-height: 1.3;
+    border-bottom: none;
+  }
+  .toc-entry .entry-title:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 0.5px; }
+  .toc-entry .entry-sub {
+    font-family: var(--f-body);
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink);
+    opacity: 0.72;
+    margin-top: 3px;
+    text-wrap: pretty;
+  }
+  .toc-entry .kind {
+    font-family: var(--f-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-variant-caps: all-small-caps;
+    font-size: 10px;
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+
+  /* ============================================================
+     Submission / contact section
+     ============================================================ */
+  .submit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-40);
+    padding: var(--s-24) 0 var(--s-32);
+    border-top: 1px solid var(--ink-emph);
+    border-bottom: 0.5px solid var(--ink-25);
+    margin-bottom: var(--s-32);
+  }
+  .submit-head {
+    grid-column: 1 / -1;
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: var(--s-12);
+  }
+  .submit-head .title {
+    font-family: var(--f-display);
+    font-size: 16px;
+    color: var(--ink-emph);
+  }
+  .submit-head .rubric {
+    font-family: var(--f-cm);
+    font-style: italic;
+    font-size: 10px;
+    opacity: 0.7;
+  }
+  .submit-route .name {
+    font-family: var(--f-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-variant-caps: all-small-caps;
+    font-size: 11px;
+    color: var(--ink-emph);
+    margin-bottom: var(--s-4);
+  }
+  .submit-route .desc {
+    font-size: 11.5px;
+    line-height: 1.5;
+    margin-bottom: var(--s-8);
+    text-wrap: pretty;
+  }
+  .submit-route .action {
+    font-family: var(--f-cm);
+    font-style: italic;
+    font-size: 11px;
+  }
+
+  /* ============================================================
+     Colophon
+     ============================================================ */
+  .colophon {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-top: 1px solid var(--ink-emph);
+    padding: var(--s-12) 0 var(--s-8);
+    gap: var(--s-24);
+    flex-wrap: wrap;
+    font-family: var(--f-cm);
+    font-style: italic;
+    font-size: 10px;
+  }
+  .colophon .left { opacity: 0.85; }
+  .colophon .right { opacity: 0.65; }
+
+  /* ============================================================
+     Responsive
+     ============================================================ */
+  @media (max-width: 820px) {
+    .page { padding: 24px 22px; }
+    .masthead { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .running-head { flex-direction: column; gap: 2px; }
+    .editorial { grid-template-columns: 1fr; gap: var(--s-20); }
+    .submit { grid-template-columns: 1fr; gap: var(--s-24); }
+    .toc-entry { grid-template-columns: 40px 1fr; }
+    .toc-entry .kind { grid-column: 2; justify-self: start; margin-top: 4px; }
+    .colophon { flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="brand">nickelate<span>.</span>sc</div>
+    <div class="issue">Vol.&nbsp;1, No.&nbsp;1 — April 2026</div>
+  </header>
+
+  <div class="running-head">
+    <span>A ranked screening platform for ambient-pressure superconductivity</span>
+    <span>Editorial preview — single issue</span>
+  </div>
+
+  <!-- EDITORIAL — lede + body -->
+  <section class="editorial" aria-label="Editorial">
+    <div class="lede">
+      Untested candidates sit closest to verified anchors. Failure memory constrains where not to look.
+    </div>
+    <div class="body t-body">
+      <p>This issue presents the first release of a structured screening platform for ambient-pressure high-temperature superconductivity, built around the bilayer nickelate La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> family. Every known superconductor, every published failure, and every candidate proposed by the platform's cascade screener is plotted on a single pressure–temperature landscape. Clicking a material opens its full catalog entry: measurement history, gate bitmask, nearest neighbors in feature space, and the ledger of how the platform's confidence in it evolved.</p>
+
+      <p>The work is assembled from peer-reviewed literature. The platform does not aggregate private laboratory data; its value is in reasoning carefully across what is already public. The goal is to help a researcher who is closer to the experimental frontier notice a candidate they had not considered. Contributions of new measurements, corrected failure notes, and synthesis recipe details are welcomed below.</p>
+
+      <div class="signoff">— flop95, April 2026</div>
+    </div>
+  </section>
+
+  <!-- TABLE OF CONTENTS -->
+  <section class="toc" aria-label="Contents">
+    <div class="toc-head">
+      <span class="title">Contents</span>
+      <span class="rubric">Vol.&nbsp;1, No.&nbsp;1</span>
+    </div>
+
+    <div class="toc-entries">
+
+      <div class="toc-entry">
+        <div class="no">§&nbsp;1</div>
+        <div>
+          <a href="./app/" class="entry-title">FIG. 1 — The pressure–temperature landscape</a>
+          <div class="entry-sub">Interactive figure. All known and predicted superconductors plotted on a logarithmic pressure axis. Three layouts: <i>The Plate</i>, <i>The Journal Page</i>, <i>The Specimen Sheet</i>. Click any point to anchor the inspector.</div>
+        </div>
+        <div class="kind">Interactive</div>
+      </div>
+
+      <div class="toc-entry">
+        <div class="no">§&nbsp;4</div>
+        <div>
+          <a href="./populated-entry.html" class="entry-title">The populated entry — La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub></a>
+          <div class="entry-sub">Fully-populated catalog entry for the project's canonical anchor. Figure-of-merit ladder, gate bitmask, nearest candidates, footnotes, audit ledger, references.</div>
+        </div>
+        <div class="kind">Catalog entry</div>
+      </div>
+
+      <div class="toc-entry">
+        <div class="no">§&nbsp;5</div>
+        <div>
+          <a href="./research-brief.html" class="entry-title">Nickelate superconductivity — a systematic meta-analysis</a>
+          <div class="entry-sub">Cross-referenced review of 18 published thin-film and bulk data points. Seven empirical patterns, six research gaps, five ranked predictions for crossing the 77 K threshold at ambient pressure.</div>
+        </div>
+        <div class="kind">Brief</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUBMISSIONS -->
+  <section class="submit" aria-label="Submissions">
+    <div class="submit-head">
+      <span class="title">Submissions</span>
+      <span class="rubric">corrections, new data, synthesis notes</span>
+    </div>
+
+    <div class="submit-route">
+      <div class="name">Note</div>
+      <div class="desc">Short corrections, references to papers I have missed, or informal comments. Anonymous acceptable; email recommended if you want a reply.</div>
+      <div class="action">
+        <!-- TODO: replace with Tally form URL once created -->
+        <a href="https://github.com/flop95/nickelate-sc/issues/new/choose" target="_blank" rel="noopener">
+          <i>Open the submission form →</i>
+        </a>
+      </div>
+    </div>
+
+    <div class="submit-route">
+      <div class="name">Structured contribution</div>
+      <div class="desc">Claimed prediction, new measurement, or synthesis-recipe detail. Three issue templates mirror the catalog's internal schema; a GitHub account is required.</div>
+      <div class="action">
+        <a href="https://github.com/flop95/nickelate-sc/issues/new/choose" target="_blank" rel="noopener">
+          <i>Open a new issue on GitHub →</i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOPHON -->
+  <footer class="colophon">
+    <div class="left">
+      Typeset in Bodoni Moda, STIX Two Text, and Latin Modern Roman. Printed on ivory.
+    </div>
+    <div class="right">
+      Issue prepared by <a href="https://github.com/flop95" target="_blank" rel="noopener" style="font-style: normal;">flop95</a>. Source: <a href="https://github.com/flop95/nickelate-sc" target="_blank" rel="noopener" style="font-style: normal;">github.com/flop95/nickelate-sc</a>.
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

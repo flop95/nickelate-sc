@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "drawer_id": 7,
+    "material": "La₃Ni₂O₇",
+    "failure_type": "non_superconducting",
+    "context": "PLD film on STO at ambient — zero onset Tc; under 20 GPa only ~10 K",
+    "suspected_mechanism": "tensile strain destroys required orbital overlap / collapses c/a ratio",
+    "structural_change_from": "La₃Ni₂O₇ on SrLaAlO₄",
+    "confidence": "reported",
+    "source": "Commun. Phys. (2025)",
+    "wing": "nickelates"
+  },
+  {
+    "id": 2,
+    "drawer_id": 48,
+    "material": "LK-99",
+    "failure_type": "irreproducible",
+    "context": "2023 ambient room-temperature claim; global replication failed",
+    "suspected_mechanism": "Cu₂S impurity phase transition masqueraded as SC; not a superconductor",
+    "structural_change_from": null,
+    "confidence": "reported",
+    "source": "multiple replication studies (2023)",
+    "wing": "failures"
+  },
+  {
+    "id": 3,
+    "drawer_id": 49,
+    "material": "H₃S (ambient)",
+    "failure_type": "pressure_dependent_only",
+    "context": "Tc ≈ 203 K above 150 GPa; no ambient-pressure SC phase known",
+    "suspected_mechanism": "metallic hydrogen bonds require ~150 GPa; ambient phase is not superconducting",
+    "structural_change_from": "H₃S at ~150 GPa",
+    "confidence": "reported",
+    "source": "Drozdov et al. (2015)",
+    "wing": "hydrides"
+  }
+]

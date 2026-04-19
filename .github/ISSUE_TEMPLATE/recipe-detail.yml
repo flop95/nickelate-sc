@@ -1,0 +1,62 @@
+name: Synthesis Recipe Detail
+description: |
+  Submit missing synthesis parameters for an existing dataset entry.
+  Submissions are automatically validated and flagged for manual review.
+  All data is verified against the source before being added to the dataset.
+title: "[Recipe] "
+labels: ["recipe-submission"]
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Which entry?
+      description: "Material + substrate identifier from the dataset"
+      placeholder: "e.g., La₃Ni₂O₇ on SrLaAlO₄ (id:1)"
+    validations:
+      required: true
+
+  - type: input
+    id: growth_temp
+    attributes:
+      label: Growth temperature
+      placeholder: "e.g., 650°C"
+
+  - type: input
+    id: deposition_rate
+    attributes:
+      label: Deposition rate
+      placeholder: "e.g., 0.5 Å/s"
+
+  - type: input
+    id: o2_pressure
+    attributes:
+      label: O₂ partial pressure during growth
+      placeholder: "e.g., 200 mTorr"
+
+  - type: textarea
+    id: anneal_protocol
+    attributes:
+      label: Annealing protocol
+      placeholder: "Temperature, duration, atmosphere, ramp rates"
+
+  - type: textarea
+    id: post_growth
+    attributes:
+      label: Post-growth treatment
+      placeholder: "e.g., ozone anneal at 500°C for 30 min"
+
+  - type: input
+    id: source_doi
+    attributes:
+      label: Source DOI
+      placeholder: "https://doi.org/10.1038/..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: accuracy
+    attributes:
+      label: Data accuracy
+      options:
+        - label: "I confirm this data is from a published paper, preprint, or my own experimental results"
+          required: true

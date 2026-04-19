@@ -1,0 +1,27 @@
+{
+  "total_drawers": 50,
+  "total_failures": 3,
+  "total_tunnels": 0,
+  "total_lessons": 0,
+  "drawers_per_wing": {
+    "conventional": 2,
+    "cuprates": 6,
+    "failures": 1,
+    "hydrides": 5,
+    "nickelates": 26,
+    "pnictides": 6,
+    "wildcards": 4
+  },
+  "drawers_per_room": {
+    "crystal_structure": 0,
+    "electronic_structure": 0,
+    "experimental_results": 50,
+    "hypotheses": 0,
+    "synthesis_conditions": 0
+  },
+  "failures_by_type": {
+    "irreproducible": 1,
+    "non_superconducting": 1,
+    "pressure_dependent_only": 1
+  }
+}

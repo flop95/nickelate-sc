@@ -1,0 +1,562 @@
+[
+  {
+    "bitmask": 38272,
+    "bitmask_binary": "0b1001010110000000",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "layered"
+    ],
+    "explain": [
+      "[ 0] N  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38275,
+    "bitmask_binary": "0b1001010110000011",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "tweakable"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] Y  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38277,
+    "bitmask_binary": "0b1001010110000101",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "metastable"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] Y  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38281,
+    "bitmask_binary": "0b1001010110001001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "compressive_gt_0.5pct"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] Y  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38289,
+    "bitmask_binary": "0b1001010110010001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "compressive_gt_1pct"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] Y  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38305,
+    "bitmask_binary": "0b1001010110100001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "c_over_a_4.8_5.8"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] Y  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38337,
+    "bitmask_binary": "0b1001010111000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "ambient_pressure"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] Y  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38145,
+    "bitmask_binary": "0b1001010100000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "onset_tc_gt_30K"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] N  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38017,
+    "bitmask_binary": "0b1001010010000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "onset_tc_gt_77K"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] N  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 38785,
+    "bitmask_binary": "0b1001011110000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "film_data_exists"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] Y  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 37249,
+    "bitmask_binary": "0b1001000110000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "perovskite_family"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] N  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 40321,
+    "bitmask_binary": "0b1001110110000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "doping_explored"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] Y  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 34177,
+    "bitmask_binary": "0b1000010110000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "multi_substrate_tested"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] N  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 46465,
+    "bitmask_binary": "0b1011010110000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "diamagnetic_confirmed"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] Y  diamagnetic_confirmed",
+      "[14] N  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 54657,
+    "bitmask_binary": "0b1101010110000001",
+    "distance": 1,
+    "nearest_success": "La₃Ni₂O₇",
+    "nearest_onset": 96.0,
+    "gates_flipped": [
+      "zero_resistance_seen"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] N  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] N  diamagnetic_confirmed",
+      "[14] Y  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 64898,
+    "bitmask_binary": "0b1111110110000010",
+    "distance": 1,
+    "nearest_success": "La₂PrNi₂O₇",
+    "nearest_onset": 82.5,
+    "gates_flipped": [
+      "layered"
+    ],
+    "explain": [
+      "[ 0] N  layered",
+      "[ 1] Y  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] Y  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] Y  diamagnetic_confirmed",
+      "[14] Y  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 64897,
+    "bitmask_binary": "0b1111110110000001",
+    "distance": 1,
+    "nearest_success": "La₂PrNi₂O₇",
+    "nearest_onset": 82.5,
+    "gates_flipped": [
+      "tweakable"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] N  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] Y  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] Y  diamagnetic_confirmed",
+      "[14] Y  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 64903,
+    "bitmask_binary": "0b1111110110000111",
+    "distance": 1,
+    "nearest_success": "La₂PrNi₂O₇",
+    "nearest_onset": 82.5,
+    "gates_flipped": [
+      "metastable"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] Y  tweakable",
+      "[ 2] Y  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] Y  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] Y  diamagnetic_confirmed",
+      "[14] Y  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 64907,
+    "bitmask_binary": "0b1111110110001011",
+    "distance": 1,
+    "nearest_success": "La₂PrNi₂O₇",
+    "nearest_onset": 82.5,
+    "gates_flipped": [
+      "compressive_gt_0.5pct"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] Y  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] Y  compressive_gt_0.5pct",
+      "[ 4] N  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] Y  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] Y  diamagnetic_confirmed",
+      "[14] Y  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  },
+  {
+    "bitmask": 64915,
+    "bitmask_binary": "0b1111110110010011",
+    "distance": 1,
+    "nearest_success": "La₂PrNi₂O₇",
+    "nearest_onset": 82.5,
+    "gates_flipped": [
+      "compressive_gt_1pct"
+    ],
+    "explain": [
+      "[ 0] Y  layered",
+      "[ 1] Y  tweakable",
+      "[ 2] N  metastable",
+      "[ 3] N  compressive_gt_0.5pct",
+      "[ 4] Y  compressive_gt_1pct",
+      "[ 5] N  c_over_a_4.8_5.8",
+      "[ 6] N  ambient_pressure",
+      "[ 7] Y  onset_tc_gt_30K",
+      "[ 8] Y  onset_tc_gt_77K",
+      "[ 9] N  film_data_exists",
+      "[10] Y  perovskite_family",
+      "[11] Y  doping_explored",
+      "[12] Y  multi_substrate_tested",
+      "[13] Y  diamagnetic_confirmed",
+      "[14] Y  zero_resistance_seen",
+      "[15] Y  data_2024_or_later"
+    ]
+  }
+]

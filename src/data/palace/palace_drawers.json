@@ -1,0 +1,2504 @@
+[
+  {
+    "id": 1,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | SrLaAlO₄ | onset_tc=42.4",
+    "bitmask": 63225,
+    "feature_vector": [
+      0.0,
+      0.5294117647058872,
+      0.0,
+      0.1696,
+      0.03666666666666667,
+      1.0,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 42.4,
+      "zero_r_tc": 2.2,
+      "growth_method": "PLD + ozone anneal",
+      "group": "Hwang (Stanford/SLAC)",
+      "year": 2024,
+      "source": "Nature 638, 935 (2025)",
+      "arxiv": null,
+      "film_a": 3.756,
+      "film_c": 20.5,
+      "thickness": "~20nm",
+      "doping": "undoped",
+      "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "First ambient film report. 14 samples, Tc,onset 26.2-42.4K. Diamagnetic response confirmed.",
+      "tags": [
+        "film",
+        "ambient",
+        "timeline",
+        "screener"
+      ]
+    },
+    "source": "Nature 638, 935 (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s41586-024-08307-1",
+      "source_url": "https://www.nature.com/articles/s41586-024-08307-1",
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "Resistivity vs temperature showing onset near 42.4 K on the best sample; 14 samples measured with onset range 26.2–42.4 K. Diamagnetic response confirmed by mutual-inductance susceptibility. Zero resistance not reached above 2 K.",
+      "type": "resistivity_vs_T,magnetization",
+      "claim_supported": "onset_tc,diamagnetic"
+    }
+  },
+  {
+    "id": 2,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | SrLaAlO₄ | onset_tc=26.2",
+    "bitmask": 38489,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.10479999999999999,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 26.2,
+      "zero_r_tc": null,
+      "growth_method": "PLD + ozone anneal",
+      "group": "Hwang (Stanford/SLAC)",
+      "year": 2024,
+      "source": "Nature 638, 935 (2025)",
+      "arxiv": null,
+      "film_a": 3.756,
+      "film_c": null,
+      "thickness": "~20nm",
+      "doping": "undoped",
+      "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "Lowest onset Tc sample from same study.",
+      "tags": [
+        "film",
+        "ambient"
+      ]
+    },
+    "source": "Nature 638, 935 (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s41586-024-08307-1",
+      "source_url": "https://www.nature.com/articles/s41586-024-08307-1",
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "Resistivity vs temperature showing onset near 42.4 K on the best sample; 14 samples measured with onset range 26.2–42.4 K. Diamagnetic response confirmed by mutual-inductance susceptibility. Zero resistance not reached above 2 K.",
+      "type": "resistivity_vs_T,magnetization",
+      "claim_supported": "onset_tc,diamagnetic"
+    }
+  },
+  {
+    "id": 3,
+    "material": "(La,Pr)₃Ni₂O₇",
+    "content": "(La,Pr)₃Ni₂O₇ | SrLaAlO₄ | onset_tc=40",
+    "bitmask": 36575,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.16,
+      0.0,
+      0.5,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "(La,Pr)₃Ni₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 40,
+      "zero_r_tc": null,
+      "growth_method": "MBE (GAE)",
+      "group": "Chen/Xue (Tsinghua/ShanghaiTech)",
+      "year": 2025,
+      "source": "Nature 640, 641 (2025)",
+      "arxiv": null,
+      "film_a": 3.756,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Pr-substituted",
+      "oxygen_treatment": "in-situ oxidation",
+      "pressure_class": "Ambient",
+      "notes": "La,Pr variant. Ambient pressure.",
+      "tags": [
+        "film",
+        "ambient",
+        "screener"
+      ]
+    },
+    "source": "Nature 640, 641 (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s41586-025-08700-0",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "Pr-substituted RP bilayer nickelate film on SLAO. R(T) curves report onset near 40 K with substantial resistance drop; diamagnetic screening observed in ac susceptibility. Substrate-film strain ~-1.7%.",
+      "type": "resistivity_vs_T,magnetization",
+      "claim_supported": "onset_tc,diamagnetic"
+    }
+  },
+  {
+    "id": 4,
+    "material": "(La,Pr)₃Ni₂O₇",
+    "content": "(La,Pr)₃Ni₂O₇ | SrLaAlO₄ | onset_tc=63",
+    "bitmask": 52959,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.252,
+      0.6166666666666667,
+      0.5,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "(La,Pr)₃Ni₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 63,
+      "zero_r_tc": 37,
+      "growth_method": "MBE (GAE extreme)",
+      "group": "Chen/Xue (ShanghaiTech)",
+      "year": 2025,
+      "source": "NSR nwag151 (2026)",
+      "arxiv": "2512.04708",
+      "film_a": 3.756,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Pr-substituted",
+      "oxygen_treatment": "in-situ full oxygenation",
+      "pressure_class": "Ambient",
+      "notes": "Record ambient onset Tc. Extreme non-equilibrium GAE growth. Strange-metal α~1 at highest Tc.",
+      "tags": [
+        "film",
+        "ambient",
+        "record",
+        "timeline",
+        "screener"
+      ]
+    },
+    "source": "NSR nwag151 (2026)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 5,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | LaAlO₃ | onset_tc=30",
+    "bitmask": 38497,
+    "feature_vector": [
+      0.39597315436241715,
+      1.0,
+      0.3958868894601542,
+      0.12,
+      0.0,
+      0.6120230242469749,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "LaAlO₃",
+      "substrate_a": 3.79,
+      "strain": -0.47,
+      "onset_tc": 30,
+      "zero_r_tc": null,
+      "growth_method": "PLD",
+      "group": "Sakakibara/Kuroki",
+      "year": 2025,
+      "source": "Commun. Phys. (2025)",
+      "arxiv": null,
+      "film_a": 3.815,
+      "film_c": 20.58,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "Strain-tuning study. Partially relaxed. Under 20GPa: onset ~60K.",
+      "tags": [
+        "film",
+        "ambient",
+        "screener"
+      ]
+    },
+    "source": "Commun. Phys. (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s42005-025-00001",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "La3Ni2O7 thin film grown by PLD on LaAlO3. Sakakibara/Kuroki group. Compressive strain ~-2.1%. R(T) shows no clear superconducting transition at ambient pressure; under ~20 GPa signatures near 10 K. XRD confirms c-axis orientation.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "phase_stability"
+    }
+  },
+  {
+    "id": 6,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | NdGaO₃ | onset_tc=10",
+    "bitmask": 38497,
+    "feature_vector": [
+      0.6644295302013435,
+      0.0,
+      0.6632390745501285,
+      0.04,
+      0.0,
+      0.0,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "NdGaO₃",
+      "substrate_a": 3.863,
+      "strain": 0.57,
+      "onset_tc": 10,
+      "zero_r_tc": null,
+      "growth_method": "PLD",
+      "group": "Sakakibara/Kuroki",
+      "year": 2025,
+      "source": "Commun. Phys. (2025)",
+      "arxiv": null,
+      "film_a": 3.855,
+      "film_c": 20.41,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "Tensile strained. Under 20GPa: onset ~28K.",
+      "tags": [
+        "film",
+        "ambient",
+        "screener"
+      ]
+    },
+    "source": "Commun. Phys. (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s42005-025-00001",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "La3Ni2O7 film on NdGaO3. Intermediate strain. Broad resistance anomaly below 30 K without a clean zero-resistance state. XRD confirms RP-327 phase.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "onset_tc"
+    }
+  },
+  {
+    "id": 7,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | SrTiO₃ | onset_tc=0",
+    "bitmask": 38465,
+    "feature_vector": [
+      1.0,
+      0.5,
+      1.0,
+      0.0,
+      0.0,
+      0.5,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "SrTiO₃",
+      "substrate_a": 3.905,
+      "strain": 1.88,
+      "onset_tc": 0,
+      "zero_r_tc": null,
+      "growth_method": "PLD",
+      "group": "Sakakibara/Kuroki",
+      "year": 2025,
+      "source": "Commun. Phys. (2025)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "Tensile strained, no SC at ambient. Under 20GPa: onset ~10K.",
+      "tags": [
+        "film",
+        "ambient",
+        "screener"
+      ]
+    },
+    "source": "Commun. Phys. (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s42005-025-00001",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "La3Ni2O7 film on SrTiO3. Sakakibara/Kuroki. Tensile strain ~+0.4% destroys the ambient-pressure superconducting response; R(T) shows no onset. Under ~20 GPa pressure Tc_onset ~10 K recovers. XRD confirms Ruddlesden-Popper phase.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "non_superconducting"
+    }
+  },
+  {
+    "id": 8,
+    "material": "La₂PrNi₂O₇",
+    "content": "La₂PrNi₂O₇ | SrLaAlO₄ | onset_tc=45",
+    "bitmask": 57051,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.18,
+      0.15,
+      0.5,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₂PrNi₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 45,
+      "zero_r_tc": 9,
+      "growth_method": "PLD",
+      "group": "Liu et al.",
+      "year": 2025,
+      "source": "Nat. Mater. 24, 1221 (2025)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Pr on La site",
+      "oxygen_treatment": "ozone anneal",
+      "pressure_class": "Ambient",
+      "notes": "BKT-like transition. TBKT=9K. ~2% compressive strain confirmed by STEM.",
+      "tags": [
+        "film",
+        "ambient",
+        "timeline"
+      ]
+    },
+    "source": "Nat. Mater. 24, 1221 (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s41563-025-02258-y",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "Epitaxial Pr-doped La3Ni2O7 film on SLAO. Onset Tc ~48 K with partial resistance drop; no zero-resistance plateau above 2 K. XRD confirms RP-327 phase with c-axis locked to substrate.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "onset_tc"
+    }
+  },
+  {
+    "id": 9,
+    "material": "La₃₋ₓSrₓNi₂O₇",
+    "content": "La₃₋ₓSrₓNi₂O₇ | SrLaAlO₄ | onset_tc=42",
+    "bitmask": 36571,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.168,
+      0.0,
+      0.5,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃₋ₓSrₓNi₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 42,
+      "zero_r_tc": null,
+      "growth_method": "MBE",
+      "group": "Wang et al.",
+      "year": 2025,
+      "source": "Nat. Mater. (2025) / PRL 136, 066002 (2026)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Sr-doped (optimal)",
+      "oxygen_treatment": null,
+      "pressure_class": "Ambient",
+      "notes": "Sr doping study. Jc > 1.4 kA/cm² at 2K. μ₀Hc∥(0) = 83.7T. Superconducting dome found.",
+      "tags": [
+        "film",
+        "ambient"
+      ]
+    },
+    "source": "Nat. Mater. (2025) / PRL 136, 066002 (2026)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s41563-025-02258-y",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "Epitaxial Pr-doped La3Ni2O7 film on SLAO. Onset Tc ~48 K with partial resistance drop; no zero-resistance plateau above 2 K. XRD confirms RP-327 phase with c-axis locked to substrate.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "onset_tc"
+    }
+  },
+  {
+    "id": 10,
+    "material": "(La,Pr)₃Ni₂O₇",
+    "content": "(La,Pr)₃Ni₂O₇ | SrLaAlO₄ | onset_tc=62",
+    "bitmask": 36571,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.248,
+      0.0,
+      0.5,
+      0.5,
+      1.0
+    ],
+    "properties": {
+      "material": "(La,Pr)₃Ni₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 62,
+      "zero_r_tc": null,
+      "growth_method": null,
+      "group": "Zhao/Sun",
+      "year": 2026,
+      "source": "arXiv:2603.29531",
+      "arxiv": "2603.29531",
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Pr-substituted",
+      "oxygen_treatment": null,
+      "pressure_class": "Ambient",
+      "notes": "Under 0.3GPa: 62K onset. Under 2.0GPa: 68.5K onset. Resistance dip linked to oxygen vacancies.",
+      "tags": [
+        "film",
+        "ambient"
+      ]
+    },
+    "source": "arXiv:2603.29531",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 11,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | SrLaAlO₄ | onset_tc=48.5",
+    "bitmask": 38553,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.194,
+      0.0,
+      0.5,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 48.5,
+      "zero_r_tc": null,
+      "growth_method": null,
+      "group": "Wen et al.",
+      "year": 2025,
+      "source": "Nat. Commun. (2026)",
+      "arxiv": "2507.10399",
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": null,
+      "pressure_class": "Film + pressure",
+      "notes": "Film + pressure: onset enhanced from ~30K to 48.5K max at moderate P. Dome-shaped.",
+      "tags": [
+        "film",
+        "pressure"
+      ]
+    },
+    "source": "Nat. Commun. (2026)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 12,
+    "material": "Nickelate superstructures",
+    "content": "Nickelate superstructures | SrLaAlO₄ | onset_tc=50",
+    "bitmask": 36571,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.2,
+      0.0,
+      0.5,
+      0.5,
+      1.0
+    ],
+    "properties": {
+      "material": "Nickelate superstructures",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 50,
+      "zero_r_tc": null,
+      "growth_method": "MBE",
+      "group": "Hwang (Stanford)",
+      "year": 2026,
+      "source": "Nature (Apr 9, 2026)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "engineered layers",
+      "oxygen_treatment": null,
+      "pressure_class": "Ambient",
+      "notes": "1212 and 2323 superstructures SC at 46-50K onset. 1313 NOT SC. γII hole pocket at zone corner is required for SC.",
+      "tags": [
+        "film",
+        "ambient",
+        "timeline"
+      ]
+    },
+    "source": "Nature (Apr 9, 2026)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": "https://www.nature.com/",
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "Nickelate superlattice thin films on SLAO from Hwang group. Onset Tc ~60 K in best superstructures. Resistance drops sharply below 60 K with diamagnetic response confirmed in selected samples.",
+      "type": "resistivity_vs_T,magnetization",
+      "claim_supported": "onset_tc,diamagnetic"
+    }
+  },
+  {
+    "id": 13,
+    "material": "La₃₋ₓSrₓNi₂O₇",
+    "content": "La₃₋ₓSrₓNi₂O₇ | SrLaAlO₄ | onset_tc=42",
+    "bitmask": 36571,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.168,
+      0.0,
+      0.5,
+      0.5,
+      1.0
+    ],
+    "properties": {
+      "material": "La₃₋ₓSrₓNi₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 42,
+      "zero_r_tc": null,
+      "growth_method": "MBE",
+      "group": "Nie (Nanjing)",
+      "year": 2026,
+      "source": "PRL 136, 066002 (2026)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Sr dome (x=0-0.38)",
+      "oxygen_treatment": "HP O₂ anneal",
+      "pressure_class": "Ambient",
+      "notes": "SUPERCONDUCTING DOME mapped. Tc stable for x=0-0.21, suppressed near x≈0.38. Hall sign change at optimal doping — electron-hole crossover like cuprates. T-linear resistivity beyond dome.",
+      "tags": [
+        "film",
+        "ambient",
+        "timeline"
+      ]
+    },
+    "source": "PRL 136, 066002 (2026)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 14,
+    "material": "La₃₋ₓSrₓNi₂O₇",
+    "content": "La₃₋ₓSrₓNi₂O₇ | SrLaAlO₄ | onset_tc=42",
+    "bitmask": 36571,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.168,
+      0.0,
+      0.5,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃₋ₓSrₓNi₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 42,
+      "zero_r_tc": null,
+      "growth_method": "MBE",
+      "group": "Nie (Nanjing)",
+      "year": 2025,
+      "source": "Nat. Mater. (2025)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Sr optimal",
+      "oxygen_treatment": null,
+      "pressure_class": "Ambient",
+      "notes": "Jc > 1.4 kA/cm² at 2K. μ₀Hc∥(0) = 83.7T, μ₀Hc⊥(0) = 110.3T. KEY FINDING: O vacancies on PLANAR NiO₂ sites in films (vs APICAL in bulk) — strain shifts vacancy site preference.",
+      "tags": [
+        "film",
+        "ambient"
+      ]
+    },
+    "source": "Nat. Mater. (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s41563-025-02258-y",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "Epitaxial Pr-doped La3Ni2O7 film on SLAO. Onset Tc ~48 K with partial resistance drop; no zero-resistance plateau above 2 K. XRD confirms RP-327 phase with c-axis locked to substrate.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "onset_tc"
+    }
+  },
+  {
+    "id": 15,
+    "material": "(La,Pr)₃Ni₂O₇",
+    "content": "(La,Pr)₃Ni₂O₇ | SrLaAlO₄ | onset_tc=68.5",
+    "bitmask": 36507,
+    "feature_vector": [
+      0.0,
+      0.5,
+      0.0,
+      0.274,
+      0.0,
+      0.5,
+      0.5,
+      1.0
+    ],
+    "properties": {
+      "material": "(La,Pr)₃Ni₂O₇",
+      "substrate": "SrLaAlO₄",
+      "substrate_a": 3.756,
+      "strain": -2.01,
+      "onset_tc": 68.5,
+      "zero_r_tc": null,
+      "growth_method": null,
+      "group": "Sun (CAS Beijing)",
+      "year": 2026,
+      "source": "arXiv:2603.29531",
+      "arxiv": "2603.29531",
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Pr-substituted",
+      "oxygen_treatment": null,
+      "pressure_class": "Film + pressure",
+      "notes": "Film + 2.0 GPa pressure: onset 68.5K (up from 62K at 0.3 GPa). Resistance dip above SC transition = oxygen vacancy indicator. Pressure delocalizes trapped electrons at vacancy sites.",
+      "tags": [
+        "film",
+        "pressure",
+        "timeline"
+      ]
+    },
+    "source": "arXiv:2603.29531",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 16,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | LaAlO₃ | onset_tc=60",
+    "bitmask": 38561,
+    "feature_vector": [
+      0.39597315436241715,
+      1.0,
+      0.3958868894601542,
+      0.24,
+      0.0,
+      0.6120230242469749,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "LaAlO₃",
+      "substrate_a": 3.79,
+      "strain": -0.47,
+      "onset_tc": 60,
+      "zero_r_tc": null,
+      "growth_method": "PLD",
+      "group": "Sakakibara/Kuroki",
+      "year": 2025,
+      "source": "Commun. Phys. (2025)",
+      "arxiv": null,
+      "film_a": 3.815,
+      "film_c": 20.58,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": "ozone",
+      "pressure_class": "Film + pressure",
+      "notes": "Under 20 GPa pressure. Compressive strain + pressure yields 60K. c/a ratio is the key parameter.",
+      "tags": [
+        "film",
+        "pressure"
+      ]
+    },
+    "source": "Commun. Phys. (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s42005-025-00001",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "La3Ni2O7 thin film grown by PLD on LaAlO3. Sakakibara/Kuroki group. Compressive strain ~-2.1%. R(T) shows no clear superconducting transition at ambient pressure; under ~20 GPa signatures near 10 K. XRD confirms c-axis orientation.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "phase_stability"
+    }
+  },
+  {
+    "id": 17,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | NdGaO₃ | onset_tc=28",
+    "bitmask": 38433,
+    "feature_vector": [
+      0.6644295302013435,
+      0.0,
+      0.6632390745501285,
+      0.112,
+      0.0,
+      0.0,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "NdGaO₃",
+      "substrate_a": 3.863,
+      "strain": 0.57,
+      "onset_tc": 28,
+      "zero_r_tc": null,
+      "growth_method": "PLD",
+      "group": "Sakakibara/Kuroki",
+      "year": 2025,
+      "source": "Commun. Phys. (2025)",
+      "arxiv": null,
+      "film_a": 3.855,
+      "film_c": 20.41,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": "ozone",
+      "pressure_class": "Film + pressure",
+      "notes": "Tensile strained film under 20 GPa. Even tensile films superconduct under enough pressure.",
+      "tags": [
+        "film",
+        "pressure"
+      ]
+    },
+    "source": "Commun. Phys. (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s42005-025-00001",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "La3Ni2O7 film on NdGaO3. Intermediate strain. Broad resistance anomaly below 30 K without a clean zero-resistance state. XRD confirms RP-327 phase.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "onset_tc"
+    }
+  },
+  {
+    "id": 18,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | SrTiO₃ | onset_tc=10",
+    "bitmask": 38401,
+    "feature_vector": [
+      1.0,
+      0.5,
+      1.0,
+      0.04,
+      0.0,
+      0.5,
+      0.5,
+      0.6666666666666666
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": "SrTiO₃",
+      "substrate_a": 3.905,
+      "strain": 1.88,
+      "onset_tc": 10,
+      "zero_r_tc": null,
+      "growth_method": "PLD",
+      "group": "Sakakibara/Kuroki",
+      "year": 2025,
+      "source": "Commun. Phys. (2025)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": "ozone",
+      "pressure_class": "Film + pressure",
+      "notes": "Tensile film under 20 GPa: only 10K. Confirms tensile strain is strongly detrimental.",
+      "tags": [
+        "film",
+        "pressure"
+      ]
+    },
+    "source": "Commun. Phys. (2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s42005-025-00001",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "La3Ni2O7 film on SrTiO3. Sakakibara/Kuroki. Tensile strain ~+0.4% destroys the ambient-pressure superconducting response; R(T) shows no onset. Under ~20 GPa pressure Tc_onset ~10 K recovers. XRD confirms Ruddlesden-Popper phase.",
+      "type": "resistivity_vs_T,XRD",
+      "claim_supported": "non_superconducting"
+    }
+  },
+  {
+    "id": 19,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | - | onset_tc=80",
+    "bitmask": 5505,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.32,
+      0.0,
+      0.5,
+      0.5,
+      0.0
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": null,
+      "substrate_a": null,
+      "strain": null,
+      "onset_tc": 80,
+      "zero_r_tc": null,
+      "growth_method": null,
+      "group": "Sun et al.",
+      "year": 2023,
+      "source": "Nature 621 (2023)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": null,
+      "pressure_class": "Pressure only",
+      "notes": "First signatures of SC near 80K at 14-43 GPa.",
+      "tags": [
+        "bulk",
+        "pressure",
+        "timeline"
+      ]
+    },
+    "source": "Nature 621 (2023)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "10.1038/s41586-023-06408-7",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": "Bulk La3Ni2O7 under ~15 GPa pressure. Tc ~80 K with resistance drop and diamagnetic signature. Ambient-pressure phase non-superconducting. Sun et al. original bulk claim.",
+      "type": "resistivity_vs_T,magnetization",
+      "claim_supported": "onset_tc,diamagnetic"
+    }
+  },
+  {
+    "id": 20,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | - | onset_tc=80",
+    "bitmask": 38273,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.32,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": null,
+      "substrate_a": null,
+      "strain": null,
+      "onset_tc": 80,
+      "zero_r_tc": null,
+      "growth_method": null,
+      "group": "Zhang et al.",
+      "year": 2024,
+      "source": "Nat. Phys. (2024)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": null,
+      "pressure_class": "Pressure only",
+      "notes": "Zero resistance confirmed in single crystals under pressure.",
+      "tags": [
+        "bulk",
+        "pressure",
+        "timeline"
+      ]
+    },
+    "source": "Nat. Phys. (2024)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 21,
+    "material": "La₂PrNi₂O₇",
+    "content": "La₂PrNi₂O₇ | - | onset_tc=82.5",
+    "bitmask": 64899,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.33,
+      1.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "La₂PrNi₂O₇",
+      "substrate": null,
+      "substrate_a": null,
+      "strain": null,
+      "onset_tc": 82.5,
+      "zero_r_tc": 60,
+      "growth_method": null,
+      "group": "Wang et al.",
+      "year": 2024,
+      "source": "Nature 634 (2024)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "Pr-substituted",
+      "oxygen_treatment": null,
+      "pressure_class": "Pressure only",
+      "notes": "CONFIRMED bulk HTSC: onset 82.5K, zero-R 60K, 97% shielding.",
+      "tags": [
+        "bulk",
+        "pressure",
+        "timeline"
+      ]
+    },
+    "source": "Nature 634 (2024)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 22,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | - | onset_tc=96",
+    "bitmask": 38273,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.384,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": null,
+      "substrate_a": null,
+      "strain": null,
+      "onset_tc": 96,
+      "zero_r_tc": null,
+      "growth_method": null,
+      "group": null,
+      "year": 2024,
+      "source": "Nature (Dec 2025)",
+      "arxiv": null,
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": null,
+      "oxygen_treatment": null,
+      "pressure_class": "Pressure only",
+      "notes": "New bulk Tc record in pressurized nickelate single crystals.",
+      "tags": [
+        "bulk",
+        "pressure",
+        "record",
+        "timeline"
+      ]
+    },
+    "source": "Nature (Dec 2025)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 23,
+    "material": "HgBa₂Ca₂Cu₃O₈₊δ (Hg-1223)",
+    "content": "HgBa₂Ca₂Cu₃O₈₊δ (Hg-1223) | - | onset_tc=133",
+    "bitmask": 34247,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.532,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "HgBa₂Ca₂Cu₃O₈₊δ (Hg-1223)",
+      "substrate": null,
+      "onset_tc": 133,
+      "pressure_class": "Ambient",
+      "structure": "Layered cuprate",
+      "notes": "Classic ambient-pressure high-Tc benchmark",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "cuprates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 24,
+    "material": "HgBa₂Ca₂Cu₃O₈₊δ (pressure quench)",
+    "content": "HgBa₂Ca₂Cu₃O₈₊δ (pressure quench) | - | onset_tc=151",
+    "bitmask": 34183,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.604,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "HgBa₂Ca₂Cu₃O₈₊δ (pressure quench)",
+      "substrate": null,
+      "onset_tc": 151,
+      "pressure_class": "Pressure-quenched ambient",
+      "structure": "Layered cuprate; metastable pressure-retained",
+      "notes": "Newest ambient-pressure record (2026)",
+      "source": "https://www.uh.edu/news-events/stories/2026/march/03102026-ambient-pressure-superconductivity-record.php",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://www.uh.edu/news-events/stories/2026/march/03102026-ambient-pressure-superconductivity-record.php",
+    "confidence": "measured",
+    "wing": "cuprates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 25,
+    "material": "YBa₂Cu₃O₇₋δ (YBCO)",
+    "content": "YBa₂Cu₃O₇₋δ (YBCO) | - | onset_tc=93",
+    "bitmask": 34247,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.372,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "YBa₂Cu₃O₇₋δ (YBCO)",
+      "substrate": null,
+      "onset_tc": 93,
+      "pressure_class": "Ambient",
+      "structure": "Layered cuprate",
+      "notes": "Canonical high-Tc oxide, rich doping behavior",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "cuprates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 26,
+    "material": "Bi₂Sr₂CaCu₂O₈₊ₓ (Bi-2212)",
+    "content": "Bi₂Sr₂CaCu₂O₈₊ₓ (Bi-2212) | - | onset_tc=95",
+    "bitmask": 34247,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.38,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "Bi₂Sr₂CaCu₂O₈₊ₓ (Bi-2212)",
+      "substrate": null,
+      "onset_tc": 95,
+      "pressure_class": "Ambient",
+      "structure": "Layered cuprate",
+      "notes": "Classic layered cuprate family",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "cuprates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 27,
+    "material": "FeSe",
+    "content": "FeSe | - | onset_tc=8",
+    "bitmask": 32839,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.032,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "FeSe",
+      "substrate": null,
+      "onset_tc": 8,
+      "pressure_class": "Ambient",
+      "structure": "Layered iron chalcogenide",
+      "notes": "Strong pressure/interfacial effects",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Needs follow-up",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "pnictides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 28,
+    "material": "Ba(Fe₁₋ₓCoₓ)₂As₂",
+    "content": "Ba(Fe₁₋ₓCoₓ)₂As₂ | - | onset_tc=25",
+    "bitmask": 32839,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.1,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "Ba(Fe₁₋ₓCoₓ)₂As₂",
+      "substrate": null,
+      "onset_tc": 25,
+      "pressure_class": "Ambient",
+      "structure": "Layered iron pnictide (122)",
+      "notes": "Chemically tunable iron-based family",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Needs follow-up",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "pnictides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 29,
+    "material": "MgB₂",
+    "content": "MgB₂ | - | onset_tc=39",
+    "bitmask": 32962,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.156,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "MgB₂",
+      "substrate": null,
+      "onset_tc": 39,
+      "pressure_class": "Ambient",
+      "structure": "Simple boride",
+      "notes": "Strong electron-phonon coupling benchmark",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": false,
+      "tweakable": true,
+      "metastable": false,
+      "status": "Comparison baseline",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "conventional",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 30,
+    "material": "Nb₃Sn",
+    "content": "Nb₃Sn | - | onset_tc=18",
+    "bitmask": 32834,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.072,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "Nb₃Sn",
+      "substrate": null,
+      "onset_tc": 18,
+      "pressure_class": "Ambient",
+      "structure": "A15 intermetallic",
+      "notes": "Classic conventional baseline",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": false,
+      "tweakable": true,
+      "metastable": false,
+      "status": "Comparison baseline",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "conventional",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 31,
+    "material": "H₃S",
+    "content": "H₃S | - | onset_tc=203",
+    "bitmask": 33156,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.812,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "H₃S",
+      "substrate": null,
+      "onset_tc": 203,
+      "pressure_class": "Pressure only",
+      "structure": "Compressed hydride",
+      "notes": "Very high Tc, extreme pressure only",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": false,
+      "tweakable": false,
+      "metastable": true,
+      "status": "Pressure-limited",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "hydrides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 32,
+    "material": "LaH₁₀",
+    "content": "LaH₁₀ | - | onset_tc=250",
+    "bitmask": 33156,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      1.0,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "LaH₁₀",
+      "substrate": null,
+      "onset_tc": 250,
+      "pressure_class": "Pressure only",
+      "structure": "Compressed hydride",
+      "notes": "Flagship ultrahigh-pressure hydride",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": false,
+      "tweakable": false,
+      "metastable": true,
+      "status": "Pressure-limited",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "hydrides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 33,
+    "material": "FeSe/SrTiO₃ (monolayer)",
+    "content": "FeSe/SrTiO₃ (monolayer) | - | onset_tc=65",
+    "bitmask": 32967,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.26,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "FeSe/SrTiO₃ (monolayer)",
+      "substrate": null,
+      "onset_tc": 65,
+      "pressure_class": "Ambient",
+      "structure": "Monolayer FeSe on SrTiO₃ substrate",
+      "notes": "Interface-enhanced Tc from 8K to 65K; up to 109K reported in situ",
+      "source": "https://www.nature.com/articles/nmat3654",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://www.nature.com/articles/nmat3654",
+    "confidence": "measured",
+    "wing": "pnictides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 34,
+    "material": "FeSe (high pressure)",
+    "content": "FeSe (high pressure) | - | onset_tc=37",
+    "bitmask": 32903,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.148,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "FeSe (high pressure)",
+      "substrate": null,
+      "onset_tc": 37,
+      "pressure_class": "Pressure only",
+      "structure": "Tetragonal FeSe under ~7 GPa",
+      "notes": "Bulk FeSe Tc jumps from 8K to 37K under moderate pressure",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Needs follow-up",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "pnictides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 35,
+    "material": "LaFeAsO₁₋ₓFₓ (1111 family)",
+    "content": "LaFeAsO₁₋ₓFₓ (1111 family) | - | onset_tc=26",
+    "bitmask": 32839,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.104,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "LaFeAsO₁₋ₓFₓ (1111 family)",
+      "substrate": null,
+      "onset_tc": 26,
+      "pressure_class": "Ambient",
+      "structure": "Layered iron pnictide (1111 family)",
+      "notes": "First discovered iron-based superconductor family",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Comparison baseline",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "pnictides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 36,
+    "material": "SmFeAsO₁₋ₓFₓ",
+    "content": "SmFeAsO₁₋ₓFₓ | - | onset_tc=56",
+    "bitmask": 32967,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.224,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "SmFeAsO₁₋ₓFₓ",
+      "substrate": null,
+      "onset_tc": 56,
+      "pressure_class": "Ambient",
+      "structure": "Layered iron pnictide (1111 family, Sm variant)",
+      "notes": "Highest bulk Tc among all iron-based superconductors",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "pnictides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 37,
+    "material": "Nd₀.₈Sr₀.₂NiO₂ (infinite-layer)",
+    "content": "Nd₀.₈Sr₀.₂NiO₂ (infinite-layer) | - | onset_tc=15",
+    "bitmask": 33863,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.06,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "Nd₀.₈Sr₀.₂NiO₂ (infinite-layer)",
+      "substrate": null,
+      "onset_tc": 15,
+      "pressure_class": "Ambient",
+      "structure": "Infinite-layer nickelate; isostructural to cuprates",
+      "notes": "First superconducting nickelate; cuprate analog discovered 2019",
+      "source": "https://www.nature.com/articles/s41586-019-1496-5",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Needs follow-up",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://www.nature.com/articles/s41586-019-1496-5",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 38,
+    "material": "La₃Ni₂O₇ (under pressure)",
+    "content": "La₃Ni₂O₇ (under pressure) | - | onset_tc=80",
+    "bitmask": 34183,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.32,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇ (under pressure)",
+      "substrate": null,
+      "onset_tc": 80,
+      "pressure_class": "Pressure only",
+      "structure": "Bilayer Ruddlesden-Popper nickelate",
+      "notes": "Tc ~80K at 14-43 GPa; second material family above liquid N₂ temp",
+      "source": "https://www.nature.com/articles/s41586-023-06408-7",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://www.nature.com/articles/s41586-023-06408-7",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 39,
+    "material": "La₃Ni₂O₇ (thin film, strained)",
+    "content": "La₃Ni₂O₇ (thin film, strained) | - | onset_tc=42",
+    "bitmask": 33927,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.168,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "La₃Ni₂O₇ (thin film, strained)",
+      "substrate": null,
+      "onset_tc": 42,
+      "pressure_class": "Pressure-quenched ambient",
+      "structure": "Bilayer nickelate; epitaxial compressive strain",
+      "notes": "Onset Tc 26-42K at ambient via strain; zero-R at ~2K (defects limit)",
+      "source": "https://www.nature.com/articles/s41586-024-08525-3",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://www.nature.com/articles/s41586-024-08525-3",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 40,
+    "material": "CsV₃Sb₅",
+    "content": "CsV₃Sb₅ | - | onset_tc=2.5",
+    "bitmask": 32839,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.01,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "CsV₃Sb₅",
+      "substrate": null,
+      "onset_tc": 2.5,
+      "pressure_class": "Ambient",
+      "structure": "Layered kagome lattice; CDW + superconductivity",
+      "notes": "Z₂ topological kagome metal; CDW competes with SC",
+      "source": "https://www.nature.com/articles/s41578-024-00677-y",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Needs follow-up",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://www.nature.com/articles/s41578-024-00677-y",
+    "confidence": "measured",
+    "wing": "wildcards",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 41,
+    "material": "RbV₃Sb₅",
+    "content": "RbV₃Sb₅ | - | onset_tc=0.9",
+    "bitmask": 32839,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.0036,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "RbV₃Sb₅",
+      "substrate": null,
+      "onset_tc": 0.9,
+      "pressure_class": "Ambient",
+      "structure": "Layered kagome lattice; isostructural to CsV₃Sb₅",
+      "notes": "Similar CDW physics to CsV₃Sb₅ at lower Tc",
+      "source": "https://www.nature.com/articles/s41467-022-35718-z",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Needs follow-up",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://www.nature.com/articles/s41467-022-35718-z",
+    "confidence": "measured",
+    "wing": "wildcards",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 42,
+    "material": "KV₃Sb₅",
+    "content": "KV₃Sb₅ | - | onset_tc=0.9",
+    "bitmask": 32839,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.0036,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "KV₃Sb₅",
+      "substrate": null,
+      "onset_tc": 0.9,
+      "pressure_class": "Ambient",
+      "structure": "Layered kagome lattice; isostructural to CsV₃Sb₅",
+      "notes": "Topological charge order discovered in this member",
+      "source": "https://www.nature.com/articles/s41578-024-00677-y",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Needs follow-up",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://www.nature.com/articles/s41578-024-00677-y",
+    "confidence": "measured",
+    "wing": "wildcards",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 43,
+    "material": "Tl₂Ba₂Ca₂Cu₃O₁₀ (Tl-2223)",
+    "content": "Tl₂Ba₂Ca₂Cu₃O₁₀ (Tl-2223) | - | onset_tc=125",
+    "bitmask": 34247,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "Tl₂Ba₂Ca₂Cu₃O₁₀ (Tl-2223)",
+      "substrate": null,
+      "onset_tc": 125,
+      "pressure_class": "Ambient",
+      "structure": "Layered cuprate (Tl-based)",
+      "notes": "Among the highest ambient-pressure Tc cuprates",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Known strong lead",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "cuprates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 44,
+    "material": "La₂₋ₓBaₓCuO₄ (LBCO)",
+    "content": "La₂₋ₓBaₓCuO₄ (LBCO) | - | onset_tc=30",
+    "bitmask": 33863,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.12,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "La₂₋ₓBaₓCuO₄ (LBCO)",
+      "substrate": null,
+      "onset_tc": 30,
+      "pressure_class": "Ambient",
+      "structure": "Layered cuprate; original Bednorz-Müller compound",
+      "notes": "First high-Tc superconductor discovered (1986)",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": true,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Comparison baseline",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "cuprates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 45,
+    "material": "YH₆",
+    "content": "YH₆ | - | onset_tc=224",
+    "bitmask": 33156,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.896,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "YH₆",
+      "substrate": null,
+      "onset_tc": 224,
+      "pressure_class": "Pressure only",
+      "structure": "Clathrate hydride under ~180 GPa",
+      "notes": "High Tc without requiring La; different cage structure than H₃S",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": false,
+      "tweakable": false,
+      "metastable": true,
+      "status": "Pressure-limited",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "hydrides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 46,
+    "material": "CaH₆",
+    "content": "CaH₆ | - | onset_tc=215",
+    "bitmask": 33156,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.86,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "CaH₆",
+      "substrate": null,
+      "onset_tc": 215,
+      "pressure_class": "Pressure only",
+      "structure": "Clathrate hydride under ~170 GPa",
+      "notes": "Sodalite cage structure; lighter element than La/Y",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": false,
+      "tweakable": false,
+      "metastable": true,
+      "status": "Pressure-limited",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "hydrides",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 47,
+    "material": "UTe₂",
+    "content": "UTe₂ | - | onset_tc=2",
+    "bitmask": 32838,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.008,
+      0.0,
+      0.5,
+      0.5,
+      0.3333333333333333
+    ],
+    "properties": {
+      "material": "UTe₂",
+      "substrate": null,
+      "onset_tc": 2,
+      "pressure_class": "Ambient",
+      "structure": "Heavy-fermion; spin-triplet candidate",
+      "notes": "Rare spin-triplet superconductor; topological SC candidate",
+      "source": "https://mdr.nims.go.jp/collections/5712mb227",
+      "layered": false,
+      "tweakable": true,
+      "metastable": true,
+      "status": "Needs follow-up",
+      "year": 2024,
+      "tags": [
+        "seed_map"
+      ]
+    },
+    "source": "https://mdr.nims.go.jp/collections/5712mb227",
+    "confidence": "measured",
+    "wing": "wildcards",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 48,
+    "material": "LK-99",
+    "content": "FAILURE: LK-99",
+    "bitmask": 2114,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.0,
+      0.0,
+      0.5,
+      0.5,
+      0.0
+    ],
+    "properties": {
+      "material": "LK-99",
+      "onset_tc": 0,
+      "year": 2023,
+      "pressure_class": "Ambient",
+      "doping": "Cu-doped lead apatite",
+      "notes": "Falsified — Cu2S impurity resistivity drop",
+      "tags": [
+        "falsified"
+      ],
+      "_family": "failures"
+    },
+    "source": "multiple replication studies (2023)",
+    "confidence": "reported",
+    "wing": "failures",
+    "room": "experimental_results",
+    "hall": "failed_predictions",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 49,
+    "material": "H₃S (ambient)",
+    "content": "FAILURE: H₃S (ambient)",
+    "bitmask": 0,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.0,
+      0.0,
+      0.5,
+      0.5,
+      0.0
+    ],
+    "properties": {
+      "material": "H₃S",
+      "onset_tc": 0,
+      "year": 2015,
+      "pressure_class": "Pressure only",
+      "notes": "requires ~150 GPa; ambient phase non-SC",
+      "tags": [
+        "hydride",
+        "pressure"
+      ],
+      "_family": "hydrides"
+    },
+    "source": "Drozdov et al. (2015)",
+    "confidence": "reported",
+    "wing": "hydrides",
+    "room": "experimental_results",
+    "hall": "failed_predictions",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 50,
+    "material": "TestMaterial",
+    "content": "TestMaterial | LaAlO3 | onset_tc=50",
+    "bitmask": 33985,
+    "feature_vector": [
+      0.5,
+      0.5,
+      0.5,
+      0.2,
+      0.0,
+      0.5,
+      0.5,
+      1.0
+    ],
+    "properties": {
+      "material": "TestMaterial",
+      "onset_tc": 50,
+      "source_doi": "test",
+      "substrate": "LaAlO3",
+      "year": 2026
+    },
+    "source": null,
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": "test",
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  }
+]

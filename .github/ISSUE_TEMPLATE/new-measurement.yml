@@ -1,0 +1,118 @@
+name: New Measurement
+description: |
+  Submit a new superconductor measurement or negative result.
+  Submissions are automatically validated and flagged for manual review.
+  All data is verified against the source before being added to the dataset.
+title: "[Data] "
+labels: ["data-submission"]
+body:
+  - type: dropdown
+    id: material
+    attributes:
+      label: Material
+      options:
+        - "La₃Ni₂O₇"
+        - "(La,Pr)₃Ni₂O₇"
+        - "La₂PrNi₂O₇"
+        - "La₃₋ₓSrₓNi₂O₇"
+        - "Nickelate superstructure"
+        - "Other (specify in notes)"
+    validations:
+      required: true
+
+  - type: input
+    id: substrate
+    attributes:
+      label: Substrate
+      placeholder: "e.g., SrLaAlO₄, LaAlO₃, SrTiO₃"
+    validations:
+      required: true
+
+  - type: input
+    id: strain
+    attributes:
+      label: Strain (%)
+      placeholder: "e.g., -2.01"
+
+  - type: input
+    id: onset_tc
+    attributes:
+      label: Onset Tc (K)
+      description: "Enter 0 for 'No SC observed'"
+      placeholder: "e.g., 42.4"
+    validations:
+      required: true
+
+  - type: input
+    id: zero_r_tc
+    attributes:
+      label: Zero-resistance Tc (K)
+      placeholder: "e.g., 2.2 (leave blank if not measured)"
+
+  - type: dropdown
+    id: growth_method
+    attributes:
+      label: Growth method
+      options:
+        - "PLD"
+        - "MBE"
+        - "GAE"
+        - "Other (specify in notes)"
+    validations:
+      required: true
+
+  - type: input
+    id: growth_temp
+    attributes:
+      label: Growth temperature
+      placeholder: "e.g., 650°C"
+
+  - type: input
+    id: oxygen_treatment
+    attributes:
+      label: Oxygen treatment
+      placeholder: "e.g., ozone post-anneal, in-situ oxidation"
+
+  - type: input
+    id: pressure
+    attributes:
+      label: Pressure (GPa)
+      description: "Leave blank or enter 0 for ambient pressure"
+      placeholder: "e.g., 0 (ambient)"
+
+  - type: input
+    id: source
+    attributes:
+      label: DOI or arXiv link
+      placeholder: "e.g., https://doi.org/10.1038/... or arXiv:2603.29531"
+
+  - type: input
+    id: group_name
+    attributes:
+      label: Group / Lab name
+      placeholder: "e.g., Hwang (Stanford/SLAC)"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      placeholder: "Any additional context — film quality, characterization details, key observations"
+
+  - type: dropdown
+    id: result_type
+    attributes:
+      label: Result type
+      options:
+        - "Superconducting"
+        - "No SC observed"
+        - "Tc below detection"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: accuracy
+    attributes:
+      label: Data accuracy
+      options:
+        - label: "I confirm this data is from a published paper, preprint, or my own experimental results"
+          required: true

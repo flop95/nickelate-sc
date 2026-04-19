@@ -1,0 +1,77 @@
+[
+  {
+    "id": "PAT-01", "type": "pattern", "confidence": "high",
+    "text": "Compressive strain is necessary but not sufficient — all ambient-pressure SC films use SrLaAlO₄ (a=3.756Å, -2.0%). Tensile-strained films on NdGaO₃/SrTiO₃ only superconduct under additional high pressure.",
+    "related_entry_ids": [1, 2, 5, 6, 7]
+  },
+  {
+    "id": "PAT-02", "type": "pattern", "confidence": "high",
+    "text": "Growth method is the #1 variable right now — GAE (extreme non-equilibrium, in-situ oxidation) produced 63K onset on the SAME substrate where PLD+anneal gives 42K. A 50% Tc increase from synthesis alone.",
+    "related_entry_ids": [1, 4]
+  },
+  {
+    "id": "PAT-03", "type": "pattern", "confidence": "high",
+    "text": "Oxygen vacancies are the zero-R bottleneck, but they sit in DIFFERENT sites in films vs. bulk — compressive strain pushes vacancies from apical O to planar NiO₂ sites (Nat. Mater. 2025). This changes which O sites matter for film optimization.",
+    "related_entry_ids": [14]
+  },
+  {
+    "id": "PAT-04", "type": "pattern", "confidence": "high",
+    "text": "Superconducting dome exists (PRL 2026) — Tc stable for Sr doping x=0 to 0.21, suppressed near x≈0.38. Hall coefficient sign change at optimal doping = electron-hole crossover, identical to cuprate phenomenology.",
+    "related_entry_ids": [9, 13]
+  },
+  {
+    "id": "PAT-05", "type": "pattern", "confidence": "medium",
+    "text": "Strange-metal α~1 correlates with highest Tc (63K sample), while lower-Tc samples show Fermi-liquid α~2. This links SC strength to non-Fermi-liquid normal state, paralleling cuprates.",
+    "related_entry_ids": [4]
+  },
+  {
+    "id": "PAT-06", "type": "pattern", "confidence": "high",
+    "text": "γII Fermi pocket is the smoking gun — present in all SC superstructures (1212, 2222, 2323), absent in non-SC 1313 (Nature, Apr 9, 2026). This is the first topological constraint on nickelate SC.",
+    "related_entry_ids": [12]
+  },
+  {
+    "id": "PAT-07", "type": "pattern", "confidence": "high",
+    "text": "Film + moderate pressure stacks multiplicatively — (La,Pr)₃Ni₂O₇ films on SLAO reach 68.5K onset at just 2 GPa (arXiv:2603.29531, Mar 2026). The resistance dip above Tc is an oxygen vacancy indicator.",
+    "related_entry_ids": [10, 15]
+  },
+  {
+    "id": "PAT-08", "type": "pattern", "confidence": "high",
+    "text": "c/a ratio is the master parameter — across all substrates and pressures, onset Tc increases monotonically with c/a ratio (Commun. Phys. 2025). c/a encodes both strain and orbital splitting.",
+    "related_entry_ids": [5, 6, 7, 16, 17, 18]
+  },
+  {
+    "id": "BRK-01", "type": "breakthrough", "confidence": "medium",
+    "text": "RPA calculations predict compressive strain flips pairing symmetry from s± (bulk) to d-wave (film) via substrate-induced hole doping. If confirmed, this means films and bulk use DIFFERENT pairing mechanisms to achieve SC.",
+    "related_entry_ids": [1, 4, 19]
+  },
+  {
+    "id": "GAP-01", "type": "gap", "confidence": "high",
+    "text": "No films on substrates with a < 3.75Å — SmAlO₃ (3.734), EuAlO₃ (3.720), YAlO₃ (3.680) untested. Could push c/a higher.",
+    "related_entry_ids": []
+  },
+  {
+    "id": "GAP-02", "type": "gap", "confidence": "high",
+    "text": "Sr-doping × substrate matrix unexplored — the dome is only mapped on SLAO. Does optimal doping shift on different substrates?",
+    "related_entry_ids": [9, 13]
+  },
+  {
+    "id": "GAP-03", "type": "gap", "confidence": "high",
+    "text": "Electric field gating proposed (Nat. Commun. Jan 2026) to reach 77K+ — zero experimental attempts published as of April 2026.",
+    "related_entry_ids": []
+  },
+  {
+    "id": "GAP-04", "type": "gap", "confidence": "medium",
+    "text": "No lanthanide sweep beyond Pr — Nd, Sm, Gd substitution on La site could reveal chemical pressure trends.",
+    "related_entry_ids": [3, 4, 8]
+  },
+  {
+    "id": "GAP-05", "type": "gap", "confidence": "high",
+    "text": "Pairing symmetry unconfirmed experimentally in films — s± vs d-wave has major implications for which optimizations matter.",
+    "related_entry_ids": []
+  },
+  {
+    "id": "GAP-06", "type": "gap", "confidence": "high",
+    "text": "Film + pressure explored by only 2 groups — systematic pressure studies on GAE-grown 63K films do not yet exist.",
+    "related_entry_ids": [10, 15, 11]
+  }
+]

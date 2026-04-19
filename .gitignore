@@ -1,0 +1,43 @@
+# --- Node / Vite ---
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Python (the watcher only; CLI stays out of this repo) ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# --- Secrets / env ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- Editor / OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Local assistant state / design tool handoffs ---
+.claude/
+.agents/
+.design_bundle/
+skills-lock.json
+
+# --- Safety net: if xlsx or palace engine ever gets accidentally copied in ---
+superconductor_seed_map*.xlsx
+lattice_palace/

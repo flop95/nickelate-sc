@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>nickelate.sc — § 4 · La₃Ni₂O₇ · populated catalog entry</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* Latin Modern Roman for equations/numerical values, with STIX Two italic fallback. */
+  @font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/Serif/cmunrm.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/Serif/cmunti.woff2') format('woff2');
+    font-weight: 400; font-style: italic; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/Serif/cmunbx.woff2') format('woff2');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  :root {
+    --paper: #F5F0E1;      /* warm ivory */
+    --ink: #1A1814;        /* dense warm brown-black, body */
+    --ink-emph: #0A0907;   /* emphasis only */
+    --ink-25: rgba(26, 24, 20, 0.25);
+    --ink-15: rgba(26, 24, 20, 0.15);
+    --ink-08: rgba(26, 24, 20, 0.08);
+
+    --f-display: 'Bodoni Moda', 'Bodoni 72', 'Didot', serif;
+    --f-body: 'STIX Two Text', 'Libre Caslon Text', 'New Century Schoolbook', 'Century Schoolbook', Georgia, serif;
+    --f-cm: 'Latin Modern Roman', 'CMU Serif', 'Computer Modern', 'STIX Two Text', Cambria, serif;
+
+    /* 4pt baseline grid */
+    --s-4: 4px; --s-8: 8px; --s-12: 12px; --s-16: 16px; --s-20: 20px; --s-24: 24px;
+    --s-32: 32px; --s-40: 40px; --s-48: 48px; --s-64: 64px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    margin: 0; padding: 0;
+    font-family: var(--f-body);
+    font-size: 12px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'kern', 'onum';
+  }
+
+  /* Type scale — exactly 9/10/12/14/24 pt */
+  .t-9  { font-size: 9px;  }
+  .t-10 { font-size: 10px; }
+  .t-11 { font-size: 11px; }
+  .t-12 { font-size: 12px; }
+  .t-14 { font-size: 14px; }
+  .t-24 { font-size: 24px; }
+
+  .t-display { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.005em; color: var(--ink-emph); }
+  .t-body    { font-family: var(--f-body); color: var(--ink); }
+  .t-cm      { font-family: var(--f-cm); color: var(--ink); font-feature-settings: 'tnum'; }
+  .t-sc      { font-family: var(--f-body); text-transform: uppercase; letter-spacing: 0.08em;
+               font-variant-caps: all-small-caps; font-size-adjust: 0.5; color: var(--ink); }
+  .t-bold    { font-weight: 700; color: var(--ink-emph); }
+
+  b, strong { font-weight: 700; color: var(--ink-emph); }
+  i, em { font-style: italic; }
+  a { color: inherit; text-decoration: none; }
+
+  sub { font-size: 0.72em; line-height: 0; letter-spacing: 0; }
+
+  /* ============================================================
+     Page shell — bounded, centered, ivory paper
+     ============================================================ */
+  .page {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: var(--s-40) var(--s-48) var(--s-48) var(--s-48);
+    position: relative;
+  }
+
+  /* Masthead — the single 2pt rule in the document */
+  .masthead {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding-bottom: var(--s-8);
+    border-bottom: 2px solid var(--ink-emph);
+    margin-bottom: var(--s-24);
+  }
+  .masthead .brand {
+    font-family: var(--f-display);
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    color: var(--ink-emph);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .masthead .issue {
+    font-family: var(--f-cm);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink);
+  }
+  .running-head {
+    display: flex; justify-content: space-between;
+    font-family: var(--f-cm); font-style: italic; font-size: 10px;
+    color: var(--ink); opacity: 0.75;
+    padding: 2px 0 0 0;
+    margin-bottom: var(--s-24);
+  }
+
+  /* Variant-head — section banner with 1pt top rule */
+  .variant-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-top: 1px solid var(--ink-emph);
+    border-bottom: 0.5px solid var(--ink-25);
+    padding: var(--s-8) 0;
+    margin: var(--s-48) 0 var(--s-16) 0;
+    gap: var(--s-16);
+  }
+  .variant-head .no { font-family: var(--f-cm); font-style: italic; color: var(--ink); }
+  .variant-head .title { font-family: var(--f-display); font-size: 14px; color: var(--ink-emph); }
+  .variant-head .spec  { font-family: var(--f-body); font-style: italic; color: var(--ink); opacity: 0.75; font-size: 10px; }
+
+  /* Populated-entry layout: left sheet + right margin */
+  .vD {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: var(--s-40);
+    align-items: start;
+  }
+  .vD-sheet {
+    background: var(--paper);
+    padding: 40px 52px 48px;
+    border: 0.5px solid var(--ink-25);
+    box-shadow: 0 1px 0 var(--ink-15), 0 0 0 0.5px var(--ink-15) inset;
+    min-width: 0;
+  }
+  .vD-margin {
+    padding-top: 8px;
+    position: sticky; top: 20px;
+  }
+
+  /* ============================================================
+     Inspector — journal-entry typography
+     ============================================================ */
+
+  .ins-breadcrumb {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-top: 0.5px solid var(--ink);
+    border-bottom: 0.5px solid var(--ink-25);
+    padding: 8px 0 7px;
+    margin-bottom: 22px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* ----------------------------------------------------------------
+     BUG FIX 1 — Formula title tracking.
+     The display catalog head for the entry must sit tight; the
+     default display class carries -0.005em, which at 44pt Bodoni
+     lets subscripts drift visually. Override with -0.015em so
+     the subscript digits sit immediately adjacent to their bases.
+     Belt-and-suspenders: declared on the class, re-declared inline
+     on the element, so no ancestor style can widen the tracking.
+     ---------------------------------------------------------------- */
+  .ins-formula {
+    letter-spacing: -0.015em;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    word-spacing: -0.04em;
+  }
+  .ins-formula sub {
+    letter-spacing: 0;
+    margin-left: -0.04em;   /* pull subscript tight to the preceding base letter */
+    margin-right: 0.02em;
+  }
+
+  .ins-masthead {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 18px; margin-bottom: 0;
+    border-bottom: 0.5px solid var(--ink-25);
+  }
+
+  /* Figure-of-merit ladder */
+  .ins-fm {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 32px;
+    padding: 20px 0 22px;
+    border-bottom: 0.5px solid var(--ink-25);
+    align-items: start;
+  }
+  .ins-fm-primary {
+    padding-right: 28px;
+    border-right: 0.5px solid var(--ink-25);
+    min-width: 0;
+  }
+  .ins-fm-secondary {
+    display: flex; flex-direction: column; gap: 9px;
+    padding-top: 4px;
+  }
+  .ins-fm-row {
+    display: grid;
+    grid-template-columns: 88px auto 1fr;
+    gap: 12px;
+    align-items: baseline;
+  }
+
+  .ins-struct {
+    padding: 12px 0 14px;
+    border-bottom: 0.5px solid var(--ink-25);
+  }
+
+  .ins-section {
+    padding: 20px 0 18px;
+    border-bottom: 0.5px solid var(--ink-25);
+  }
+  .ins-section:last-of-type { border-bottom: none; }
+  .ins-section-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 0.5px dashed var(--ink-15);
+    gap: 16px;
+  }
+
+  /* Gate tablet — 4×2; failed gates carry a hairline slash */
+  .gate-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 0.5px solid var(--ink-25);
+    border-left: 0.5px solid var(--ink-25);
+  }
+  .gate-cell {
+    position: relative;
+    padding: 10px 10px 10px 14px;
+    border-right: 0.5px solid var(--ink-25);
+    border-bottom: 0.5px solid var(--ink-25);
+    min-height: 72px;
+    color: var(--ink);
+    overflow: hidden;
+  }
+  .gate-cell.unset .gate-desc { opacity: 0.65; }
+  .gate-cell.unset .gate-name { opacity: 0.75; }
+  .gate-cell.unset::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom right,
+        transparent calc(50% - 0.4px),
+        var(--ink-emph) calc(50% - 0.4px),
+        var(--ink-emph) calc(50% + 0.4px),
+        transparent calc(50% + 0.4px));
+    pointer-events: none;
+  }
+  .gate-ord {
+    position: absolute; top: 6px; right: 8px;
+    opacity: 0.55;
+    letter-spacing: 0.02em;
+    z-index: 1;
+  }
+  .gate-name, .gate-desc { position: relative; z-index: 1; }
+  .gate-name { margin-bottom: 4px; letter-spacing: 0.06em; }
+  .gate-desc { line-height: 1.35; text-wrap: pretty; }
+
+  /* Nearest-neighbor table */
+  .nn-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+  }
+  .nn-table th, .nn-table td {
+    padding: 6px 10px 6px 0;
+    border-bottom: 0.5px solid var(--ink-15);
+    vertical-align: baseline;
+  }
+  .nn-table th {
+    border-bottom: 0.5px solid var(--ink-25);
+    opacity: 0.7;
+    text-align: left;
+    padding-bottom: 7px;
+    padding-top: 0;
+  }
+  .nn-table td:last-child, .nn-table th:last-child { padding-right: 0; }
+  .nn-table tr:last-child td { border-bottom: none; }
+  .nn-table tr.nn-pin td {
+    background: color-mix(in srgb, var(--ink-emph) 4%, transparent);
+  }
+  .nn-table tr.nn-pin td:first-child { position: relative; }
+  .nn-table tr.nn-pin td:first-child::before {
+    content: '';
+    position: absolute;
+    left: -10px; top: 10px;
+    width: 4px; height: calc(100% - 16px);
+    background: var(--ink-emph);
+  }
+
+  /* ----------------------------------------------------------------
+     BUG FIX 2 — Nearest-candidates table formula rendering.
+     Formula cells in the table use <sub> tags. Ensure the subscript
+     sits tight, doesn't shift baseline, and can't be collapsed by
+     a missing font feature. This class is applied to every formula
+     cell so the typography stays consistent across the column.
+     ---------------------------------------------------------------- */
+  .nn-formula sub {
+    font-size: 0.72em;
+    line-height: 0;
+    letter-spacing: 0;
+    margin-left: -0.02em;
+    margin-right: 0.01em;
+    vertical-align: sub;
+  }
+
+  .ins-rule {
+    margin-top: 4px; padding: 8px 10px;
+    border-left: 2px solid var(--ink);
+    line-height: 1.55;
+    background: color-mix(in srgb, var(--ink) 3%, transparent);
+  }
+
+  /* Footnotes, ledger, references */
+  .footnote-list {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 6px 10px;
+    margin: 0;
+  }
+  .footnote-list dt { text-align: right; opacity: 0.7; padding-top: 1px; }
+  .footnote-list dd { margin: 0; line-height: 1.5; opacity: 0.88; }
+
+  .ledger-list { list-style: none; padding: 0; margin: 0; }
+  .ledger-list li {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 14px;
+    padding: 5px 0;
+    border-bottom: 0.5px dashed var(--ink-15);
+  }
+  .ledger-list li:last-child { border-bottom: none; }
+  .ledger-date { opacity: 0.6; letter-spacing: 0.02em; }
+  .ledger-event { line-height: 1.45; }
+
+  .refs-list { list-style: none; padding-left: 0; margin: 0; }
+  .refs-list li { margin-bottom: 6px; }
+
+  .ins-colophon {
+    text-align: center;
+    padding-top: 22px;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .kbd-key {
+    font-family: var(--f-cm);
+    font-style: normal;
+    font-size: 0.9em;
+    letter-spacing: 0.04em;
+    padding: 1px 6px 1px;
+    border: 0.5px solid var(--ink);
+    border-radius: 2px;
+    margin: 0 2px;
+    opacity: 0.85;
+    text-transform: lowercase;
+  }
+
+  /* Verification stamp */
+  .stamp {
+    display: inline-block;
+    padding: 2px 7px;
+    line-height: 1.1;
+    border: 0.5px solid var(--ink-emph);
+  }
+
+  /* Footer */
+  .footer {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-top: 1px solid var(--ink-emph);
+    padding: var(--s-12) 0 var(--s-24) 0;
+    margin-top: var(--s-48);
+    font-family: var(--f-body);
+    gap: var(--s-24);
+    flex-wrap: wrap;
+  }
+  .footer .counts { display: flex; gap: var(--s-24); flex-wrap: wrap; }
+  .footer .counts .n { font-family: var(--f-cm); color: var(--ink-emph); font-weight: 700; margin-right: 4px; }
+
+  /* ============================================================
+     Responsive — desktop primary, graceful below ~1000px
+     ============================================================ */
+  @media (max-width: 1100px) {
+    .vD { grid-template-columns: 1fr; }
+    .vD-margin { position: static; border-top: 0.5px solid var(--ink-25); padding-top: 20px; }
+  }
+  @media (max-width: 820px) {
+    .page { padding: 24px 20px; }
+    .vD-sheet { padding: 24px 20px 32px; }
+    .ins-fm { grid-template-columns: 1fr; }
+    .ins-fm-primary { border-right: none; border-bottom: 0.5px solid var(--ink-25); padding-right: 0; padding-bottom: 14px; }
+    .ins-fm-row { grid-template-columns: 72px auto 1fr; gap: 8px; }
+    .gate-grid { grid-template-columns: repeat(2, 1fr); }
+    .ins-masthead { flex-direction: column; align-items: flex-start; }
+    .masthead { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .running-head { flex-direction: column; gap: 2px; }
+    .nn-table th:nth-child(6), .nn-table td:nth-child(6) { display: none; } /* hide note column on narrow */
+  }
+  @media (max-width: 560px) {
+    .nn-table th:nth-child(5), .nn-table td:nth-child(5) { display: none; } /* hide shared */
+    .gate-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="brand">nickelate<span>.</span>sc</div>
+    <div class="issue">Vol.&nbsp;1, No.&nbsp;1 — 18 April 2026</div>
+  </header>
+
+  <div class="running-head">
+    <span>A ranked screening platform for ambient-pressure superconductivity</span>
+    <span>§ 4 — The Populated Entry</span>
+  </div>
+
+  <!-- § 4 VARIANT HEAD -->
+  <section id="variantD" aria-labelledby="v4-title">
+    <div class="variant-head">
+      <div class="no t-cm">§ 4</div>
+      <div class="title" id="v4-title">THE POPULATED ENTRY</div>
+      <div class="spec">La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> · the fully-populated catalog entry · journal-page typography</div>
+    </div>
+
+    <div class="vD">
+
+      <!-- =========================================================
+           THE CATALOG ENTRY — the sheet itself
+           ========================================================= -->
+      <article class="vD-sheet" aria-labelledby="entry-formula">
+
+        <!-- Breadcrumb + catalog no. -->
+        <nav class="ins-breadcrumb" aria-label="Catalog breadcrumb">
+          <div class="t-sc t-9" style="letter-spacing: 0.12em;">
+            <span style="opacity: 0.55;">FIG. 1</span>
+            <span style="margin: 0 7px; opacity: 0.35;">/</span>
+            <span style="opacity: 0.55;">ANCHOR</span>
+            <span style="margin: 0 7px; opacity: 0.35;">/</span>
+            <span style="opacity: 0.55;">NICKELATE</span>
+            <span style="margin: 0 7px; opacity: 0.35;">/</span>
+            <span>LA<sub>3</sub>NI<sub>2</sub>O<sub>7</sub></span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px;">
+            <span class="t-cm t-9" style="opacity: 0.65;">CAT. <b>A&#8209;007</b></span>
+          </div>
+        </nav>
+
+        <!-- Masthead: formula (display) + phase + VERIFIED stamp -->
+        <header class="ins-masthead">
+          <div style="flex: 1; min-width: 0;">
+            <!-- BUG FIX 1: tight tracking, applied both via class and inline for absolute safety -->
+            <h1 id="entry-formula"
+                class="t-display ins-formula"
+                style="font-size: 44px; line-height: 1; margin: 0; letter-spacing: -0.015em; font-weight: 400;">
+              La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub>
+            </h1>
+            <p class="t-body t-12" style="font-style: italic; margin: 6px 0 0 0; opacity: 0.78; text-wrap: pretty;">
+              Ruddlesden–Popper bilayer nickelate.
+            </p>
+          </div>
+          <div style="text-align: right; flex-shrink: 0; padding-left: 18px;">
+            <span class="stamp t-sc t-10">VERIFIED · ANCHOR</span>
+            <div class="t-cm t-9" style="margin-top: 6px; opacity: 0.6; font-style: italic;">
+              since 2024·07·18
+            </div>
+          </div>
+        </header>
+
+        <!-- Figure-of-merit ladder: Tc headline, P + gap + confidence beneath -->
+        <div class="ins-fm">
+          <div class="ins-fm-primary">
+            <div class="t-cm" style="font-size: 46px; line-height: 1; letter-spacing: -0.01em;">
+              <i>T</i><sub style="font-size: 0.55em;">c</sub>
+              <span style="margin: 0 0.18em; opacity: 0.5;">=</span>
+              <b style="font-weight: 700;">80</b>
+              <span class="t-cm" style="font-size: 0.52em; margin-left: 6px; opacity: 0.7;">K</span>
+            </div>
+            <div class="t-body t-10" style="font-style: italic; margin-top: 3px; opacity: 0.7;">
+              onset
+            </div>
+          </div>
+          <div class="ins-fm-secondary">
+            <div class="ins-fm-row">
+              <span class="t-sc t-9" style="opacity: 0.6;">PRESSURE</span>
+              <span class="t-cm t-14">
+                <i>P</i> = <b>29.5</b>
+                <span style="opacity: 0.65; margin-left: 4px;">GPa</span>
+              </span>
+              <span class="t-body t-9" style="font-style: italic; opacity: 0.65;">dome max</span>
+            </div>
+            <div class="ins-fm-row">
+              <span class="t-sc t-9" style="opacity: 0.6;">GAP</span>
+              <span class="t-cm t-14">
+                2Δ = <b>14</b>
+                <span style="opacity: 0.65; margin-left: 4px;">meV</span>
+              </span>
+              <span class="t-body t-9" style="font-style: italic; opacity: 0.65;">estimated from <i>T</i><sub>c</sub>, λ&thinsp;≈&thinsp;1.5</span>
+            </div>
+            <div class="ins-fm-row">
+              <span class="t-sc t-9" style="opacity: 0.6;">CONFIDENCE</span>
+              <span class="t-cm t-14"><b>0.94</b></span>
+              <span class="t-body t-9" style="font-style: italic; opacity: 0.65;">after reproduction (Zhang 2024)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Structure, inline -->
+        <div class="ins-struct">
+          <span class="t-sc t-9" style="opacity: 0.6; margin-right: 10px;">STRUCTURE</span>
+          <span class="t-body t-12" style="font-style: italic;">I4/mmm (high&#8209;P) · Fmmm (ambient)</span>
+        </div>
+
+        <!-- Gate bitmask — 4×2 tablet -->
+        <section class="ins-section" aria-labelledby="gates-head">
+          <div class="ins-section-head">
+            <span class="t-sc t-10" id="gates-head">GATE BITMASK</span>
+            <span class="t-cm t-10" style="opacity: 0.55;">
+              1 1 0 1 · 0 1 1 0 &middot; <span style="font-style: italic;">0xD6</span>
+            </span>
+          </div>
+          <div class="gate-grid" role="grid" aria-label="Screening gates">
+            <div class="gate-cell set" role="gridcell">
+              <div class="gate-ord t-cm t-9">1</div>
+              <div class="gate-name t-sc t-9">BILAYER</div>
+              <div class="gate-desc t-body t-9" style="font-style: italic;">Ni–O–Ni apical bond present</div>
+            </div>
+            <div class="gate-cell set" role="gridcell">
+              <div class="gate-ord t-cm t-9">2</div>
+              <div class="gate-name t-sc t-9">d<sup>9</sup></div>
+              <div class="gate-desc t-body t-9" style="font-style: italic;">nominal 3d<sup>8</sup> / 3d<sup>9</sup> mixed valence</div>
+            </div>
+            <div class="gate-cell unset" role="gridcell">
+              <div class="gate-ord t-cm t-9">3</div>
+              <div class="gate-name t-sc t-9">AMBIENT</div>
+              <div class="gate-desc t-body t-9" style="font-style: italic;">stable at <i>P</i>&thinsp;=&thinsp;1&thinsp;atm</div>
+            </div>
+            <div class="gate-cell set" role="gridcell">
+              <div class="gate-ord t-cm t-9">4</div>
+              <div class="gate-name t-sc t-9">ORDERED</div>
+              <div class="gate-desc t-body t-9" style="font-style: italic;">charge&#8209;density order absent</div>
+            </div>
+            <div class="gate-cell unset" role="gridcell">
+              <div class="gate-ord t-cm t-9">5</div>
+              <div class="gate-name t-sc t-9">SINGLE-LAYER</div>
+              <div class="gate-desc t-body t-9" style="font-style: italic;"><i>n</i>&thinsp;=&thinsp;1 RP geometry</div>
+            </div>
+            <div class="gate-cell set" role="gridcell">
+              <div class="gate-ord t-cm t-9">6</div>
+              <div class="gate-name t-sc t-9">APICAL-O</div>
+              <div class="gate-desc t-body t-9" style="font-style: italic;">apical oxygen occupation ≥&thinsp;0.95</div>
+            </div>
+            <div class="gate-cell set" role="gridcell">
+              <div class="gate-ord t-cm t-9">7</div>
+              <div class="gate-name t-sc t-9">METALLIC</div>
+              <div class="gate-desc t-body t-9" style="font-style: italic;">metallic normal state above <i>T</i><sub>c</sub></div>
+            </div>
+            <div class="gate-cell unset" role="gridcell">
+              <div class="gate-ord t-cm t-9">8</div>
+              <div class="gate-name t-sc t-9">FLUX-FREE</div>
+              <div class="gate-desc t-body t-9" style="font-style: italic;">no magnetic field required</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Nearest candidates — rank-ordered neighbors -->
+        <section class="ins-section" aria-labelledby="nn-head">
+          <div class="ins-section-head">
+            <span class="t-sc t-10" id="nn-head">NEAREST CANDIDATES</span>
+            <span class="t-cm t-10" style="opacity: 0.55; font-style: italic;">ordered by d</span>
+          </div>
+          <table class="nn-table">
+            <caption class="t-sc t-9" style="caption-side: bottom; text-align: left; opacity: 0.55; padding-top: 6px;">
+              Candidates nearest La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> in gate-feature space.
+            </caption>
+            <thead>
+              <tr>
+                <th class="t-sc t-9" scope="col">#</th>
+                <th class="t-sc t-9" scope="col">ID</th>
+                <th class="t-sc t-9" scope="col">FORMULA</th>
+                <th class="t-sc t-9" scope="col" style="text-align: right;">D</th>
+                <th class="t-sc t-9" scope="col" style="text-align: right;">SHARED</th>
+                <th class="t-sc t-9" scope="col" style="text-align: right;">NOTE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BUG FIX 2: every FORMULA cell uses <sub> tags. No bare digits. -->
+              <tr class="nn-pin">
+                <td class="t-cm t-10" style="opacity: 0.55;">01</td>
+                <td class="t-cm t-10">C05</td>
+                <td class="t-body t-12 nn-formula" style="font-style: italic;">La<sub>2</sub>PrNi<sub>2</sub>O<sub>7</sub></td>
+                <td class="t-cm t-10" style="text-align: right;"><b>0.14</b></td>
+                <td class="t-cm t-10" style="text-align: right;">
+                  <span style="opacity: 0.8;">6</span><span style="opacity: 0.35;">/8</span>
+                </td>
+                <td class="t-body t-9" style="text-align: right; font-style: italic; opacity: 0.75;">top rank</td>
+              </tr>
+              <tr>
+                <td class="t-cm t-10" style="opacity: 0.55;">02</td>
+                <td class="t-cm t-10">C06</td>
+                <td class="t-body t-12 nn-formula" style="font-style: italic;">La<sub>2</sub>NdNi<sub>2</sub>O<sub>7</sub></td>
+                <td class="t-cm t-10" style="text-align: right;"><b>0.18</b></td>
+                <td class="t-cm t-10" style="text-align: right;">
+                  <span style="opacity: 0.8;">6</span><span style="opacity: 0.35;">/8</span>
+                </td>
+                <td class="t-body t-9" style="text-align: right; font-style: italic; opacity: 0.75;"></td>
+              </tr>
+              <tr>
+                <td class="t-cm t-10" style="opacity: 0.55;">03</td>
+                <td class="t-cm t-10">C23</td>
+                <td class="t-body t-12 nn-formula" style="font-style: italic;">La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> / SrLaAlO<sub>4</sub> (film)</td>
+                <td class="t-cm t-10" style="text-align: right;"><b>0.22</b></td>
+                <td class="t-cm t-10" style="text-align: right;">
+                  <span style="opacity: 0.8;">5</span><span style="opacity: 0.35;">/8</span>
+                </td>
+                <td class="t-body t-9" style="text-align: right; font-style: italic; opacity: 0.75;">strain variant, ambient</td>
+              </tr>
+              <tr>
+                <td class="t-cm t-10" style="opacity: 0.55;">04</td>
+                <td class="t-cm t-10">C04</td>
+                <td class="t-body t-12 nn-formula" style="font-style: italic;">Nd<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub></td>
+                <td class="t-cm t-10" style="text-align: right;"><b>0.27</b></td>
+                <td class="t-cm t-10" style="text-align: right;">
+                  <span style="opacity: 0.8;">5</span><span style="opacity: 0.35;">/8</span>
+                </td>
+                <td class="t-body t-9" style="text-align: right; font-style: italic; opacity: 0.75;"></td>
+              </tr>
+              <tr>
+                <td class="t-cm t-10" style="opacity: 0.55;">05</td>
+                <td class="t-cm t-10">C33</td>
+                <td class="t-body t-12 nn-formula" style="font-style: italic;">La<sub>2</sub>SrNi<sub>2</sub>O<sub>7</sub></td>
+                <td class="t-cm t-10" style="text-align: right;"><b>0.31</b></td>
+                <td class="t-cm t-10" style="text-align: right;">
+                  <span style="opacity: 0.8;">5</span><span style="opacity: 0.35;">/8</span>
+                </td>
+                <td class="t-body t-9" style="text-align: right; font-style: italic; opacity: 0.75;">hole-doped bilayer</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="t-body t-10 ins-rule">
+            <span class="t-sc t-9" style="margin-right: 6px; opacity: 0.65;">RULE</span>
+            <span style="font-style: italic; text-wrap: pretty;">Candidates ranked by Mahalanobis distance on the gate-feature vector, weighted by the anchor's bit-mask. Entries with d&thinsp;&lt;&thinsp;0.25 and ≥ 3 shared gates are promoted to the screening queue. La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> supplies the metric: its feature vector is the origin of this neighborhood.</span>
+          </p>
+        </section>
+
+        <!-- Footnotes -->
+        <section class="ins-section" aria-labelledby="fn-head">
+          <div class="ins-section-head">
+            <span class="t-sc t-10" id="fn-head">FOOTNOTES</span>
+          </div>
+          <dl class="footnote-list">
+            <dt class="t-cm t-12" style="font-style: italic;">†</dt>
+            <dd class="t-body t-11" style="font-style: italic; text-wrap: pretty;">SC onset above 14&thinsp;GPa; resistive dome maximum near 30&thinsp;GPa. Zero&#8209;resistance in single crystals confirmed 2024.</dd>
+
+            <dt class="t-cm t-12" style="font-style: italic;">‡</dt>
+            <dd class="t-body t-11" style="font-style: italic; text-wrap: pretty;">Interpreted as a bilayer σ&#8209;bond model; strong interlayer coupling through apical O. See ref.&thinsp;[3] for the two&#8209;orbital Hubbard variant.</dd>
+
+            <dt class="t-cm t-12" style="font-style: italic;">§</dt>
+            <dd class="t-body t-11" style="font-style: italic; text-wrap: pretty;">Ambient&#8209;pressure reproduction via epitaxial strain is the leading screening path. Candidates C23–C25 inherit this anchor's gate vector with distance&thinsp;&lt;&thinsp;0.32.</dd>
+
+            <dt class="t-cm t-12" style="font-style: italic;">¶</dt>
+            <dd class="t-body t-11" style="font-style: italic; text-wrap: pretty;">Anchor status re&#8209;affirmed in bitmask sweep of 2024&#8209;12. Confidence raised from 0.88 → 0.94 after Zhang et al. reproduced zero&#8209;resistance.</dd>
+          </dl>
+        </section>
+
+        <!-- Ledger — audit trail -->
+        <section class="ins-section" aria-labelledby="led-head">
+          <div class="ins-section-head">
+            <span class="t-sc t-10" id="led-head">LEDGER</span>
+          </div>
+          <ul class="ledger-list">
+            <li>
+              <span class="t-cm t-9 ledger-date">2023-07-12</span>
+              <span class="t-body t-11 ledger-event" style="text-wrap: pretty;">First observed (Sun et al.). Added to catalog as A&#8209;007 PROVISIONAL.</span>
+            </li>
+            <li>
+              <span class="t-cm t-9 ledger-date">2024-03-03</span>
+              <span class="t-body t-11 ledger-event" style="text-wrap: pretty;">Re&#8209;plotted with updated pressure calibration; <i>T</i><sub>c</sub> revised 78&thinsp;K → 80&thinsp;K.</span>
+            </li>
+            <li>
+              <span class="t-cm t-9 ledger-date">2024-07-18</span>
+              <span class="t-body t-11 ledger-event" style="text-wrap: pretty;">Promoted to ANCHOR after Zhang et al. reproduction.</span>
+            </li>
+            <li>
+              <span class="t-cm t-9 ledger-date">2024-12-01</span>
+              <span class="t-body t-11 ledger-event" style="text-wrap: pretty;">Bit&#8209;mask sweep. Confidence ↑ to 0.94. Nearest&#8209;neighbor queue rebuilt.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- References -->
+        <section class="ins-section" aria-labelledby="ref-head">
+          <div class="ins-section-head">
+            <span class="t-sc t-10" id="ref-head">REFERENCES</span>
+          </div>
+          <ol class="refs-list">
+            <li class="t-body t-10" style="line-height: 1.5; text-wrap: pretty;">
+              <span class="t-cm t-9" style="margin-right: 6px; opacity: 0.65;">[1]</span>
+              <span style="font-style: italic;">Sun, H. et al. Signatures of superconductivity near 80&thinsp;K in a nickelate under high pressure. Nature 621, 493–498 (2023).</span>
+            </li>
+            <li class="t-body t-10" style="line-height: 1.5; text-wrap: pretty;">
+              <span class="t-cm t-9" style="margin-right: 6px; opacity: 0.65;">[2]</span>
+              <span style="font-style: italic;">Zhang, Y. et al. High-temperature superconductivity with zero resistance in La<sub>3</sub>Ni<sub>2</sub>O<sub>7&#8209;δ</sub> single crystals. Nat. Phys. 20, 1269 (2024).</span>
+            </li>
+            <li class="t-body t-10" style="line-height: 1.5; text-wrap: pretty;">
+              <span class="t-cm t-9" style="margin-right: 6px; opacity: 0.65;">[3]</span>
+              <span style="font-style: italic;">Luo, Z. et al. Bilayer two-orbital model of La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> under pressure. PRL 131, 126001 (2023).</span>
+            </li>
+            <li class="t-body t-10" style="line-height: 1.5; text-wrap: pretty;">
+              <span class="t-cm t-9" style="margin-right: 6px; opacity: 0.65;">[4]</span>
+              <span style="font-style: italic;">Wang, B.&#8209;Y. et al. Pressure&#8209;induced Mott&#8209;Hubbard transition in bilayer nickelates. PRB 108, L180510 (2023).</span>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Colophon -->
+        <div class="ins-colophon t-cm t-9">
+          <span style="opacity: 0.55;">
+            — end of entry —&emsp;&middot;&emsp;
+            <i>catalog rev. 2024·12</i>&emsp;&middot;&emsp;
+            <i>press <span class="kbd-key">esc</span> to close</i>
+          </span>
+        </div>
+
+      </article>
+
+      <!-- =========================================================
+           MARGIN — editor's-note column, matches Variant D aesthetic
+           ========================================================= -->
+      <aside class="vD-margin t-body t-11" aria-label="Editor's note">
+        <div class="t-sc t-10" style="margin-bottom: 10px; opacity: 0.7;">ON THIS PAGE</div>
+        <p style="font-style: italic; line-height: 1.55; text-wrap: pretty; margin: 0;">
+          The catalog entry for an ANCHOR is the densest single surface in the journal. Every anchor is rendered to this template: breadcrumb, masthead, figure-of-merit ladder, gate tablet, ranked neighbors, footnotes, ledger, references.
+        </p>
+        <p style="font-style: italic; line-height: 1.55; text-wrap: pretty; margin: 10px 0 0 0;">
+          La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> is the primary anchor for ambient-pressure bilayer nickelates; its gate vector is the origin for candidates C04–C25.
+        </p>
+        <div style="margin-top: 18px; padding-top: 12px; border-top: 0.5px solid var(--ink-25);" class="t-cm t-9">
+          <div style="opacity: 0.6; margin-bottom: 4px;">CROSS-REFS</div>
+          <div>§ 1 — <i>plate view, drawer</i></div>
+          <div>§ 2 — <i>floating annotation</i></div>
+          <div>§ 3 — <i>permanent inspector</i></div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- Footer: catalog counts in small caps -->
+  <footer class="footer">
+    <div class="counts t-sc t-10">
+      <div><span class="n t-cm">50</span>MATERIALS</div>
+      <div><span class="n t-cm">03</span>FAILURES</div>
+      <div><span class="n t-cm">20</span>CANDIDATES</div>
+      <div><span class="n t-cm">26</span>ANCHORS</div>
+    </div>
+    <div class="t-cm" style="font-style: italic; font-size: 10px; opacity: 0.75;">
+      Typeset in Bodoni Moda, STIX Two Text, and Latin Modern Roman. Printed on ivory.
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

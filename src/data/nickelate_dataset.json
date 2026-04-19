@@ -1,0 +1,280 @@
+{
+  "measurements": [
+    {
+      "id": 1, "material": "La₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 42.4, "zero_r_tc": 2.2,
+      "growth_method": "PLD + ozone anneal", "group": "Hwang (Stanford/SLAC)", "year": 2024,
+      "source": "Nature 638, 935 (2025)", "arxiv": null,
+      "film_a": 3.756, "film_c": 20.5, "thickness": "~20nm",
+      "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "First ambient film report. 14 samples, Tc,onset 26.2-42.4K. Diamagnetic response confirmed.",
+      "tags": ["film", "ambient", "timeline", "screener"]
+    },
+    {
+      "id": 2, "material": "La₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 26.2, "zero_r_tc": null,
+      "growth_method": "PLD + ozone anneal", "group": "Hwang (Stanford/SLAC)", "year": 2024,
+      "source": "Nature 638, 935 (2025)", "arxiv": null,
+      "film_a": 3.756, "film_c": null, "thickness": "~20nm",
+      "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "Lowest onset Tc sample from same study.",
+      "tags": ["film", "ambient"]
+    },
+    {
+      "id": 3, "material": "(La,Pr)₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 40, "zero_r_tc": null,
+      "growth_method": "MBE (GAE)", "group": "Chen/Xue (Tsinghua/ShanghaiTech)", "year": 2025,
+      "source": "Nature 640, 641 (2025)", "arxiv": null,
+      "film_a": 3.756, "film_c": null, "thickness": null,
+      "doping": "Pr-substituted", "oxygen_treatment": "in-situ oxidation",
+      "pressure_class": "Ambient",
+      "notes": "La,Pr variant. Ambient pressure.",
+      "tags": ["film", "ambient", "screener"]
+    },
+    {
+      "id": 4, "material": "(La,Pr)₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 63, "zero_r_tc": 37,
+      "growth_method": "MBE (GAE extreme)", "group": "Chen/Xue (ShanghaiTech)", "year": 2025,
+      "source": "NSR nwag151 (2026)", "arxiv": "2512.04708",
+      "film_a": 3.756, "film_c": null, "thickness": null,
+      "doping": "Pr-substituted", "oxygen_treatment": "in-situ full oxygenation",
+      "pressure_class": "Ambient",
+      "notes": "Record ambient onset Tc. Extreme non-equilibrium GAE growth. Strange-metal α~1 at highest Tc.",
+      "tags": ["film", "ambient", "record", "timeline", "screener"]
+    },
+    {
+      "id": 5, "material": "La₃Ni₂O₇", "substrate": "LaAlO₃", "substrate_a": 3.790,
+      "strain": -0.47, "onset_tc": 30, "zero_r_tc": null,
+      "growth_method": "PLD", "group": "Sakakibara/Kuroki", "year": 2025,
+      "source": "Commun. Phys. (2025)", "arxiv": null,
+      "film_a": 3.815, "film_c": 20.58, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "Strain-tuning study. Partially relaxed. Under 20GPa: onset ~60K.",
+      "tags": ["film", "ambient", "screener"]
+    },
+    {
+      "id": 6, "material": "La₃Ni₂O₇", "substrate": "NdGaO₃", "substrate_a": 3.863,
+      "strain": 0.57, "onset_tc": 10, "zero_r_tc": null,
+      "growth_method": "PLD", "group": "Sakakibara/Kuroki", "year": 2025,
+      "source": "Commun. Phys. (2025)", "arxiv": null,
+      "film_a": 3.855, "film_c": 20.41, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "Tensile strained. Under 20GPa: onset ~28K.",
+      "tags": ["film", "ambient", "screener"]
+    },
+    {
+      "id": 7, "material": "La₃Ni₂O₇", "substrate": "SrTiO₃", "substrate_a": 3.905,
+      "strain": 1.88, "onset_tc": 0, "zero_r_tc": null,
+      "growth_method": "PLD", "group": "Sakakibara/Kuroki", "year": 2025,
+      "source": "Commun. Phys. (2025)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": "ozone post-anneal",
+      "pressure_class": "Ambient",
+      "notes": "Tensile strained, no SC at ambient. Under 20GPa: onset ~10K.",
+      "tags": ["film", "ambient", "screener"]
+    },
+    {
+      "id": 8, "material": "La₂PrNi₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 45, "zero_r_tc": 9,
+      "growth_method": "PLD", "group": "Liu et al.", "year": 2025,
+      "source": "Nat. Mater. 24, 1221 (2025)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "Pr on La site", "oxygen_treatment": "ozone anneal",
+      "pressure_class": "Ambient",
+      "notes": "BKT-like transition. TBKT=9K. ~2% compressive strain confirmed by STEM.",
+      "tags": ["film", "ambient", "timeline"]
+    },
+    {
+      "id": 9, "material": "La₃₋ₓSrₓNi₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 42, "zero_r_tc": null,
+      "growth_method": "MBE", "group": "Wang et al.", "year": 2025,
+      "source": "Nat. Mater. (2025) / PRL 136, 066002 (2026)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "Sr-doped (optimal)", "oxygen_treatment": null,
+      "pressure_class": "Ambient",
+      "notes": "Sr doping study. Jc > 1.4 kA/cm² at 2K. μ₀Hc∥(0) = 83.7T. Superconducting dome found.",
+      "tags": ["film", "ambient"]
+    },
+    {
+      "id": 10, "material": "(La,Pr)₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 62, "zero_r_tc": null,
+      "growth_method": null, "group": "Zhao/Sun", "year": 2026,
+      "source": "arXiv:2603.29531", "arxiv": "2603.29531",
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "Pr-substituted", "oxygen_treatment": null,
+      "pressure_class": "Ambient",
+      "notes": "Under 0.3GPa: 62K onset. Under 2.0GPa: 68.5K onset. Resistance dip linked to oxygen vacancies.",
+      "tags": ["film", "ambient"]
+    },
+    {
+      "id": 11, "material": "La₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 48.5, "zero_r_tc": null,
+      "growth_method": null, "group": "Wen et al.", "year": 2025,
+      "source": "Nat. Commun. (2026)", "arxiv": "2507.10399",
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": null,
+      "pressure_class": "Film + pressure",
+      "notes": "Film + pressure: onset enhanced from ~30K to 48.5K max at moderate P. Dome-shaped.",
+      "tags": ["film", "pressure"]
+    },
+    {
+      "id": 12, "material": "Nickelate superstructures", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 50, "zero_r_tc": null,
+      "growth_method": "MBE", "group": "Hwang (Stanford)", "year": 2026,
+      "source": "Nature (Apr 9, 2026)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "engineered layers", "oxygen_treatment": null,
+      "pressure_class": "Ambient",
+      "notes": "1212 and 2323 superstructures SC at 46-50K onset. 1313 NOT SC. γII hole pocket at zone corner is required for SC.",
+      "tags": ["film", "ambient", "timeline"]
+    },
+    {
+      "id": 13, "material": "La₃₋ₓSrₓNi₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 42, "zero_r_tc": null,
+      "growth_method": "MBE", "group": "Nie (Nanjing)", "year": 2026,
+      "source": "PRL 136, 066002 (2026)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "Sr dome (x=0-0.38)", "oxygen_treatment": "HP O₂ anneal",
+      "pressure_class": "Ambient",
+      "notes": "SUPERCONDUCTING DOME mapped. Tc stable for x=0-0.21, suppressed near x≈0.38. Hall sign change at optimal doping — electron-hole crossover like cuprates. T-linear resistivity beyond dome.",
+      "tags": ["film", "ambient", "timeline"]
+    },
+    {
+      "id": 14, "material": "La₃₋ₓSrₓNi₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 42, "zero_r_tc": null,
+      "growth_method": "MBE", "group": "Nie (Nanjing)", "year": 2025,
+      "source": "Nat. Mater. (2025)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "Sr optimal", "oxygen_treatment": null,
+      "pressure_class": "Ambient",
+      "notes": "Jc > 1.4 kA/cm² at 2K. μ₀Hc∥(0) = 83.7T, μ₀Hc⊥(0) = 110.3T. KEY FINDING: O vacancies on PLANAR NiO₂ sites in films (vs APICAL in bulk) — strain shifts vacancy site preference.",
+      "tags": ["film", "ambient"]
+    },
+    {
+      "id": 15, "material": "(La,Pr)₃Ni₂O₇", "substrate": "SrLaAlO₄", "substrate_a": 3.756,
+      "strain": -2.01, "onset_tc": 68.5, "zero_r_tc": null,
+      "growth_method": null, "group": "Sun (CAS Beijing)", "year": 2026,
+      "source": "arXiv:2603.29531", "arxiv": "2603.29531",
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "Pr-substituted", "oxygen_treatment": null,
+      "pressure_class": "Film + pressure",
+      "notes": "Film + 2.0 GPa pressure: onset 68.5K (up from 62K at 0.3 GPa). Resistance dip above SC transition = oxygen vacancy indicator. Pressure delocalizes trapped electrons at vacancy sites.",
+      "tags": ["film", "pressure", "timeline"]
+    },
+    {
+      "id": 16, "material": "La₃Ni₂O₇", "substrate": "LaAlO₃", "substrate_a": 3.790,
+      "strain": -0.47, "onset_tc": 60, "zero_r_tc": null,
+      "growth_method": "PLD", "group": "Sakakibara/Kuroki", "year": 2025,
+      "source": "Commun. Phys. (2025)", "arxiv": null,
+      "film_a": 3.815, "film_c": 20.58, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": "ozone",
+      "pressure_class": "Film + pressure",
+      "notes": "Under 20 GPa pressure. Compressive strain + pressure yields 60K. c/a ratio is the key parameter.",
+      "tags": ["film", "pressure"]
+    },
+    {
+      "id": 17, "material": "La₃Ni₂O₇", "substrate": "NdGaO₃", "substrate_a": 3.863,
+      "strain": 0.57, "onset_tc": 28, "zero_r_tc": null,
+      "growth_method": "PLD", "group": "Sakakibara/Kuroki", "year": 2025,
+      "source": "Commun. Phys. (2025)", "arxiv": null,
+      "film_a": 3.855, "film_c": 20.41, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": "ozone",
+      "pressure_class": "Film + pressure",
+      "notes": "Tensile strained film under 20 GPa. Even tensile films superconduct under enough pressure.",
+      "tags": ["film", "pressure"]
+    },
+    {
+      "id": 18, "material": "La₃Ni₂O₇", "substrate": "SrTiO₃", "substrate_a": 3.905,
+      "strain": 1.88, "onset_tc": 10, "zero_r_tc": null,
+      "growth_method": "PLD", "group": "Sakakibara/Kuroki", "year": 2025,
+      "source": "Commun. Phys. (2025)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": "ozone",
+      "pressure_class": "Film + pressure",
+      "notes": "Tensile film under 20 GPa: only 10K. Confirms tensile strain is strongly detrimental.",
+      "tags": ["film", "pressure"]
+    },
+    {
+      "id": 19, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
+      "strain": null, "onset_tc": 80, "zero_r_tc": null,
+      "growth_method": null, "group": "Sun et al.", "year": 2023,
+      "source": "Nature 621 (2023)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": null,
+      "pressure_class": "Pressure only",
+      "notes": "First signatures of SC near 80K at 14-43 GPa.",
+      "tags": ["bulk", "pressure", "timeline"]
+    },
+    {
+      "id": 20, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
+      "strain": null, "onset_tc": 80, "zero_r_tc": null,
+      "growth_method": null, "group": "Zhang et al.", "year": 2024,
+      "source": "Nat. Phys. (2024)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "undoped", "oxygen_treatment": null,
+      "pressure_class": "Pressure only",
+      "notes": "Zero resistance confirmed in single crystals under pressure.",
+      "tags": ["bulk", "pressure", "timeline"]
+    },
+    {
+      "id": 21, "material": "La₂PrNi₂O₇", "substrate": null, "substrate_a": null,
+      "strain": null, "onset_tc": 82.5, "zero_r_tc": 60,
+      "growth_method": null, "group": "Wang et al.", "year": 2024,
+      "source": "Nature 634 (2024)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": "Pr-substituted", "oxygen_treatment": null,
+      "pressure_class": "Pressure only",
+      "notes": "CONFIRMED bulk HTSC: onset 82.5K, zero-R 60K, 97% shielding.",
+      "tags": ["bulk", "pressure", "timeline"]
+    },
+    {
+      "id": 22, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
+      "strain": null, "onset_tc": 96, "zero_r_tc": null,
+      "growth_method": null, "group": null, "year": 2024,
+      "source": "Nature (Dec 2025)", "arxiv": null,
+      "film_a": null, "film_c": null, "thickness": null,
+      "doping": null, "oxygen_treatment": null,
+      "pressure_class": "Pressure only",
+      "notes": "New bulk Tc record in pressurized nickelate single crystals.",
+      "tags": ["bulk", "pressure", "record", "timeline"]
+    }
+  ],
+
+  "timeline": [
+    { "order": 1,  "date": "Jul 2023", "measurement_id": 19, "label": "La₃Ni₂O₇ bulk",           "type": "bulk",   "color": "#D85A30" },
+    { "order": 2,  "date": "Jun 2024", "measurement_id": 20, "label": "La₃Ni₂O₇ zero-R",         "type": "bulk",   "color": "#D85A30" },
+    { "order": 3,  "date": "Oct 2024", "measurement_id": 21, "label": "La₂PrNi₂O₇ bulk",         "type": "bulk",   "color": "#E24B4A" },
+    { "order": 4,  "date": "Dec 2024", "measurement_id": 1,  "label": "First ambient film",       "type": "film",   "color": "#1D9E75" },
+    { "order": 5,  "date": "Dec 2024", "measurement_id": 22, "label": "96K bulk record",          "type": "bulk",   "color": "#E24B4A" },
+    { "order": 6,  "date": "Feb 2025", "measurement_id": 8,  "label": "(La,Pr)₃Ni₂O₇ film",      "type": "film",   "color": "#1D9E75" },
+    { "order": 7,  "date": "Feb 2026", "measurement_id": 13, "label": "SC dome mapped",           "type": "film",   "color": "#5B9BD5" },
+    { "order": 8,  "date": "Mar 2026", "measurement_id": 4,  "label": "63K GAE film",             "type": "film",   "color": "#d4a843" },
+    { "order": 9,  "date": "Mar 2026", "measurement_id": 15, "label": "Film + 2 GPa",             "type": "film+P", "color": "#7F77DD" },
+    { "order": 10, "date": "Apr 2026", "measurement_id": 12, "label": "Superstructures SC",       "type": "film",   "color": "#1D9E75" }
+  ],
+
+  "screener_published_ids": [4, 1, 3, 5, 6, 7],
+
+  "candidate_substrates": [
+    { "name": "LaSrAlO₄",     "a": 3.754, "family": "K₂NiF₄",    "notes": "Very close to SLAO" },
+    { "name": "LaGaO₃",       "a": 3.874, "family": "Perovskite",  "notes": "Slight tensile" },
+    { "name": "NdAlO₃",       "a": 3.760, "family": "Perovskite",  "notes": "Strong compressive" },
+    { "name": "YAlO₃ (YAP)",  "a": 3.680, "family": "Perovskite",  "notes": "Extreme compressive" },
+    { "name": "LiNbO₃",       "a": 3.494, "family": "Ilmenite",    "notes": "Very large mismatch" },
+    { "name": "LSAT",          "a": 3.868, "family": "Perovskite",  "notes": "Common substrate" },
+    { "name": "MgO",           "a": 4.212, "family": "Rock salt",   "notes": "Large tensile" },
+    { "name": "KTaO₃ (KTO)",  "a": 3.989, "family": "Perovskite",  "notes": "Tensile" },
+    { "name": "BaTiO₃ (BTO)", "a": 3.994, "family": "Perovskite",  "notes": "Tensile" },
+    { "name": "GdScO₃ (GSO)", "a": 3.970, "family": "Perovskite",  "notes": "Moderate tensile" },
+    { "name": "DyScO₃ (DSO)", "a": 3.944, "family": "Perovskite",  "notes": "Slight tensile" },
+    { "name": "TbScO₃ (TSO)", "a": 3.958, "family": "Perovskite",  "notes": "Moderate tensile" },
+    { "name": "NdScO₃ (NSO)", "a": 4.002, "family": "Perovskite",  "notes": "Tensile" },
+    { "name": "PrScO₃ (PSO)", "a": 4.026, "family": "Perovskite",  "notes": "Tensile" },
+    { "name": "SmAlO₃",       "a": 3.734, "family": "Perovskite",  "notes": "Strong compressive" },
+    { "name": "EuAlO₃",       "a": 3.720, "family": "Perovskite",  "notes": "Very strong compressive" }
+  ]
+}

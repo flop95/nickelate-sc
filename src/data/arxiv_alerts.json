@@ -1,0 +1,231 @@
+{
+  "generated": "2026-04-09T19:28:34Z",
+  "window_days": 90,
+  "alert_count": 10,
+  "alerts": [
+    {
+      "arxiv_id": "2603.29531",
+      "title": "Pressure-enhanced superconductivity and its correlation with suppressed resistance dip in (La,Pr)3Ni2O7 films",
+      "authors": [
+        "Jinyu Zhao",
+        "Guangdi Zhou",
+        "Shu Cai",
+        "Shuaihang Sun",
+        "Yaqi Chen"
+      ],
+      "published": "2026-03-31",
+      "url": "https://arxiv.org/abs/2603.29531",
+      "extracted": {
+        "material": "(La,Pr)₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": 68.5,
+        "growth_method": null,
+        "pressure_gpa": 0
+      },
+      "diff_type": "CONFIRMS",
+      "diff_detail": "Confirms existing data: (La,Pr)₃Ni₂O₇ Tc=68.5K (dataset has 68.5K, Δ=0K).",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2604.05590",
+      "title": "Tunable superconductivity and spin density wave in La3Ni2O7/LaAlO3 thin films",
+      "authors": [
+        "Yu-Han Cao",
+        "Kai-Yue Jiang",
+        "Hong-Yan Lu",
+        "Da Wang",
+        "Qiang-Hua Wang"
+      ],
+      "published": "2026-04-07",
+      "url": "https://arxiv.org/abs/2604.05590",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": "LaAlO₃",
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": 0
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2604.02843",
+      "title": "High-energy electronic excitations in La3Ni2O7 by time-resolved optical spectroscopy",
+      "authors": [
+        "Junzhi Zhu",
+        "Mengwu Huo",
+        "Yubin Wang",
+        "Yuxin Zhai",
+        "Lili Hu"
+      ],
+      "published": "2026-04-03",
+      "url": "https://arxiv.org/abs/2604.02843",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": 0
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2603.25119",
+      "title": "Polar, checkerboard charge order in bilayer nickelate La3Ni2O7",
+      "authors": [
+        "Ryo Misawa",
+        "Shunsuke Kitou",
+        "Jian-Ping Sun",
+        "Yingpeng Yu",
+        "Chihaya Koyama"
+      ],
+      "published": "2026-03-26",
+      "url": "https://arxiv.org/abs/2603.25119",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": 0
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2603.09665",
+      "title": "Evidence of universal spectral collapse at a marginal dynamical regime",
+      "authors": [
+        "Udomsilp Pinsook",
+        "Pakin Tasee",
+        "Jakkapat Seeyangnok"
+      ],
+      "published": "2026-03-10",
+      "url": "https://arxiv.org/abs/2603.09665",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": null
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2602.03576",
+      "title": "Unconventional superconductivity from lattice quantum disorder",
+      "authors": [
+        "Yu-Cheng Zhu",
+        "Jia-Xi Zeng",
+        "Xin-Zheng Li"
+      ],
+      "published": "2026-02-03",
+      "url": "https://arxiv.org/abs/2602.03576",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": null
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2602.02174",
+      "title": "Contrasting Momentum-Selective Spin-Density-Wave Gaps in Bilayer and Trilayer Nickelates",
+      "authors": [
+        "Jun Shu",
+        "Jun Shen",
+        "Xiaoxiang Zhou",
+        "Yinghao Zhu",
+        "Qingsong Wang"
+      ],
+      "published": "2026-02-02",
+      "url": "https://arxiv.org/abs/2602.02174",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": null
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2601.15858",
+      "title": "Structural stability, electronic structure, and magnetic properties of the single-layer trilayer La3Ni2O7 polymorph",
+      "authors": [
+        "Shekhar Sharma",
+        "Yi-Feng Zhao",
+        "Antia S. Botana"
+      ],
+      "published": "2026-01-22",
+      "url": "https://arxiv.org/abs/2601.15858",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": 0
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2601.13090",
+      "title": "Spin-density-wave transition in monolayer-trilayer La3Ni2O7 single crystals",
+      "authors": [
+        "Mingxin Zhang",
+        "Jie Dou",
+        "Di Peng",
+        "Cuiying Pei",
+        "Qi Wang"
+      ],
+      "published": "2026-01-19",
+      "url": "https://arxiv.org/abs/2601.13090",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": 0
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    },
+    {
+      "arxiv_id": "2603.10717",
+      "title": "Pauli-limited upper critical field and anisotropic depairing effect of La2.82Sr0.18Ni2O7 superconducting thin film",
+      "authors": [
+        "Ke Wang",
+        "Maosen Wang",
+        "Wei Wei",
+        "Bo Hao",
+        "Mengqin Liu"
+      ],
+      "published": "2026-03-11",
+      "url": "https://arxiv.org/abs/2603.10717",
+      "extracted": {
+        "material": null,
+        "substrate": null,
+        "onset_tc": 31.6,
+        "growth_method": null,
+        "pressure_gpa": null
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    }
+  ]
+}

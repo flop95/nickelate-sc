@@ -1,0 +1,137 @@
+name: Validate Submission
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const issue = context.payload.issue;
+            const body = issue.body || '';
+            const title = issue.title || '';
+            const labels = issue.labels.map(l => l.name);
+            const warnings = [];
+
+            // Only validate submission templates
+            const submissionLabels = ['data-submission', 'recipe-submission', 'prediction-claim'];
+            const isSubmission = labels.some(l => submissionLabels.includes(l));
+            if (!isSubmission) return;
+
+            // Load existing dataset for duplicate detection
+            let measurements = [];
+            try {
+              const raw = fs.readFileSync('src/data/nickelate_dataset.json', 'utf8');
+              measurements = JSON.parse(raw).measurements || [];
+            } catch (e) {
+              console.log('Could not load dataset for duplicate check:', e.message);
+            }
+
+            // Check 1: Account age — flag accounts < 7 days old
+            const creator = await github.rest.users.getByUsername({
+              username: issue.user.login
+            });
+            const accountAge = (Date.now() - new Date(creator.data.created_at)) / (1000*60*60*24);
+            if (accountAge < 7) {
+              warnings.push('⚠️ Account created less than 7 days ago');
+            }
+
+            // Check 2: Tc sanity range — nickelate films are 0-100K
+            const tcMatch = body.match(/onset.?tc.*?(\d+\.?\d*)/i) || body.match(/tc\s*[\(:]\s*(\d+\.?\d*)/i);
+            let reportedTc = null;
+            if (tcMatch) {
+              reportedTc = parseFloat(tcMatch[1]);
+              if (reportedTc > 100) {
+                warnings.push(`⚠️ Reported Tc (${reportedTc}K) exceeds known nickelate range (0-100K)`);
+              }
+            }
+
+            // Check 3: Strain sanity — nickelate films are typically -4% to +3%
+            const strainMatch = body.match(/strain.*?([-+]?\d+\.?\d*)/i);
+            let reportedStrain = null;
+            if (strainMatch) {
+              reportedStrain = parseFloat(strainMatch[1]);
+              if (Math.abs(reportedStrain) > 5) {
+                warnings.push(`⚠️ Reported strain (${reportedStrain}%) outside typical range (±4%)`);
+              }
+            }
+
+            // Check 4: Required fields present
+            if (body.length < 50) {
+              warnings.push('⚠️ Submission body is very short — may be incomplete');
+            }
+
+            // Check 5: DOI or arXiv link present
+            const hasSource = /doi\.org|arxiv\.org|10\.\d{4}/.test(body);
+            if (!hasSource) {
+              warnings.push('ℹ️ No DOI or arXiv link provided — harder to verify');
+            }
+
+            // Check 6: Duplicate detection against existing dataset
+            if (labels.includes('data-submission') && measurements.length > 0) {
+              const materialMatch = body.match(/material.*?\n.*?(La[^\n]*|Ni[^\n]*|\(La[^\n]*)/i);
+              const substrateMatch = body.match(/substrate.*?\n.*?([A-Z][a-zA-Z₀-₉]+)/i);
+
+              if (reportedTc !== null) {
+                const dupes = measurements.filter(m => {
+                  if (reportedTc !== null && m.onset_tc !== null && Math.abs(m.onset_tc - reportedTc) <= 2) {
+                    if (reportedStrain !== null && m.strain !== null && Math.abs(m.strain - reportedStrain) <= 0.05) {
+                      return true;
+                    }
+                  }
+                  return false;
+                });
+
+                if (dupes.length > 0) {
+                  const d = dupes[0];
+                  warnings.push(`⚠️ Possible duplicate: matches existing entry #${d.id} (${d.material} on ${d.substrate}, ${d.onset_tc}K). If this is a new measurement from a different group, please clarify in the comments.`);
+                }
+              }
+            }
+
+            // Apply results
+            if (warnings.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['needs-review']
+              });
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `## Automated validation\n\n${warnings.join('\n')}\n\nThis submission has been flagged for manual review. A maintainer will verify the data before it's added to the dataset.`
+              });
+            } else {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['validated']
+              });
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `## Automated validation\n\n✓ All checks passed. A maintainer will review and merge this data.\n\nChecked: account age, Tc range, strain range, required fields, source link, duplicates.`
+              });
+            }

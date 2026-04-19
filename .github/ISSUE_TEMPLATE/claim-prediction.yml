@@ -1,0 +1,58 @@
+name: Claim Prediction
+description: |
+  Signal that your group is attempting one of the ranked predictions.
+  Claims are reviewed by a maintainer and displayed on the predictions list.
+title: "[Claim] "
+labels: ["prediction-claim"]
+body:
+  - type: dropdown
+    id: prediction_id
+    attributes:
+      label: Prediction ID
+      options:
+        - "P1 — Pressure on GAE 63K films"
+        - "P2 — GAE on SmAlO₃"
+        - "P3 — Sr-doping × GAE on SLAO"
+        - "P4 — Electric field gating"
+        - "P5 — Superstructures on high-compression substrates"
+    validations:
+      required: true
+
+  - type: input
+    id: group_name
+    attributes:
+      label: Group / Lab name
+      placeholder: "e.g., Chen/Xue (ShanghaiTech)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: timeline
+    attributes:
+      label: Estimated timeline
+      options:
+        - "Weeks (actively running)"
+        - "Months (in preparation)"
+        - "6+ months (planned)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: plan
+    attributes:
+      label: Brief plan
+      placeholder: "What substrate, growth method, and conditions are you planning?"
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact (optional)
+      placeholder: "Email or lab website"
+
+  - type: checkboxes
+    id: accuracy
+    attributes:
+      label: Confirmation
+      options:
+        - label: "I confirm this claim represents a real experimental effort by our group"
+          required: true

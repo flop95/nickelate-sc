@@ -1,0 +1,654 @@
+:root {
+  /* ─── Typography — full monospace per nickelate.sc design system ─── */
+  --font-mono: 'Berkeley Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-body: var(--font-mono);
+  --font-display: var(--font-mono);
+
+  /* ─── Surfaces — warm near-black with ~15° hue shift ─── */
+  --bg-base:      #0F0D0C;   /* canvas */
+  --bg-panel:     #141210;   /* raised measurement panels */
+  --bg-sunk:      #0A0908;   /* sunken input wells */
+  --bg-overlay:   #1A1815;   /* menus, hovered rows */
+  --bg-sidebar:   var(--bg-base);
+  --bg-raised:    var(--bg-panel);
+  --bg-inspector: var(--bg-panel);
+
+  /* ─── Foreground ramp ─── */
+  --fg-1: #EDE8DF;           /* primary readings */
+  --fg-2: #A9A298;           /* secondary labels */
+  --fg-3: #6E6860;           /* tertiary, unit suffixes */
+  --fg-4: #45413C;           /* grid lines, rules, box-drawing */
+  --fg-5: #2A2724;           /* hairline separators */
+
+  /* ─── Accent — cryogenic cyan. Means: live / superconducting / coherent ─── */
+  --accent:        #6AD4E0;
+  --accent-soft:   #6AD4E033; /* 20% */
+  --accent-faint:  #6AD4E014; /* 8%  */
+  --accent-bright: #9BE6EE;   /* hover peak */
+
+  /* ─── Data-viz semantic palette ─── */
+  --d-super:      #6AD4E0;    /* superconducting / confirmed */
+  --d-warm:       #D97B3A;    /* normal state / failed SC */
+  --d-pressure:   #B98AE8;    /* pressure-class */
+  --d-prediction: #E8C85A;    /* predicted, un-measured */
+  --d-contradict: #E04F4F;    /* contradiction / outlier */
+
+  --ok:   var(--d-super);
+  --warn: var(--d-prediction);
+  --err:  var(--d-contradict);
+
+  /* ─── Rules + radius + motion ─── */
+  --rule:         1px solid var(--fg-4);
+  --rule-faint:   1px solid var(--fg-5);
+  --rule-strong:  1px solid var(--fg-3);
+  --rule-accent:  1px solid var(--accent);
+  --radius:       0;
+  --ease-inst:    cubic-bezier(0.2, 0, 0.1, 1);
+  --dur-quick:    90ms;
+  --dur-base:     140ms;
+  --dur-slow:     220ms;
+
+  /* Semantic line / text tokens used throughout the app */
+  --line:         var(--fg-5);
+  --line-strong:  var(--fg-4);
+  --text-primary:   var(--fg-1);
+  --text-secondary: var(--fg-2);
+  --text-faint:     var(--fg-3);
+  --gold-border-subtle: var(--accent-soft);
+  /* Lift is an inset hairline — no drop shadow per brief. */
+  --shadow-panel: inset 0 0 0 1px var(--fg-5);
+  --shadow-hero:  inset 0 0 0 1px var(--accent-soft);
+
+  /* ─── Legacy --color-* aliases so existing components keep rendering ─── */
+  --color-bg:              var(--bg-base);
+  --color-surface:         var(--bg-panel);
+  --color-text:            var(--fg-1);
+  --color-text-secondary:  var(--fg-2);
+  --color-text-muted:      var(--fg-3);
+  --color-accent:          var(--accent);
+  --color-accent-muted:    var(--accent-soft);
+  --color-accent-dim:      var(--accent-faint);
+  --color-border:          var(--fg-5);
+  --color-border-subtle:   var(--fg-5);
+  --color-border-strong:   var(--fg-4);
+
+  /* Gate fill colors now speak cyan = confirmed superconducting */
+  --color-gate-pass-bg:     var(--accent-soft);
+  --color-gate-pass-border: var(--accent);
+  --color-gate-fail-border: var(--fg-5);
+  --color-failure:        var(--d-contradict);
+  --color-failure-bg:     rgba(224, 79, 79, 0.10);
+  --color-failure-border: rgba(224, 79, 79, 0.40);
+  --color-diff:           var(--d-pressure);
+  --color-diff-border:    rgba(185, 138, 232, 0.55);
+
+  --color-surface-raised: var(--bg-panel);
+  --color-surface-hover:  var(--bg-overlay);
+
+  /* Failure-type palette — mapped onto dataviz semantic hues */
+  --fail-nonsupercon-bg: rgba(224, 79, 79, 0.10);
+  --fail-nonsupercon-fg: var(--d-contradict);
+  --fail-pressure-bg:    rgba(185, 138, 232, 0.10);
+  --fail-pressure-fg:    var(--d-pressure);
+  --fail-irreprod-bg:    rgba(232, 200, 90, 0.10);
+  --fail-irreprod-fg:    var(--d-prediction);
+  --fail-unstable-bg:    rgba(185, 138, 232, 0.10);
+  --fail-unstable-fg:    var(--d-pressure);
+  --fail-tclow-bg:       rgba(255, 255, 255, 0.03);
+  --fail-tclow-fg:       var(--fg-3);
+  --fail-synth-bg:       rgba(217, 123, 58, 0.10);
+  --fail-synth-fg:       var(--d-warm);
+  --fail-wrongstruct-bg: rgba(106, 212, 224, 0.08);
+  --fail-wrongstruct-fg: var(--accent);
+
+  /* Spacing scale — 4px base grid */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+
+  /* Radius — sharp / industrial */
+  --radius: 0px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* Legacy aliases for component compat */
+  --color-text-primary: var(--color-text);
+  --color-text-tertiary: var(--color-text-muted);
+  --color-background-primary: var(--color-bg);
+  --color-background-secondary: var(--color-surface);
+  --color-border-secondary: var(--color-border);
+  --color-border-tertiary: var(--color-border-subtle);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--fg-1);
+  min-height: 100vh;
+  background: var(--bg-base);
+  font-feature-settings: "ss01", "ss02", "calt", "tnum", "zero";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+::selection { background: var(--accent-soft); color: var(--fg-1); }
+
+#root {
+  min-height: 100vh;
+}
+
+/* ── Entrance animation ── */
+@keyframes enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.palace-enter { animation: enter 0.4s ease both; }
+
+/* ── Tables: left-border focus, no stripes, no row borders (Rule 4) ── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table td, table th {
+  padding: 4px 8px !important;
+  font-size: 12px;
+}
+table thead tr {
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+}
+table tbody tr {
+  border-bottom: none !important;
+  background: transparent !important;
+}
+table tbody tr td:first-child {
+  border-left: 2px solid transparent;
+  transition: border-color 150ms ease;
+}
+table tbody tr:hover td:first-child {
+  border-left-color: rgba(212,168,67,0.3);
+}
+table tbody tr td[colspan] {
+  background: var(--color-bg) !important;
+}
+
+/* "Lift" via inset hairline only — the design brief rejects drop shadows. */
+.shadow-panel { box-shadow: var(--shadow-panel); }
+.shadow-hero  { box-shadow: var(--shadow-hero); }
+
+/* ── Inputs and selects ── */
+input, select {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--color-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--color-text) !important;
+  padding: 8px 12px;
+  transition: border-color var(--transition-fast);
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+/* ── Links ── */
+a {
+  color: #5B9BD5;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); }
+
+/* ── react-split-pane v3 (tomkp) ── */
+/* Library exposes CSS variables we can override globally. */
+.palace-split {
+  --split-pane-divider-size: 1px;
+  --split-pane-divider-color: var(--color-border);
+  --split-pane-divider-color-hover: var(--color-accent);
+  --split-pane-focus-color: var(--color-accent);
+}
+/* Thin visible divider with a wider grabbable area on hover */
+.palace-split [data-split-pane-divider],
+.palace-split .split-pane-divider {
+  background: var(--color-border);
+  transition: background var(--transition-fast);
+}
+.palace-split [data-split-pane-divider]:hover,
+.palace-split .split-pane-divider:hover {
+  background: var(--color-accent);
+}
+.palace-split [data-split-pane-divider]:focus-visible,
+.palace-split .split-pane-divider:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: -1px;
+}
+
+/* ── react-arborist tree row ── */
+.arborist-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  border-left: 2px solid transparent;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.arborist-row:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+.arborist-row.is-active {
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  border-left-color: var(--color-accent);
+}
+
+/* ── Failure-type tag variants ── */
+.fail-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.02em;
+  padding: 2px 7px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.fail-tag.t-non_superconducting {
+  background: var(--fail-nonsupercon-bg);
+  color: var(--fail-nonsupercon-fg);
+  border-color: color-mix(in srgb, var(--fail-nonsupercon-fg) 30%, transparent);
+}
+.fail-tag.t-pressure_dependent_only {
+  background: var(--fail-pressure-bg);
+  color: var(--fail-pressure-fg);
+  border-color: color-mix(in srgb, var(--fail-pressure-fg) 30%, transparent);
+}
+.fail-tag.t-irreproducible {
+  background: var(--fail-irreprod-bg);
+  color: var(--fail-irreprod-fg);
+  border-color: color-mix(in srgb, var(--fail-irreprod-fg) 30%, transparent);
+}
+.fail-tag.t-unstable_phase {
+  background: var(--fail-unstable-bg);
+  color: var(--fail-unstable-fg);
+  border-color: color-mix(in srgb, var(--fail-unstable-fg) 30%, transparent);
+}
+.fail-tag.t-Tc_too_low {
+  background: var(--fail-tclow-bg);
+  color: var(--fail-tclow-fg);
+  border-color: rgba(255,255,255,0.1);
+}
+.fail-tag.t-synthesis_failed {
+  background: var(--fail-synth-bg);
+  color: var(--fail-synth-fg);
+  border-color: color-mix(in srgb, var(--fail-synth-fg) 30%, transparent);
+}
+.fail-tag.t-wrong_structure {
+  background: var(--fail-wrongstruct-bg);
+  color: var(--fail-wrongstruct-fg);
+  border-color: color-mix(in srgb, var(--fail-wrongstruct-fg) 30%, transparent);
+}
+.fail-tag.t-default {
+  background: var(--fail-tclow-bg);
+  color: var(--fail-tclow-fg);
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* ── Tc value emphasis — cryogenic cyan === superconducting ── */
+.tc-strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+.tc-exceptional {
+  color: var(--accent);
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(106, 212, 224, 0.45);
+}
+
+/* ── Hover micro-interactions (always on — no motion required) ── */
+.row-hover {
+  border-left: 2px solid transparent;
+  transition: border-color 100ms ease-out, background 100ms ease-out;
+}
+.row-hover:hover {
+  border-left-color: var(--color-accent);
+}
+
+/* ── Motion system ── all keyframes scoped to no-preference ── */
+@media (prefers-reduced-motion: no-preference) {
+  /* Lattice mark — static per brief (idle chrome is minimal).
+     No rotation animation; the logo itself is the signal. */
+  .lattice-spin-group { /* retained class name for compat */ }
+
+  /* Table row entrance — only when DataTable mounts or data changes.
+     Capped at 15 via animation-delay in DataTable itself. */
+  @keyframes row-enter {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .datatable-row {
+    animation: row-enter 150ms ease-out both;
+  }
+
+  /* Inspector entrance — replaces translateX with translateY per spec.
+     Sections stagger via .inspector-section nth-child. */
+  @keyframes inspectorIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .inspector-content {
+    animation: inspectorIn 180ms ease-out both;
+  }
+  .inspector-section {
+    animation: inspectorIn 180ms ease-out both;
+  }
+  .inspector-section:nth-child(1) { animation-delay: 0ms; }
+  .inspector-section:nth-child(2) { animation-delay: 30ms; }
+  .inspector-section:nth-child(3) { animation-delay: 60ms; }
+  .inspector-section:nth-child(4) { animation-delay: 90ms; }
+  .inspector-section:nth-child(5) { animation-delay: 120ms; }
+  .inspector-section:nth-child(6) { animation-delay: 150ms; }
+
+  /* Sidebar branch reveal — react-arborist virtualization constrains per-child
+     stagger, so we use a flat fade that retriggers on row mount. */
+  @keyframes branchReveal {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .arborist-row {
+    animation: branchReveal 160ms ease-out both;
+  }
+
+  /* Bit flip — only cells whose state differs from the previous bitmask */
+  @keyframes gateOn {
+    0%   { transform: scale(0.92); filter: brightness(0.8); }
+    60%  { transform: scale(1.08); filter: brightness(1.2); }
+    100% { transform: scale(1);    filter: brightness(1); }
+  }
+  .bit.just-flipped-on {
+    animation: gateOn 220ms ease-out;
+  }
+  .bit.is-diff {
+    box-shadow: 0 0 0 1.5px rgba(212,168,67,0.75);
+    transform: scale(1.06);
+    transition: box-shadow 180ms ease-out, transform 140ms ease-out;
+  }
+  .bit {
+    transition: transform 100ms ease-out;
+  }
+  .bit:hover {
+    transform: scale(1.05);
+  }
+
+  /* Hero panel staged reveal */
+  @keyframes heroReveal {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-claim           { animation: heroReveal 200ms ease-out  80ms both; }
+  .hero-evidence-item:nth-child(1) { animation: heroReveal 160ms ease-out 140ms both; }
+  .hero-evidence-item:nth-child(2) { animation: heroReveal 160ms ease-out 170ms both; }
+  .hero-evidence-item:nth-child(3) { animation: heroReveal 160ms ease-out 200ms both; }
+  .hero-evidence-item:nth-child(4) { animation: heroReveal 160ms ease-out 230ms both; }
+  .hero-warning         { animation: heroReveal 140ms ease-out 240ms both; }
+
+  /* Panel lift — hero + workspace section cards only */
+  .workspace-section {
+    transition: transform 160ms ease-out, box-shadow 180ms ease-out;
+  }
+  .workspace-section:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.32);
+  }
+  .workspace-section.is-active {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.36);
+  }
+
+  /* Failure card reveal — archival surfacing */
+  @keyframes failReveal {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .failure-title     { animation: failReveal 140ms ease-out   0ms both; }
+  .failure-tag       { animation: failReveal 100ms ease-out  40ms both; }
+  .failure-mechanism { animation: failReveal 140ms ease-out  80ms both; }
+}
+
+/* Reduced-motion static fallbacks — the .is-diff state must remain
+   VISIBLE even without animation (it's the primary visual signal). */
+.bit.is-diff {
+  box-shadow: 0 0 0 1.5px rgba(212,168,67,0.75);
+}
+
+/* Hero fingerprint warmth glow — static, not animated */
+.hero-fingerprint-wrap {
+  position: relative;
+  display: inline-block;
+}
+.hero-fingerprint-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(212,168,67,0.045) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-fingerprint-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Multi-select filter popover ── */
+.ms-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 50;
+  min-width: 220px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-strong);
+  padding: 4px 0;
+}
+.ms-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  transition: background 100ms ease-out, color 100ms ease-out;
+}
+.ms-option:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+.ms-option.is-selected {
+  color: var(--color-accent);
+}
+.ms-checkbox {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--color-border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+.ms-option.is-selected .ms-checkbox {
+  border-color: var(--color-accent);
+}
+.ms-count {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+/* ── Typography roles — all mono, hierarchy by weight/size/color ── */
+.voice-authority {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+.voice-quiet {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--fg-2);
+}
+.voice-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Bracketed overline — [ label ] — per nickelate.sc design system */
+.overline {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-3);
+  margin-bottom: 4px;
+}
+.overline::before { content: "[ "; color: var(--fg-4); }
+.overline::after  { content: " ]"; color: var(--fg-4); }
+
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg-3);
+}
+
+/* Bracket chrome — inline [TAG] marker (no margin) */
+.bracket {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--fg-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.bracket::before { content: "[ "; color: var(--fg-4); }
+.bracket::after  { content: " ]"; color: var(--fg-4); }
+
+/* Live pulsing dot — cyan, 1.4s ease, means "live readout" */
+.live-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-right: 6px;
+  animation: live-pulse 1.4s var(--ease-inst) infinite;
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+/* Box-drawing chrome helper */
+.chrome-frame {
+  font-family: var(--font-mono);
+  color: var(--fg-4);
+  letter-spacing: 0;
+  white-space: pre;
+  line-height: 1;
+}
+
+/* ── Panes (surface depth) ── */
+.pane-sidebar {
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--line-strong);
+  box-shadow: inset -1px 0 0 rgba(255,255,255,0.03);
+}
+.pane-center {
+  background: var(--bg-base);
+}
+.pane-inspector {
+  background: var(--bg-inspector);
+  border-left: 1px solid var(--line-strong);
+  box-shadow: inset 1px 0 0 rgba(255,255,255,0.03);
+}
+
+/* ── Wing tree rhythm (wings vs. rooms) ── */
+.wing-node {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  color: var(--text-primary) !important;
+  padding: 6px 12px !important;
+  margin-top: 10px;
+}
+.room-node {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: var(--text-secondary) !important;
+  padding: 4px 12px 4px 24px !important;
+}
+.tree-spine {
+  position: relative;
+}
+.tree-spine::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: var(--line);
+  pointer-events: none;
+}
+
+/* ── DataTable row hover: gold left-edge via ::before (no layout shift) ── */
+.datatable-row { position: relative; }
+.datatable-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--color-accent);
+  opacity: 0;
+  transition: opacity 100ms ease-out;
+  pointer-events: none;
+}
+.datatable-row:hover::before { opacity: 1; }
+.datatable-row.is-selected::before { opacity: 1; }
+.datatable-row.is-selected { background: rgba(255,255,255,0.04) !important; }
+.datatable-row:hover:not(.is-selected) { background: rgba(255,255,255,0.02) !important; }
