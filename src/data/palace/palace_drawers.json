@@ -3,17 +3,27 @@
     "id": 1,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | SrLaAlO₄ | onset_tc=42.4",
-    "bitmask": 63225,
-    "feature_vector": [
-      0.0,
-      0.5294117647058872,
-      0.0,
-      0.1696,
-      0.03666666666666667,
-      1.0,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 4110397,
+    "physical_bitmask": 61,
+    "control_bitmask": 14336,
+    "evidence_bitmask": 4096000,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.1696,
+        0.03666666666666667,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "SrLaAlO₄",
@@ -38,7 +48,11 @@
         "ambient",
         "timeline",
         "screener"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Nature 638, 935 (2025)",
     "confidence": "measured",
@@ -59,17 +73,27 @@
     "id": 2,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | SrLaAlO₄ | onset_tc=26.2",
-    "bitmask": 38489,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.10479999999999999,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2504761,
+    "physical_bitmask": 57,
+    "control_bitmask": 14336,
+    "evidence_bitmask": 2490368,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.10479999999999999,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "SrLaAlO₄",
@@ -92,7 +116,11 @@
       "tags": [
         "film",
         "ambient"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Nature 638, 935 (2025)",
     "confidence": "measured",
@@ -113,17 +141,27 @@
     "id": 3,
     "material": "(La,Pr)₃Ni₂O₇",
     "content": "(La,Pr)₃Ni₂O₇ | SrLaAlO₄ | onset_tc=40",
-    "bitmask": 36575,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.16,
-      0.0,
-      0.5,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2292859,
+    "physical_bitmask": 123,
+    "control_bitmask": 31744,
+    "evidence_bitmask": 2260992,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.16,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "(La,Pr)₃Ni₂O₇",
       "substrate": "SrLaAlO₄",
@@ -142,12 +180,17 @@
       "doping": "Pr-substituted",
       "oxygen_treatment": "in-situ oxidation",
       "pressure_class": "Ambient",
-      "notes": "La,Pr variant. Ambient pressure.",
+      "metastable": true,
+      "notes": "La,Pr variant. Ambient pressure. GAE (Gigantic-Anion Enhanced) non-equilibrium synthesis route — explicit metastable route annotation.",
       "tags": [
         "film",
         "ambient",
         "screener"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Nature 640, 641 (2025)",
     "confidence": "measured",
@@ -168,17 +211,27 @@
     "id": 4,
     "material": "(La,Pr)₃Ni₂O₇",
     "content": "(La,Pr)₃Ni₂O₇ | SrLaAlO₄ | onset_tc=63",
-    "bitmask": 52959,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.252,
-      0.6166666666666667,
-      0.5,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 3341435,
+    "physical_bitmask": 123,
+    "control_bitmask": 31744,
+    "evidence_bitmask": 3309568,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.252,
+        0.6166666666666667,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "(La,Pr)₃Ni₂O₇",
       "substrate": "SrLaAlO₄",
@@ -197,14 +250,19 @@
       "doping": "Pr-substituted",
       "oxygen_treatment": "in-situ full oxygenation",
       "pressure_class": "Ambient",
-      "notes": "Record ambient onset Tc. Extreme non-equilibrium GAE growth. Strange-metal α~1 at highest Tc.",
+      "metastable": true,
+      "notes": "Record ambient onset Tc. Extreme non-equilibrium GAE growth. Strange-metal α~1 at highest Tc. Explicit metastable route annotation (non-equilibrium synthesis).",
       "tags": [
         "film",
         "ambient",
         "record",
         "timeline",
         "screener"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": "https://arxiv.org/abs/2512.04708"
     },
     "source": "NSR nwag151 (2026)",
     "confidence": "measured",
@@ -225,17 +283,27 @@
     "id": 5,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | LaAlO₃ | onset_tc=30",
-    "bitmask": 38497,
-    "feature_vector": [
-      0.39597315436241715,
-      1.0,
-      0.3958868894601542,
-      0.12,
-      0.0,
-      0.6120230242469749,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2498621,
+    "physical_bitmask": 61,
+    "control_bitmask": 8192,
+    "evidence_bitmask": 2490368,
+    "feature_vector": {
+      "physical": [
+        0.39597315436241715,
+        0.6120230242469749,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.3958868894601542,
+        0.5
+      ],
+      "evidence": [
+        0.12,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "LaAlO₃",
@@ -259,7 +327,11 @@
         "film",
         "ambient",
         "screener"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Commun. Phys. (2025)",
     "confidence": "measured",
@@ -280,17 +352,27 @@
     "id": 6,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | NdGaO₃ | onset_tc=10",
-    "bitmask": 38497,
-    "feature_vector": [
-      0.6644295302013435,
-      0.0,
-      0.6632390745501285,
-      0.04,
-      0.0,
-      0.0,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2498621,
+    "physical_bitmask": 61,
+    "control_bitmask": 8192,
+    "evidence_bitmask": 2490368,
+    "feature_vector": {
+      "physical": [
+        0.6644295302013435,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.6632390745501285,
+        0.5
+      ],
+      "evidence": [
+        0.04,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "NdGaO₃",
@@ -314,7 +396,11 @@
         "film",
         "ambient",
         "screener"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Commun. Phys. (2025)",
     "confidence": "measured",
@@ -335,17 +421,27 @@
     "id": 7,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | SrTiO₃ | onset_tc=0",
-    "bitmask": 38465,
-    "feature_vector": [
-      1.0,
-      0.5,
-      1.0,
-      0.0,
-      0.0,
-      0.5,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2498617,
+    "physical_bitmask": 57,
+    "control_bitmask": 8192,
+    "evidence_bitmask": 2490368,
+    "feature_vector": {
+      "physical": [
+        1.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        1.0,
+        0.5
+      ],
+      "evidence": [
+        0.0,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "SrTiO₃",
@@ -369,7 +465,11 @@
         "film",
         "ambient",
         "screener"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Commun. Phys. (2025)",
     "confidence": "measured",
@@ -390,17 +490,27 @@
     "id": 8,
     "material": "La₂PrNi₂O₇",
     "content": "La₂PrNi₂O₇ | SrLaAlO₄ | onset_tc=45",
-    "bitmask": 57051,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.18,
-      0.15,
-      0.5,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 3603577,
+    "physical_bitmask": 121,
+    "control_bitmask": 31744,
+    "evidence_bitmask": 3571712,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.18,
+        0.15,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₂PrNi₂O₇",
       "substrate": "SrLaAlO₄",
@@ -424,7 +534,11 @@
         "film",
         "ambient",
         "timeline"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Nat. Mater. 24, 1221 (2025)",
     "confidence": "measured",
@@ -445,17 +559,27 @@
     "id": 9,
     "material": "La₃₋ₓSrₓNi₂O₇",
     "content": "La₃₋ₓSrₓNi₂O₇ | SrLaAlO₄ | onset_tc=42",
-    "bitmask": 36571,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.168,
-      0.0,
-      0.5,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2292921,
+    "physical_bitmask": 185,
+    "control_bitmask": 31744,
+    "evidence_bitmask": 2260992,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.168,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃₋ₓSrₓNi₂O₇",
       "substrate": "SrLaAlO₄",
@@ -478,7 +602,11 @@
       "tags": [
         "film",
         "ambient"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Nat. Mater. (2025) / PRL 136, 066002 (2026)",
     "confidence": "measured",
@@ -499,17 +627,27 @@
     "id": 10,
     "material": "(La,Pr)₃Ni₂O₇",
     "content": "(La,Pr)₃Ni₂O₇ | SrLaAlO₄ | onset_tc=62",
-    "bitmask": 36571,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.248,
-      0.0,
-      0.5,
-      0.5,
-      1.0
-    ],
+    "bitmask": 2284665,
+    "physical_bitmask": 121,
+    "control_bitmask": 23552,
+    "evidence_bitmask": 2260992,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.248,
+        0.0,
+        1.0
+      ]
+    },
     "properties": {
       "material": "(La,Pr)₃Ni₂O₇",
       "substrate": "SrLaAlO₄",
@@ -527,12 +665,16 @@
       "thickness": null,
       "doping": "Pr-substituted",
       "oxygen_treatment": null,
-      "pressure_class": "Ambient",
-      "notes": "Under 0.3GPa: 62K onset. Under 2.0GPa: 68.5K onset. Resistance dip linked to oxygen vacancies.",
+      "pressure_class": "Film + pressure",
+      "notes": "Under 0.3GPa: 62K onset. Under 2.0GPa: 68.5K onset (see id=15). Resistance dip linked to oxygen vacancies.",
       "tags": [
         "film",
-        "ambient"
-      ]
+        "pressure"
+      ],
+      "pressure_gpa": 0.3,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": "https://arxiv.org/abs/2603.29531"
     },
     "source": "arXiv:2603.29531",
     "confidence": "measured",
@@ -553,17 +695,27 @@
     "id": 11,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | SrLaAlO₄ | onset_tc=48.5",
-    "bitmask": 38553,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.194,
-      0.0,
-      0.5,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2529337,
+    "physical_bitmask": 57,
+    "control_bitmask": 6144,
+    "evidence_bitmask": 2523136,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.194,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "SrLaAlO₄",
@@ -572,7 +724,7 @@
       "onset_tc": 48.5,
       "zero_r_tc": null,
       "growth_method": null,
-      "group": "Wen et al.",
+      "group": "Li, Sun, Bötzel et al.",
       "year": 2025,
       "source": "Nat. Commun. (2026)",
       "arxiv": "2507.10399",
@@ -582,11 +734,15 @@
       "doping": "undoped",
       "oxygen_treatment": null,
       "pressure_class": "Film + pressure",
-      "notes": "Film + pressure: onset enhanced from ~30K to 48.5K max at moderate P. Dome-shaped.",
+      "notes": "Compressively strained bilayer nickelate film under pressure. Tc,onset 48.5 K at 7 GPa (Fig. 3f). Related higher-pressure data point from same paper: 61.5 K at 9 GPa — see id=23.",
       "tags": [
         "film",
         "pressure"
-      ]
+      ],
+      "pressure_gpa": 7.0,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": "https://arxiv.org/abs/2507.10399"
     },
     "source": "Nat. Commun. (2026)",
     "confidence": "measured",
@@ -607,17 +763,27 @@
     "id": 12,
     "material": "Nickelate superstructures",
     "content": "Nickelate superstructures | SrLaAlO₄ | onset_tc=50",
-    "bitmask": 36571,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.2,
-      0.0,
-      0.5,
-      0.5,
-      1.0
-    ],
+    "bitmask": 2292745,
+    "physical_bitmask": 9,
+    "control_bitmask": 31744,
+    "evidence_bitmask": 2260992,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.2,
+        0.0,
+        1.0
+      ]
+    },
     "properties": {
       "material": "Nickelate superstructures",
       "substrate": "SrLaAlO₄",
@@ -641,7 +807,11 @@
         "film",
         "ambient",
         "timeline"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Nature (Apr 9, 2026)",
     "confidence": "measured",
@@ -662,17 +832,27 @@
     "id": 13,
     "material": "La₃₋ₓSrₓNi₂O₇",
     "content": "La₃₋ₓSrₓNi₂O₇ | SrLaAlO₄ | onset_tc=42",
-    "bitmask": 36571,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.168,
-      0.0,
-      0.5,
-      0.5,
-      1.0
-    ],
+    "bitmask": 2292921,
+    "physical_bitmask": 185,
+    "control_bitmask": 31744,
+    "evidence_bitmask": 2260992,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.168,
+        0.0,
+        1.0
+      ]
+    },
     "properties": {
       "material": "La₃₋ₓSrₓNi₂O₇",
       "substrate": "SrLaAlO₄",
@@ -696,7 +876,11 @@
         "film",
         "ambient",
         "timeline"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "PRL 136, 066002 (2026)",
     "confidence": "measured",
@@ -717,17 +901,27 @@
     "id": 14,
     "material": "La₃₋ₓSrₓNi₂O₇",
     "content": "La₃₋ₓSrₓNi₂O₇ | SrLaAlO₄ | onset_tc=42",
-    "bitmask": 36571,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.168,
-      0.0,
-      0.5,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2292921,
+    "physical_bitmask": 185,
+    "control_bitmask": 31744,
+    "evidence_bitmask": 2260992,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.168,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃₋ₓSrₓNi₂O₇",
       "substrate": "SrLaAlO₄",
@@ -750,7 +944,11 @@
       "tags": [
         "film",
         "ambient"
-      ]
+      ],
+      "pressure_gpa": 0.0001,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Nat. Mater. (2025)",
     "confidence": "measured",
@@ -771,17 +969,27 @@
     "id": 15,
     "material": "(La,Pr)₃Ni₂O₇",
     "content": "(La,Pr)₃Ni₂O₇ | SrLaAlO₄ | onset_tc=68.5",
-    "bitmask": 36507,
-    "feature_vector": [
-      0.0,
-      0.5,
-      0.0,
-      0.274,
-      0.0,
-      0.5,
-      0.5,
-      1.0
-    ],
+    "bitmask": 2284665,
+    "physical_bitmask": 121,
+    "control_bitmask": 23552,
+    "evidence_bitmask": 2260992,
+    "feature_vector": {
+      "physical": [
+        0.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.0,
+        0.5
+      ],
+      "evidence": [
+        0.274,
+        0.0,
+        1.0
+      ]
+    },
     "properties": {
       "material": "(La,Pr)₃Ni₂O₇",
       "substrate": "SrLaAlO₄",
@@ -805,7 +1013,11 @@
         "film",
         "pressure",
         "timeline"
-      ]
+      ],
+      "pressure_gpa": 2.0,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": "https://arxiv.org/abs/2603.29531"
     },
     "source": "arXiv:2603.29531",
     "confidence": "measured",
@@ -826,17 +1038,27 @@
     "id": 16,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | LaAlO₃ | onset_tc=60",
-    "bitmask": 38561,
-    "feature_vector": [
-      0.39597315436241715,
-      1.0,
-      0.3958868894601542,
-      0.24,
-      0.0,
-      0.6120230242469749,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2523197,
+    "physical_bitmask": 61,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2523136,
+    "feature_vector": {
+      "physical": [
+        0.39597315436241715,
+        0.6120230242469749,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.3958868894601542,
+        0.5
+      ],
+      "evidence": [
+        0.24,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "LaAlO₃",
@@ -859,7 +1081,11 @@
       "tags": [
         "film",
         "pressure"
-      ]
+      ],
+      "pressure_gpa": 20,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Commun. Phys. (2025)",
     "confidence": "measured",
@@ -880,17 +1106,27 @@
     "id": 17,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | NdGaO₃ | onset_tc=28",
-    "bitmask": 38433,
-    "feature_vector": [
-      0.6644295302013435,
-      0.0,
-      0.6632390745501285,
-      0.112,
-      0.0,
-      0.0,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2490429,
+    "physical_bitmask": 61,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2490368,
+    "feature_vector": {
+      "physical": [
+        0.6644295302013435,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.6632390745501285,
+        0.5
+      ],
+      "evidence": [
+        0.112,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "NdGaO₃",
@@ -913,7 +1149,11 @@
       "tags": [
         "film",
         "pressure"
-      ]
+      ],
+      "pressure_gpa": 20,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Commun. Phys. (2025)",
     "confidence": "measured",
@@ -934,17 +1174,27 @@
     "id": 18,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | SrTiO₃ | onset_tc=10",
-    "bitmask": 38401,
-    "feature_vector": [
-      1.0,
-      0.5,
-      1.0,
-      0.04,
-      0.0,
-      0.5,
-      0.5,
-      0.6666666666666666
-    ],
+    "bitmask": 2490425,
+    "physical_bitmask": 57,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2490368,
+    "feature_vector": {
+      "physical": [
+        1.0,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        1.0,
+        0.5
+      ],
+      "evidence": [
+        0.04,
+        0.0,
+        0.6666666666666666
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": "SrTiO₃",
@@ -967,7 +1217,11 @@
       "tags": [
         "film",
         "pressure"
-      ]
+      ],
+      "pressure_gpa": 20,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": null
     },
     "source": "Commun. Phys. (2025)",
     "confidence": "measured",
@@ -988,17 +1242,27 @@
     "id": 19,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | - | onset_tc=80",
-    "bitmask": 5505,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.32,
-      0.0,
-      0.5,
-      0.5,
-      0.0
-    ],
+    "bitmask": 360505,
+    "physical_bitmask": 57,
+    "control_bitmask": 0,
+    "evidence_bitmask": 360448,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.32,
+        0.0,
+        0.0
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": null,
@@ -1022,7 +1286,14 @@
         "bulk",
         "pressure",
         "timeline"
-      ]
+      ],
+      "pressure_gpa": 29.5,
+      "pressure_range": [
+        14,
+        43
+      ],
+      "pressure_confidence": "approximate",
+      "source_url": null
     },
     "source": "Nature 621 (2023)",
     "confidence": "measured",
@@ -1043,17 +1314,27 @@
     "id": 20,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | - | onset_tc=80",
-    "bitmask": 38273,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.32,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2457657,
+    "physical_bitmask": 57,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2457600,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.32,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": null,
@@ -1077,7 +1358,14 @@
         "bulk",
         "pressure",
         "timeline"
-      ]
+      ],
+      "pressure_gpa": 25,
+      "pressure_range": [
+        20,
+        40
+      ],
+      "pressure_confidence": "inferred",
+      "source_url": null
     },
     "source": "Nat. Phys. (2024)",
     "confidence": "measured",
@@ -1098,17 +1386,27 @@
     "id": 21,
     "material": "La₂PrNi₂O₇",
     "content": "La₂PrNi₂O₇ | - | onset_tc=82.5",
-    "bitmask": 64899,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.33,
-      1.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 4047993,
+    "physical_bitmask": 121,
+    "control_bitmask": 17408,
+    "evidence_bitmask": 4030464,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.33,
+        1.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "La₂PrNi₂O₇",
       "substrate": null,
@@ -1132,7 +1430,14 @@
         "bulk",
         "pressure",
         "timeline"
-      ]
+      ],
+      "pressure_gpa": 18,
+      "pressure_range": [
+        15,
+        25
+      ],
+      "pressure_confidence": "inferred",
+      "source_url": null
     },
     "source": "Nature 634 (2024)",
     "confidence": "measured",
@@ -1153,17 +1458,27 @@
     "id": 22,
     "material": "La₃Ni₂O₇",
     "content": "La₃Ni₂O₇ | - | onset_tc=96",
-    "bitmask": 38273,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.384,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2457657,
+    "physical_bitmask": 57,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2457600,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.384,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇",
       "substrate": null,
@@ -1188,7 +1503,14 @@
         "pressure",
         "record",
         "timeline"
-      ]
+      ],
+      "pressure_gpa": 36,
+      "pressure_range": [
+        30,
+        45
+      ],
+      "pressure_confidence": "inferred",
+      "source_url": null
     },
     "source": "Nature (Dec 2025)",
     "confidence": "measured",
@@ -1207,19 +1529,97 @@
   },
   {
     "id": 23,
+    "material": "La₃Ni₂O₇",
+    "content": "La₃Ni₂O₇ | - | onset_tc=61.5",
+    "bitmask": 2523193,
+    "physical_bitmask": 57,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2523136,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.246,
+        0.0,
+        0.6666666666666666
+      ]
+    },
+    "properties": {
+      "material": "La₃Ni₂O₇",
+      "substrate": null,
+      "substrate_a": null,
+      "strain": null,
+      "onset_tc": 61.5,
+      "zero_r_tc": null,
+      "growth_method": null,
+      "group": "Li, Sun, Bötzel et al.",
+      "year": 2025,
+      "source": "Nat. Commun. (2026)",
+      "arxiv": "2507.10399",
+      "film_a": null,
+      "film_c": null,
+      "thickness": null,
+      "doping": "undoped",
+      "oxygen_treatment": null,
+      "pressure_class": "Film + pressure",
+      "notes": "Same paper as id=11 (arXiv:2507.10399). Higher-pressure data point: Tc,onset 61.5 K at 9 GPa. Substrate / growth_method / film lattice params not verified from abstract — flagged for review.",
+      "tags": [
+        "film",
+        "pressure"
+      ],
+      "pressure_gpa": 9.0,
+      "pressure_range": null,
+      "pressure_confidence": "exact",
+      "source_url": "https://arxiv.org/abs/2507.10399"
+    },
+    "source": "Nat. Commun. (2026)",
+    "confidence": "measured",
+    "wing": "nickelates",
+    "room": "experimental_results",
+    "hall": "data_points",
+    "evidence": {
+      "source_doi": null,
+      "source_url": null,
+      "figure_label": null,
+      "figure_caption": null,
+      "summary": null,
+      "type": null,
+      "claim_supported": null
+    }
+  },
+  {
+    "id": 24,
     "material": "HgBa₂Ca₂Cu₃O₈₊δ (Hg-1223)",
     "content": "HgBa₂Ca₂Cu₃O₈₊δ (Hg-1223) | - | onset_tc=133",
-    "bitmask": 34247,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.532,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2204683,
+    "physical_bitmask": 11,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.532,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "HgBa₂Ca₂Cu₃O₈₊δ (Hg-1223)",
       "substrate": null,
@@ -1253,20 +1653,30 @@
     }
   },
   {
-    "id": 24,
+    "id": 25,
     "material": "HgBa₂Ca₂Cu₃O₈₊δ (pressure quench)",
     "content": "HgBa₂Ca₂Cu₃O₈₊δ (pressure quench) | - | onset_tc=151",
-    "bitmask": 34183,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.604,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2196491,
+    "physical_bitmask": 11,
+    "control_bitmask": 1024,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.604,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "HgBa₂Ca₂Cu₃O₈₊δ (pressure quench)",
       "substrate": null,
@@ -1300,20 +1710,30 @@
     }
   },
   {
-    "id": 25,
+    "id": 26,
     "material": "YBa₂Cu₃O₇₋δ (YBCO)",
     "content": "YBa₂Cu₃O₇₋δ (YBCO) | - | onset_tc=93",
-    "bitmask": 34247,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.372,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2204683,
+    "physical_bitmask": 11,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.372,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "YBa₂Cu₃O₇₋δ (YBCO)",
       "substrate": null,
@@ -1347,20 +1767,30 @@
     }
   },
   {
-    "id": 26,
+    "id": 27,
     "material": "Bi₂Sr₂CaCu₂O₈₊ₓ (Bi-2212)",
     "content": "Bi₂Sr₂CaCu₂O₈₊ₓ (Bi-2212) | - | onset_tc=95",
-    "bitmask": 34247,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.38,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2204811,
+    "physical_bitmask": 139,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.38,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "Bi₂Sr₂CaCu₂O₈₊ₓ (Bi-2212)",
       "substrate": null,
@@ -1394,20 +1824,30 @@
     }
   },
   {
-    "id": 27,
+    "id": 28,
     "material": "FeSe",
     "content": "FeSe | - | onset_tc=8",
-    "bitmask": 32839,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.032,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106371,
+    "physical_bitmask": 3,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.032,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "FeSe",
       "substrate": null,
@@ -1441,20 +1881,30 @@
     }
   },
   {
-    "id": 28,
+    "id": 29,
     "material": "Ba(Fe₁₋ₓCoₓ)₂As₂",
     "content": "Ba(Fe₁₋ₓCoₓ)₂As₂ | - | onset_tc=25",
-    "bitmask": 32839,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.1,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106371,
+    "physical_bitmask": 3,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.1,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "Ba(Fe₁₋ₓCoₓ)₂As₂",
       "substrate": null,
@@ -1488,20 +1938,30 @@
     }
   },
   {
-    "id": 29,
+    "id": 30,
     "material": "MgB₂",
     "content": "MgB₂ | - | onset_tc=39",
-    "bitmask": 32962,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.156,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2139136,
+    "physical_bitmask": 0,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2129920,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.156,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "MgB₂",
       "substrate": null,
@@ -1535,20 +1995,30 @@
     }
   },
   {
-    "id": 30,
+    "id": 31,
     "material": "Nb₃Sn",
     "content": "Nb₃Sn | - | onset_tc=18",
-    "bitmask": 32834,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.072,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106368,
+    "physical_bitmask": 0,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.072,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "Nb₃Sn",
       "substrate": null,
@@ -1582,20 +2052,30 @@
     }
   },
   {
-    "id": 31,
+    "id": 32,
     "material": "H₃S",
     "content": "H₃S | - | onset_tc=203",
-    "bitmask": 33156,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.812,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2195458,
+    "physical_bitmask": 2,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.812,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "H₃S",
       "substrate": null,
@@ -1629,20 +2109,30 @@
     }
   },
   {
-    "id": 32,
+    "id": 33,
     "material": "LaH₁₀",
     "content": "LaH₁₀ | - | onset_tc=250",
-    "bitmask": 33156,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      1.0,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2195458,
+    "physical_bitmask": 2,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        1.0,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "LaH₁₀",
       "substrate": null,
@@ -1676,20 +2166,30 @@
     }
   },
   {
-    "id": 33,
+    "id": 34,
     "material": "FeSe/SrTiO₃ (monolayer)",
     "content": "FeSe/SrTiO₃ (monolayer) | - | onset_tc=65",
-    "bitmask": 32967,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.26,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2139267,
+    "physical_bitmask": 131,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2129920,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.26,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "FeSe/SrTiO₃ (monolayer)",
       "substrate": null,
@@ -1723,20 +2223,30 @@
     }
   },
   {
-    "id": 34,
+    "id": 35,
     "material": "FeSe (high pressure)",
     "content": "FeSe (high pressure) | - | onset_tc=37",
-    "bitmask": 32903,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.148,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2130947,
+    "physical_bitmask": 3,
+    "control_bitmask": 1024,
+    "evidence_bitmask": 2129920,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.148,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "FeSe (high pressure)",
       "substrate": null,
@@ -1770,20 +2280,30 @@
     }
   },
   {
-    "id": 35,
+    "id": 36,
     "material": "LaFeAsO₁₋ₓFₓ (1111 family)",
     "content": "LaFeAsO₁₋ₓFₓ (1111 family) | - | onset_tc=26",
-    "bitmask": 32839,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.104,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106371,
+    "physical_bitmask": 3,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.104,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "LaFeAsO₁₋ₓFₓ (1111 family)",
       "substrate": null,
@@ -1817,20 +2337,30 @@
     }
   },
   {
-    "id": 36,
+    "id": 37,
     "material": "SmFeAsO₁₋ₓFₓ",
     "content": "SmFeAsO₁₋ₓFₓ | - | onset_tc=56",
-    "bitmask": 32967,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.224,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2139139,
+    "physical_bitmask": 3,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2129920,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.224,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "SmFeAsO₁₋ₓFₓ",
       "substrate": null,
@@ -1864,20 +2394,30 @@
     }
   },
   {
-    "id": 37,
+    "id": 38,
     "material": "Nd₀.₈Sr₀.₂NiO₂ (infinite-layer)",
     "content": "Nd₀.₈Sr₀.₂NiO₂ (infinite-layer) | - | onset_tc=15",
-    "bitmask": 33863,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.06,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106763,
+    "physical_bitmask": 395,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.06,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "Nd₀.₈Sr₀.₂NiO₂ (infinite-layer)",
       "substrate": null,
@@ -1911,20 +2451,30 @@
     }
   },
   {
-    "id": 38,
+    "id": 39,
     "material": "La₃Ni₂O₇ (under pressure)",
     "content": "La₃Ni₂O₇ (under pressure) | - | onset_tc=80",
-    "bitmask": 34183,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.32,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2196539,
+    "physical_bitmask": 59,
+    "control_bitmask": 1024,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.32,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇ (under pressure)",
       "substrate": null,
@@ -1958,20 +2508,30 @@
     }
   },
   {
-    "id": 39,
+    "id": 40,
     "material": "La₃Ni₂O₇ (thin film, strained)",
     "content": "La₃Ni₂O₇ (thin film, strained) | - | onset_tc=42",
-    "bitmask": 33927,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.168,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2131003,
+    "physical_bitmask": 59,
+    "control_bitmask": 1024,
+    "evidence_bitmask": 2129920,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.168,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "La₃Ni₂O₇ (thin film, strained)",
       "substrate": null,
@@ -2005,20 +2565,30 @@
     }
   },
   {
-    "id": 40,
+    "id": 41,
     "material": "CsV₃Sb₅",
     "content": "CsV₃Sb₅ | - | onset_tc=2.5",
-    "bitmask": 32839,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.01,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106371,
+    "physical_bitmask": 3,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.01,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "CsV₃Sb₅",
       "substrate": null,
@@ -2052,20 +2622,30 @@
     }
   },
   {
-    "id": 41,
+    "id": 42,
     "material": "RbV₃Sb₅",
     "content": "RbV₃Sb₅ | - | onset_tc=0.9",
-    "bitmask": 32839,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.0036,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106371,
+    "physical_bitmask": 3,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.0036,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "RbV₃Sb₅",
       "substrate": null,
@@ -2099,20 +2679,30 @@
     }
   },
   {
-    "id": 42,
+    "id": 43,
     "material": "KV₃Sb₅",
     "content": "KV₃Sb₅ | - | onset_tc=0.9",
-    "bitmask": 32839,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.0036,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106371,
+    "physical_bitmask": 3,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.0036,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "KV₃Sb₅",
       "substrate": null,
@@ -2146,20 +2736,30 @@
     }
   },
   {
-    "id": 43,
+    "id": 44,
     "material": "Tl₂Ba₂Ca₂Cu₃O₁₀ (Tl-2223)",
     "content": "Tl₂Ba₂Ca₂Cu₃O₁₀ (Tl-2223) | - | onset_tc=125",
-    "bitmask": 34247,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2204683,
+    "physical_bitmask": 11,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.5,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "Tl₂Ba₂Ca₂Cu₃O₁₀ (Tl-2223)",
       "substrate": null,
@@ -2193,20 +2793,30 @@
     }
   },
   {
-    "id": 44,
+    "id": 45,
     "material": "La₂₋ₓBaₓCuO₄ (LBCO)",
     "content": "La₂₋ₓBaₓCuO₄ (LBCO) | - | onset_tc=30",
-    "bitmask": 33863,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.12,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106379,
+    "physical_bitmask": 11,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.12,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "La₂₋ₓBaₓCuO₄ (LBCO)",
       "substrate": null,
@@ -2240,20 +2850,30 @@
     }
   },
   {
-    "id": 45,
+    "id": 46,
     "material": "YH₆",
     "content": "YH₆ | - | onset_tc=224",
-    "bitmask": 33156,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.896,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2195458,
+    "physical_bitmask": 2,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.896,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "YH₆",
       "substrate": null,
@@ -2287,20 +2907,30 @@
     }
   },
   {
-    "id": 46,
+    "id": 47,
     "material": "CaH₆",
     "content": "CaH₆ | - | onset_tc=215",
-    "bitmask": 33156,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.86,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2195458,
+    "physical_bitmask": 2,
+    "control_bitmask": 0,
+    "evidence_bitmask": 2195456,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.86,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "CaH₆",
       "substrate": null,
@@ -2334,20 +2964,30 @@
     }
   },
   {
-    "id": 47,
+    "id": 48,
     "material": "UTe₂",
     "content": "UTe₂ | - | onset_tc=2",
-    "bitmask": 32838,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.008,
-      0.0,
-      0.5,
-      0.5,
-      0.3333333333333333
-    ],
+    "bitmask": 2106370,
+    "physical_bitmask": 2,
+    "control_bitmask": 9216,
+    "evidence_bitmask": 2097152,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.008,
+        0.0,
+        0.3333333333333333
+      ]
+    },
     "properties": {
       "material": "UTe₂",
       "substrate": null,
@@ -2381,20 +3021,30 @@
     }
   },
   {
-    "id": 48,
+    "id": 49,
     "material": "LK-99",
     "content": "FAILURE: LK-99",
-    "bitmask": 2114,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.0,
-      0.0,
-      0.5,
-      0.5,
-      0.0
-    ],
+    "bitmask": 25600,
+    "physical_bitmask": 0,
+    "control_bitmask": 25600,
+    "evidence_bitmask": 0,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
     "properties": {
       "material": "LK-99",
       "onset_tc": 0,
@@ -2423,20 +3073,30 @@
     }
   },
   {
-    "id": 49,
+    "id": 50,
     "material": "H₃S (ambient)",
     "content": "FAILURE: H₃S (ambient)",
     "bitmask": 0,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.0,
-      0.0,
-      0.5,
-      0.5,
-      0.0
-    ],
+    "physical_bitmask": 0,
+    "control_bitmask": 0,
+    "evidence_bitmask": 0,
+    "feature_vector": {
+      "physical": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "control": [
+        0.5,
+        0.5
+      ],
+      "evidence": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
     "properties": {
       "material": "H₃S",
       "onset_tc": 0,
@@ -2456,43 +3116,6 @@
     "hall": "failed_predictions",
     "evidence": {
       "source_doi": null,
-      "source_url": null,
-      "figure_label": null,
-      "figure_caption": null,
-      "summary": null,
-      "type": null,
-      "claim_supported": null
-    }
-  },
-  {
-    "id": 50,
-    "material": "TestMaterial",
-    "content": "TestMaterial | LaAlO3 | onset_tc=50",
-    "bitmask": 33985,
-    "feature_vector": [
-      0.5,
-      0.5,
-      0.5,
-      0.2,
-      0.0,
-      0.5,
-      0.5,
-      1.0
-    ],
-    "properties": {
-      "material": "TestMaterial",
-      "onset_tc": 50,
-      "source_doi": "test",
-      "substrate": "LaAlO3",
-      "year": 2026
-    },
-    "source": null,
-    "confidence": "measured",
-    "wing": "nickelates",
-    "room": "experimental_results",
-    "hall": "data_points",
-    "evidence": {
-      "source_doi": "test",
       "source_url": null,
       "figure_label": null,
       "figure_caption": null,

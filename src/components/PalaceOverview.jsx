@@ -6,13 +6,14 @@ import lessons from '../data/palace/palace_lessons.json';
 import gaps from '../data/palace/palace_gaps_nickelates.json';
 import gateDefs from '../data/palace/palace_gates.json';
 import proposals from '../data/palace/palace_proposals.json';
-import BitmaskGrid16 from './BitmaskGrid16.jsx';
+import BitmaskStamp, { splitBitmask } from './BitmaskStamp.jsx';
 import FailureTag from './FailureTag.jsx';
 import TcValue from './TcValue.jsx';
 import DataTable from './DataTable.jsx';
 import { hammingDistance } from '../utils/bitmask.js';
 
-const GATE_NAME_TO_INDEX = Object.fromEntries(gateDefs.map(g => [g.name, g.index]));
+// palace_gates.json is now a dict {count, categories, gates} — read the gates array.
+const GATE_NAME_TO_INDEX = Object.fromEntries(gateDefs.gates.map(g => [g.name, g.index]));
 
 // Compute the full ranked candidate list once. Each entry carries the gap
 // data plus the resolved nearest-success drawer (for substrate etc.) and
@@ -107,7 +108,7 @@ function HeroCandidate({ hero, onSelect }) {
       <div>
         <div className="overline" style={{ marginBottom: 10 }}>nearest untested candidate</div>
         <div className="hero-fingerprint-wrap">
-          <BitmaskGrid16 bitmask={hero.bitmask} size="signature" diffGate={hero.diffIndex} />
+          <BitmaskStamp drawer={splitBitmask(hero.bitmask)} size="signature" diffGate={hero.diffIndex} />
         </div>
       </div>
 

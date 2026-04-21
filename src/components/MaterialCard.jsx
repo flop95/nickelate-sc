@@ -1,4 +1,4 @@
-import BitmaskGrid16 from './BitmaskGrid16.jsx';
+import BitmaskStamp from './BitmaskStamp.jsx';
 import TcValue from './TcValue.jsx';
 
 export default function MaterialCard({ drawer, onClick, selected = false, compact = false }) {
@@ -49,7 +49,7 @@ export default function MaterialCard({ drawer, onClick, selected = false, compac
           {!isAmbient && <span style={{ color: 'var(--color-failure)' }}>HP</span>}
         </div>
         <div style={{ marginTop: 6 }}>
-          <BitmaskGrid16 bitmask={drawer.bitmask} size="inline" />
+          <BitmaskStamp drawer={drawer} size="inline" />
         </div>
       </div>
       <div style={{ textAlign: 'right' }}>

@@ -1,4 +1,4 @@
-import BitmaskGrid16 from './BitmaskGrid16.jsx';
+import BitmaskStamp from './BitmaskStamp.jsx';
 import LatticeSpin from './LatticeSpin.jsx';
 import FailureTag from './FailureTag.jsx';
 import TcValue from './TcValue.jsx';
@@ -173,7 +173,7 @@ function DrawerInspector({ drawer, onNavigate }) {
     <div>
       <div className="inspector-section" style={{ marginBottom: 18 }}>
         <Label>signature · {passes}/16</Label>
-        <BitmaskGrid16 bitmask={drawer.bitmask} size="signature" />
+        <BitmaskStamp drawer={drawer} size="signature" />
       </div>
 
       <div className="inspector-section" style={{ marginBottom: 16 }}>

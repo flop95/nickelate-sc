@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import failures from '../data/palace/palace_failures.json';
 import drawers from '../data/palace/palace_drawers.json';
-import BitmaskGrid16 from './BitmaskGrid16.jsx';
+import BitmaskStamp from './BitmaskStamp.jsx';
 import DataTable from './DataTable.jsx';
 import MultiSelectFilter, { FilterChip } from './MultiSelectFilter.jsx';
 import FailureTag from './FailureTag.jsx';
@@ -168,7 +168,7 @@ export default function FailureBrowser({ onSelect, selection }) {
       enableSorting: false,
       cell: info => {
         const drawer = drawerById.get(info.row.original.drawer_id);
-        return drawer ? <BitmaskGrid16 bitmask={drawer.bitmask} size="inline" /> : null;
+        return drawer ? <BitmaskStamp drawer={drawer} size="inline" /> : null;
       },
     },
   ], [drawerById]);

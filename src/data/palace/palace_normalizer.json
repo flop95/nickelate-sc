@@ -1,34 +1,57 @@
 {
   "normalizer": {
-    "min": [
-      3.756,
-      20.41,
-      -2.01,
-      0.0,
-      0.0,
-      5.294422827496757,
-      20.0,
-      2023.0
-    ],
-    "max": [
-      3.905,
-      20.58,
-      1.88,
-      250.0,
-      60.0,
-      5.457933972310969,
-      20.0,
-      2026.0
-    ]
+    "physical": {
+      "min": [
+        3.756,
+        5.294422827496757,
+        1.2,
+        0.0
+      ],
+      "max": [
+        3.905,
+        5.457933972310969,
+        2.5,
+        1.0
+      ]
+    },
+    "control": {
+      "min": [
+        -2.01,
+        20.0
+      ],
+      "max": [
+        1.88,
+        20.0
+      ]
+    },
+    "evidence": {
+      "min": [
+        0.0,
+        0.0,
+        2023.0
+      ],
+      "max": [
+        250.0,
+        60.0,
+        2026.0
+      ]
+    }
   },
-  "feature_keys": [
-    "lattice_a",
-    "lattice_c",
-    "strain_pct",
-    "onset_tc",
-    "zero_r_tc",
-    "c_over_a",
-    "thickness_nm",
-    "year"
-  ]
+  "feature_keys": {
+    "physical": [
+      "lattice_a",
+      "c_over_a",
+      "formal_Ni_oxidation_state",
+      "apical_oxygen_occupancy"
+    ],
+    "control": [
+      "strain_pct",
+      "thickness_nm"
+    ],
+    "evidence": [
+      "onset_tc",
+      "zero_r_tc",
+      "year"
+    ]
+  }
 }

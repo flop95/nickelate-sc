@@ -81,11 +81,11 @@ export default function StatsView() {
 
   // --- Gate pass rates
   const gateRows = useMemo(() => {
-    const counts = new Array(16).fill(0);
+    const counts = new Array(gates.count).fill(0);
     for (const d of drawers) {
-      for (let i = 0; i < 16; i++) if ((d.bitmask >> i) & 1) counts[i]++;
+      for (let i = 0; i < gates.count; i++) if ((d.bitmask >>> i) & 1) counts[i]++;
     }
-    return gates.map(g => ({
+    return gates.gates.map(g => ({
       index: g.index,
       name: g.name,
       label: g.label,

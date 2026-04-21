@@ -1,5 +1,5 @@
 import gaps from '../data/palace/palace_gaps_nickelates.json';
-import BitmaskGrid16 from './BitmaskGrid16.jsx';
+import BitmaskStamp, { splitBitmask } from './BitmaskStamp.jsx';
 import { useState } from 'react';
 
 export default function GapsView() {
@@ -70,7 +70,7 @@ export default function GapsView() {
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 8 }}>
                 candidate bitmask
               </div>
-              <BitmaskGrid16 bitmask={selected.bitmask} size="signature" />
+              <BitmaskStamp drawer={splitBitmask(selected.bitmask)} size="signature" />
               <div style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
                 Distance: <span style={{ color: 'var(--color-text)' }}>{selected.distance}</span><br />
                 Anchor: <span style={{ color: 'var(--color-text)' }}>{selected.nearest_success}</span> ({selected.nearest_onset}K)<br />

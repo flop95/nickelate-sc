@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import drawers from '../data/palace/palace_drawers.json';
 import failures from '../data/palace/palace_failures.json';
 import normData from '../data/palace/palace_normalizer.json';
-import BitmaskGrid16 from './BitmaskGrid16.jsx';
+import BitmaskStamp from './BitmaskStamp.jsx';
 import DataTable from './DataTable.jsx';
 import TcValue from './TcValue.jsx';
 import { searchSimilar } from '../utils/retrieval.js';
@@ -96,7 +96,7 @@ export default function SearchView({ onSelect }) {
       size: '96px',
       enableColumnFilter: false,
       enableSorting: false,
-      cell: info => <BitmaskGrid16 bitmask={info.row.original.bitmask} size="inline" />,
+      cell: info => <BitmaskStamp drawer={info.row.original.drawer} size="inline" />,
     },
     {
       id: 'hamming',
@@ -203,7 +203,10 @@ export default function SearchView({ onSelect }) {
 
         <div>
           <Label>Query bitmask</Label>
-          <BitmaskGrid16 bitmask={result.queryBitmask} size="signature" />
+          {/* Query stamp disabled pending Bucket 1 step 3/4;
+              queryBitmask is 16-gate, cannot map to the new schema.
+              See MIGRATION_NOTES.md "Public frontend audit → Group A". */}
+          <BitmaskStamp disabled size="signature" />
 
           <div style={{ marginTop: 24 }}>
             <Label>Retrieval method</Label>

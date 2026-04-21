@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import BitmaskGrid16 from './BitmaskGrid16.jsx';
+import BitmaskStamp from './BitmaskStamp.jsx';
 import DataTable from './DataTable.jsx';
 import TcValue from './TcValue.jsx';
 import FailureTag from './FailureTag.jsx';
@@ -40,7 +40,7 @@ export default function MaterialPage({ drawer, onSelect }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 40, marginBottom: 32 }}>
         <div>
           <Label>Gates {passes}/16</Label>
-          <BitmaskGrid16 bitmask={drawer.bitmask} size="signature" />
+          <BitmaskStamp drawer={drawer} size="signature" />
           <div style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
@@ -150,7 +150,7 @@ function SimilarTable({ sim, onSelect }) {
       size: '80px',
       enableColumnFilter: false,
       enableSorting: false,
-      cell: info => <BitmaskGrid16 bitmask={info.row.original.bitmask} size="inline" />,
+      cell: info => <BitmaskStamp drawer={info.row.original.drawer} size="inline" />,
     },
     {
       id: 'hamming',

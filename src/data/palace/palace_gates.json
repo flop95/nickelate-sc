@@ -1,98 +1,189 @@
-[
-  {
-    "index": 0,
-    "name": "layered",
-    "label": "Layered",
-    "description": "Material has layered crystal structure"
+{
+  "count": 22,
+  "categories": {
+    "physical": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "control": [
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "evidence": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
   },
-  {
-    "index": 1,
-    "name": "tweakable",
-    "label": "Tweakable",
-    "description": "Chemically dopable / substitutable"
-  },
-  {
-    "index": 2,
-    "name": "metastable",
-    "label": "Metastable",
-    "description": "Non-equilibrium or pressure-quenched phase"
-  },
-  {
-    "index": 3,
-    "name": "compressive_gt_0.5pct",
-    "label": "Strain < -0.5%",
-    "description": "Compressive strain greater than 0.5%"
-  },
-  {
-    "index": 4,
-    "name": "compressive_gt_1pct",
-    "label": "Strain < -1%",
-    "description": "Compressive strain greater than 1%"
-  },
-  {
-    "index": 5,
-    "name": "c_over_a_4.8_5.8",
-    "label": "c/a 4.8-5.8",
-    "description": "c/a ratio in favorable band"
-  },
-  {
-    "index": 6,
-    "name": "ambient_pressure",
-    "label": "Ambient P",
-    "description": "Measured at ambient pressure"
-  },
-  {
-    "index": 7,
-    "name": "onset_tc_gt_30K",
-    "label": "Tc > 30K",
-    "description": "Onset Tc above 30 K"
-  },
-  {
-    "index": 8,
-    "name": "onset_tc_gt_77K",
-    "label": "Tc > 77K",
-    "description": "Onset Tc above liquid nitrogen"
-  },
-  {
-    "index": 9,
-    "name": "film_data_exists",
-    "label": "Film data",
-    "description": "Thin-film data present"
-  },
-  {
-    "index": 10,
-    "name": "perovskite_family",
-    "label": "Perovskite",
-    "description": "Perovskite-family structure"
-  },
-  {
-    "index": 11,
-    "name": "doping_explored",
-    "label": "Doped",
-    "description": "Doping variants explored"
-  },
-  {
-    "index": 12,
-    "name": "multi_substrate_tested",
-    "label": "Multi sub",
-    "description": "Tested on multiple substrates"
-  },
-  {
-    "index": 13,
-    "name": "diamagnetic_confirmed",
-    "label": "Diamagnetic",
-    "description": "Diamagnetic/Meissner response confirmed"
-  },
-  {
-    "index": 14,
-    "name": "zero_resistance_seen",
-    "label": "R = 0",
-    "description": "Zero-resistance observed"
-  },
-  {
-    "index": 15,
-    "name": "data_2024_or_later",
-    "label": "2024+",
-    "description": "Data from 2024 or later"
-  }
-]
+  "gates": [
+    {
+      "index": 0,
+      "name": "layered",
+      "label": "Layered",
+      "description": "Material has layered crystal structure",
+      "category": "physical"
+    },
+    {
+      "index": 1,
+      "name": "metastable",
+      "label": "Metastable",
+      "description": "Non-equilibrium / pressure-quenched synthesis route (explicit flag only)",
+      "category": "physical"
+    },
+    {
+      "index": 2,
+      "name": "c_over_a_4.8_5.8",
+      "label": "c/a 4.8-5.8",
+      "description": "c/a ratio in the favorable RP-bilayer band",
+      "category": "physical"
+    },
+    {
+      "index": 3,
+      "name": "perovskite_family",
+      "label": "Perovskite",
+      "description": "Perovskite-family structure",
+      "category": "physical"
+    },
+    {
+      "index": 4,
+      "name": "apical_oxygen_present",
+      "label": "Apical O",
+      "description": "Apical oxygen present (RP bilayer / trilayer / Ni₂O₆)",
+      "category": "physical"
+    },
+    {
+      "index": 5,
+      "name": "n_equals_2_rp",
+      "label": "n=2 RP",
+      "description": "n=2 Ruddlesden-Popper bilayer (Ni₂O₇)",
+      "category": "physical"
+    },
+    {
+      "index": 6,
+      "name": "Pr_substituted",
+      "label": "Pr-sub",
+      "description": "Pr substitution present in the chemical formula",
+      "category": "physical"
+    },
+    {
+      "index": 7,
+      "name": "Sr_substituted",
+      "label": "Sr-sub",
+      "description": "Sr substitution present in the chemical formula",
+      "category": "physical"
+    },
+    {
+      "index": 8,
+      "name": "infinite_layer_phase",
+      "label": "∞-layer",
+      "description": "Infinite-layer NiO₂ phase (no apical O)",
+      "category": "physical"
+    },
+    {
+      "index": 9,
+      "name": "trilayer_rp",
+      "label": "n=3 RP",
+      "description": "n=3 Ruddlesden-Popper trilayer (Ni₃O₁₀) — deferred-active",
+      "category": "physical"
+    },
+    {
+      "index": 10,
+      "name": "tweakable",
+      "label": "Tweakable",
+      "description": "Chemically dopable / substitutable",
+      "category": "control"
+    },
+    {
+      "index": 11,
+      "name": "compressive_gt_0.5pct",
+      "label": "Strain < -0.5%",
+      "description": "Compressive strain greater than 0.5%",
+      "category": "control"
+    },
+    {
+      "index": 12,
+      "name": "compressive_gt_1pct",
+      "label": "Strain < -1%",
+      "description": "Compressive strain greater than 1%",
+      "category": "control"
+    },
+    {
+      "index": 13,
+      "name": "ambient_pressure",
+      "label": "Ambient P",
+      "description": "Measured at ambient pressure",
+      "category": "control"
+    },
+    {
+      "index": 14,
+      "name": "doping_explored",
+      "label": "Doped",
+      "description": "Doping variants explored",
+      "category": "control"
+    },
+    {
+      "index": 15,
+      "name": "onset_tc_gt_30K",
+      "label": "Tc > 30K",
+      "description": "Onset Tc above 30 K",
+      "category": "evidence"
+    },
+    {
+      "index": 16,
+      "name": "onset_tc_gt_77K",
+      "label": "Tc > 77K",
+      "description": "Onset Tc above liquid nitrogen",
+      "category": "evidence"
+    },
+    {
+      "index": 17,
+      "name": "film_data_exists",
+      "label": "Film data",
+      "description": "Thin-film data present",
+      "category": "evidence"
+    },
+    {
+      "index": 18,
+      "name": "multi_substrate_tested",
+      "label": "Multi sub",
+      "description": "Tested on multiple substrates",
+      "category": "evidence"
+    },
+    {
+      "index": 19,
+      "name": "diamagnetic_confirmed",
+      "label": "Diamagnetic",
+      "description": "Diamagnetic/Meissner response confirmed",
+      "category": "evidence"
+    },
+    {
+      "index": 20,
+      "name": "zero_resistance_seen",
+      "label": "R = 0",
+      "description": "Zero-resistance observed",
+      "category": "evidence"
+    },
+    {
+      "index": 21,
+      "name": "data_2024_or_later",
+      "label": "2024+",
+      "description": "Data from 2024 or later",
+      "category": "evidence"
+    }
+  ]
+}
