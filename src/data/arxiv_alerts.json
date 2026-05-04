@@ -1,29 +1,6 @@
 {
-  "generated": "2026-04-27T10:16:09Z",
+  "generated": "2026-05-04T10:13:40Z",
   "window_days": 7,
-  "alert_count": 1,
-  "alerts": [
-    {
-      "arxiv_id": "2604.18385",
-      "title": "Superconductivity in Ruddlesden-Popper nickelates: a review of recent progress, focusing on thin films",
-      "authors": [
-        "Yang Zhang",
-        "Ling-Fang Lin",
-        "Thomas A. Maier",
-        "Elbio Dagotto"
-      ],
-      "published": "2026-04-20",
-      "url": "https://arxiv.org/abs/2604.18385",
-      "extracted": {
-        "material": "La₃Ni₂O₇",
-        "substrate": null,
-        "onset_tc": 80.0,
-        "growth_method": null,
-        "pressure_gpa": null
-      },
-      "diff_type": "CONFIRMS",
-      "diff_detail": "Confirms existing data: La₃Ni₂O₇ Tc=80.0K (dataset has 80K, Δ=0K).",
-      "affects_predictions": []
-    }
-  ]
+  "alert_count": 0,
+  "alerts": []
 }
