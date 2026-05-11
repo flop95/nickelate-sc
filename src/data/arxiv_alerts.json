@@ -1,6 +1,30 @@
 {
-  "generated": "2026-05-04T10:13:40Z",
+  "generated": "2026-05-11T11:20:50Z",
   "window_days": 7,
-  "alert_count": 0,
-  "alerts": []
+  "alert_count": 1,
+  "alerts": [
+    {
+      "arxiv_id": "2605.03448",
+      "title": "Nature of magnetism in bilayer nickelate La3Ni2O7 single crystals",
+      "authors": [
+        "Lixing Chen",
+        "Enkang Zhang",
+        "Yiqing Hao",
+        "Yinghao Zhu",
+        "Bingkun Cui"
+      ],
+      "published": "2026-05-05",
+      "url": "https://arxiv.org/abs/2605.03448",
+      "extracted": {
+        "material": "La₃Ni₂O₇",
+        "substrate": null,
+        "onset_tc": null,
+        "growth_method": null,
+        "pressure_gpa": null
+      },
+      "diff_type": "INFO",
+      "diff_detail": "Nickelate paper — could not extract Tc from abstract.",
+      "affects_predictions": []
+    }
+  ]
 }
