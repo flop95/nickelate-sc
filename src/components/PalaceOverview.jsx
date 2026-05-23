@@ -5,12 +5,11 @@ import failures from '../data/palace/palace_failures.json';
 import lessons from '../data/palace/palace_lessons.json';
 import gaps from '../data/palace/palace_gaps_nickelates.json';
 import gateDefs from '../data/palace/palace_gates.json';
-import proposals from '../data/palace/palace_proposals.json';
 import BitmaskStamp, { splitBitmask } from './BitmaskStamp.jsx';
 import FailureTag from './FailureTag.jsx';
 import TcValue from './TcValue.jsx';
 import DataTable from './DataTable.jsx';
-import { hammingDistance } from '../utils/bitmask.js';
+import { GATE_COUNT, hammingDistance } from '../utils/bitmask.js';
 
 // palace_gates.json is now a dict {count, categories, gates} — read the gates array.
 const GATE_NAME_TO_INDEX = Object.fromEntries(gateDefs.gates.map(g => [g.name, g.index]));
@@ -28,9 +27,9 @@ function buildCandidates(gapsList) {
     const minFailDist = failures.length
       ? Math.min(...failures.map(f => {
           const fd = drawers.find(d => d.id === f.drawer_id);
-          return fd ? hammingDistance(g.bitmask, fd.bitmask) : 16;
+          return fd ? hammingDistance(g.bitmask, fd.bitmask) : GATE_COUNT;
         }))
-      : 16;
+      : GATE_COUNT;
     return {
       ...g,
       diffIndex,
@@ -68,7 +67,7 @@ export default function PalaceOverview({ onNavigate, onSelect }) {
         marginTop: 28,
         alignItems: 'start',
       }}>
-        <PromisingLane onSelect={onSelect} onNavigate={onNavigate} />
+        <PromisingLane candidates={candidates} onSelect={onSelect} onNavigate={onNavigate} />
         <FailureLane failures={recentFailures} onSelect={onSelect} onNavigate={onNavigate} />
       </div>
 
@@ -231,13 +230,12 @@ function Row({ label, children }) {
 }
 
 // ───────────────────────────────────────────────────────
-// Promising untested neighbors (wide left lane) — from palace_proposals.json
-// safe_bet bucket, rendered via DataTable so sort/hover/selection behave
-// consistently with every other table in the app.
+// Promising untested neighbors (wide left lane) — derived from the existing
+// gap map so this lane stays live even before a proposal round is generated.
 // ───────────────────────────────────────────────────────
 function riskColorFor(risk) {
   if (risk === 'high') return '#f09595';
-  if (risk === 'medium') return '#f0c775';
+  if (risk === 'medium' || risk === 'moderate') return '#f0c775';
   return 'var(--text-secondary)';
 }
 
@@ -247,15 +245,23 @@ function confidenceColorFor(conf) {
   return 'var(--text-faint)';
 }
 
-function PromisingLane({ onSelect, onNavigate }) {
+function PromisingLane({ candidates, onSelect, onNavigate }) {
   const safeBets = useMemo(() => {
-    const all = Array.isArray(proposals) ? proposals : [];
-    // Latest round only, safe_bet bucket, still open
-    const latestRound = all.reduce((max, p) => Math.max(max, p.round_number || 0), 0);
+    const all = Array.isArray(candidates) ? candidates : [];
     return all
-      .filter(p => p.bucket === 'safe_bet' && p.round_number === latestRound)
-      .sort((a, b) => (b.nearest_success_tc || 0) - (a.nearest_success_tc || 0));
-  }, []);
+      .slice()
+      .sort((a, b) => (a.distance - b.distance) || ((b.nearest_onset || 0) - (a.nearest_onset || 0)))
+      .slice(0, 6)
+      .map(g => ({
+        id: `gap-${g.bitmask}`,
+        material_pattern: `${g.distance === 1 ? 'one' : g.distance}-gate neighbor`,
+        differing_gates: g.gates_flipped || [],
+        nearest_success: g.nearest_success,
+        nearest_success_tc: g.nearest_onset,
+        confidence: g.distance <= 1 ? 'high' : 'medium',
+        failure_risk: (g.riskLabel || 'LOW').toLowerCase(),
+      }));
+  }, [candidates]);
 
   const columns = useMemo(() => [
     {
@@ -339,7 +345,7 @@ function PromisingLane({ onSelect, onNavigate }) {
   ], []);
 
   const handleRowClick = row => {
-    // Jump the inspector to the anchor drawer of this proposal.
+    // Jump the inspector to the anchor drawer of this gap candidate.
     if (!onSelect) return;
     const anchor = drawers.find(d => d.material === row.nearest_success && d.wing === 'nickelates')
       || drawers.find(d => d.material === row.nearest_success);
@@ -358,7 +364,7 @@ function PromisingLane({ onSelect, onNavigate }) {
     >
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 16 }}>
         <div>
-          <div className="overline">safe bets · from proposal round {safeBets[0]?.round_number ?? '—'}</div>
+          <div className="overline">safe bets · from gap map</div>
           <div className="voice-authority" style={{ fontSize: 14 }}>
             promising candidates
           </div>
@@ -379,7 +385,7 @@ function PromisingLane({ onSelect, onNavigate }) {
 
       {safeBets.length === 0 ? (
         <div className="voice-quiet" style={{ color: 'var(--text-faint)' }}>
-          no safe-bet proposals in the current round
+          no gap candidates available
         </div>
       ) : (
         <DataTable

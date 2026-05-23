@@ -2,7 +2,7 @@ import BitmaskStamp from './BitmaskStamp.jsx';
 import LatticeSpin from './LatticeSpin.jsx';
 import FailureTag from './FailureTag.jsx';
 import TcValue from './TcValue.jsx';
-import { passCount } from '../utils/bitmask.js';
+import { GATE_COUNT, passCount } from '../utils/bitmask.js';
 import stats from '../data/palace/palace_stats.json';
 
 export default function InspectorPanel({ selection, collapsed, onToggle, onNavigate }) {
@@ -172,7 +172,7 @@ function DrawerInspector({ drawer, onNavigate }) {
   return (
     <div>
       <div className="inspector-section" style={{ marginBottom: 18 }}>
-        <Label>signature · {passes}/16</Label>
+        <Label>signature · {passes}/{GATE_COUNT}</Label>
         <BitmaskStamp drawer={drawer} size="signature" />
       </div>
 

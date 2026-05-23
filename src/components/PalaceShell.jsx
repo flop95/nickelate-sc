@@ -185,6 +185,10 @@ function Empty({ msg }) {
 }
 
 function ResearchBriefView() {
+  const briefHref = import.meta.env.PROD
+    ? `${import.meta.env.BASE_URL.replace(/\/app\/?$/, '/')}research-brief.html`
+    : '/docs/research-brief.html';
+
   return (
     <div style={{ padding: '24px 32px', fontFamily: 'var(--font-body)', maxWidth: 900 }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
@@ -194,7 +198,7 @@ function ResearchBriefView() {
         research brief
       </h1>
       <a
-        href="./nickelate_research_brief.html"
+        href={briefHref}
         target="_blank"
         rel="noreferrer"
         style={{

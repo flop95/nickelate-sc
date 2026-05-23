@@ -3,7 +3,7 @@ import BitmaskStamp from './BitmaskStamp.jsx';
 import DataTable from './DataTable.jsx';
 import TcValue from './TcValue.jsx';
 import FailureTag from './FailureTag.jsx';
-import { passCount, hammingDistance } from '../utils/bitmask.js';
+import { GATE_COUNT, passCount, hammingDistance } from '../utils/bitmask.js';
 import drawers from '../data/palace/palace_drawers.json';
 import failures from '../data/palace/palace_failures.json';
 import normData from '../data/palace/palace_normalizer.json';
@@ -39,7 +39,7 @@ export default function MaterialPage({ drawer, onSelect }) {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 40, marginBottom: 32 }}>
         <div>
-          <Label>Gates {passes}/16</Label>
+          <Label>Gates {passes}/{GATE_COUNT}</Label>
           <BitmaskStamp drawer={drawer} size="signature" />
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -47,11 +47,11 @@ export default function MaterialPage({ drawer, onSelect }) {
             color: 'var(--color-text-muted)',
             marginTop: 40,
           }}>
-            This material passes <span style={{ color: 'var(--color-accent)' }}>{passes}/16</span> gates.
+            This material passes <span style={{ color: 'var(--color-accent)' }}>{passes}/{GATE_COUNT}</span> gates.
             {nearestHighTc && (
               <>
                 <br />Nearest high-Tc analog: <span style={{ color: 'var(--color-text)' }}>{nearestHighTc.d.material}</span>
-                {' '}(shares {16 - nearestHighTc.h}/16 gates).
+                {' '}(shares {GATE_COUNT - nearestHighTc.h}/{GATE_COUNT} gates).
               </>
             )}
           </div>

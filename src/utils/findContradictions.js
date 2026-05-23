@@ -13,7 +13,7 @@ const TC_THRESHOLD = 5; // K
 
 function strainClose(a, b) {
   if (a == null || b == null) return a == null && b == null;
-  return Math.abs(a - b) <= STRAIN_TOLERANCE;
+  return Math.abs(a - b) <= STRAIN_TOLERANCE + 1e-9;
 }
 
 function findExplanatoryVariable(high, low) {
@@ -65,40 +65,52 @@ function generateHypothesis(explanatory, tcDiff) {
 }
 
 export function findContradictions(dataset, threshold = TC_THRESHOLD) {
-  // Group by material + substrate + strain
-  const groups = {};
+  // Group by material + substrate first, then form tolerance windows with
+  // the real ±0.1% strain rule. Null strain is only close to null strain.
+  const materialSubstrateGroups = {};
   dataset.forEach(entry => {
-    const key = `${entry.material}||${entry.substrate}||${Math.round((entry.strain || 0) * 10)}`;
-    if (!groups[key]) groups[key] = [];
-    groups[key].push(entry);
+    const key = `${entry.material}||${entry.substrate}`;
+    if (!materialSubstrateGroups[key]) materialSubstrateGroups[key] = [];
+    materialSubstrateGroups[key].push(entry);
   });
 
   const contradictions = [];
+  const seen = new Set();
 
-  Object.values(groups).forEach(group => {
-    if (group.length < 2) return;
+  Object.values(materialSubstrateGroups).forEach(group => {
+    group.forEach(seed => {
+      const closeGroup = group.filter(entry => strainClose(seed.strain, entry.strain));
+      if (closeGroup.length < 2) return;
 
-    // Find max and min Tc in the group
-    const sorted = [...group].sort((a, b) => b.onsetTc - a.onsetTc);
-    const high = sorted[0];
-    const low = sorted[sorted.length - 1];
-    const tcDiff = high.onsetTc - low.onsetTc;
+      const sortedIds = closeGroup.map(entry => entry.id).sort((a, b) => a - b).join('|');
+      if (seen.has(sortedIds)) return;
+      seen.add(sortedIds);
 
-    if (tcDiff <= threshold) return;
+      const withTc = closeGroup.filter(entry => Number.isFinite(entry.onsetTc));
+      if (withTc.length < 2) return;
 
-    const explanatory = findExplanatoryVariable(high, low);
-    const hypothesis = generateHypothesis(explanatory, tcDiff);
+      // Find max and min Tc in the tolerance window
+      const sorted = [...withTc].sort((a, b) => b.onsetTc - a.onsetTc);
+      const high = sorted[0];
+      const low = sorted[sorted.length - 1];
+      const tcDiff = high.onsetTc - low.onsetTc;
 
-    contradictions.push({
-      material: high.material,
-      substrate: high.substrate,
-      strain: high.strain,
-      entries: sorted,
-      high_tc: high.onsetTc,
-      low_tc: low.onsetTc,
-      tc_diff: tcDiff,
-      explanatory_variable: explanatory.variable,
-      hypothesis,
+      if (tcDiff <= threshold) return;
+
+      const explanatory = findExplanatoryVariable(high, low);
+      const hypothesis = generateHypothesis(explanatory, tcDiff);
+
+      contradictions.push({
+        material: high.material,
+        substrate: high.substrate,
+        strain: high.strain,
+        entries: sorted,
+        high_tc: high.onsetTc,
+        low_tc: low.onsetTc,
+        tc_diff: tcDiff,
+        explanatory_variable: explanatory.variable,
+        hypothesis,
+      });
     });
   });
 

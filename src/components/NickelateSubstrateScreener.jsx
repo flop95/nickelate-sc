@@ -29,7 +29,7 @@ function predictTc(strain) {
 
 function getConfidence(strain) {
   if (strain >= -2.5 && strain <= 2.0) return "Within data range";
-  if (strain >= -4.0 || strain <= 3.0) return "Extrapolation";
+  if (strain >= -4.0 && strain <= 3.0) return "Extrapolation";
   return "Far extrapolation";
 }
 

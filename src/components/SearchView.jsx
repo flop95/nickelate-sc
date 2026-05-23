@@ -203,10 +203,7 @@ export default function SearchView({ onSelect }) {
 
         <div>
           <Label>Query bitmask</Label>
-          {/* Query stamp disabled pending Bucket 1 step 3/4;
-              queryBitmask is 16-gate, cannot map to the new schema.
-              See MIGRATION_NOTES.md "Public frontend audit → Group A". */}
-          <BitmaskStamp disabled size="signature" />
+          <BitmaskStamp drawer={result.queryMasks} size="signature" />
 
           <div style={{ marginTop: 24 }}>
             <Label>Retrieval method</Label>

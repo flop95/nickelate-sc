@@ -4,11 +4,11 @@ Empirical screening tool for nickelate superconductor research.
 
 **Live:** https://flop95.github.io/nickelate-sc/
 
-Tracks all published La₃Ni₂O₇ thin film measurements, detects contradictions in the data, runs sensitivity analysis, and ranks untested experiments by priority. arXiv alerts update weekly.
+Curates 23 nickelate superconductivity measurements, detects contradictions in the data, runs sensitivity analysis, and ranks untested experiments by priority. arXiv alerts update weekly.
 
 ## What it does
 
-- **Engine** — Interactive data explorer for 18 published nickelate film measurements. Scatter plot (strain vs Tc, toggleable to c/a ratio), sortable/filterable table with expandable synthesis recipe cards.
+- **Engine** — Interactive data explorer for the original 18 published nickelate film measurements. Scatter plot (strain vs Tc, toggleable to c/a ratio), sortable/filterable table with expandable synthesis recipe cards.
 - **Contradiction detection** — Auto-flags entries where the same material + substrate + strain reports Tc values differing by >5K. Identifies the likely explanatory variable (growth method, pressure, doping).
 - **Sensitivity analysis** — Sweep strain, substrate a-axis, or growth method to see marginal effects on Tc. Linear regression with slope and R² displayed.
 - **Predictions** — 5 ranked experiments with predicted Tc ranges, confidence levels, lab difficulty ratings (equipment, substrate availability, cost tier), and claim links.

@@ -29,7 +29,7 @@ function mapMeasurement(m) {
   };
 }
 
-// All 22 measurements in engine-compatible format
+// All 23 curated measurements in engine-compatible format
 export const allMeasurements = rawDataset.measurements.map(mapMeasurement);
 
 // Engine dataset: only the original 18 film entries (ids 1-18)
