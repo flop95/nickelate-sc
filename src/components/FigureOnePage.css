@@ -1,0 +1,227 @@
+.journal-shell {
+  --paper: #F5F0E1;
+  --ink: #1A1814;
+  --ink-emph: #0A0907;
+  --ink-25: rgba(26, 24, 20, 0.25);
+  --f-display: 'Bodoni Moda', 'Bodoni 72', 'Didot', serif;
+  --f-journal-body: 'STIX Two Text', 'Libre Caslon Text', 'New Century Schoolbook', 'Century Schoolbook', Georgia, serif;
+  --f-cm: 'Latin Modern Roman', 'CMU Serif', 'Computer Modern', 'STIX Two Text', Cambria, serif;
+
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+.journal-page {
+  max-width: 960px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 40px 48px 48px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-journal-body);
+  font-size: 12px;
+  line-height: 1.55;
+  font-feature-settings: 'kern', 'onum';
+}
+
+.journal-masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--ink-emph);
+  margin-bottom: 24px;
+}
+
+.journal-brand {
+  font-family: var(--f-display);
+  font-size: 38px;
+  letter-spacing: -0.01em;
+  color: var(--ink-emph);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.journal-issue {
+  font-family: var(--f-cm);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.journal-running-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-family: var(--f-cm);
+  font-style: italic;
+  font-size: 10px;
+  color: var(--ink);
+  opacity: 0.75;
+  padding-top: 2px;
+  margin-bottom: 40px;
+}
+
+.figure-hero {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  padding: 8px 0 32px;
+  border-bottom: 0.5px solid var(--ink-25);
+  margin-bottom: 40px;
+}
+
+.figure-kicker,
+.inspector-label {
+  font-family: var(--f-journal-body);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-variant-caps: all-small-caps;
+  color: var(--ink-emph);
+}
+
+.figure-kicker {
+  font-size: 11px;
+}
+
+.figure-hero h1 {
+  margin: 0 0 8px;
+  font-family: var(--f-display);
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--ink-emph);
+}
+
+.figure-hero p {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 12.5px;
+  text-wrap: pretty;
+}
+
+.figure-plate {
+  margin-bottom: 40px;
+}
+
+.figure-inspector {
+  padding: 24px 0 32px;
+  border-top: 1px solid var(--ink-emph);
+  border-bottom: 0.5px solid var(--ink-25);
+  margin-bottom: 32px;
+}
+
+.figure-inspector-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ink-emph);
+}
+
+.figure-inspector-head .title {
+  font-family: var(--f-display);
+  font-size: 16px;
+  color: var(--ink-emph);
+}
+
+.figure-inspector-head .rubric {
+  font-family: var(--f-cm);
+  font-style: italic;
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.figure-inspector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.inspector-label {
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.inspector-formula {
+  font-family: var(--f-display);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--ink-emph);
+  margin-bottom: 4px;
+}
+
+.inspector-meta,
+.inspector-note,
+.inspector-empty {
+  font-family: var(--f-cm);
+  font-size: 11px;
+  color: var(--ink);
+}
+
+.inspector-note,
+.inspector-empty {
+  font-style: italic;
+  opacity: 0.78;
+  line-height: 1.55;
+}
+
+.journal-colophon {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid var(--ink-emph);
+  padding: 12px 0 8px;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-family: var(--f-cm);
+  font-style: italic;
+  font-size: 10px;
+}
+
+.journal-colophon .left {
+  opacity: 0.85;
+}
+
+.journal-colophon .right {
+  opacity: 0.65;
+}
+
+.journal-page a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--ink-25);
+  transition: border-color 120ms;
+}
+
+.journal-page a:hover {
+  border-bottom-color: var(--ink-emph);
+}
+
+.journal-page sub {
+  font-size: 0.72em;
+  line-height: 0;
+  letter-spacing: 0;
+}
+
+@media (max-width: 820px) {
+  .journal-page {
+    padding: 24px 22px;
+  }
+
+  .journal-masthead,
+  .journal-running-head,
+  .journal-colophon {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .figure-hero,
+  .figure-inspector-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

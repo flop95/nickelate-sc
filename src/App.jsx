@@ -1,5 +1,5 @@
-import PalaceShell from './components/PalaceShell.jsx';
+import FigureOnePage from './components/FigureOnePage.jsx';
 
 export default function App() {
-  return <PalaceShell />;
+  return <FigureOnePage />;
 }
