@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Nickelate Superconductivity: Structured Thin Film Literature Brief</title>
+<title>Nickelate superconductivity — structured literature brief (v0.1.0)</title>
 <style>
 :root {
   --ink: #1A1814;
@@ -14,37 +14,63 @@
   --mid: rgba(26, 24, 20, 0.82);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: var(--color-text-primary, #1a1a1a); line-height: 1.7; max-width: 680px; }
+body { font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: var(--color-text-primary, #1a1a1a); line-height: 1.7; max-width: 880px; padding: 24px 28px 48px; }
 h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; border-bottom: 2px solid var(--gold); padding-bottom: 8px; margin-bottom: 6px; }
 h2 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--color-border-tertiary, #ddd); }
 h3 { font-size: 14px; font-weight: 600; margin: 16px 0 6px; }
 p { margin: 0 0 10px; font-size: 14px; }
 a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--ink-08); }
 a:hover { border-bottom-color: var(--gold); }
-.subtitle { font-size: 13px; color: var(--color-text-secondary, #666); margin-bottom: 16px; }
+.topbar { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; font-size: 11px; letter-spacing: 0.02em; color: var(--mid); }
+.topbar a { border-bottom: none; color: var(--mid); }
+.topbar a:hover { color: var(--ink); }
+.topbar .sep { opacity: 0.5; }
+.subtitle { font-size: 13px; color: var(--color-text-secondary, #666); margin-bottom: 10px; }
+.subtitle a { color: inherit; }
+.cite-strip { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; flex-wrap: wrap; }
+.cite-strip img { display: block; height: 20px; }
+.cite-strip .meta { font-size: 11px; color: var(--mid); font-family: 'DM Mono', monospace; letter-spacing: 0.02em; }
 .stat-row { display: flex; gap: 10px; margin: 12px 0 16px; flex-wrap: wrap; }
 .stat { flex: 1; min-width: 100px; padding: 10px 14px; background: var(--color-background-secondary, #f5f5f0); border-radius: 6px; }
 .stat-val { font-size: 24px; font-weight: 700; color: var(--gold); font-family: 'DM Mono', monospace; }
 .stat-label { font-size: 11px; color: var(--color-text-secondary, #666); }
-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 12px; }
-th { text-align: left; padding: 6px 8px; font-weight: 600; font-size: 11px; color: var(--color-text-secondary, #666); border-bottom: 2px solid var(--color-border-secondary, #ccc); }
-td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #eee); }
+.tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 560px; }
+th { text-align: left; padding: 6px 8px; font-weight: 600; font-size: 11px; color: var(--color-text-secondary, #666); border-bottom: 2px solid var(--color-border-secondary, #ccc); white-space: nowrap; }
+td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #eee); vertical-align: top; }
 .highlight { background: var(--color-background-secondary, #f5f5f0); padding: 12px 16px; border-radius: 6px; border-left: 3px solid var(--gold); margin: 12px 0; }
 .notice { background: var(--color-background-secondary, #f5f5f0); padding: 12px 16px; border-radius: 6px; border: 1px solid var(--ink-08); margin: 12px 0 18px; }
 .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; margin-right: 6px; }
 .tag-pattern { background: color-mix(in srgb, var(--d-super) 12%, transparent); color: var(--d-super); }
 .tag-gap { background: color-mix(in srgb, var(--d-prediction) 12%, transparent); color: var(--d-prediction); }
-.tag-prediction { background: var(--ink-08); color: var(--ink); }
+.tag-candidate { background: var(--ink-08); color: var(--ink); }
 .mono { font-family: 'DM Mono', monospace; }
 .small { font-size: 11px; color: var(--color-text-tertiary, #999); }
 .section { margin-bottom: 20px; }
+.cite-card { margin: 32px 0 8px; padding: 16px 20px; border: 1px solid var(--ink-08); border-left: 3px solid var(--gold); border-radius: 6px; background: var(--color-background-secondary, #f5f5f0); }
+.cite-card .label { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; }
+.cite-card pre { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink); white-space: pre-wrap; line-height: 1.6; margin: 0 0 8px; }
+.cite-card .note { font-size: 11px; color: var(--color-text-tertiary, #999); line-height: 1.55; }
 </style>
 </head>
 <body>
 
+<nav class="topbar" aria-label="Issue navigation">
+  <a href="./">← nickelate.sc · Vol. 1, No. 1</a>
+  <span class="sep">·</span>
+  <span>Structured literature brief</span>
+</nav>
+
 <h1>Nickelate Superconductivity: Structured Thin Film Literature Brief</h1>
-<p class="subtitle">April 2026<br>
+<p class="subtitle">April 2026 · Version 0.1.0 · archived 2026-05-24<br>
 23 curated measurements · 12 ambient film · 7 film + pressure · 4 bulk pressure · Pseudonymous synthesis · Source-linked papers and preprints</p>
+
+<p class="cite-strip">
+  <a href="https://doi.org/10.5281/zenodo.20369923" aria-label="Zenodo DOI 10.5281/zenodo.20369923">
+    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20369923.svg" alt="DOI 10.5281/zenodo.20369923">
+  </a>
+  <span class="meta">Cite this version: <a href="https://doi.org/10.5281/zenodo.20369923">10.5281/zenodo.20369923</a></span>
+</p>
 
 <div class="stat-row">
   <div class="stat"><div class="stat-val">96K</div><div class="stat-label">Bulk record (pressure)</div></div>
@@ -66,10 +92,10 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <div class="section">
 <h2>Dataset: measurement regimes kept separate</h2>
-<p>The companion dataset currently curates 23 measurement records: 12 ambient-pressure film records, 7 films measured under applied pressure, and 4 bulk-pressure records. The rows below separate those regimes so extraction, hypothesis generation, prediction, and verified measurement are not conflated.</p>
+<p>The companion dataset currently curates 23 measurement records: 12 ambient-pressure film records, 7 films measured under applied pressure, and 4 bulk-pressure records. The rows below separate those regimes so measurement, hypothesis-candidate extrapolation, and verified outcome are not conflated.</p>
 
 <h3>Ambient-pressure thin films</h3>
-<table>
+<div class="tbl-wrap"><table>
   <thead>
     <tr><th>Material</th><th>Substrate</th><th>Strain</th><th>Onset Tc</th><th>Zero-R Tc</th><th>Growth</th><th>Source</th></tr>
   </thead>
@@ -87,10 +113,10 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td><a href="https://journals.aps.org/prl/abstract/10.1103/qrkk-l2ng">PRL 136, 066002 (2026)</a></td></tr>
     <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td><a href="https://www.nature.com/articles/s41563-025-02327-2">Nat. Mater. (2025)</a></td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>Films measured under applied pressure</h3>
-<table>
+<div class="tbl-wrap"><table>
   <thead>
     <tr><th>Material</th><th>Substrate</th><th>Pressure</th><th>Onset Tc</th><th>Growth / note</th><th>Source</th></tr>
   </thead>
@@ -103,10 +129,10 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><td>La₃Ni₂O₇</td><td>NGO</td><td class="mono">20 GPa</td><td class="mono">28K</td><td>film + pressure</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
     <tr><td>La₃Ni₂O₇</td><td>STO</td><td class="mono">20 GPa</td><td class="mono">10K</td><td>film + pressure</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>Bulk-pressure anchors</h3>
-<table>
+<div class="tbl-wrap"><table>
   <thead>
     <tr><th>Material</th><th>Pressure</th><th>Onset Tc</th><th>Zero-R Tc</th><th>Source</th></tr>
   </thead>
@@ -116,7 +142,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><td>La₂PrNi₂O₇</td><td class="mono">18 GPa</td><td class="mono">82.5K</td><td class="mono">60K</td><td><a href="https://www.nature.com/articles/s41586-024-07996-8">Nature 634 (2024)</a></td></tr>
     <tr><td>La₁.₅₇Sm₁.₄₃Ni₂O₇−δ</td><td class="mono">21.6 GPa</td><td class="mono">96K</td><td class="mono">—</td><td><a href="https://www.nature.com/articles/s41586-025-09954-4">Nature 649 (2026)</a></td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="small">Pressure-mode labels follow the curated dataset: ambient records are thin-film measurements at ambient pressure; film + pressure records are epitaxial films measured under applied pressure; bulk-pressure anchors are single-crystal or bulk measurements under pressure. SLAO = SrLaAlO₄ (a = 3.756 Å). The interactive data engine keeps the original 18 film entries; the repo dataset curates all 23 measurements.</p>
 </div>
 
@@ -159,27 +185,27 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 <p class="small">These are empirical, hypothesis-generating experiment rankings derived from the curated measurements and cited trend claims. Labels describe heuristic priority/proximity, not probability. They are not first-principles simulations and are not verified outcomes.</p>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P1 — NEAR-TERM TEST</span></p>
+<p><span class="tag tag-candidate">P1 — NEAR-TERM TEST</span></p>
 <p><strong>Apply 2-5 GPa pressure to GAE-grown 63K (La,Pr)₃Ni₂O₇ films.</strong> Films in the cited pressure series report 62→68.5K at 2 GPa (Zhao/Sun 2026). If GAE films with fewer oxygen vacancies follow the same empirical pressure trend, a hypothesis-generating scenario range is 75-85K. Achievable with piston-cylinder pressure cells, not diamond anvils, but still unverified for the 63K GAE films.</p>
 </div>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P2 — EXTRAPOLATIVE TEST</span></p>
+<p><span class="tag tag-candidate">P2 — EXTRAPOLATIVE TEST</span></p>
 <p><strong>GAE-grown (La,Pr)₃Ni₂O₇ on SmAlO₃ (a = 3.734Å, strain ≈ -2.6%).</strong> If the c/a trend holds beyond the measured range, extra compression could increase onset Tc by 10-15K. Key risk: coherent film growth at higher mismatch. No data exists for this substrate.</p>
 </div>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P3 — COMBINATION TEST</span></p>
+<p><span class="tag tag-candidate">P3 — COMBINATION TEST</span></p>
 <p><strong>Optimal Sr-doping (x ≈ 0.15) combined with GAE growth on SLAO.</strong> The dome study used MBE, not GAE. Combining the best doping level with the best growth method has not been attempted. Directly targets the zero-R Tc gap.</p>
 </div>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P4 — THEORY-LED TEST</span></p>
+<p><span class="tag tag-candidate">P4 — THEORY-LED TEST</span></p>
 <p><strong>Perpendicular electric field gating of single-bilayer films (0.1-0.2V).</strong> Theory paper published in Nat. Commun. (2026): intralayer d-wave pairing enhanced to 77K+. Zero experimental attempts in the curated dataset. Any group with ionic liquid gating capability could test the claim.</p>
 </div>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P5 — EXPLORATORY</span></p>
+<p><span class="tag tag-candidate">P5 — EXPLORATORY</span></p>
 <p><strong>Engineer superstructures on substrates with a &lt; 3.75Å.</strong> The γII pocket is reported as an SC-associated signature (Nature, Apr 9 2026). Test whether stronger strain preserves or destroys this pocket while pushing Tc higher. Requires ARPES + film growth capability.</p>
 </div>
 </div>
@@ -192,21 +218,21 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <div class="section">
 <h2>Cross-family heuristic: the "compress → trap → release" pattern</h2>
-<table>
+<div class="tbl-wrap"><table>
   <thead><tr><th>Family</th><th>Bulk Tc (pressure)</th><th>Ambient Tc (stabilized)</th><th>Stabilization method</th><th>Year achieved</th></tr></thead>
   <tbody>
     <tr><td>Cuprates (Hg-1223; pressure-quench claim)</td><td>166K at 23 GPa</td><td class="mono">151K reported; verify before reuse</td><td>Reported pressure quenching</td><td>2026 claim</td></tr>
     <tr><td>Nickelates (bilayer RP)</td><td>96K in La₁.₅₇Sm₁.₄₃Ni₂O₇−δ under pressure</td><td class="mono">63K</td><td>Epitaxial strain</td><td>2025-26</td></tr>
     <tr><td>Iron-based (FeSe)</td><td>37K at 7 GPa</td><td class="mono">65K</td><td>Interface coupling</td><td>2013</td></tr>
   </tbody>
-</table>
+</table></div>
 <p>Across these material families, a recurring strategy appears: compress the lattice into a high-Tc configuration, then use a physical trick (quenching, strain, interface coupling) to retain or mimic that configuration at lower pressure. This convergence is used here as a heuristic for hypothesis generation, not as a settled mechanism. The Hg-1223 pressure-quench row is a source-verification checkpoint, not a load-bearing premise for citing this brief.</p>
 </div>
 
 <div class="section">
 <h2>Capability appendix — tool classes needed for tests</h2>
 <p class="small">This table intentionally avoids naming institutions. It describes capability classes suggested by the literature so readers can judge feasibility without reading the issue as a steering document.</p>
-<table>
+<div class="tbl-wrap"><table>
   <thead><tr><th>Capability class</th><th>Typical tools</th><th>Relevant to</th><th>What to verify before contact/use</th></tr></thead>
   <tbody>
     <tr><td><strong>Oxide thin-film growth</strong></td><td>PLD, oxide MBE, GAE/non-equilibrium oxidation</td><td>P2, P3, P5</td><td>Current nickelate growth experience, oxygen-control window, substrate availability</td></tr>
@@ -216,7 +242,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><td><strong>Electrostatic tuning</strong></td><td>Ionic-liquid or solid-gate devices on ultrathin films</td><td>P4</td><td>Device compatibility, electrochemistry controls, reversible field response</td></tr>
     <tr><td><strong>Theory and modeling</strong></td><td>DFT/RPA/Hubbard modeling, strain and orbital-splitting analysis</td><td>Cross-family analysis, P4</td><td>Assumptions behind pairing symmetry and pressure/strain analogies</td></tr>
   </tbody>
-</table>
+</table></div>
 <p style="font-size:13px;margin-top:10px">Readers should map these capabilities to institutions themselves and verify current equipment, interests, and willingness to engage directly.</p>
 </div>
 
@@ -225,6 +251,14 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 <p class="small">This research brief was assembled through extraction and cross-referencing of published experimental data from peer-reviewed journals and preprints (Nature, Nature Materials, Nature Physics, Nature Communications, Physical Review Letters, Communications Physics, National Science Review, and arXiv). All 23 curated records trace to specific publications cited in the dataset. Hypothesis-candidate rows are empirical trend extrapolations, not first-principles simulations or forecasts, and should be treated as experimental follow-up prompts. The interactive screening tools (substrate screener, data engine, timeline tracker) are available as companion artifacts.</p>
 <p class="small">Corrections and new measurements are reviewed before inclusion via GitHub issues. Source verification is required. The pseudonymous authorship, small corpus, and heuristic ranking method should be visible in any reuse of this material; cite the Zenodo DOI for the version you used.</p>
 </div>
+
+<aside class="cite-card" aria-label="How to cite this brief">
+  <div class="label">How to cite</div>
+  <pre>flop95. (2026). nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate
+screening corpus (Version 0.1.0) [Data set and software]. Zenodo.
+https://doi.org/10.5281/zenodo.20369923</pre>
+  <p class="note">Cite the primary literature linked in each row for any scientific claim; cite this brief only for the curated schema, screening interface, and versioned aggregation. License: code MIT, data and prose CC-BY-4.0. Source: <a href="https://github.com/flop95/nickelate-sc">github.com/flop95/nickelate-sc</a>.</p>
+</aside>
 
 </body>
 </html>
