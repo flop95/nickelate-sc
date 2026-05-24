@@ -143,7 +143,7 @@ export default function StatsView({ pressureMode }) {
   return (
     <div style={{ padding: '24px 32px', fontFamily: 'var(--font-body)', maxWidth: 1200 }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
-        screening statistics
+        palace statistics
       </div>
       <h1 style={{ fontSize: 20, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 24 }}>
         coverage & distribution

@@ -65,12 +65,12 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
 
   return (
     <div className="palace-overview-root" style={{ padding: '28px 36px 40px', maxWidth: 1280 }}>
-      <div className="overline">research screen</div>
+      <div className="overline">Palace overview</div>
       <h1 className="voice-authority" style={{ fontSize: 22, marginBottom: 4 }}>
         nickelate<span style={{ color: 'var(--fg-2)' }}>.</span><span style={{ color: 'var(--accent)' }}>sc</span>
       </h1>
       <div className="voice-quiet" style={{ marginBottom: 28, maxWidth: 640 }}>
-        {pressureModeLabel(pressureMode)} screening · sourced records are measured observations,
+        The Palace is a sourced screening index: {pressureModeLabel(pressureMode)} records are measured observations,
         screening-gate distances are inferred features, and candidates are hypotheses for follow-up.
       </div>
 
@@ -500,11 +500,11 @@ function FailureLane({ failures: recent, onSelect, onNavigate }) {
 // Demoted action links
 // ───────────────────────────────────────────────────────
 const LINKS = [
-  { key: 'nickelates/experimental_results', label: 'browse records' },
+  { key: 'nickelates/experimental_results', label: 'explore palace' },
   { key: 'search',                          label: 'search records' },
   { key: 'failures',                        label: 'negative results' },
   { key: 'nickelates/gap_candidates',       label: 'hypothesis map' },
-  { key: 'stats',                           label: 'screening statistics' },
+  { key: 'stats',                           label: 'palace statistics' },
 ];
 
 function ActionLinks({ onNavigate }) {

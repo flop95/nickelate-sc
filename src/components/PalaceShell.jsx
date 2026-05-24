@@ -281,7 +281,7 @@ export default function PalaceShell() {
 
       {isNarrow ? (
         <div className="palace-mobile-workspace">
-          <nav className="pane-sidebar palace-mobile-nav" aria-label="Research navigation">
+          <nav className="pane-sidebar palace-mobile-nav" aria-label="Palace navigation">
             <WingTree activeRoute={activeRoute} onNavigate={navigate} counts={wingCounts} />
           </nav>
 
