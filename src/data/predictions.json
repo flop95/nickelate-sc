@@ -4,7 +4,7 @@
     "rank": 1,
     "priority": "high",
     "title": "Pressure on GAE 63K films",
-    "description": "Apply 2-5 GPa pressure to the GAE-grown 63K (La,Pr)₃Ni₂O₇ films. The Sun group showed films go from 62→68.5K with just 2 GPa on lower-quality films. GAE films with fewer oxygen vacancies should respond even more strongly. Predicted onset: 75-85K.",
+    "description": "Apply 2-5 GPa pressure to the GAE-grown 63K (La,Pr)₃Ni₂O₇ films. The Sun group showed films go from 62→68.5K with just 2 GPa on lower-quality films. If GAE films with fewer oxygen vacancies follow that empirical trend, the hypothesis-generating onset range is 75-85K.",
     "predicted_tc_range": [
       75,
       85
@@ -51,7 +51,7 @@
     "rank": 2,
     "priority": "medium-high",
     "title": "GAE on SmAlO₃",
-    "description": "GAE-grown (La,Pr)₃Ni₂O₇ on SmAlO₃ (a=3.734Å, strain ≈ -2.6%). If the c/a monotonic trend holds, the extra 0.6% compression should increase onset Tc by ~10-15K. Key risk: film coherence at higher mismatch.",
+    "description": "GAE-grown (La,Pr)₃Ni₂O₇ on SmAlO₃ (a=3.734Å, strain ≈ -2.6%). If the c/a trend holds beyond the measured range, the extra 0.6% compression could increase onset Tc by ~10-15K. Key risk: film coherence at higher mismatch.",
     "predicted_tc_range": [
       73,
       78

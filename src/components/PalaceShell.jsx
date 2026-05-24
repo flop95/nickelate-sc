@@ -14,6 +14,7 @@ import MaterialCard from './MaterialCard.jsx';
 import ErrorBoundary from './ErrorBoundary.jsx';
 import {
   DEFAULT_PRESSURE_MODE,
+  PRESSURE_MODE_IDS,
   countByPressureMode,
   filterByPressureMode,
   pressureModeLabel,
@@ -27,14 +28,131 @@ import drawers from '../data/palace/palace_drawers.json';
 import stats from '../data/palace/palace_stats.json';
 import './PalaceShell.css';
 
+const DEFAULT_ROUTE = 'overview';
+
+const STATIC_ROUTES = new Set([
+  'overview',
+  'search',
+  'failures',
+  'stats',
+  'history/timeline',
+  'history/brief',
+  'nickelates/data_engine',
+  'nickelates/substrate_room',
+  'nickelates/gap_candidates',
+  'nickelates/failure_memory',
+]);
+
+const EXPERIMENTAL_WINGS = new Set([
+  'nickelates',
+  'cuprates',
+  'pnictides',
+  'hydrides',
+  'conventional',
+  'wildcards',
+]);
+
+function safeDecodeURIComponent(value) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return null;
+  }
+}
+
+function normalizePressureMode(value) {
+  return PRESSURE_MODE_IDS.includes(value) ? value : DEFAULT_PRESSURE_MODE;
+}
+
+function normalizeMaterialRoute(route) {
+  const materialRoute = route.slice('material/'.length);
+  const [encodedIdOrName] = materialRoute.split('/');
+  const idOrName = safeDecodeURIComponent(encodedIdOrName || '');
+  if (!idOrName) return DEFAULT_ROUTE;
+
+  const id = Number(idOrName);
+  const drawer = Number.isInteger(id)
+    ? drawers.find(d => d.id === id)
+    : drawers.find(d => d.material === idOrName);
+
+  return drawer
+    ? `material/${drawer.id}/${encodeURIComponent(drawer.material)}`
+    : DEFAULT_ROUTE;
+}
+
+function normalizeRoute(value) {
+  const route = String(value || '')
+    .trim()
+    .replace(/^\/+/, '')
+    .replace(/\/+$/, '');
+
+  if (!route) return DEFAULT_ROUTE;
+  if (STATIC_ROUTES.has(route)) return route;
+
+  if (route.endsWith('/experimental_results')) {
+    const [wing, room] = route.split('/');
+    if (room === 'experimental_results' && EXPERIMENTAL_WINGS.has(wing)) {
+      return route;
+    }
+  }
+
+  if (route.startsWith('material/')) {
+    return normalizeMaterialRoute(route);
+  }
+
+  return DEFAULT_ROUTE;
+}
+
+function readUrlState() {
+  if (typeof window === 'undefined') {
+    return { route: DEFAULT_ROUTE, pressureMode: DEFAULT_PRESSURE_MODE };
+  }
+
+  const searchParams = new URLSearchParams(window.location.search);
+  const hash = window.location.hash.startsWith('#')
+    ? window.location.hash.slice(1)
+    : '';
+  const hashBody = hash.startsWith('/') ? hash.slice(1) : hash;
+  const [hashRoute = '', hashQuery = ''] = hashBody.split('?');
+  const hashParams = new URLSearchParams(hashQuery);
+
+  const routeParam = hashParams.get('route') || hashRoute || searchParams.get('route');
+  const pressureParam =
+    hashParams.get('mode') ||
+    hashParams.get('pressure') ||
+    searchParams.get('mode') ||
+    searchParams.get('pressure');
+
+  return {
+    route: normalizeRoute(routeParam || DEFAULT_ROUTE),
+    pressureMode: normalizePressureMode(pressureParam),
+  };
+}
+
+function urlHashFor(route, pressureMode) {
+  return `#/${normalizeRoute(route)}?mode=${normalizePressureMode(pressureMode)}`;
+}
+
+function replaceUrlState(route, pressureMode) {
+  if (typeof window === 'undefined') return;
+  const nextHash = urlHashFor(route, pressureMode);
+  if (window.location.hash === nextHash) return;
+  window.history.replaceState(
+    null,
+    '',
+    `${window.location.pathname}${window.location.search}${nextHash}`
+  );
+}
+
 export default function PalaceShell() {
-  const [activeRoute, setActiveRoute] = useState('overview');
+  const initialUrlState = useMemo(() => readUrlState(), []);
+  const [activeRoute, setActiveRoute] = useState(initialUrlState.route);
   const [selection, setSelection] = useState(null);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [inspectorCollapsed, setInspectorCollapsed] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isNarrow, setIsNarrow] = useState(false);
-  const [pressureMode, setPressureMode] = useState(DEFAULT_PRESSURE_MODE);
+  const [pressureMode, setPressureMode] = useState(initialUrlState.pressureMode);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 760px)');
@@ -44,6 +162,25 @@ export default function PalaceShell() {
     return () => mq.removeEventListener('change', update);
   }, []);
 
+  useEffect(() => {
+    const applyUrlState = () => {
+      const next = readUrlState();
+      setActiveRoute(current => current === next.route ? current : next.route);
+      setPressureMode(current => current === next.pressureMode ? current : next.pressureMode);
+    };
+
+    window.addEventListener('hashchange', applyUrlState);
+    window.addEventListener('popstate', applyUrlState);
+    return () => {
+      window.removeEventListener('hashchange', applyUrlState);
+      window.removeEventListener('popstate', applyUrlState);
+    };
+  }, []);
+
+  useEffect(() => {
+    replaceUrlState(activeRoute, pressureMode);
+  }, [activeRoute, pressureMode]);
+
   const pressureModeCounts = useMemo(() => countByPressureMode(drawers), []);
   const modeDrawers = useMemo(
     () => filterByPressureMode(drawers, pressureMode),
@@ -51,11 +188,16 @@ export default function PalaceShell() {
   );
 
   const navigate = route => {
-    setActiveRoute(route);
+    const nextRoute = normalizeRoute(route);
+    setActiveRoute(nextRoute);
     // Keep selection when moving to a material route; else let it breathe
-    if (!route.startsWith('material/')) {
+    if (!nextRoute.startsWith('material/')) {
       // do nothing — selection persists so the inspector stays useful
     }
+  };
+
+  const changePressureMode = mode => {
+    setPressureMode(normalizePressureMode(mode));
   };
 
   const select = sel => {
@@ -133,7 +275,7 @@ export default function PalaceShell() {
         onSearch={setSearchQuery}
         onExport={handleExport}
         pressureMode={pressureMode}
-        onPressureModeChange={setPressureMode}
+        onPressureModeChange={changePressureMode}
         pressureModeCounts={pressureModeCounts}
       />
 
@@ -204,8 +346,9 @@ function RouteContent({ route, onNavigate, onSelect, selection, pressureMode }) 
   if (route.startsWith('material/')) {
     const materialRoute = route.slice('material/'.length);
     const [encodedIdOrName] = materialRoute.split('/');
-    const id = Number(decodeURIComponent(encodedIdOrName || ''));
-    const name = decodeURIComponent(encodedIdOrName || '');
+    const decoded = safeDecodeURIComponent(encodedIdOrName || '') || '';
+    const id = Number(decoded);
+    const name = decoded;
     const drawer = Number.isInteger(id)
       ? drawers.find(d => d.id === id)
       : drawers.find(d => d.material === name);

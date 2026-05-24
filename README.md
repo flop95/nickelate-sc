@@ -4,15 +4,15 @@ Empirical screening tool for nickelate superconductor research.
 
 **Live:** https://flop95.github.io/nickelate-sc/
 
-Curates 23 nickelate superconductivity measurements, surfaces unexplained contradictions after pressure-class confounds, runs sensitivity analysis, and ranks untested experiments by priority. arXiv alerts update weekly.
+Curates 23 nickelate superconductivity measurements across ambient films, film + applied pressure, and bulk pressure; surfaces unexplained contradictions after pressure-class confounds; runs sensitivity analysis; and ranks untested experiments by priority. arXiv alerts update weekly.
 
 ## What it does
 
-- **Engine** — Interactive data explorer for the original 18 published nickelate film measurements. Scatter plot (strain vs Tc, toggleable to c/a ratio), sortable/filterable table with expandable synthesis recipe cards.
+- **Engine** — Interactive data explorer for the original 18 published nickelate film measurements, with pressure-mode filters separating ambient films from film + pressure records. Scatter plot (strain vs Tc, toggleable to c/a ratio), sortable/filterable table with expandable synthesis recipe cards.
 - **Contradiction detection** — Checks entries where the same material + substrate + strain reports Tc values differing by >5K. Pressure-only differences are treated as explained physics, so the visible list is limited to unexplained contradictions.
 - **Sensitivity analysis** — Sweep strain, substrate a-axis, or growth method to see marginal effects on Tc. Linear regression with slope and R² displayed.
-- **Predictions** — 5 ranked experiments with predicted Tc ranges, confidence levels, lab difficulty ratings (equipment, substrate availability, cost tier), and claim links.
-- **arXiv alerts** — Weekly automated scan of arXiv for new nickelate SC papers. Extracts material, substrate, Tc from abstracts and diffs against the dataset.
+- **Predictions** — 5 ranked, hypothesis-generating experiments with empirical Tc ranges, confidence levels, lab difficulty ratings (equipment, substrate availability, cost tier), and claim links.
+- **arXiv alerts** — Weekly automated scan of arXiv for new nickelate SC papers. Regex-extracts material, substrate, Tc from abstracts and diffs against the dataset; no alerts means no regex-extractable dataset-relevant alerts, not proof that no relevant papers exist.
 - **Timeline** — 33-month Tc progression from first bulk signatures (Jul 2023) to current records.
 - **Screener** — Predict onset Tc from epitaxial strain for any substrate lattice constant.
 
@@ -60,7 +60,7 @@ All data manually curated from published papers and preprints. Key sources:
 
 ## Further reading
 
-- [docs/research-brief.html](docs/research-brief.html) — full meta-analysis across cuprate / nickelate / iron-based families, with five ranked predictions
+- [docs/research-brief.html](docs/research-brief.html) — full meta-analysis across cuprate / nickelate / iron-based families, with five ranked empirical hypotheses
 - [docs/populated-entry.html](docs/populated-entry.html) — La₃Ni₂O₇ catalog entry, typeset as a journal page (FIG. 1 § 4)
 
 ## Stack

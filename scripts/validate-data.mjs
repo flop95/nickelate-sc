@@ -9,6 +9,8 @@ const dataset = readJson('src/data/nickelate_dataset.json');
 const drawers = readJson('src/data/palace/palace_drawers.json');
 const failures = readJson('src/data/palace/palace_failures.json');
 const predictions = readJson('src/data/predictions.json');
+const researchBriefHtml = readFileSync(new URL('../docs/research-brief.html', import.meta.url), 'utf8');
+const docsIndexHtml = readFileSync(new URL('../docs/index.html', import.meta.url), 'utf8');
 
 const errors = [];
 
@@ -205,6 +207,30 @@ for (const prediction of predictions) {
       validateDoiUrl(`${inputPath}.source_dois[${doiIndex}]`, doi, url);
     });
   });
+}
+
+if (researchBriefHtml.includes('18 experimental data points')) {
+  fail('documentation_drift', 'docs/research-brief.html', 'stale 18-point brief framing remains');
+}
+
+if (researchBriefHtml.includes('Dataset: all published ambient-pressure thin film results')) {
+  fail('documentation_drift', 'docs/research-brief.html', 'ambient dataset heading must not include film + pressure rows');
+}
+
+if (!researchBriefHtml.includes('23 curated measurements')) {
+  fail('documentation_drift', 'docs/research-brief.html', 'brief should reflect current 23-measurement curation');
+}
+
+if (!researchBriefHtml.includes('12 ambient-pressure film records, 7 films measured under applied pressure, and 4 bulk-pressure records')) {
+  fail('documentation_drift', 'docs/research-brief.html', 'brief should separate ambient film, film + pressure, and bulk pressure counts');
+}
+
+if (docsIndexHtml.includes('replace with Tally form URL')) {
+  fail('documentation_drift', 'docs/index.html', 'stale Tally-form TODO remains visible in source');
+}
+
+if (docsIndexHtml.includes('18 published thin-film and bulk data points')) {
+  fail('documentation_drift', 'docs/index.html', 'stale 18-point table-of-contents summary remains');
 }
 
 const unknownModes = PRESSURE_MODE_IDS.filter(mode => !['ambient', 'film_pressure', 'bulk_pressure'].includes(mode));

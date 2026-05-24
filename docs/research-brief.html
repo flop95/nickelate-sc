@@ -34,7 +34,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <h1>Nickelate Superconductivity: Systematic Thin Film Meta-Analysis</h1>
 <p class="subtitle">April 2026<br>
-18 experimental data points · 8 research groups · 12 publications · Source-linked papers and preprints</p>
+23 curated measurements · 12 ambient film · 7 film + pressure · 4 bulk pressure · Source-linked papers and preprints</p>
 
 <div class="stat-row">
   <div class="stat"><div class="stat-val">96K</div><div class="stat-label">Bulk record (pressure)</div></div>
@@ -46,34 +46,69 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 <div class="section">
 <h2>Executive summary</h2>
 <p>La₃Ni₂O₇ bilayer nickelate superconductivity was discovered under high pressure in July 2023 (Tc ≈ 80K). Within 33 months, ambient-pressure superconductivity has been achieved in epitaxially strained thin films, with onset Tc rising from 42K (Dec 2024) to 63K (Mar 2026). Bulk records under pressure have reached 96K in Sm-substituted bilayer crystals. The gap between the ambient film record and the liquid nitrogen threshold (77K) is now only 14K.</p>
-<p>This brief presents a structured meta-analysis of all published La₃Ni₂O₇ family thin film results, identifies systematic patterns and research gaps, and generates five ranked, testable predictions for crossing the 77K threshold at ambient pressure. No comparable structured dataset exists in the published literature as of April 2026.</p>
+<p>This brief presents a structured meta-analysis of published La₃Ni₂O₇ family measurements, with ambient thin films, films measured under applied pressure, and bulk-pressure anchors kept distinct. It identifies systematic patterns and research gaps, then generates five ranked, testable hypotheses for crossing the 77K threshold at ambient pressure. Those hypotheses are empirical extrapolations, not verified published measurements.</p>
 </div>
 
 <div class="section">
-<h2>Dataset: all published ambient-pressure thin film results</h2>
+<h2>Dataset: measurement regimes kept separate</h2>
+<p>The companion dataset currently curates 23 measurement records: 12 ambient-pressure film records, 7 films measured under applied pressure, and 4 bulk-pressure records. The rows below separate those regimes so extraction, hypothesis generation, prediction, and verified measurement are not conflated.</p>
+
+<h3>Ambient-pressure thin films</h3>
 <table>
   <thead>
     <tr><th>Material</th><th>Substrate</th><th>Strain</th><th>Onset Tc</th><th>Zero-R Tc</th><th>Growth</th><th>Source</th></tr>
   </thead>
   <tbody>
+    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42.4K</td><td class="mono">2.2K</td><td>PLD + O₃</td><td>Ko, Nature 638 (2025)</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">26.2K</td><td class="mono">—</td><td>PLD + O₃</td><td>Ko, Nature 638 (2025)</td></tr>
+    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">40K</td><td class="mono">—</td><td>MBE / GAE</td><td>Zhou, Nature 640 (2025)</td></tr>
     <tr><td><strong>(La,Pr)₃Ni₂O₇</strong></td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono" style="color:var(--d-prediction);font-weight:700">63K</td><td class="mono">37K</td><td>GAE extreme</td><td>Zhou, NSR 2026</td></tr>
-    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">45K</td><td class="mono">9K (T_BKT)</td><td>GAE</td><td>Zhou, Nature 640 (2025)</td></tr>
-    <tr><td>Superstructures</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">46-50K</td><td class="mono">—</td><td>MBE</td><td>Hwang, Nature Apr 2026</td></tr>
-    <tr><td>La₂PrNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">48K</td><td class="mono">30K</td><td>ozone-annealed</td><td>Liu, Nat. Mater. 24 (2025)</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">26-42K</td><td class="mono">2.2K</td><td>PLD + O₃</td><td>Ko, Nature 638 (2025)</td></tr>
-    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td>PRL 136 / Nat. Mater. 2025-26</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>LAO</td><td class="mono">-0.47%</td><td class="mono">30K*</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>NGO</td><td class="mono">+0.57%</td><td class="mono">10K*</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>STO</td><td class="mono">+1.88%</td><td class="mono">0K*</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>LAO</td><td class="mono">-0.47%</td><td class="mono">30K</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>NGO</td><td class="mono">+0.57%</td><td class="mono">10K</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>STO</td><td class="mono">+1.88%</td><td class="mono">0K</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
+    <tr><td>La₂PrNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">45K</td><td class="mono">9K</td><td>PLD</td><td>Liu, Nat. Mater. 24 (2025)</td></tr>
+    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td>Nat. Mater. / PRL 2025-26</td></tr>
+    <tr><td>Nickelate superstructures</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">46-50K</td><td class="mono">—</td><td>MBE</td><td>Hwang, Nature Apr 2026</td></tr>
+    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td>PRL 136 (2026)</td></tr>
+    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td>Nat. Mater. (2025)</td></tr>
   </tbody>
 </table>
-<p class="small">* Under 20 GPa pressure, not ambient. SLAO = SrLaAlO₄ (a = 3.756 Å). Full dataset with 18 points available in interactive tool.</p>
+
+<h3>Films measured under applied pressure</h3>
+<table>
+  <thead>
+    <tr><th>Material</th><th>Substrate</th><th>Pressure</th><th>Onset Tc</th><th>Growth / note</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">0.3 GPa</td><td class="mono">62K</td><td>film + pressure</td><td>arXiv:2603.29531</td></tr>
+    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">2 GPa</td><td class="mono">68.5K</td><td>film + pressure</td><td>arXiv:2603.29531</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">7 GPa</td><td class="mono">48.5K</td><td>compressive film</td><td>Nat. Commun. (2026)</td></tr>
+    <tr><td>La₃Ni₂O₇ film</td><td>not verified</td><td class="mono">9 GPa</td><td class="mono">61.5K</td><td>substrate / growth flagged for review</td><td>Nat. Commun. (2026)</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>LAO</td><td class="mono">20 GPa</td><td class="mono">60K</td><td>film + pressure</td><td>Comm. Phys. 2025</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>NGO</td><td class="mono">20 GPa</td><td class="mono">28K</td><td>film + pressure</td><td>Comm. Phys. 2025</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>STO</td><td class="mono">20 GPa</td><td class="mono">10K</td><td>film + pressure</td><td>Comm. Phys. 2025</td></tr>
+  </tbody>
+</table>
+
+<h3>Bulk-pressure anchors</h3>
+<table>
+  <thead>
+    <tr><th>Material</th><th>Pressure</th><th>Onset Tc</th><th>Zero-R Tc</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>La₃Ni₂O₇</td><td class="mono">14-43 GPa</td><td class="mono">80K</td><td class="mono">—</td><td>Nature 621 (2023)</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td class="mono">25 GPa</td><td class="mono">80K</td><td class="mono">—</td><td>Nat. Phys. (2024)</td></tr>
+    <tr><td>La₂PrNi₂O₇</td><td class="mono">18 GPa</td><td class="mono">82.5K</td><td class="mono">60K</td><td>Nature 634 (2024)</td></tr>
+    <tr><td>La₁.₅₇Sm₁.₄₃Ni₂O₇−δ</td><td class="mono">21.6 GPa</td><td class="mono">96K</td><td class="mono">—</td><td>Nature 649 (2026)</td></tr>
+  </tbody>
+</table>
+<p class="small">Pressure-mode labels follow the curated dataset: ambient records are thin-film measurements at ambient pressure; film + pressure records are epitaxial films measured under applied pressure; bulk-pressure anchors are single-crystal or bulk measurements under pressure. SLAO = SrLaAlO₄ (a = 3.756 Å). The interactive data engine keeps the original 18 film entries; the repo dataset curates all 23 measurements.</p>
 </div>
 
 <div class="section">
 <h2>Key patterns extracted from cross-referencing all data</h2>
 
-<p><span class="tag tag-pattern">PATTERN 1</span> <strong>Only one substrate explored at ambient.</strong> Every ambient-pressure SC film uses SrLaAlO₄. No substrates with a &lt; 3.75Å have been tested (SmAlO₃ 3.734Å, EuAlO₃ 3.720Å remain untried).</p>
+<p><span class="tag tag-pattern">PATTERN 1</span> <strong>SLAO dominates high-Tc ambient films.</strong> Ambient LAO, NGO, and STO films are present in the curated dataset, but every ambient film above 40K uses SrLaAlO₄. No substrate with a &lt; 3.75Å has been tested (SmAlO₃ 3.734Å, EuAlO₃ 3.720Å remain untried).</p>
 
 <p><span class="tag tag-pattern">PATTERN 2</span> <strong>Growth method dominates over composition.</strong> GAE extreme non-equilibrium growth produced 63K onset on the same substrate where PLD gives 42K — a 50% increase from synthesis optimization alone.</p>
 
@@ -81,11 +116,11 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <p><span class="tag tag-pattern">PATTERN 4</span> <strong>Superconducting dome parallels cuprates.</strong> Sr-doping maps a dome (x = 0 to 0.38) with Hall sign change at optimal doping — identical to electron-doped cuprate phenomenology (PRL 136, Feb 2026).</p>
 
-<p><span class="tag tag-pattern">PATTERN 5</span> <strong>γII Fermi pocket is the topological SC signature.</strong> Present in all SC superstructures (1212, 2222, 2323), absent in non-SC 1313 — the first structural screening criterion for nickelate SC (Nature, Apr 9 2026).</p>
+<p><span class="tag tag-pattern">PATTERN 5</span> <strong>γII Fermi pocket is the current topological SC signature.</strong> Present in reported SC superstructures (1212, 2222, 2323), absent in non-SC 1313 — a structural screening criterion for nickelate SC (Nature, Apr 9 2026).</p>
 
 <p><span class="tag tag-pattern">PATTERN 6</span> <strong>Strange-metal behavior tracks Tc.</strong> Highest-Tc films (63K) show resistivity ∝ T¹ (α ≈ 1), while lower-Tc films show Fermi-liquid T² dependence. SC strength is linked to non-Fermi-liquid normal state.</p>
 
-<p><span class="tag tag-pattern">PATTERN 7</span> <strong>c/a ratio is the master parameter.</strong> Across all substrates and pressures, onset Tc increases monotonically with c/a (Comm. Phys. 2025). c/a encodes both strain and orbital splitting effects.</p>
+<p><span class="tag tag-pattern">PATTERN 7</span> <strong>c/a ratio is a leading empirical parameter.</strong> In the curated substrate/pressure series, onset Tc increases with c/a (Comm. Phys. 2025). c/a encodes both strain and orbital splitting effects.</p>
 </div>
 
 <div class="section">
@@ -106,15 +141,16 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <div class="section">
 <h2>Ranked predictions</h2>
+<p class="small">These are empirical, hypothesis-generating experiment rankings derived from the curated measurements and cited trend claims. They are not first-principles simulations and are not verified outcomes.</p>
 
 <div class="highlight">
 <p><span class="tag tag-prediction">P1 — HIGH CONFIDENCE</span></p>
-<p><strong>Apply 2-5 GPa pressure to GAE-grown 63K (La,Pr)₃Ni₂O₇ films.</strong> Lower-quality films jump 62→68.5K at 2 GPa (Zhao/Sun 2026). GAE films with fewer oxygen vacancies should respond more strongly. Predicted onset: 75-85K. Achievable with piston-cylinder pressure cells, not diamond anvils.</p>
+<p><strong>Apply 2-5 GPa pressure to GAE-grown 63K (La,Pr)₃Ni₂O₇ films.</strong> Lower-quality films jump 62→68.5K at 2 GPa (Zhao/Sun 2026). If GAE films with fewer oxygen vacancies follow the same empirical pressure trend, the extrapolated onset range is 75-85K. Achievable with piston-cylinder pressure cells, not diamond anvils.</p>
 </div>
 
 <div class="highlight">
 <p><span class="tag tag-prediction">P2 — MEDIUM-HIGH CONFIDENCE</span></p>
-<p><strong>GAE-grown (La,Pr)₃Ni₂O₇ on SmAlO₃ (a = 3.734Å, strain ≈ -2.6%).</strong> If the c/a monotonic trend holds, extra compression should increase onset Tc by 10-15K. Key risk: coherent film growth at higher mismatch. No data exists for this substrate.</p>
+<p><strong>GAE-grown (La,Pr)₃Ni₂O₇ on SmAlO₃ (a = 3.734Å, strain ≈ -2.6%).</strong> If the c/a trend holds beyond the measured range, extra compression could increase onset Tc by 10-15K. Key risk: coherent film growth at higher mismatch. No data exists for this substrate.</p>
 </div>
 
 <div class="highlight">
@@ -124,7 +160,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <div class="highlight">
 <p><span class="tag tag-prediction">P4 — MEDIUM CONFIDENCE</span></p>
-<p><strong>Perpendicular electric field gating of single-bilayer films (0.1-0.2V).</strong> Theoretical prediction published in Nat. Commun. (2026): intralayer d-wave pairing enhanced to 77K+. Zero experimental attempts. Any group with ionic liquid gating capability could try this.</p>
+<p><strong>Perpendicular electric field gating of single-bilayer films (0.1-0.2V).</strong> Theory paper published in Nat. Commun. (2026): intralayer d-wave pairing enhanced to 77K+. Zero experimental attempts in the curated dataset. Any group with ionic liquid gating capability could test the claim.</p>
 </div>
 
 <div class="highlight">
@@ -135,8 +171,8 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <div class="section">
 <h2>Rate of progress and projections</h2>
-<p>From first ambient film (42K, Dec 2024) to current record (63K, Mar 2026): +21K in 15 months. At this rate, ambient films cross 77K by mid-2027. The rate is likely to accelerate as the GAE method is adopted by more groups and untested parameter space (substrates, doping, electric fields) is explored.</p>
-<p>The film + moderate pressure route is the fastest path: current films at 68.5K with just 2 GPa. At ~3K/GPa sensitivity, 5 GPa would reach ~77K. This is achievable with clamp pressure cells that cost under $10,000.</p>
+<p>From first ambient film (42K, Dec 2024) to current record (63K, Mar 2026): +21K in 15 months. If that empirical rate continued unchanged, ambient films would cross 77K by mid-2027. This is a projection, not a guarantee; adoption of GAE and exploration of substrates, doping, and electric fields could change the slope in either direction.</p>
+<p>The film + moderate pressure route is a near-term hypothesis: current films reach 68.5K at 2 GPa. Extrapolating the observed ~3K/GPa sensitivity, 5 GPa would land near ~77K. This is testable with clamp pressure cells, but it remains an unverified extrapolation for GAE-grown 63K films.</p>
 </div>
 
 <div class="section">
@@ -149,7 +185,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><td>Iron-based (FeSe)</td><td>37K at 7 GPa</td><td class="mono">65K</td><td>Interface coupling</td><td>2013</td></tr>
   </tbody>
 </table>
-<p>Three independent material families discovered the same strategy: compress the lattice into a high-Tc configuration, then use a physical trick (quenching, strain, interface coupling) to lock that structure at ambient pressure. This convergence suggests a general principle that may apply to future material systems.</p>
+<p>Across these material families, a recurring strategy appears: compress the lattice into a high-Tc configuration, then use a physical trick (quenching, strain, interface coupling) to retain or mimic that configuration at lower pressure. This convergence suggests a useful heuristic that may apply to future material systems.</p>
 </div>
 
 <div class="section">
@@ -171,6 +207,6 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <div class="section">
 <h2>About this analysis</h2>
-<p class="small">This research brief was generated through systematic extraction and cross-referencing of published experimental data from peer-reviewed journals and preprints (Nature, Nature Materials, Nature Physics, Nature Communications, Physical Review Letters, Communications Physics, National Science Review, and arXiv). All 18 data points trace to specific publications cited in the interactive dataset. Predictions are based on empirical trend extrapolation, not first-principles simulation, and should be treated as hypothesis generation for experimental follow-up. The interactive screening tools (substrate screener, data engine, timeline tracker) are available as companion artifacts.</p>
+<p class="small">This research brief was generated through systematic extraction and cross-referencing of published experimental data from peer-reviewed journals and preprints (Nature, Nature Materials, Nature Physics, Nature Communications, Physical Review Letters, Communications Physics, National Science Review, and arXiv). All 23 curated records trace to specific publications cited in the dataset. Predictions are based on empirical trend extrapolation, not first-principles simulation, and should be treated as hypothesis generation for experimental follow-up. The interactive screening tools (substrate screener, data engine, timeline tracker) are available as companion artifacts.</p>
 <p class="small">Contribute: <a href="https://github.com/flop95/nickelate-sc/issues">github.com/flop95/nickelate-sc</a></p>
 </div>

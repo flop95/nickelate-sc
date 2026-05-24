@@ -129,8 +129,8 @@ export default function NickelateTimeline({ pressureMode }) {
       <div style={{ fontSize: 13, lineHeight: 1.7, color: "var(--color-text-secondary)" }}>
         <p style={{ margin: "0 0 12px" }}>From first bulk signature (Jul 2023) to first ambient film (Dec 2024): <strong style={{ color: "var(--color-text)" }}>17 months</strong>. From first ambient film at 42K to current ambient record of 63K: <strong style={{ color: "var(--color-text)" }}>15 months</strong>. That's a 50% increase in onset Tc from film engineering alone.</p>
         <p style={{ margin: "0 0 12px" }}>The bulk-film gap has narrowed from 38K (80K La₃Ni₂O₇ bulk vs 42K film, Dec 2024) to 33K (96K Sm-substituted bulk vs 63K film, Mar 2026). The gap closes faster when measured against the original 80K bulk: only 17K remains.</p>
-        <p style={{ margin: "0 0 12px" }}>At the current rate of film improvement (~14K/year), ambient-pressure films would cross the liquid nitrogen threshold (77K) by <strong style={{ color: "var(--color-text)" }}>mid-2027</strong>. But the rate is likely to accelerate — the field hasn't yet tried stronger-compression substrates, electric field gating, or optimized Sr-doping + GAE combinations.</p>
-        <p style={{ margin: 0 }}>The film + moderate pressure route is the fastest path: films already hit 68.5K at just 2 GPa. At the observed pressure sensitivity (~3K/GPa), 4 GPa would put onset at ~75K, and 5 GPa at ~77K — both achievable with simple mechanical pressure cells, not diamond anvils.</p>
+        <p style={{ margin: "0 0 12px" }}>If the observed film-improvement rate (~14K/year) continued unchanged, ambient-pressure films would cross the liquid nitrogen threshold (77K) by <strong style={{ color: "var(--color-text)" }}>mid-2027</strong>. That is an empirical projection, not a guarantee; stronger-compression substrates, electric field gating, and optimized Sr-doping + GAE combinations remain untested.</p>
+        <p style={{ margin: 0 }}>The film + moderate pressure route is a near-term hypothesis: films already hit 68.5K at 2 GPa. Extrapolating the observed pressure sensitivity (~3K/GPa), 4 GPa would put onset near ~75K, and 5 GPa near ~77K — both testable with simple mechanical pressure cells, not diamond anvils.</p>
       </div>
 
       {/* Pipeline: paths to 77K */}
@@ -139,7 +139,7 @@ export default function NickelateTimeline({ pressureMode }) {
       <div style={{ borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4 }}>
         {[
           { id: "A", label: "Strain alone", text: "Need substrate with a ≈ 3.72Å (strain ≈ -3.0%). SmAlO₃ or EuAlO₃. Risk: coherent film growth at high mismatch. Nobody has tried." },
-          { id: "B", label: "Film + pressure", text: "Current 63K GAE films + 4-5 GPa. Pressure cells are cheap. Predicted: 75-80K onset. This could be done tomorrow by any group with a piston-cylinder cell." },
+          { id: "B", label: "Film + pressure", text: "Current 63K GAE films + 4-5 GPa. Empirical extrapolation: 75-80K onset. A group with a piston-cylinder cell could test the hypothesis directly." },
           { id: "C", label: "Growth optimization", text: "GAE already jumped 42→63K on the same substrate. If oxygen vacancy elimination continues improving, another 10-15K is plausible without changing anything else." },
           { id: "D", label: "Electric field", text: "Theory predicts 0.1-0.2V perpendicular field on single-bilayer pushes Tc to 77K+. Zero attempts. Highest risk, highest reward." },
         ].map((path, i, arr) => (
@@ -155,7 +155,7 @@ export default function NickelateTimeline({ pressureMode }) {
       </div>
 
       <div style={{ marginTop: 32, fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", lineHeight: 1.6 }}>
-        Timeline data from published papers and preprints. Hover for details. Projections assume continuation of observed trends.
+        Timeline data from published papers and preprints. Hover for details. Projections are empirical extrapolations that assume continuation of observed trends.
       </div>
     </div>
   );

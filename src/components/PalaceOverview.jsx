@@ -372,9 +372,9 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
     >
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 16 }}>
         <div>
-          <div className="overline">safe bets · from gap map</div>
+          <div className="overline">empirical hypotheses · from gap map</div>
           <div className="voice-authority" style={{ fontSize: 14 }}>
-            promising candidates
+            candidate hypotheses
           </div>
         </div>
         <span

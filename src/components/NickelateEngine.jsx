@@ -107,28 +107,35 @@ export default function NickelateEngine({ pressureMode }) {
       </div>
 
       {/* arXiv alerts */}
-      {arxivAlerts.alerts && arxivAlerts.alerts.length > 0 && (() => {
-        const meaningful = arxivAlerts.alerts.filter(a => a.diff_type !== "INFO");
-        if (meaningful.length === 0) return null;
+      {(() => {
+        const alerts = Array.isArray(arxivAlerts.alerts) ? arxivAlerts.alerts : [];
+        const meaningful = alerts.filter(a => a.diff_type !== "INFO");
         const diffColors = { RECORD: DATA_COLOR.prediction, NEW: DATA_COLOR.super, UPDATE: DATA_COLOR.prediction, CONFIRMS: DATA_COLOR.muted };
         return (
           <div style={{ marginBottom: 24 }}>
             <Rule label="arxiv alerts" collapsible expanded={isOpen("arxiv")} onToggle={() => toggle("arxiv")} />
             {isOpen("arxiv") && <>
-              {meaningful.slice(0, 5).map((a, i) => (
-                <div key={i} style={{ display: "flex", gap: 8, alignItems: "baseline", marginBottom: 4 }}>
-                  <span style={{
-                    fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: a.diff_type === "RECORD" ? 600 : 500,
-                    color: diffColors[a.diff_type] || "var(--color-text-muted)", whiteSpace: "nowrap",
-                  }}>{a.diff_type.toLowerCase()}</span>
-                  <span style={{ fontSize: 12, color: "var(--color-text-secondary)", lineHeight: 1.4 }}>{a.diff_detail}</span>
-                  <a href={a.url} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-secondary)", whiteSpace: "nowrap", flexShrink: 0 }}>
-                    {a.arxiv_id}
-                  </a>
+              {meaningful.length > 0 ? (
+                meaningful.slice(0, 5).map((a, i) => (
+                  <div key={i} style={{ display: "flex", gap: 8, alignItems: "baseline", marginBottom: 4 }}>
+                    <span style={{
+                      fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: a.diff_type === "RECORD" ? 600 : 500,
+                      color: diffColors[a.diff_type] || "var(--color-text-muted)", whiteSpace: "nowrap",
+                    }}>{a.diff_type.toLowerCase()}</span>
+                    <span style={{ fontSize: 12, color: "var(--color-text-secondary)", lineHeight: 1.4 }}>{a.diff_detail}</span>
+                    <a href={a.url} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-secondary)", whiteSpace: "nowrap", flexShrink: 0 }}>
+                      {a.arxiv_id}
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <div style={{ fontSize: 12, color: "var(--color-text-secondary)", lineHeight: 1.5 }}>
+                  No regex-extractable dataset-relevant alerts in the latest watcher output.
+                  {alerts.length > 0 ? " INFO-only papers are suppressed here." : ""} This is not proof that no relevant papers exist.
                 </div>
-              ))}
+              )}
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--color-text-muted)", marginTop: 4 }}>
-                last updated: {arxivAlerts.generated || "never"} · run python scripts/arxiv_watcher.py to refresh
+                last updated: {arxivAlerts.generated || "never"} · regex extraction; verify against source papers
               </div>
             </>}
           </div>
@@ -408,6 +415,9 @@ export default function NickelateEngine({ pressureMode }) {
       <Rule label="ranked predictions" collapsible expanded={isOpen("predictions")} onToggle={() => toggle("predictions")} />
 
       {isOpen("predictions") && <div style={{ borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4 }}>
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 14, lineHeight: 1.5 }}>
+          empirical hypotheses from sourced trends; not first-principles simulations or verified outcomes
+        </div>
         {predictions.map((p, i) => (
           <div key={i} style={{ position: "relative", paddingBottom: i < predictions.length - 1 ? 16 : 0 }}>
             <span style={{ position: "absolute", left: -20, top: 4, fontSize: 9, color: "var(--color-accent)" }}>▸</span>

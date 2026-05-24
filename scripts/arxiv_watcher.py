@@ -336,8 +336,14 @@ def main():
 
     # Print summary
     print(f"\n{'=' * 70}")
-    print(f"ALERTS — {len(alerts)} papers with extractable data")
+    print(f"ALERTS — {len(alerts)} regex-extractable dataset-relevant papers")
     print(f"{'=' * 70}\n")
+    if not alerts:
+        print(
+            "No alerts means the watcher found no regex-extractable "
+            "dataset-relevant alerts in this window; it is not proof that "
+            "no relevant papers exist.\n"
+        )
 
     type_colors = {
         "RECORD": "\033[33;1m", "NEW": "\033[32m", "UPDATE": "\033[33m",
@@ -359,6 +365,10 @@ def main():
         output = {
             "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "window_days": args.days,
+            "method_note": (
+                "Regex-based arXiv abstract extraction. No alerts means no "
+                "regex-extractable dataset-relevant alerts, not exhaustive recall."
+            ),
             "alert_count": len(alerts),
             "alerts": alerts,
         }
