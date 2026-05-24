@@ -67,7 +67,7 @@ This freeze archives:
   and bulk under pressure.
 - 22-gate physical / control / evidence schema with bitmask + feature-vector
   encoding.
-- ~80 hypothesis-candidate / screening-candidate neighbors at gate distance 1
+- 20 hypothesis-candidate / screening-candidate neighbors at gate distance 1
   from a measured anchor, with explicit "not a forecast" labeling.
 - Curated negative results.
 - Weekly arXiv watcher feed (`src/data/arxiv_alerts.json`).
