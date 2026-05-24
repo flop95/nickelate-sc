@@ -422,7 +422,7 @@
   <section class="stats" aria-label="Headline numbers">
     <div class="stat-cell"><div class="num">96K</div><div class="cap">Bulk record (pressure)</div></div>
     <div class="stat-cell"><div class="num">63K</div><div class="cap">Film record (ambient)</div></div>
-    <div class="stat-cell"><div class="num">14K</div><div class="cap">Gap to liquid N₂</div></div>
+    <div class="stat-cell"><div class="num">14K</div><div class="cap">Δ to 77K from current best ambient onset (one sample)</div></div>
     <div class="stat-cell"><div class="num">33 mo</div><div class="cap">Discovery → 63K film</div></div>
   </section>
 
@@ -440,8 +440,8 @@
     <!-- EXECUTIVE SUMMARY -->
     <section>
       <h2>Executive summary</h2>
-      <p>La₃Ni₂O₇ bilayer nickelate superconductivity was discovered under high pressure in July 2023 (Tc ≈ 80K). Within 33 months, ambient-pressure superconductivity has been achieved in epitaxially strained thin films, with onset Tc rising from 42K (Dec 2024) to 63K (Mar 2026). Bulk records under pressure have reached 96K in Sm-substituted bilayer crystals. The gap between the ambient film record and the liquid nitrogen threshold (77K) is now only 14K.</p>
-      <p>This brief presents a structured literature synthesis of published La₃Ni₂O₇ family measurements, with ambient thin films, films measured under applied pressure, and bulk-pressure anchors kept distinct. It identifies empirical patterns and research gaps, then lists five ranked, testable hypotheses for crossing the 77K threshold at ambient pressure. Those hypotheses are empirical extrapolations, not verified published measurements.</p>
+      <p>La₃Ni₂O₇ bilayer nickelate superconductivity was discovered under high pressure in July 2023 (Tc ≈ 80K). Within 33 months, ambient-pressure superconductivity has been reported in epitaxially strained thin films, with onset Tc rising from 42K (Dec 2024) to 63K (Mar 2026). Bulk records under pressure have reached 96K in Sm-substituted bilayer crystals. The highest reported ambient onset Tc to date sits 14K below 77K — this is a one-sample gap and should not be read as a smooth approach to liquid-nitrogen ambient SC.</p>
+      <p>This brief presents a structured literature synthesis of published La₃Ni₂O₇ family measurements, with ambient thin films, films measured under applied pressure, and bulk-pressure anchors kept distinct. It identifies empirical patterns and research gaps, then lists five ranked, hypothesis-generating experiment prompts that, <em>if</em> the cited trends hold beyond the measured range, would test approaches to 77K at ambient pressure. Those prompts are empirical extrapolations, not predictions; the underlying linear-in-time progression is fit to a handful of anchor points and could change in either direction at any time.</p>
     </section>
 
     <!-- DATASET -->
@@ -476,8 +476,8 @@
           <tr><th>Material</th><th>Substrate</th><th>Pressure</th><th>Onset Tc</th><th>Growth / note</th><th>Source</th></tr>
         </thead>
         <tbody>
-          <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">0.3 GPa</td><td class="mono">62K</td><td>film + pressure</td><td><a href="https://arxiv.org/abs/2603.29531">arXiv:2603.29531</a></td></tr>
-          <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">2 GPa</td><td class="mono">68.5K</td><td>film + pressure</td><td><a href="https://arxiv.org/abs/2603.29531">arXiv:2603.29531</a></td></tr>
+          <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">0.3 GPa</td><td class="mono">62K</td><td>film + pressure</td><td><a href="https://arxiv.org/abs/2603.29531">arXiv:2603.29531</a><sup>†</sup></td></tr>
+          <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">2 GPa</td><td class="mono">68.5K</td><td>film + pressure</td><td><a href="https://arxiv.org/abs/2603.29531">arXiv:2603.29531</a><sup>†</sup></td></tr>
           <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">7 GPa</td><td class="mono">48.5K</td><td>compressive film</td><td><a href="https://www.nature.com/articles/s41467-026-69660-1">Nat. Commun. (2026)</a></td></tr>
           <tr><td>La₃Ni₂O₇ film</td><td>not verified</td><td class="mono">9 GPa</td><td class="mono">61.5K</td><td>substrate / growth flagged for review</td><td><a href="https://www.nature.com/articles/s41467-026-69660-1">Nat. Commun. (2026)</a></td></tr>
           <tr><td>La₃Ni₂O₇</td><td>LAO</td><td class="mono">20 GPa</td><td class="mono">60K</td><td>film + pressure</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
@@ -499,6 +499,7 @@
         </tbody>
       </table></div>
       <p class="small">Pressure-mode labels follow the curated dataset: ambient records are thin-film measurements at ambient pressure; film + pressure records are epitaxial films measured under applied pressure; bulk-pressure anchors are single-crystal or bulk measurements under pressure. SLAO = SrLaAlO₄ (a = 3.756 Å). The interactive data engine keeps the original 18 film entries; the repo dataset curates all 23 measurements.</p>
+      <p class="small"><sup>†</sup> Source-verification flag: the arXiv identifier as transcribed is outside the expected 2026 numbering range and should be confirmed against the actual preprint server before this row is cited downstream. The 2026 Nature, NSR, Nat. Commun., and Nat. Mater. journal citations in the tables above resolve to journal landing pages but were not re-checked against issue indices for this release; treat all 2026 citations as items to confirm before reuse.</p>
     </section>
 
     <!-- PATTERNS -->
@@ -513,7 +514,7 @@
 
       <div class="finding"><p><span class="num">Pattern 4</span><strong>Superconducting dome resembles cuprate phenomenology.</strong> Sr-doping maps a dome (x = 0 to 0.38) with a Hall sign change near optimal doping, echoing electron-doped cuprate phenomenology without proving the same mechanism (PRL 136, Feb 2026).</p></div>
 
-      <div class="finding"><p><span class="num">Pattern 5</span><strong>γII Fermi pocket is a reported SC-associated signature.</strong> Present in reported SC superstructures (1212, 2222, 2323), absent in non-SC 1313 — a candidate structural screening criterion that should be checked against the original figures before reuse (Nature, Apr 9 2026).</p></div>
+      <div class="finding"><p><span class="num">Pattern 5</span><strong>γII Fermi pocket — single-paper, hypothesis-grade.</strong> One Nature paper (Apr 9, 2026) reports the γII pocket present in SC superstructures (1212, 2222, 2323) and absent in non-SC 1313. Read this as a candidate screening idea from a single figure in a single paper, not a validated criterion. Pockets-as-SC-fingerprints have historically failed to generalize; the original figures need cross-checking before reuse, and independent confirmation is required before the pattern should propagate.</p></div>
 
       <div class="finding"><p><span class="num">Pattern 6</span><strong>Strange-metal behavior tracks Tc in this small set.</strong> Highest-Tc films (63K) show resistivity ∝ T¹ (α ≈ 1), while lower-Tc films show Fermi-liquid T² dependence. The association is plausible but small-n.</p></div>
 
@@ -526,8 +527,8 @@
 
       <div class="gap-item"><p><span class="num">Gap 1</span>No films on substrates with a &lt; 3.75Å. Stronger compression could push c/a higher and increase Tc — or cause film decoherence. This is the most obvious untested axis.</p></div>
       <div class="gap-item"><p><span class="num">Gap 2</span>Sr-doping dome only mapped on SLAO. Does optimal doping shift on different substrates? Zero data exists.</p></div>
-      <div class="gap-item"><p><span class="num">Gap 3</span>Electric field gating of single-bilayer films proposed theoretically (Nat. Commun. Jan 2026, predicts 77K+). Zero experimental attempts published.</p></div>
-      <div class="gap-item"><p><span class="num">Gap 4</span>Pressure applied to GAE-grown 63K films not yet reported. Lower-quality films already show 62→68.5K at 2 GPa (arXiv:2603.29531).</p></div>
+      <div class="gap-item"><p><span class="num">Gap 3</span>Electric field gating of single-bilayer films proposed theoretically in one Nat. Commun. (2026) paper; the cited 77K+ figure is a model-dependent upper bound, conditioned on intralayer d-wave pairing. Zero experimental attempts published.</p></div>
+      <div class="gap-item"><p><span class="num">Gap 4</span>Pressure applied to GAE-grown 63K films not yet reported. Lower-quality films already show 62→68.5K at 2 GPa (arXiv:2603.29531<sup>†</sup> — identifier flagged for verification, see dataset note).</p></div>
       <div class="gap-item"><p><span class="num">Gap 5</span>No lanthanide sweep beyond Pr substitution. Nd, Sm, Gd on La site untested in films.</p></div>
       <div class="gap-item"><p><span class="num">Gap 6</span>Pairing symmetry in films unconfirmed experimentally — s± vs d-wave has direct implications for optimization strategy.</p></div>
     </section>
@@ -571,7 +572,7 @@
             <span class="prompt-tier">Theory-led test</span>
           </div>
           <div class="prompt-title">Perpendicular electric field gating of single-bilayer films (0.1–0.2V).</div>
-          <p>Theory paper published in Nat. Commun. (2026): intralayer d-wave pairing enhanced to 77K+. Zero experimental attempts in the curated dataset. Any group with ionic liquid gating capability could test the claim.</p>
+          <p>A single theory paper (Nat. Commun. 2026) argues that perpendicular gating could enhance intralayer d-wave pairing; the 77K+ figure is its theoretical upper bound, conditioned on the assumption that the pairing channel is intralayer d-wave. Zero experimental attempts exist in the curated dataset, and the pairing symmetry in films is itself unconfirmed (see Gap 6). Treat the 77K+ number as a model-dependent target, not a prediction. Any group with ionic-liquid gating capability could begin testing whether the gating direction matters at all.</p>
         </div>
 
         <div class="prompt">
@@ -588,8 +589,8 @@
     <!-- RATE OF PROGRESS -->
     <section>
       <h2>Rate of progress and projections</h2>
-      <p>From first ambient film (42K, Dec 2024) to current record (63K, Mar 2026): +21K in 15 months. If that empirical rate continued unchanged, ambient films would cross 77K by mid-2027. This is a projection, not a guarantee; adoption of GAE and exploration of substrates, doping, and electric fields could change the slope in either direction.</p>
-      <p>The film + moderate pressure route is a near-term hypothesis: current films reach 68.5K at 2 GPa. Extrapolating the observed ~3K/GPa sensitivity, 5 GPa would land near ~77K. This is testable with clamp pressure cells, but it remains an unverified extrapolation for GAE-grown 63K films.</p>
+      <p>From first ambient film (42K, Dec 2024) to current record (63K, Mar 2026): +21K in 15 months. A naive linear fit through this would cross 77K by mid-2027. The fit is across only three or four anchor points; two of those (42K and 63K) sit on the same SLAO substrate and reflect different growth methods (PLD vs GAE) rather than improvement of a single method, so this is not really a "rate" in the conventional sense. Treat it as a back-of-envelope reference number for follow-up planning, not a forecast. Any one of substrate, growth method, doping, or applied field could change the trajectory in either direction.</p>
+      <p>The film + moderate pressure route is a near-term hypothesis: current pressure-series films (not the 63K GAE film) reach 68.5K at 2 GPa. <em>If</em> the observed ~3K/GPa sensitivity continued, a 5 GPa point would land near ~77K. This is testable with clamp pressure cells, but it remains an unverified extrapolation; the GAE-grown 63K films may show a different pressure response.</p>
     </section>
 
     <!-- CROSS-FAMILY HEURISTIC -->
