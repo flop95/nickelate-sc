@@ -26,7 +26,7 @@ Three superconductor families (cuprates, nickelates, iron-based) motivate a work
 
 ## Data export
 
-The app's **export corpus** button downloads the current static corpus as JSON, including measurements, drawer records, gate definitions, failures, gap candidates, prediction inputs, and arXiv alerts. The deploy workflow also publishes the committed JSON files under `/data/` on GitHub Pages, including `/data/nickelate_dataset.json` and `/data/palace/`. The export is intended to make the curated rows inspectable; it does not make the private source repo, review history, or gate-assignment decisions independently reproducible.
+The app's **export corpus** button downloads the current static corpus as JSON, including measurements, drawer records, gate definitions, failures, gap candidates, prediction inputs, and arXiv alerts. The deploy workflow also publishes the committed JSON files under the public data directory on GitHub Pages. The export is intended to make the curated rows inspectable; it does not make the private source repo, review history, or gate-assignment decisions independently reproducible.
 
 ## Run locally
 
@@ -39,11 +39,11 @@ Open http://localhost:5173/
 
 ## arXiv alerts
 
-[`src/data/arxiv_alerts.json`](src/data/arxiv_alerts.json) is refreshed every Monday by [`.github/workflows/arxiv-watcher.yml`](.github/workflows/arxiv-watcher.yml), which runs [`scripts/arxiv_watcher.py`](scripts/arxiv_watcher.py) against the public arXiv API and commits any new hits. To run it manually:
+The arXiv alert feed is refreshed every Monday by the watcher workflow, which checks the public arXiv API and commits any new hits. To run it manually:
 
 ```bash
 pip install -r scripts/requirements.txt
-python scripts/arxiv_watcher.py --days 30
+npm run alerts -- --days 30
 ```
 
 ## Contribute data

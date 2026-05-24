@@ -259,7 +259,7 @@ export default function PalaceShell() {
         'Gap candidates are feature-distance hypotheses, not forecasts or first-principles predictions.',
         'Similarity scores and priority labels are curator heuristics, not probabilities.',
         'The rendered site and JSON export are public; the source repository and review history are private.',
-        'Use source_url and source_doi fields to re-check references before citing this export.',
+        'Use source URL and source DOI fields to re-check references before citing this export.',
       ],
     };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
