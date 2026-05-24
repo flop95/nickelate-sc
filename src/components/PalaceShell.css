@@ -236,8 +236,10 @@
 
 .palace-mobile-workspace {
   display: block;
+  width: 100%;
   min-height: 0;
   border-bottom: 1px solid var(--ink-15);
+  overflow-x: hidden;
 }
 
 .palace-mobile-nav {
@@ -247,12 +249,14 @@
   border-bottom: 1px solid var(--ink-25);
 }
 
-  .palace-mobile-center {
-    min-height: 520px;
+.palace-mobile-center {
+  min-height: 520px;
+  min-width: 0;
+  width: 100%;
   overflow: visible;
   overflow-wrap: anywhere;
-    border-bottom: 1px solid var(--ink-25);
-  }
+  border-bottom: 1px solid var(--ink-25);
+}
 
 .palace-mobile-inspector {
   min-height: 300px;
@@ -451,7 +455,8 @@
   }
 
   .palace-mobile-center .workspace-section,
-  .palace-overview-lanes {
+  .palace-overview-lanes,
+  .palace-gaps-layout {
     grid-template-columns: 1fr !important;
   }
 
@@ -459,6 +464,21 @@
     gap: 18px !important;
     padding: 18px !important;
     min-width: 0;
+    max-width: 100%;
+    overflow-x: visible;
+  }
+
+  .palace-mobile-center .palace-gaps-layout > *,
+  .palace-mobile-center .palace-overview-lanes > * {
+    min-width: 0;
+  }
+
+  .palace-mobile-center .hero-evidence-item > div {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+
+  .palace-mobile-center .hero-fingerprint-wrap {
     max-width: 100%;
     overflow-x: auto;
   }

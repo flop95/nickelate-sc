@@ -2,10 +2,10 @@ import LatticeSpin from './LatticeSpin.jsx';
 import PressureModeTabs from './PressureModeTabs.jsx';
 
 const ROUTE_LABELS = {
-  overview: ['Palace Overview'],
-  search: ['Search Materials'],
+  overview: ['Research Screen'],
+  search: ['Search Records'],
   failures: ['Negative Results'],
-  stats: ['Palace Statistics'],
+  stats: ['Screening Statistics'],
   'history/timeline': ['History', 'Tc Timeline'],
   'history/brief': ['History', 'Research Brief'],
 };
@@ -33,7 +33,7 @@ const ROOM_LABELS = {
 };
 
 export function routeToCrumbs(route) {
-  if (!route) return ['Palace Overview'];
+  if (!route) return ['Research Screen'];
   if (ROUTE_LABELS[route]) return ROUTE_LABELS[route];
   const parts = route.split('/');
   if (parts[0] === 'material') {

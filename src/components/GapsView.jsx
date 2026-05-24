@@ -3,16 +3,22 @@ import drawers from '../data/palace/palace_drawers.json';
 import BitmaskStamp, { splitBitmask } from './BitmaskStamp.jsx';
 import { useEffect, useMemo, useState } from 'react';
 import { formatGateList } from '../utils/displayLabels.js';
-import { matchesPressureMode, pressureModeLabel } from '../utils/pressureModes.js';
+import { matchesPressureMode, pressureModeFor, pressureModeLabel } from '../utils/pressureModes.js';
+
+const DRAWER_BY_ID = new Map(drawers.map(d => [d.id, d]));
+
+function resolveNearestSuccessDrawer(gap) {
+  return DRAWER_BY_ID.get(gap.nearest_success_drawer_id)
+    || drawers.find(d => d.material === gap.nearest_success && d.wing === 'nickelates')
+    || drawers.find(d => d.material === gap.nearest_success);
+}
 
 export default function GapsView({ pressureMode }) {
   const list = useMemo(() => {
     const all = Array.isArray(gaps) ? gaps : [];
-    return all.filter(g => {
-      const anchor = drawers.find(d => d.material === g.nearest_success && d.wing === 'nickelates')
-        || drawers.find(d => d.material === g.nearest_success);
-      return matchesPressureMode(anchor, pressureMode);
-    });
+    return all
+      .map(g => ({ ...g, nearestDrawer: resolveNearestSuccessDrawer(g) }))
+      .filter(g => matchesPressureMode(g.nearestDrawer, pressureMode));
   }, [pressureMode]);
   const [selected, setSelected] = useState(list[0] || null);
 
@@ -23,19 +29,20 @@ export default function GapsView({ pressureMode }) {
   return (
     <div style={{ padding: '24px 32px', fontFamily: 'var(--font-body)', maxWidth: 1100 }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
-        Gap Candidates — Nickelates
+        Hypothesis Candidates — Nickelates
       </div>
       <h1 style={{ fontSize: 20, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 4 }}>
-        untested neighborhoods
+        untested screening neighborhoods
       </h1>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
-        {list.length} {pressureModeLabel(pressureMode)} gaps within Hamming 2 of a known high-Tc success
+        {list.length} {pressureModeLabel(pressureMode)} hypotheses within two screening gates of a measured high-Tc anchor
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 24 }}>
+      <div className="palace-gaps-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 24 }}>
         <div style={{ border: '1px solid var(--color-border-subtle)' }}>
           {list.map((g, i) => {
             const isSel = selected === g;
+            const anchorOnset = g.nearestDrawer?.properties?.onset_tc ?? g.nearest_onset;
             return (
               <div
                 key={i}
@@ -62,11 +69,11 @@ export default function GapsView({ pressureMode }) {
                     near {g.nearest_success}
                   </div>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-accent)' }}>
-                    differs by {formatGateList(g.gates_flipped)}
+                    screening gate: {formatGateList(g.gates_flipped)}
                   </div>
                 </div>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)', textAlign: 'right' }}>
-                  {g.nearest_onset}K
+                  {anchorOnset}K
                 </span>
               </div>
             );
@@ -86,9 +93,9 @@ export default function GapsView({ pressureMode }) {
               </div>
               <BitmaskStamp drawer={splitBitmask(selected.bitmask)} size="signature" />
               <div style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
-                Distance: <span style={{ color: 'var(--color-text)' }}>{selected.distance}</span><br />
-                Anchor: <span style={{ color: 'var(--color-text)' }}>{selected.nearest_success}</span> ({selected.nearest_onset}K)<br />
-                Gate change: <span style={{ color: 'var(--color-accent)' }}>{formatGateList(selected.gates_flipped)}</span>
+                Gate distance: <span style={{ color: 'var(--color-text)' }}>{selected.distance}</span><br />
+                Measured anchor: <span style={{ color: 'var(--color-text)' }}>{selected.nearest_success}</span> ({selected.nearestDrawer?.properties?.onset_tc ?? selected.nearest_onset}K, {pressureModeLabel(pressureModeFor(selected.nearestDrawer))})<br />
+                Screening gate change: <span style={{ color: 'var(--color-accent)' }}>{formatGateList(selected.gates_flipped)}</span>
               </div>
             </>
           )}

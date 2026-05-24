@@ -11,10 +11,17 @@ import TcValue from './TcValue.jsx';
 import DataTable from './DataTable.jsx';
 import { GATE_COUNT, hammingDistance } from '../utils/bitmask.js';
 import { formatGateList, formatGateName } from '../utils/displayLabels.js';
-import { matchesPressureMode, pressureModeLabel } from '../utils/pressureModes.js';
+import { matchesPressureMode, pressureModeFor, pressureModeLabel } from '../utils/pressureModes.js';
 
 // palace_gates.json is now a dict {count, categories, gates} — read the gates array.
 const GATE_NAME_TO_INDEX = Object.fromEntries(gateDefs.gates.map(g => [g.name, g.index]));
+const DRAWER_BY_ID = new Map(drawers.map(d => [d.id, d]));
+
+function resolveNearestSuccessDrawer(gap) {
+  return DRAWER_BY_ID.get(gap.nearest_success_drawer_id)
+    || drawers.find(d => d.material === gap.nearest_success && d.wing === 'nickelates')
+    || drawers.find(d => d.material === gap.nearest_success);
+}
 
 // Compute the full ranked candidate list once. Each entry carries the gap
 // data plus the resolved nearest-success drawer (for substrate etc.) and
@@ -22,9 +29,7 @@ const GATE_NAME_TO_INDEX = Object.fromEntries(gateDefs.gates.map(g => [g.name, g
 function buildCandidates(gapsList) {
   if (!Array.isArray(gapsList)) return [];
   return gapsList.map(g => {
-    const nearestDrawer = drawers.find(
-      d => d.material === g.nearest_success && d.wing === 'nickelates'
-    ) || drawers.find(d => d.material === g.nearest_success);
+    const nearestDrawer = resolveNearestSuccessDrawer(g);
     const diffIndex = GATE_NAME_TO_INDEX[g.gates_flipped?.[0]];
     const minFailDist = failures.length
       ? Math.min(...failures.map(f => {
@@ -60,13 +65,13 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
 
   return (
     <div className="palace-overview-root" style={{ padding: '28px 36px 40px', maxWidth: 1280 }}>
-      <div className="overline">command center</div>
+      <div className="overline">research screen</div>
       <h1 className="voice-authority" style={{ fontSize: 22, marginBottom: 4 }}>
         nickelate<span style={{ color: 'var(--fg-2)' }}>.</span><span style={{ color: 'var(--accent)' }}>sc</span>
       </h1>
       <div className="voice-quiet" style={{ marginBottom: 28, maxWidth: 640 }}>
-        {pressureModeLabel(pressureMode)} screening · untested candidates sit closest
-        to known success anchors · negative results constrain where not to look
+        {pressureModeLabel(pressureMode)} screening · sourced records are measured observations,
+        screening-gate distances are inferred features, and candidates are hypotheses for follow-up.
       </div>
 
       {hero ? <HeroCandidate hero={hero} onSelect={onSelect} /> : <HeroEmpty />}
@@ -92,9 +97,11 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
 // Hero candidate panel — the dramatic center
 // ───────────────────────────────────────────────────────
 function HeroCandidate({ hero, onSelect }) {
-  const headlineK = Math.round(hero.nearest_onset || 0);
+  const anchorOnset = hero.nearestDrawer?.properties?.onset_tc ?? hero.nearest_onset;
+  const headlineK = Math.round(anchorOnset || 0);
   const diffGateName = formatGateName(hero.gates_flipped?.[0]);
   const substrate = hero.nearestDrawer?.properties?.substrate || '';
+  const anchorMode = pressureModeLabel(pressureModeFor(hero.nearestDrawer));
   const riskColor = 'var(--text-secondary)';
 
   return (
@@ -113,7 +120,7 @@ function HeroCandidate({ hero, onSelect }) {
       }}
     >
       <div>
-        <div className="overline" style={{ marginBottom: 10 }}>nearest untested candidate</div>
+        <div className="overline" style={{ marginBottom: 10 }}>hypothesis candidate</div>
         <div className="hero-fingerprint-wrap">
           <BitmaskStamp drawer={splitBitmask(hero.bitmask)} size="signature" diffGate={hero.diffIndex} />
         </div>
@@ -124,20 +131,20 @@ function HeroCandidate({ hero, onSelect }) {
           className="voice-authority hero-claim"
           style={{ fontSize: 18, marginBottom: 10, lineHeight: 1.35 }}
         >
-          {hero.distance === 1 ? '1 gate' : `${hero.distance} gates`} from the known{' '}
+          {hero.distance === 1 ? '1 screening gate' : `${hero.distance} screening gates`} from the measured{' '}
           <span className="tc-strong">{headlineK}K</span>{' '}
-          {hero.nearest_success} pattern.
+          {hero.nearest_success} anchor.
         </div>
 
         <div className="hero-evidence-item">
-          <Row label="nearest success">
+          <Row label="nearest measured anchor">
             <span className="voice-mono" style={{ fontSize: 13, color: 'var(--text-primary)' }}>
               {hero.nearest_success}{substrate ? ` on ${substrate}` : ''}
             </span>
           </Row>
         </div>
         <div className="hero-evidence-item">
-          <Row label="differing gate">
+          <Row label="differing screening gate">
             <span className="voice-mono" style={{ fontSize: 12, color: 'var(--color-accent)' }}>
               {diffGateName || '—'}
             </span>
@@ -153,7 +160,7 @@ function HeroCandidate({ hero, onSelect }) {
         <div className="hero-evidence-item">
           <Row label="retrieval">
             <span className="voice-mono" style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
-              Δ{hero.distance} Hamming · same structural family
+              Δ{hero.distance} gate distance · same structural family{anchorMode ? ` · ${anchorMode} anchor` : ''}
             </span>
           </Row>
         </div>
@@ -188,7 +195,7 @@ function HeroCandidate({ hero, onSelect }) {
                 letterSpacing: '0.02em',
               }}
             >
-              inspect anchor →
+              inspect measured anchor →
             </button>
           )}
         </div>
@@ -262,10 +269,11 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
       .slice(0, 6)
       .map(g => ({
         id: `gap-${g.bitmask}`,
-        material_pattern: `${g.distance === 1 ? 'one' : g.distance}-gate neighbor`,
+        material_pattern: `${g.distance === 1 ? 'one' : g.distance}-gate hypothesis`,
         differing_gates: g.gates_flipped || [],
         nearest_success: g.nearest_success,
-        nearest_success_tc: g.nearest_onset,
+        nearest_success_tc: g.nearestDrawer?.properties?.onset_tc ?? g.nearest_onset,
+        nearestDrawer: g.nearestDrawer,
         confidence: g.distance <= 1 ? 'high' : 'medium',
         failure_risk: (g.riskLabel || 'LOW').toLowerCase(),
       }));
@@ -291,7 +299,7 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
               {p.material_pattern}
             </div>
             <div className="voice-mono" style={{ fontSize: 9, color: 'var(--text-faint)', marginTop: 2 }}>
-              differs by {formatGateList(p.differing_gates)}
+              screening gate: {formatGateList(p.differing_gates)}
             </div>
           </div>
         );
@@ -299,7 +307,7 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
     },
     {
       id: 'nearest_success',
-      header: 'anchor',
+      header: 'measured anchor',
       accessorKey: 'nearest_success',
       size: '1fr',
       cell: info => {
@@ -353,11 +361,9 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
   ], []);
 
   const handleRowClick = row => {
-    // Jump the inspector to the anchor drawer of this gap candidate.
+    // Jump the inspector to the measured anchor drawer of this gap candidate.
     if (!onSelect) return;
-    const anchor = drawers.find(d => d.material === row.nearest_success && d.wing === 'nickelates')
-      || drawers.find(d => d.material === row.nearest_success);
-    if (anchor) onSelect({ kind: 'drawer', drawer: anchor });
+    if (row.nearestDrawer) onSelect({ kind: 'drawer', drawer: row.nearestDrawer });
   };
 
   return (
@@ -374,7 +380,7 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
         <div>
           <div className="overline">empirical hypotheses · from gap map</div>
           <div className="voice-authority" style={{ fontSize: 14 }}>
-            candidate hypotheses
+            hypothesis candidates
           </div>
         </div>
         <span
@@ -387,7 +393,7 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
           }}
           onClick={() => onNavigate && onNavigate('nickelates/gap_candidates')}
         >
-          [all gaps ↗]
+          [all candidates ↗]
         </span>
       </div>
 
@@ -494,11 +500,11 @@ function FailureLane({ failures: recent, onSelect, onNavigate }) {
 // Demoted action links
 // ───────────────────────────────────────────────────────
 const LINKS = [
-  { key: 'nickelates/experimental_results', label: 'explore palace' },
-  { key: 'search',                          label: 'search materials' },
+  { key: 'nickelates/experimental_results', label: 'browse records' },
+  { key: 'search',                          label: 'search records' },
   { key: 'failures',                        label: 'negative results' },
-  { key: 'nickelates/gap_candidates',       label: 'gap map' },
-  { key: 'stats',                           label: 'palace statistics' },
+  { key: 'nickelates/gap_candidates',       label: 'hypothesis map' },
+  { key: 'stats',                           label: 'screening statistics' },
 ];
 
 function ActionLinks({ onNavigate }) {
@@ -538,9 +544,9 @@ function ActionLinks({ onNavigate }) {
 // ───────────────────────────────────────────────────────
 function StatsStrip() {
   const items = [
-    { label: 'materials', value: stats.total_drawers },
+    { label: 'records', value: stats.total_drawers },
     { label: 'negative results', value: stats.total_failures },
-    { label: 'gaps',      value: Array.isArray(gaps) ? gaps.length : 0 },
+    { label: 'hypotheses', value: Array.isArray(gaps) ? gaps.length : 0 },
     { label: 'lessons',   value: stats.total_lessons },
   ];
   return (

@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Tree } from 'react-arborist';
 
-// Palace hierarchy (navigation). Parent nodes = wings (toggle open/close).
+// Research navigation hierarchy. Parent nodes = wings (toggle open/close).
 // Leaves have an `id` that IS the route key.
 const TREE_DATA = [
-  { id: 'overview', name: 'Palace Overview' },
-  { id: 'search', name: 'Search Materials' },
+  { id: 'overview', name: 'Research Screen' },
+  { id: 'search', name: 'Search Records' },
   { id: 'failures', name: 'Negative Results' },
-  { id: 'stats', name: 'Palace Statistics' },
+  { id: 'stats', name: 'Screening Statistics' },
   {
     id: 'nickelates',
     name: 'Nickelates',

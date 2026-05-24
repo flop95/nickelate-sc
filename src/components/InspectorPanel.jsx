@@ -97,8 +97,8 @@ function EmptyState() {
           Select a material or negative result<br />to inspect
         </div>
       </div>
-      <div className="overline" style={{ marginBottom: 10 }}>Palace</div>
-      <StatRow label="drawers"  value={stats.total_drawers} />
+      <div className="overline" style={{ marginBottom: 10 }}>Research index</div>
+      <StatRow label="records"  value={stats.total_drawers} />
       <StatRow label="negative results" value={stats.total_failures} />
       <StatRow label="lessons"  value={stats.total_lessons} />
       <StatRow label="tunnels"  value={stats.total_tunnels} />

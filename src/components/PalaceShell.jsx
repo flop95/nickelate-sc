@@ -155,7 +155,7 @@ export default function PalaceShell() {
   const [pressureMode, setPressureMode] = useState(initialUrlState.pressureMode);
 
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 760px)');
+    const mq = window.matchMedia('(max-width: 900px)');
     const update = () => setIsNarrow(mq.matches);
     update();
     mq.addEventListener('change', update);
@@ -281,7 +281,7 @@ export default function PalaceShell() {
 
       {isNarrow ? (
         <div className="palace-mobile-workspace">
-          <nav className="pane-sidebar palace-mobile-nav" aria-label="Palace navigation">
+          <nav className="pane-sidebar palace-mobile-nav" aria-label="Research navigation">
             <WingTree activeRoute={activeRoute} onNavigate={navigate} counts={wingCounts} />
           </nav>
 
@@ -289,9 +289,11 @@ export default function PalaceShell() {
             {centerContent}
           </main>
 
-          <aside className="pane-inspector palace-mobile-inspector">
-            {inspectorContent}
-          </aside>
+          {selection && !inspectorCollapsed && (
+            <aside className="pane-inspector palace-mobile-inspector">
+              {inspectorContent}
+            </aside>
+          )}
         </div>
       ) : (
         <div className="palace-workspace">

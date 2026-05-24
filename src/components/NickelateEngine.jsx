@@ -287,13 +287,7 @@ export default function NickelateEngine({ pressureMode }) {
                         <div style={{ marginTop: 8, padding: "8px 12px", borderLeft: "2px solid var(--color-accent)", background: "var(--color-bg)", fontSize: 12 }}>{d.notes}</div>
                       )}
                       <div style={{ marginTop: 8, fontSize: 10, color: "var(--color-text-muted)" }}>
-                        Know these parameters?{" "}
-                        <a
-                          href={`https://github.com/flop95/nickelate-sc/issues/new?template=recipe-detail.yml&title=${encodeURIComponent(`Recipe: ${d.material} on ${d.substrate} (id:${d.id})`)}&entry=${encodeURIComponent(`${d.material} on ${d.substrate} (id:${d.id})`)}`}
-                          target="_blank" rel="noopener noreferrer"
-                          style={{ color: "var(--color-text-secondary)" }}
-                        >Submit via GitHub.</a>
-                        {" "}Submissions require source verification.
+                        Know these parameters? Private intake is used for recipe details; source verification is required before inclusion.
                       </div>
                     </td>
                   </tr>
@@ -424,11 +418,9 @@ export default function NickelateEngine({ pressureMode }) {
             <div style={{ marginBottom: 4 }}>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 600, color: "var(--color-accent)", marginRight: 8 }}>{p.id}</span>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)" }}>{p.conf}</span>
-              <a
-                href={`https://github.com/flop95/nickelate-sc/issues/new?template=claim-prediction.yml&title=${encodeURIComponent(`[Claim] ${p.id}`)}`}
-                target="_blank" rel="noopener noreferrer"
-                style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-secondary)", marginLeft: 12 }}
-              >claim →</a>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginLeft: 12 }}>
+                private review
+              </span>
             </div>
             <div style={{ fontSize: 13, lineHeight: 1.6, color: "var(--color-text-secondary)" }}>{p.text}</div>
             {p.difficulty && (
@@ -572,12 +564,7 @@ export default function NickelateEngine({ pressureMode }) {
       <div style={{ marginTop: 32, fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", lineHeight: 1.8 }}>
         Data from published papers and preprints through April 2026. Click any row to expand. Empirical screening tool, not a simulation.
         <br />
-        <a
-          href="https://github.com/flop95/nickelate-sc/issues/new?template=new-measurement.yml"
-          target="_blank" rel="noopener noreferrer"
-          style={{ color: "var(--color-text-secondary)" }}
-        >Contribute data → GitHub</a>
-        <span style={{ marginLeft: 12 }}>All submissions are validated and reviewed before inclusion. Source verification required.</span>
+        Corrections and new measurements are handled through private review. Source verification required before inclusion.
       </div>
 
       {/* About / Methodology */}
@@ -604,11 +591,7 @@ export default function NickelateEngine({ pressureMode }) {
           and may miss or misparse values — verify against the source paper.
         </p>
         <p style={{ margin: 0 }}>
-          <a
-            href="https://github.com/flop95/nickelate-sc/issues"
-            target="_blank" rel="noopener noreferrer"
-            style={{ color: "var(--color-text-secondary)" }}
-          >Contribute data or corrections → GitHub</a>
+          Corrections, recipe details, and new measurements are accepted only through private review with source verification.
         </p>
       </div>
     </div>

@@ -7,6 +7,7 @@ function readJson(path) {
 
 const dataset = readJson('src/data/nickelate_dataset.json');
 const drawers = readJson('src/data/palace/palace_drawers.json');
+const gaps = readJson('src/data/palace/palace_gaps_nickelates.json');
 const failures = readJson('src/data/palace/palace_failures.json');
 const predictions = readJson('src/data/predictions.json');
 const researchBriefHtml = readFileSync(new URL('../docs/research-brief.html', import.meta.url), 'utf8');
@@ -163,6 +164,32 @@ for (const failure of failures) {
     fail('unsourced_prediction_input', `${path}.drawer_id`, `unknown drawer_id ${failure.drawer_id}`);
   }
 }
+
+gaps.forEach((gap, index) => {
+  const path = `src/data/palace/palace_gaps_nickelates.json:gaps[${index}]`;
+  const anchorId = gap.nearest_success_drawer_id;
+
+  if (!Number.isInteger(anchorId)) {
+    fail('gap_anchor_mismatch', `${path}.nearest_success_drawer_id`, 'missing concrete nearest-success drawer id');
+    return;
+  }
+
+  const anchor = drawerById.get(anchorId);
+  if (!anchor) {
+    fail('gap_anchor_mismatch', `${path}.nearest_success_drawer_id`, `unknown drawer_id ${anchorId}`);
+    return;
+  }
+
+  if (anchor.material !== gap.nearest_success) {
+    fail('gap_anchor_mismatch', path, `nearest_success ${gap.nearest_success} points to drawer ${anchorId} (${anchor.material})`);
+  }
+
+  const anchorOnset = Number(anchor.properties?.onset_tc);
+  const gapOnset = Number(gap.nearest_onset);
+  if (!Number.isFinite(anchorOnset) || !Number.isFinite(gapOnset) || Math.abs(anchorOnset - gapOnset) > 0.001) {
+    fail('gap_anchor_mismatch', path, `nearest_onset ${gap.nearest_onset} disagrees with drawer ${anchorId} onset ${anchor.properties?.onset_tc}`);
+  }
+});
 
 for (const prediction of predictions) {
   const path = `src/data/predictions.json:${prediction.id}`;

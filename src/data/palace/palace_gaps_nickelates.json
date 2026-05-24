@@ -34,7 +34,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2212985,
@@ -71,7 +72,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2213049,
@@ -108,7 +110,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2213177,
@@ -145,7 +148,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2213433,
@@ -182,7 +186,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2211897,
@@ -219,7 +224,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2214969,
@@ -256,7 +262,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2217017,
@@ -293,7 +300,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2221113,
@@ -330,7 +338,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 2196537,
@@ -367,7 +376,8 @@
       "[19] N  diamagnetic_confirmed",
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 22
   },
   {
     "bitmask": 4047995,
@@ -404,7 +414,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4047929,
@@ -441,7 +452,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4048121,
@@ -478,7 +490,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4048249,
@@ -515,7 +528,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4048505,
@@ -552,7 +566,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4046969,
@@ -589,7 +604,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4050041,
@@ -626,7 +642,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4052089,
@@ -663,7 +680,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4056185,
@@ -700,7 +718,8 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   },
   {
     "bitmask": 4031609,
@@ -737,6 +756,7 @@
       "[19] Y  diamagnetic_confirmed",
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
-    ]
+    ],
+    "nearest_success_drawer_id": 21
   }
 ]
