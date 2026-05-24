@@ -116,7 +116,7 @@ export default function NickelateTimeline() {
 
       <div style={{ fontSize: 13, lineHeight: 1.7, color: "var(--color-text-secondary)" }}>
         <p style={{ margin: "0 0 12px" }}>From first bulk signature (Jul 2023) to first ambient film (Dec 2024): <strong style={{ color: "var(--color-text)" }}>17 months</strong>. From first ambient film at 42K to current ambient record of 63K: <strong style={{ color: "var(--color-text)" }}>15 months</strong>. That's a 50% increase in onset Tc from film engineering alone.</p>
-        <p style={{ margin: "0 0 12px" }}>The bulk-film gap has narrowed from 38K (80K bulk vs 42K film, Dec 2024) to 33K (96K bulk vs 63K film, Mar 2026). The gap closes faster when measured against the original 80K bulk: only 17K remains.</p>
+        <p style={{ margin: "0 0 12px" }}>The bulk-film gap has narrowed from 38K (80K La₃Ni₂O₇ bulk vs 42K film, Dec 2024) to 33K (96K Sm-substituted bulk vs 63K film, Mar 2026). The gap closes faster when measured against the original 80K bulk: only 17K remains.</p>
         <p style={{ margin: "0 0 12px" }}>At the current rate of film improvement (~14K/year), ambient-pressure films would cross the liquid nitrogen threshold (77K) by <strong style={{ color: "var(--color-text)" }}>mid-2027</strong>. But the rate is likely to accelerate — the field hasn't yet tried stronger-compression substrates, electric field gating, or optimized Sr-doping + GAE combinations.</p>
         <p style={{ margin: 0 }}>The film + moderate pressure route is the fastest path: films already hit 68.5K at just 2 GPa. At the observed pressure sensitivity (~3K/GPa), 4 GPa would put onset at ~75K, and 5 GPa at ~77K — both achievable with simple mechanical pressure cells, not diamond anvils.</p>
       </div>

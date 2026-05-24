@@ -4,12 +4,12 @@ Empirical screening tool for nickelate superconductor research.
 
 **Live:** https://flop95.github.io/nickelate-sc/
 
-Curates 23 nickelate superconductivity measurements, detects contradictions in the data, runs sensitivity analysis, and ranks untested experiments by priority. arXiv alerts update weekly.
+Curates 23 nickelate superconductivity measurements, surfaces unexplained contradictions after pressure-class confounds, runs sensitivity analysis, and ranks untested experiments by priority. arXiv alerts update weekly.
 
 ## What it does
 
 - **Engine** — Interactive data explorer for the original 18 published nickelate film measurements. Scatter plot (strain vs Tc, toggleable to c/a ratio), sortable/filterable table with expandable synthesis recipe cards.
-- **Contradiction detection** — Auto-flags entries where the same material + substrate + strain reports Tc values differing by >5K. Identifies the likely explanatory variable (growth method, pressure, doping).
+- **Contradiction detection** — Checks entries where the same material + substrate + strain reports Tc values differing by >5K. Pressure-only differences are treated as explained physics, so the visible list is limited to unexplained contradictions.
 - **Sensitivity analysis** — Sweep strain, substrate a-axis, or growth method to see marginal effects on Tc. Linear regression with slope and R² displayed.
 - **Predictions** — 5 ranked experiments with predicted Tc ranges, confidence levels, lab difficulty ratings (equipment, substrate availability, cost tier), and claim links.
 - **arXiv alerts** — Weekly automated scan of arXiv for new nickelate SC papers. Extracts material, substrate, Tc from abstracts and diffs against the dataset.
@@ -55,6 +55,7 @@ All data manually curated from published papers and preprints. Key sources:
 - Sakakibara/Kuroki, Commun. Phys. (2025) — strain-tuning study
 - Nie et al., PRL 136, 066002 (2026) — superconducting dome
 - Hwang group, Nature (Apr 9, 2026) — superstructure topology
+- Li, Xing, Peng et al., Nature 649, 871-878 (2026) — 96K Sm-substituted bulk record under pressure
 - Zhao/Sun, arXiv:2603.29531 — film + pressure to 68.5K
 
 ## Further reading

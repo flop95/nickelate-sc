@@ -36,7 +36,7 @@ export function routeToCrumbs(route) {
   if (ROUTE_LABELS[route]) return ROUTE_LABELS[route];
   const parts = route.split('/');
   if (parts[0] === 'material') {
-    return ['Nickelates', 'Experimental Results', decodeURIComponent(parts[1] || '')];
+    return ['Nickelates', 'Experimental Results', decodeURIComponent(parts[2] || parts[1] || '')];
   }
   const out = [];
   if (parts[0] && WING_LABELS[parts[0]]) out.push(WING_LABELS[parts[0]]);

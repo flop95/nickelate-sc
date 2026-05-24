@@ -2,10 +2,10 @@
  * Find contradictions in the nickelate dataset.
  *
  * Groups entries by (material + substrate + strain within ±0.1%) and flags
- * groups where onset_tc differs by more than the given threshold (default 5K).
+ * unexplained groups where onset_tc differs by more than the threshold (default 5K).
  *
- * For each contradiction, identifies the most likely explanatory variable
- * by checking which fields differ between the high-Tc and low-Tc entries.
+ * Pressure-class differences are treated as explained physics and filtered
+ * out before returning the visible contradiction list.
  */
 
 const STRAIN_TOLERANCE = 0.1; // %

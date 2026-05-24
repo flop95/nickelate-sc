@@ -241,7 +241,7 @@ function DrawerInspector({ drawer, onNavigate }) {
       )}
 
       <button
-        onClick={() => onNavigate && onNavigate(`material/${encodeURIComponent(drawer.material)}`)}
+        onClick={() => onNavigate && onNavigate(`material/${drawer.id}/${encodeURIComponent(drawer.material)}`)}
         className="voice-mono"
         style={{
           background: 'transparent',

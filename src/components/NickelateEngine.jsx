@@ -582,6 +582,8 @@ export default function NickelateEngine() {
         <p style={{ margin: "0 0 8px" }}>
           Contradictions are auto-detected when the same material + substrate +
           strain combination yields onset Tc values differing by more than 5K.
+          Pressure-class differences are treated as explained confounds, so the
+          visible list is limited to unexplained contradictions.
         </p>
         <p style={{ margin: "0 0 8px" }}>
           arXiv alerts refresh weekly via automated scan. Extraction is regex-based

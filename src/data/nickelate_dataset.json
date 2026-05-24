@@ -253,16 +253,16 @@
       "pressure_gpa": 18, "pressure_range": [15, 25], "pressure_confidence": "inferred", "source_url": null
     },
     {
-      "id": 22, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
+      "id": 22, "material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ", "substrate": null, "substrate_a": null,
       "strain": null, "onset_tc": 96, "zero_r_tc": null,
-      "growth_method": null, "group": null, "year": 2024,
-      "source": "Nature (Dec 2025)", "arxiv": null,
+      "growth_method": "ambient-pressure flux growth", "group": "Li, Xing, Peng et al.", "year": 2025,
+      "source": "Nature 649, 871–878 (2026)", "arxiv": null,
       "film_a": null, "film_c": null, "thickness": null,
-      "doping": null, "oxygen_treatment": null,
+      "doping": "Sm-substituted", "oxygen_treatment": null,
       "pressure_class": "Pressure only",
-      "notes": "New bulk Tc record in pressurized nickelate single crystals.",
+      "notes": "Sm-substituted bilayer nickelate single crystal; Tc,onset 96 K under high pressure. Nature reports La₂SmNi₂O₇ bulk zero resistance separately.",
       "tags": ["bulk", "pressure", "record", "timeline"],
-      "pressure_gpa": 36, "pressure_range": [30, 45], "pressure_confidence": "inferred", "source_url": null
+      "pressure_gpa": 21.6, "pressure_range": [21.6, 29.6], "pressure_confidence": "approximate", "source_url": "https://www.nature.com/articles/s41586-025-09954-4"
     },
     {
       "id": 23, "material": "La₃Ni₂O₇", "substrate": null, "substrate_a": null,
@@ -283,8 +283,8 @@
     { "order": 2,  "date": "Jun 2024", "measurement_id": 20, "label": "La₃Ni₂O₇ zero-R",         "type": "bulk",   "color": "var(--d-warm)" },
     { "order": 3,  "date": "Oct 2024", "measurement_id": 21, "label": "La₂PrNi₂O₇ bulk",         "type": "bulk",   "color": "var(--d-contradict)" },
     { "order": 4,  "date": "Dec 2024", "measurement_id": 1,  "label": "First ambient film",       "type": "film",   "color": "var(--d-super)" },
-    { "order": 5,  "date": "Dec 2024", "measurement_id": 22, "label": "96K bulk record",          "type": "bulk",   "color": "var(--d-contradict)" },
-    { "order": 6,  "date": "Feb 2025", "measurement_id": 8,  "label": "(La,Pr)₃Ni₂O₇ film",      "type": "film",   "color": "var(--d-super)" },
+    { "order": 5,  "date": "Feb 2025", "measurement_id": 8,  "label": "(La,Pr)₃Ni₂O₇ film",      "type": "film",   "color": "var(--d-super)" },
+    { "order": 6,  "date": "Dec 2025", "measurement_id": 22, "label": "Sm-sub bulk record",       "type": "bulk",   "color": "var(--d-contradict)" },
     { "order": 7,  "date": "Feb 2026", "measurement_id": 13, "label": "SC dome mapped",           "type": "film",   "color": "var(--color-accent)" },
     { "order": 8,  "date": "Mar 2026", "measurement_id": 4,  "label": "63K GAE film",             "type": "film",   "color": "var(--d-prediction)" },
     { "order": 9,  "date": "Mar 2026", "measurement_id": 15, "label": "Film + 2 GPa",             "type": "film+P", "color": "var(--d-pressure)" },

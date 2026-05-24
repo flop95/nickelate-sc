@@ -1456,12 +1456,12 @@
   },
   {
     "id": 22,
-    "material": "La₃Ni₂O₇",
-    "content": "La₃Ni₂O₇ | - | onset_tc=96",
-    "bitmask": 2457657,
+    "material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "content": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ | - | onset_tc=96",
+    "bitmask": 2212921,
     "physical_bitmask": 57,
-    "control_bitmask": 0,
-    "evidence_bitmask": 2457600,
+    "control_bitmask": 17408,
+    "evidence_bitmask": 2195456,
     "feature_vector": {
       "physical": [
         0.5,
@@ -1476,50 +1476,50 @@
       "evidence": [
         0.384,
         0.0,
-        0.3333333333333333
+        0.6666666666666666
       ]
     },
     "properties": {
-      "material": "La₃Ni₂O₇",
+      "material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
       "substrate": null,
       "substrate_a": null,
       "strain": null,
       "onset_tc": 96,
       "zero_r_tc": null,
-      "growth_method": null,
-      "group": null,
-      "year": 2024,
-      "source": "Nature (Dec 2025)",
+      "growth_method": "ambient-pressure flux growth",
+      "group": "Li, Xing, Peng et al.",
+      "year": 2025,
+      "source": "Nature 649, 871–878 (2026)",
       "arxiv": null,
       "film_a": null,
       "film_c": null,
       "thickness": null,
-      "doping": null,
+      "doping": "Sm-substituted",
       "oxygen_treatment": null,
       "pressure_class": "Pressure only",
-      "notes": "New bulk Tc record in pressurized nickelate single crystals.",
+      "notes": "Sm-substituted bilayer nickelate single crystal; Tc,onset 96 K under high pressure. Nature reports La₂SmNi₂O₇ bulk zero resistance separately.",
       "tags": [
         "bulk",
         "pressure",
         "record",
         "timeline"
       ],
-      "pressure_gpa": 36,
+      "pressure_gpa": 21.6,
       "pressure_range": [
-        30,
-        45
+        21.6,
+        29.6
       ],
-      "pressure_confidence": "inferred",
-      "source_url": null
+      "pressure_confidence": "approximate",
+      "source_url": "https://www.nature.com/articles/s41586-025-09954-4"
     },
-    "source": "Nature (Dec 2025)",
+    "source": "Nature 649, 871–878 (2026)",
     "confidence": "measured",
     "wing": "nickelates",
     "room": "experimental_results",
     "hall": "data_points",
     "evidence": {
-      "source_doi": null,
-      "source_url": null,
+      "source_doi": "10.1038/s41586-025-09954-4",
+      "source_url": "https://www.nature.com/articles/s41586-025-09954-4",
       "figure_label": null,
       "figure_caption": null,
       "summary": null,

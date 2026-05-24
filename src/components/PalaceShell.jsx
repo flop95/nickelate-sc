@@ -179,8 +179,13 @@ function RouteContent({ route, onNavigate, onSelect, selection }) {
   }
 
   if (route.startsWith('material/')) {
-    const name = decodeURIComponent(route.slice('material/'.length));
-    const drawer = drawers.find(d => d.material === name);
+    const materialRoute = route.slice('material/'.length);
+    const [encodedIdOrName] = materialRoute.split('/');
+    const id = Number(decodeURIComponent(encodedIdOrName || ''));
+    const name = decodeURIComponent(encodedIdOrName || '');
+    const drawer = Number.isInteger(id)
+      ? drawers.find(d => d.id === id)
+      : drawers.find(d => d.material === name);
     return drawer
       ? <MaterialPage drawer={drawer} onSelect={onSelect} />
       : <Empty msg={`material not found: ${name}`} />;
