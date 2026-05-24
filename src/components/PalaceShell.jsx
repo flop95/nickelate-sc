@@ -232,7 +232,7 @@ export default function PalaceShell() {
       issue: {
         title: 'nickelate.sc Vol. 1, No. 1',
         date: 'April 2026',
-        status: 'curated static review index; hypothesis rankings are not verified measurements',
+        status: 'pseudonymous curated static review index; no DOI, no peer review, source repository private; hypothesis rankings are not verified measurements',
       },
       view: {
         route: activeRoute,
@@ -257,6 +257,8 @@ export default function PalaceShell() {
       caveats: [
         'Measurements and references are manually curated from public literature and preprints.',
         'Gap candidates are feature-distance hypotheses, not forecasts or first-principles predictions.',
+        'Similarity scores and priority labels are curator heuristics, not probabilities.',
+        'The rendered site and JSON export are public; the source repository and review history are private.',
         'Use source_url and source_doi fields to re-check references before citing this export.',
       ],
     };

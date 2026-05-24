@@ -54,7 +54,8 @@ function shapePath(shape, r) {
   }
 }
 
-// Confidence → size. 2 pt at conf 0, 5 pt at conf 1, default 3.5 pt.
+// Source specificity → size. 2 pt at low specificity, 5 pt at high specificity.
+// This is a plotting cue, not a probability of superconductivity.
 function markRadius(confidence) {
   if (confidence == null) return 3.5;
   const c = Math.max(0, Math.min(1, confidence));
@@ -580,7 +581,7 @@ export default function FigureOne({
           FIG. 1.
         </span>
         <span style={{ fontStyle: 'italic' }}>
-          Pressure–temperature landscape of superconductivity. Materials plotted on a logarithmic pressure axis (10⁻⁴ to 10² GPa) against critical temperature on a linear 0–300 K scale. Shape encodes family — nickelate circle, cuprate square, hydride diamond, pnictide triangle-up, conventional BCS triangle-down, wildcard pentagon; fill encodes measurement status (filled = measured, open = predicted); hairline rings denote anchors, slashes denote failures, superscript numerals denote proposal round. The dashed rectangle in the upper-left is the ambient-pressure target zone — {' '}<i>P</i> &lt; 10⁻² GPa, <i>T</i><sub>c</sub> &gt; 138 K. Hover any point for coordinate readout; click to anchor the inspector.
+          Pressure–temperature landscape of superconductivity. Materials plotted on a logarithmic pressure axis (10⁻⁴ to 10² GPa) against critical temperature on a linear 0–300 K scale. Shape encodes family — nickelate circle, cuprate square, hydride diamond, pnictide triangle-up, conventional BCS triangle-down, wildcard pentagon; fill encodes measurement status (filled = measured, open = hypothesis candidate); marker size is a source-specificity cue, not a probability. Hairline rings denote anchors, slashes denote failures, superscript numerals denote proposal round. The dashed rectangle in the upper-left is the ambient-pressure target zone — {' '}<i>P</i> &lt; 10⁻² GPa, <i>T</i><sub>c</sub> &gt; 138 K. Hover any point for coordinate readout; click to anchor the inspector.
         </span>
       </figcaption>
     </figure>

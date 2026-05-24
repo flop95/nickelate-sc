@@ -406,11 +406,11 @@ export default function NickelateEngine({ pressureMode }) {
       </div>}
 
       {/* Pipeline predictions */}
-      <Rule label="ranked predictions" collapsible expanded={isOpen("predictions")} onToggle={() => toggle("predictions")} />
+      <Rule label="ranked experiment prompts" collapsible expanded={isOpen("predictions")} onToggle={() => toggle("predictions")} />
 
       {isOpen("predictions") && <div style={{ borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4 }}>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 14, lineHeight: 1.5 }}>
-          empirical hypotheses from sourced trends; not first-principles simulations or verified outcomes
+          empirical hypotheses from sourced trends; priority labels are heuristic, not probabilities; not first-principles simulations or verified outcomes
         </div>
         {predictions.map((p, i) => (
           <div key={i} style={{ position: "relative", paddingBottom: i < predictions.length - 1 ? 16 : 0 }}>
@@ -419,7 +419,7 @@ export default function NickelateEngine({ pressureMode }) {
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 600, color: "var(--color-accent)", marginRight: 8 }}>{p.id}</span>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)" }}>{p.conf}</span>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginLeft: 12 }}>
-                private review
+                source check required
               </span>
             </div>
             <div style={{ fontSize: 13, lineHeight: 1.6, color: "var(--color-text-secondary)" }}>{p.text}</div>
@@ -526,7 +526,7 @@ export default function NickelateEngine({ pressureMode }) {
         return (
           <div>
             <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8 }}>
-              onset Tc vs {varLabel} // {points.length} entries, r²={r2.toFixed(2)}, slope={slopeLabel}
+              onset Tc vs {varLabel} // {points.length} entries, small-n linear fit, r²={r2.toFixed(2)}, slope={slopeLabel}
             </div>
             <svg viewBox={`0 0 ${sW} ${sH}`} style={{ width: "100%" }}>
               {/* Regression line */}
@@ -556,15 +556,16 @@ export default function NickelateEngine({ pressureMode }) {
             <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-text-muted)", marginTop: 4 }}>
               ΔTc = <span style={{ color: "var(--color-text)", fontWeight: 600 }}>{slopeLabel}</span>
               <span style={{ marginLeft: 12, color: "var(--color-text-muted)" }}>r² = {r2.toFixed(2)}</span>
+              <span style={{ marginLeft: 12, color: "var(--color-text-muted)" }}>do not extrapolate across phase boundaries</span>
             </div>
           </div>
         );
       })()}</>}
 
       <div style={{ marginTop: 32, fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", lineHeight: 1.8 }}>
-        Data from published papers and preprints through April 2026. Click any row to expand. Empirical screening tool, not a simulation.
+        Data from published papers and preprints through April 2026. Click any row to expand. Empirical screening tool, not a simulation, forecast, or archival database.
         <br />
-        Corrections and new measurements are handled through private review. Source verification required before inclusion.
+        Pseudonymous authorship; source repository private. Corrections and new measurements are handled through private review. Source verification required before inclusion.
       </div>
 
       {/* About / Methodology */}
@@ -573,7 +574,7 @@ export default function NickelateEngine({ pressureMode }) {
       <div style={{ fontSize: 12, lineHeight: 1.7, color: "var(--color-text-secondary)", maxWidth: 800 }}>
         <p style={{ margin: "0 0 8px" }}>
           nickelate-sc is an empirical screening tool for nickelate superconductor research.
-          All data is from published papers and preprints through April 2026.
+          All data is from published papers and preprints through April 2026. It is not peer-reviewed infrastructure.
         </p>
         <p style={{ margin: "0 0 8px" }}>
           Predictions are extrapolations from observed trends, not simulations.

@@ -2,9 +2,9 @@
   {
     "id": "P1",
     "rank": 1,
-    "priority": "high",
+    "priority": "near-term test",
     "title": "Pressure on GAE 63K films",
-    "description": "Apply 2-5 GPa pressure to the GAE-grown 63K (La,Pr)₃Ni₂O₇ films. The Sun group showed films go from 62→68.5K with just 2 GPa on lower-quality films. If GAE films with fewer oxygen vacancies follow that empirical trend, the hypothesis-generating onset range is 75-85K.",
+    "description": "Apply 2-5 GPa pressure to the GAE-grown 63K (La,Pr)₃Ni₂O₇ films. The cited film-pressure series reports 62→68.5K with just 2 GPa on lower-quality films. If GAE films with fewer oxygen vacancies follow that empirical trend, a hypothesis-generating scenario range is 75-85K.",
     "predicted_tc_range": [
       75,
       85
@@ -49,9 +49,9 @@
   {
     "id": "P2",
     "rank": 2,
-    "priority": "medium-high",
+    "priority": "extrapolative test",
     "title": "GAE on SmAlO₃",
-    "description": "GAE-grown (La,Pr)₃Ni₂O₇ on SmAlO₃ (a=3.734Å, strain ≈ -2.6%). If the c/a trend holds beyond the measured range, the extra 0.6% compression could increase onset Tc by ~10-15K. Key risk: film coherence at higher mismatch.",
+    "description": "GAE-grown (La,Pr)₃Ni₂O₇ on SmAlO₃ (a=3.734Å, strain ≈ -2.6%). If the c/a trend holds beyond the measured range, the extra 0.6% compression could increase onset Tc by ~10-15K. Key risk: film coherence at higher mismatch; no data exists for this substrate.",
     "predicted_tc_range": [
       73,
       78
@@ -97,7 +97,7 @@
   {
     "id": "P3",
     "rank": 3,
-    "priority": "medium",
+    "priority": "combination test",
     "title": "Sr-doping × GAE on SLAO",
     "description": "Sr-doping at optimal level (x≈0.15) + GAE growth on SLAO. The dome study (PRL 2026) used MBE, not GAE. Combining the best doping level with the best growth method has not been done.",
     "predicted_tc_range": [
@@ -138,7 +138,7 @@
   {
     "id": "P4",
     "rank": 4,
-    "priority": "medium",
+    "priority": "theory-led test",
     "title": "Electric field gating",
     "description": "Electric field gating of single-bilayer films. Theory predicts 0.1-0.2V perpendicular voltage should enhance intralayer d-wave pairing enough to reach 77K+. Zero attempts exist.",
     "predicted_tc_range": [
@@ -178,9 +178,9 @@
   {
     "id": "P5",
     "rank": 5,
-    "priority": "new",
+    "priority": "exploratory",
     "title": "Superstructures on high-compression substrates",
-    "description": "Engineer superstructures on a substrate with a < 3.75Å — test whether stronger strain preserves the γII Fermi pocket while pushing Tc higher. The Nature paper (Apr 9, 2026) established γII as the topological signature of SC.",
+    "description": "Engineer superstructures on a substrate with a < 3.75Å — test whether stronger strain preserves the γII Fermi pocket while pushing Tc higher. The Nature paper (Apr 9, 2026) reports γII as an SC-associated signature; verify the original figures before using it as a screening criterion.",
     "predicted_tc_range": [
       55,
       75

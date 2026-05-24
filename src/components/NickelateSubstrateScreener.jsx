@@ -37,7 +37,7 @@ function predictTc(strain) {
   return Math.max(0, Math.min(100, tc));
 }
 
-function getConfidence(strain) {
+function getRangeStatus(strain) {
   if (strain >= -2.5 && strain <= 2.0) return "Within data range";
   if (strain >= -4.0 && strain <= 3.0) return "Extrapolation";
   return "Far extrapolation";
@@ -72,12 +72,12 @@ export default function NickelateScreener({ pressureMode }) {
     });
     candidateSubstrates.filter(c => selectedCandidates.has(c.name)).forEach(c => {
       const strain = calcStrain(c.a);
-      points.push({ substrate: c.name, a: c.a, strain, predictedTc: predictTc(strain), type: "candidate", note: c.notes, confidence: getConfidence(strain) });
+      points.push({ substrate: c.name, a: c.a, strain, predictedTc: predictTc(strain), type: "candidate", note: c.notes, rangeStatus: getRangeStatus(strain) });
     });
     if (customA && !isNaN(parseFloat(customA))) {
       const a = parseFloat(customA);
       const strain = calcStrain(a);
-      points.push({ substrate: customName || "Custom", a, strain, predictedTc: predictTc(strain), type: "custom", confidence: getConfidence(strain) });
+      points.push({ substrate: customName || "Custom", a, strain, predictedTc: predictTc(strain), type: "custom", rangeStatus: getRangeStatus(strain) });
     }
     return points.sort((a, b) => b.predictedTc - a.predictedTc);
   }, [selectedCandidates, customA, customName]);
@@ -115,7 +115,7 @@ export default function NickelateScreener({ pressureMode }) {
     <div>
       {/* No title card — the tool name is implicit from the tab */}
       <div style={{ fontSize: 13, color: "var(--color-text-muted)", marginBottom: 32 }}>
-        predict onset Tc from epitaxial strain // La₃Ni₂O₇ thin film
+        predict onset Tc from epitaxial strain // La₃Ni₂O₇ thin film // heuristic substrate screen
       </div>
 
       {/* Full-width chart */}
@@ -209,12 +209,12 @@ export default function NickelateScreener({ pressureMode }) {
       {/* Results table */}
       {allPoints.length > 0 && (
         <>
-          <Rule label="ranked predictions" />
+          <Rule label="ranked substrate prompts" />
           <div style={{ overflowX: "auto" }}>
             <table>
               <thead>
                 <tr>
-                  {["Substrate", "a (Å)", "Strain", "Predicted Tc", "Type", "Confidence"].map(h => (
+                  {["Substrate", "a (Å)", "Strain", "Heuristic Tc", "Type", "Range status"].map(h => (
                     <th key={h} style={{ textAlign: "left", fontWeight: 500, color: "var(--color-text-muted)", fontSize: 11 }}>{h}</th>
                   ))}
                 </tr>
@@ -231,7 +231,7 @@ export default function NickelateScreener({ pressureMode }) {
                     <td>
                       <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: p.type === "published" ? DATA_COLOR.super : p.type === "custom" ? "var(--color-accent)" : DATA_COLOR.accent }}>{p.type}</span>
                     </td>
-                    <td style={{ fontSize: 11, color: "var(--color-text-muted)" }}>{p.confidence || "Measured"}</td>
+                    <td style={{ fontSize: 11, color: "var(--color-text-muted)" }}>{p.rangeStatus || "Measured"}</td>
                   </tr>
                 ))}
               </tbody>
@@ -254,14 +254,14 @@ export default function NickelateScreener({ pressureMode }) {
             <p style={{ margin: "0 0 8px" }}><strong>Data sources:</strong> Ko et al. Nature 2025, Zhou et al. NSR 2025/2026, strain-tuning study (Comm. Physics 2025). Total: 6 published data points across 4 substrates.</p>
             <p style={{ margin: "0 0 8px" }}><strong>What this is NOT:</strong> Not a first-principles simulation. It fits an empirical trend line to published experimental data and uses it to screen substrates by lattice mismatch.</p>
             <p style={{ margin: "0 0 8px" }}><strong>Key limitations:</strong> (1) Linear model — the real Tc-strain relationship may be nonlinear at extreme strains. (2) Only accounts for in-plane strain. (3) Ignores film quality factors. (4) Substrate chemistry matters beyond lattice constant.</p>
-            <p style={{ margin: 0 }}><strong>How to use:</strong> Treat predictions as "worth investigating" signals. Substrates predicting Tc above 77K are flagged with ✦.</p>
+            <p style={{ margin: 0 }}><strong>How to use:</strong> Treat rows as "worth investigating" signals, not forecasts. Substrates with heuristic Tc above 77K are flagged with ✦.</p>
           </div>
         )}
       </div>
 
       <div style={{ marginTop: 16, borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4, fontSize: 13, color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
-        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 500, color: "var(--color-text-muted)", marginBottom: 4 }}>key finding</div>
-        Substrates with a-axis below ~3.72 Å predict onset Tc at or above the liquid nitrogen threshold (77K). EuAlO₃ (3.720 Å), SmAlO₃ (3.734 Å), and YAlO₃ (3.680 Å) are the strongest candidates — but extreme mismatch may prevent coherent film growth.
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 500, color: "var(--color-text-muted)", marginBottom: 4 }}>heuristic readout</div>
+        Under this linear strain heuristic, substrates with a-axis below ~3.72 Å screen near or above the liquid nitrogen threshold (77K). EuAlO₃ (3.720 Å), SmAlO₃ (3.734 Å), and YAlO₃ (3.680 Å) are the strongest prompts — but extreme mismatch may prevent coherent film growth.
       </div>
     </div>
   );

@@ -132,7 +132,7 @@ export default function FailureBrowser({ onSelect, selection, pressureMode }) {
     },
     {
       id: 'confidence',
-      header: 'confidence',
+      header: 'source status',
       accessorKey: 'confidence',
       size: '100px',
       enableColumnFilter: true,
@@ -198,7 +198,7 @@ export default function FailureBrowser({ onSelect, selection, pressureMode }) {
         <MultiSelectFilter label="Mode" options={typeOptions} selected={typeSel} onChange={setTypeSel} formatValue={formatFailureType} />
         <MultiSelectFilter label="Wing" options={wingOptions} selected={wingSel} onChange={setWingSel} formatValue={formatWingLabel} />
         <MultiSelectFilter label="Substrate" options={substrateOptions} selected={substrateSel} onChange={setSubstrateSel} />
-        <MultiSelectFilter label="Confidence" options={confOptions} selected={confSel} onChange={setConfSel} />
+        <MultiSelectFilter label="Source status" options={confOptions} selected={confSel} onChange={setConfSel} />
       </div>
 
       {/* Chip row */}

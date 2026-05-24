@@ -6,7 +6,7 @@
   },
   {
     "id": "PAT-02", "type": "pattern", "confidence": "high",
-    "text": "Growth method is the #1 variable right now — GAE (extreme non-equilibrium, in-situ oxidation) produced 63K onset on the SAME substrate where PLD+anneal gives 42K. A 50% Tc increase from synthesis alone.",
+    "text": "Growth method is a leading variable in the current dataset — GAE (extreme non-equilibrium, in-situ oxidation) produced 63K onset on the same substrate where PLD+anneal gives 42K. This is a large same-substrate synthesis effect, but still a single comparison that needs replication.",
     "related_entry_ids": [1, 4]
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "id": "PAT-04", "type": "pattern", "confidence": "high",
-    "text": "Superconducting dome exists (PRL 2026) — Tc stable for Sr doping x=0 to 0.21, suppressed near x≈0.38. Hall coefficient sign change at optimal doping = electron-hole crossover, identical to cuprate phenomenology.",
+    "text": "Superconducting dome exists (PRL 2026) — Tc stable for Sr doping x=0 to 0.21, suppressed near x≈0.38. Hall coefficient sign change near optimal doping resembles electron-doped cuprate phenomenology without proving the same mechanism.",
     "related_entry_ids": [9, 13]
   },
   {
@@ -26,17 +26,17 @@
   },
   {
     "id": "PAT-06", "type": "pattern", "confidence": "high",
-    "text": "γII Fermi pocket is the smoking gun — present in all SC superstructures (1212, 2222, 2323), absent in non-SC 1313 (Nature, Apr 9, 2026). This is the first topological constraint on nickelate SC.",
+    "text": "γII Fermi pocket is a reported SC-associated signature — present in reported SC superstructures (1212, 2222, 2323), absent in non-SC 1313 (Nature, Apr 9, 2026). Treat it as a screening clue to verify against the original figures.",
     "related_entry_ids": [12]
   },
   {
     "id": "PAT-07", "type": "pattern", "confidence": "high",
-    "text": "Film + moderate pressure stacks multiplicatively — (La,Pr)₃Ni₂O₇ films on SLAO reach 68.5K onset at just 2 GPa (arXiv:2603.29531, Mar 2026). The resistance dip above Tc is an oxygen vacancy indicator.",
+    "text": "Film + moderate pressure may stack constructively — (La,Pr)₃Ni₂O₇ films on SLAO reach 68.5K onset at just 2 GPa in the cited pressure series (arXiv:2603.29531, Mar 2026). Re-check the source before using the pressure sensitivity as a projection.",
     "related_entry_ids": [10, 15]
   },
   {
     "id": "PAT-08", "type": "pattern", "confidence": "high",
-    "text": "c/a ratio is the master parameter — across all substrates and pressures, onset Tc increases monotonically with c/a ratio (Commun. Phys. 2025). c/a encodes both strain and orbital splitting.",
+    "text": "c/a ratio is a leading empirical parameter within the measured substrate/pressure series — onset Tc increases with c/a ratio (Commun. Phys. 2025). Extrapolating beyond the measured c/a range is the risky step.",
     "related_entry_ids": [5, 6, 7, 16, 17, 18]
   },
   {

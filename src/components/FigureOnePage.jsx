@@ -101,7 +101,7 @@ export default function FigureOnePage() {
             <p>
               Curated measured records and hypothesis candidates plotted on a logarithmic pressure axis,
               with ambient-pressure candidates held against verified high-Tc anchors and known
-              negative results.
+              negative results. The figure is a retrieval surface, not a forecast.
             </p>
           </div>
         </section>

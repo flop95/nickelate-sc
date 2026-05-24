@@ -65,15 +65,16 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
 
   return (
     <div className="palace-overview-root" style={{ padding: '28px 36px 40px', maxWidth: 1280 }}>
-      <div className="overline">curated issue</div>
+      <div className="overline">pseudonymous literature notebook</div>
       <h1 className="voice-authority" style={{ fontSize: 22, marginBottom: 4 }}>
         nickelate<span style={{ color: 'var(--fg-2)' }}>.</span><span style={{ color: 'var(--accent)' }}>sc</span>
       </h1>
       <div className="voice-quiet" style={{ marginBottom: 28, maxWidth: 640 }}>
         A static, sourced screening review: {pressureModeLabel(pressureMode)} records are measured observations,
-        screening-gate distances are curator-assigned features, and candidates are hypotheses for follow-up.
+        screening-gate distances are curator-assigned features, and candidates are experiment prompts for follow-up.
       </div>
 
+      <EpistemicNotice />
       {hero ? <HeroCandidate hero={hero} onSelect={onSelect} /> : <HeroEmpty />}
 
       <div className="palace-overview-lanes" style={{
@@ -91,6 +92,27 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
       <ActionLinks onNavigate={onNavigate} />
       <StatsStrip />
     </div>
+  );
+}
+
+function EpistemicNotice() {
+  return (
+    <section
+      className="workspace-section"
+      style={{
+        margin: '0 0 24px',
+        padding: '12px 16px',
+        borderTop: '1px solid var(--line)',
+        borderBottom: '1px solid var(--line)',
+      }}
+    >
+      <div className="overline" style={{ marginBottom: 6 }}>status before use</div>
+      <div className="voice-quiet" style={{ maxWidth: 980, color: 'var(--text-secondary)', fontSize: 12, lineHeight: 1.55 }}>
+        Personal synthesis by a pseudonymous author; no DOI, no peer review, no editorial board, and no public source repository.
+        The public surface is the rendered issue plus JSON export. Similarity scores organize the curator's feature choices;
+        they are not probabilities, forecasts, or evidence that a candidate will superconduct.
+      </div>
+    </section>
   );
 }
 
@@ -177,7 +199,7 @@ function HeroCandidate({ hero, onSelect }) {
             fontSize: 10,
             color: 'var(--text-secondary)',
           }}>
-            ⚠ sits Δ{hero.minFailDist} from a known negative pattern
+            ! sits Δ{hero.minFailDist} from a known negative pattern
           </div>
         )}
 
@@ -513,9 +535,10 @@ function ScopeNote() {
     >
       <div className="overline" style={{ marginBottom: 6 }}>scope note</div>
       <div className="voice-quiet" style={{ maxWidth: 900, color: 'var(--text-secondary)', fontSize: 12, lineHeight: 1.55 }}>
-        This issue is a personal literature synthesis, not an archival database or consensus forecast. Exported JSON exposes
-        the curated measurements, gate definitions, gap candidates, failures, and prediction inputs so references and rankings
-        can be re-checked before use.
+        This issue is a personal literature synthesis, not an archival database, peer-reviewed venue, or consensus forecast.
+        Exported JSON exposes the curated measurements, gate definitions, gap candidates, failures, and prediction inputs so
+        references and rankings can be re-checked before use. Recompute gate assignments and re-pull primary sources before
+        treating any ranking quantitatively.
       </div>
     </section>
   );
@@ -572,6 +595,7 @@ function StatsStrip() {
     { label: 'records', value: stats.total_drawers },
     { label: 'negative results', value: stats.total_failures },
     { label: 'hypotheses', value: Array.isArray(gaps) ? gaps.length : 0 },
+    { label: 'source repo', value: 'private' },
     { label: 'lessons',   value: stats.total_lessons },
   ];
   return (

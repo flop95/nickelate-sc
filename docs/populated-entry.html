@@ -466,7 +466,7 @@
           </div>
         </header>
 
-        <!-- Figure-of-merit ladder: Tc headline, P + gap + confidence beneath -->
+        <!-- Figure-of-merit ladder: measured quantities first; heuristic curation note separated from them -->
         <div class="ins-fm">
           <div class="ins-fm-primary">
             <div class="t-cm" style="font-size: 46px; line-height: 1; letter-spacing: -0.01em;">
@@ -497,9 +497,9 @@
               <span class="t-body t-9" style="font-style: italic; opacity: 0.65;">estimated from <i>T</i><sub>c</sub>, λ&thinsp;≈&thinsp;1.5</span>
             </div>
             <div class="ins-fm-row">
-              <span class="t-sc t-9" style="opacity: 0.6;">CURATOR CONF.</span>
-              <span class="t-cm t-14"><b>0.94</b></span>
-              <span class="t-body t-9" style="font-style: italic; opacity: 0.65;">heuristic score after reproduction (Zhang 2024)</span>
+              <span class="t-sc t-9" style="opacity: 0.6;">CURATION NOTE</span>
+              <span class="t-body t-10" style="font-style: italic; opacity: 0.82;">reproduced anchor</span>
+              <span class="t-body t-9" style="font-style: italic; opacity: 0.65;">ledger score is heuristic, not a probability</span>
             </div>
           </div>
         </div>
@@ -638,7 +638,7 @@
           </table>
           <p class="t-body t-10 ins-rule">
             <span class="t-sc t-9" style="margin-right: 6px; opacity: 0.65;">RULE</span>
-            <span style="font-style: italic; text-wrap: pretty;">Candidates ranked by cosine similarity in a normalized eight-feature vector space, restricted to drawers within a small Hamming distance of the anchor's gate bitmask. Gate assignment and promotion thresholds are curator heuristics, not a trained model. Entries with high cosine similarity and ≥ 3 shared input gates are promoted to the screening queue. La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> supplies the reference vector; its feature values are the origin of this neighborhood.</span>
+            <span style="font-style: italic; text-wrap: pretty;">Candidates ranked by cosine similarity in a normalized feature vector space, restricted to drawers within a small Hamming distance of the anchor's gate bitmask. Gate assignment and promotion thresholds are curator heuristics, not a trained model. Similarity means feature overlap in this curation schema, not physical probability. La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> supplies the reference vector; its feature values are the origin of this neighborhood.</span>
           </p>
         </section>
 
@@ -658,7 +658,7 @@
             <dd class="t-body t-11" style="font-style: italic; text-wrap: pretty;">Ambient&#8209;pressure reproduction via epitaxial strain is the leading screening path. Candidates C23–C25 inherit this anchor's gate vector with distance&thinsp;&lt;&thinsp;0.32.</dd>
 
             <dt class="t-cm t-12" style="font-style: italic;">¶</dt>
-            <dd class="t-body t-11" style="font-style: italic; text-wrap: pretty;">Anchor status re&#8209;affirmed in bitmask sweep of 2024&#8209;12. Curator confidence score raised from 0.88 → 0.94 after Zhang et al. reproduced zero&#8209;resistance; this is not a probability of future claims.</dd>
+            <dd class="t-body t-11" style="font-style: italic; text-wrap: pretty;">Anchor status re&#8209;affirmed in bitmask sweep of 2024&#8209;12. Curator evidence score raised from 0.88 → 0.94 after Zhang et al. reproduced zero&#8209;resistance; this is not a probability of future claims.</dd>
           </dl>
         </section>
 
@@ -682,7 +682,7 @@
             </li>
             <li>
               <span class="t-cm t-9 ledger-date">2024-12-01</span>
-              <span class="t-body t-11 ledger-event" style="text-wrap: pretty;">Bit&#8209;mask sweep. Confidence ↑ to 0.94. Nearest&#8209;neighbor queue rebuilt.</span>
+              <span class="t-body t-11 ledger-event" style="text-wrap: pretty;">Bit&#8209;mask sweep. Heuristic evidence score ↑ to 0.94. Nearest&#8209;neighbor queue rebuilt.</span>
             </li>
           </ul>
         </section>
@@ -735,7 +735,7 @@
           La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> is the primary anchor for ambient-pressure bilayer nickelates; its gate vector is the origin for candidates C04–C25.
         </p>
         <p style="font-style: italic; line-height: 1.55; text-wrap: pretty; margin: 10px 0 0 0;">
-          Distances and confidence scores are audit aids for this curation pass. Recompute them from the exported gate definitions before using the ranking quantitatively.
+          Distances and evidence scores are audit aids for this curation pass. Recompute them from the exported gate definitions before using the ranking quantitatively.
         </p>
         <div style="margin-top: 18px; padding-top: 12px; border-top: 0.5px solid var(--ink-25);" class="t-cm t-9">
           <div style="opacity: 0.6; margin-bottom: 4px;">CROSS-REFS</div>

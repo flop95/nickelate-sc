@@ -120,7 +120,7 @@ export default function SearchView({ onSelect, pressureMode }) {
     },
     {
       id: 'cosine',
-      header: 'cosine',
+      header: 'feature sim',
       accessorKey: 'cosine',
       size: '80px',
       enableColumnFilter: false,
@@ -182,7 +182,7 @@ export default function SearchView({ onSelect, pressureMode }) {
         search materials
       </h1>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
-        {pressureModeLabel(pressureMode)}
+        {pressureModeLabel(pressureMode)} · curator-assigned gates; similarity is not physical probability
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: 32 }}>
@@ -219,7 +219,10 @@ export default function SearchView({ onSelect, pressureMode }) {
           <div style={{ marginTop: 24 }}>
             <Label>Retrieval method</Label>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)', marginBottom: 12 }}>
-              Stage 1: Hamming ≤ 4 cone → {result.matchesInCone} candidates · Stage 2: cosine rerank on 8-feature vector
+              Stage 1: Hamming ≤ 4 cone over the gate bitmask → {result.matchesInCone} candidates · Stage 2: cosine rerank on the normalized feature vector
+            </div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-muted)', marginBottom: 12, lineHeight: 1.5 }}>
+              Feature similarity means "shares this curation schema's chosen flags." It can place very different physics families near each other and should only be used as a retrieval aid.
             </div>
           </div>
 

@@ -40,7 +40,7 @@ export default function MaterialPage({ drawer, onSelect, pressureMode }) {
         {drawer.material}
       </h1>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
-        {pressureModeLabel(pressureMode)}
+        {pressureModeLabel(pressureMode)} · gate counts and neighbors are heuristic retrieval aids
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 40, marginBottom: 32 }}>
@@ -53,11 +53,11 @@ export default function MaterialPage({ drawer, onSelect, pressureMode }) {
             color: 'var(--color-text-muted)',
             marginTop: 40,
           }}>
-            This material passes <span style={{ color: 'var(--color-accent)' }}>{passes}/{GATE_COUNT}</span> gates.
+            This material passes <span style={{ color: 'var(--color-accent)' }}>{passes}/{GATE_COUNT}</span> curator-assigned gates.
             {nearestHighTc && (
               <>
                 <br />Nearest high-Tc analog: <span style={{ color: 'var(--color-text)' }}>{nearestHighTc.d.material}</span>
-                {' '}(shares {GATE_COUNT - nearestHighTc.h}/{GATE_COUNT} gates).
+                {' '}(shares {GATE_COUNT - nearestHighTc.h}/{GATE_COUNT} gates; not a probability).
               </>
             )}
           </div>
@@ -87,7 +87,10 @@ export default function MaterialPage({ drawer, onSelect, pressureMode }) {
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
         <div>
-          <Label>Similar materials</Label>
+          <Label>Similar materials · heuristic</Label>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-muted)', marginBottom: 8, lineHeight: 1.45 }}>
+            Ranked by gate/feature overlap inside this curation schema; verify source fields before using a neighbor as evidence.
+          </div>
           <SimilarTable sim={sim} onSelect={onSelect} />
         </div>
 
@@ -172,7 +175,7 @@ function SimilarTable({ sim, onSelect }) {
     },
     {
       id: 'cosine',
-      header: 'cos',
+      header: 'sim',
       accessorKey: 'cosine',
       size: '60px',
       enableColumnFilter: false,

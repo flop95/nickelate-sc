@@ -35,7 +35,7 @@ export default function GapsView({ pressureMode }) {
         untested screening neighborhoods
       </h1>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
-        {list.length} {pressureModeLabel(pressureMode)} hypotheses within two screening gates of a measured high-Tc anchor
+        {list.length} {pressureModeLabel(pressureMode)} experiment prompts within two screening gates of a measured high-Tc anchor · not forecasts
       </div>
 
       <div className="palace-gaps-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 24 }}>
@@ -95,7 +95,8 @@ export default function GapsView({ pressureMode }) {
               <div style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
                 Gate distance: <span style={{ color: 'var(--color-text)' }}>{selected.distance}</span><br />
                 Measured anchor: <span style={{ color: 'var(--color-text)' }}>{selected.nearest_success}</span> ({selected.nearestDrawer?.properties?.onset_tc ?? selected.nearest_onset}K, {pressureModeLabel(pressureModeFor(selected.nearestDrawer))})<br />
-                Screening gate change: <span style={{ color: 'var(--color-accent)' }}>{formatGateList(selected.gates_flipped)}</span>
+                Screening gate change: <span style={{ color: 'var(--color-accent)' }}>{formatGateList(selected.gates_flipped)}</span><br />
+                Use: retrieval cue only; recompute gates and verify the source record before treating as evidence.
               </div>
             </>
           )}

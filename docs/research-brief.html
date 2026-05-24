@@ -44,7 +44,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <h1>Nickelate Superconductivity: Structured Thin Film Literature Brief</h1>
 <p class="subtitle">April 2026<br>
-23 curated measurements · 12 ambient film · 7 film + pressure · 4 bulk pressure · Source-linked papers and preprints</p>
+23 curated measurements · 12 ambient film · 7 film + pressure · 4 bulk pressure · Pseudonymous synthesis · Source-linked papers and preprints</p>
 
 <div class="stat-row">
   <div class="stat"><div class="stat-val">96K</div><div class="stat-label">Bulk record (pressure)</div></div>
@@ -54,7 +54,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 </div>
 
 <div class="notice">
-  <p><strong>Status.</strong> This is a curator's static synthesis of a small, fast-moving literature, not an archival publication or consensus database. Ranking labels are empirical feature-distance heuristics. Prediction rows are experiment prompts, not verified outcomes.</p>
+  <p><strong>Status.</strong> This is a curator's static synthesis of a small, fast-moving literature, not an archival publication, peer-reviewed venue, or consensus database. The author is pseudonymous, there is no DOI, no peer review, no editorial board, and the source repository is private. Ranking labels are empirical feature-distance heuristics. Prediction rows are experiment prompts, not verified outcomes.</p>
   <p class="small">Machine-readable measurements are staged at <a href="./data/nickelate_dataset.json">data/nickelate_dataset.json</a>; prediction inputs and gate definitions are staged at <a href="./data/predictions.json">data/predictions.json</a> and <a href="./data/palace/palace_gates.json">data/palace/palace_gates.json</a>. Re-check source_url and source_doi fields before citing.</p>
 </div>
 
@@ -125,17 +125,17 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <p><span class="tag tag-pattern">PATTERN 1</span> <strong>SLAO dominates high-Tc ambient films.</strong> Ambient LAO, NGO, and STO films are present in the curated dataset, but every ambient film above 40K uses SrLaAlO₄. No substrate with a &lt; 3.75Å has been tested (SmAlO₃ 3.734Å, EuAlO₃ 3.720Å remain untried).</p>
 
-<p><span class="tag tag-pattern">PATTERN 2</span> <strong>Growth method is a leading variable in the current dataset.</strong> GAE extreme non-equilibrium growth produced 63K onset on the same substrate where PLD gives 42K — a 50% increase associated with synthesis optimization alone.</p>
+<p><span class="tag tag-pattern">PATTERN 2</span> <strong>Growth method is a leading variable in the current dataset.</strong> GAE extreme non-equilibrium growth produced 63K onset on the same substrate where PLD gives 42K. This is a large synthesis-associated effect in one same-substrate comparison and should be replicated before being treated as a general rule.</p>
 
 <p><span class="tag tag-pattern">PATTERN 3</span> <strong>Oxygen vacancies occupy different sites in films vs. bulk.</strong> Compressive strain pushes vacancies from apical O (bulk) to planar NiO₂ sites (films), changing which oxygen sites are critical for SC optimization (Nat. Mater. 2025).</p>
 
-<p><span class="tag tag-pattern">PATTERN 4</span> <strong>Superconducting dome parallels cuprates.</strong> Sr-doping maps a dome (x = 0 to 0.38) with Hall sign change at optimal doping — identical to electron-doped cuprate phenomenology (PRL 136, Feb 2026).</p>
+<p><span class="tag tag-pattern">PATTERN 4</span> <strong>Superconducting dome resembles cuprate phenomenology.</strong> Sr-doping maps a dome (x = 0 to 0.38) with a Hall sign change near optimal doping, echoing electron-doped cuprate phenomenology without proving the same mechanism (PRL 136, Feb 2026).</p>
 
-<p><span class="tag tag-pattern">PATTERN 5</span> <strong>γII Fermi pocket is the current topological SC signature.</strong> Present in reported SC superstructures (1212, 2222, 2323), absent in non-SC 1313 — a structural screening criterion for nickelate SC (Nature, Apr 9 2026).</p>
+<p><span class="tag tag-pattern">PATTERN 5</span> <strong>γII Fermi pocket is a reported SC-associated signature.</strong> Present in reported SC superstructures (1212, 2222, 2323), absent in non-SC 1313 — a candidate structural screening criterion that should be checked against the original figures before reuse (Nature, Apr 9 2026).</p>
 
-<p><span class="tag tag-pattern">PATTERN 6</span> <strong>Strange-metal behavior tracks Tc.</strong> Highest-Tc films (63K) show resistivity ∝ T¹ (α ≈ 1), while lower-Tc films show Fermi-liquid T² dependence. SC strength is linked to non-Fermi-liquid normal state.</p>
+<p><span class="tag tag-pattern">PATTERN 6</span> <strong>Strange-metal behavior tracks Tc in this small set.</strong> Highest-Tc films (63K) show resistivity ∝ T¹ (α ≈ 1), while lower-Tc films show Fermi-liquid T² dependence. The association is plausible but small-n.</p>
 
-<p><span class="tag tag-pattern">PATTERN 7</span> <strong>c/a ratio is a leading empirical parameter.</strong> In the curated substrate/pressure series, onset Tc increases with c/a (Comm. Phys. 2025). c/a encodes both strain and orbital splitting effects.</p>
+<p><span class="tag tag-pattern">PATTERN 7</span> <strong>c/a ratio is a leading empirical parameter within the measured series.</strong> In the curated substrate/pressure series, onset Tc increases with c/a (Comm. Phys. 2025). c/a encodes both strain and orbital splitting effects; extrapolation outside the measured c/a range is the risky step.</p>
 </div>
 
 <div class="section">
@@ -155,32 +155,32 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 </div>
 
 <div class="section">
-<h2>Ranked predictions</h2>
-<p class="small">These are empirical, hypothesis-generating experiment rankings derived from the curated measurements and cited trend claims. They are not first-principles simulations and are not verified outcomes.</p>
+<h2>Ranked experiment prompts</h2>
+<p class="small">These are empirical, hypothesis-generating experiment rankings derived from the curated measurements and cited trend claims. Labels describe heuristic priority/proximity, not probability. They are not first-principles simulations and are not verified outcomes.</p>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P1 — HIGH CONFIDENCE</span></p>
-<p><strong>Apply 2-5 GPa pressure to GAE-grown 63K (La,Pr)₃Ni₂O₇ films.</strong> Lower-quality films jump 62→68.5K at 2 GPa (Zhao/Sun 2026). If GAE films with fewer oxygen vacancies follow the same empirical pressure trend, the extrapolated onset range is 75-85K. Achievable with piston-cylinder pressure cells, not diamond anvils.</p>
+<p><span class="tag tag-prediction">P1 — NEAR-TERM TEST</span></p>
+<p><strong>Apply 2-5 GPa pressure to GAE-grown 63K (La,Pr)₃Ni₂O₇ films.</strong> Films in the cited pressure series report 62→68.5K at 2 GPa (Zhao/Sun 2026). If GAE films with fewer oxygen vacancies follow the same empirical pressure trend, a hypothesis-generating scenario range is 75-85K. Achievable with piston-cylinder pressure cells, not diamond anvils, but still unverified for the 63K GAE films.</p>
 </div>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P2 — MEDIUM-HIGH CONFIDENCE</span></p>
+<p><span class="tag tag-prediction">P2 — EXTRAPOLATIVE TEST</span></p>
 <p><strong>GAE-grown (La,Pr)₃Ni₂O₇ on SmAlO₃ (a = 3.734Å, strain ≈ -2.6%).</strong> If the c/a trend holds beyond the measured range, extra compression could increase onset Tc by 10-15K. Key risk: coherent film growth at higher mismatch. No data exists for this substrate.</p>
 </div>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P3 — MEDIUM CONFIDENCE</span></p>
+<p><span class="tag tag-prediction">P3 — COMBINATION TEST</span></p>
 <p><strong>Optimal Sr-doping (x ≈ 0.15) combined with GAE growth on SLAO.</strong> The dome study used MBE, not GAE. Combining the best doping level with the best growth method has not been attempted. Directly targets the zero-R Tc gap.</p>
 </div>
 
 <div class="highlight">
-<p><span class="tag tag-prediction">P4 — MEDIUM CONFIDENCE</span></p>
+<p><span class="tag tag-prediction">P4 — THEORY-LED TEST</span></p>
 <p><strong>Perpendicular electric field gating of single-bilayer films (0.1-0.2V).</strong> Theory paper published in Nat. Commun. (2026): intralayer d-wave pairing enhanced to 77K+. Zero experimental attempts in the curated dataset. Any group with ionic liquid gating capability could test the claim.</p>
 </div>
 
 <div class="highlight">
 <p><span class="tag tag-prediction">P5 — EXPLORATORY</span></p>
-<p><strong>Engineer superstructures on substrates with a &lt; 3.75Å.</strong> The γII pocket is confirmed as the SC signature (Nature, Apr 9 2026). Test whether stronger strain preserves or destroys this pocket while pushing Tc higher. Requires ARPES + film growth capability.</p>
+<p><strong>Engineer superstructures on substrates with a &lt; 3.75Å.</strong> The γII pocket is reported as an SC-associated signature (Nature, Apr 9 2026). Test whether stronger strain preserves or destroys this pocket while pushing Tc higher. Requires ARPES + film growth capability.</p>
 </div>
 </div>
 
@@ -195,36 +195,35 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 <table>
   <thead><tr><th>Family</th><th>Bulk Tc (pressure)</th><th>Ambient Tc (stabilized)</th><th>Stabilization method</th><th>Year achieved</th></tr></thead>
   <tbody>
-    <tr><td>Cuprates (Hg-1223)</td><td>166K at 23 GPa</td><td class="mono">151K</td><td>Pressure quenching</td><td>2026</td></tr>
+    <tr><td>Cuprates (Hg-1223; pressure-quench claim)</td><td>166K at 23 GPa</td><td class="mono">151K reported; verify before reuse</td><td>Reported pressure quenching</td><td>2026 claim</td></tr>
     <tr><td>Nickelates (bilayer RP)</td><td>96K in La₁.₅₇Sm₁.₄₃Ni₂O₇−δ under pressure</td><td class="mono">63K</td><td>Epitaxial strain</td><td>2025-26</td></tr>
     <tr><td>Iron-based (FeSe)</td><td>37K at 7 GPa</td><td class="mono">65K</td><td>Interface coupling</td><td>2013</td></tr>
   </tbody>
 </table>
-<p>Across these material families, a recurring strategy appears: compress the lattice into a high-Tc configuration, then use a physical trick (quenching, strain, interface coupling) to retain or mimic that configuration at lower pressure. This convergence is used here as a heuristic for hypothesis generation, not as a settled mechanism.</p>
+<p>Across these material families, a recurring strategy appears: compress the lattice into a high-Tc configuration, then use a physical trick (quenching, strain, interface coupling) to retain or mimic that configuration at lower pressure. This convergence is used here as a heuristic for hypothesis generation, not as a settled mechanism. The Hg-1223 pressure-quench row is a source-verification checkpoint, not a load-bearing premise for citing this brief.</p>
 </div>
 
 <div class="section">
-<h2>Capability map — groups with relevant published tools</h2>
-<p class="small">This table is a literature-derived capability map, not an endorsement, invitation, or statement that the named groups have reviewed this issue. It is included to clarify what kind of equipment would be needed to test the hypotheses.</p>
+<h2>Capability appendix — tool classes needed for tests</h2>
+<p class="small">This table intentionally avoids naming institutions. It describes capability classes suggested by the literature so readers can judge feasibility without reading the issue as a steering document.</p>
 <table>
-  <thead><tr><th>Group</th><th>Institution</th><th>Capabilities</th><th>Relevant to</th><th>Evidence status</th></tr></thead>
+  <thead><tr><th>Capability class</th><th>Typical tools</th><th>Relevant to</th><th>What to verify before contact/use</th></tr></thead>
   <tbody>
-    <tr><td><strong>Mitchell / Bhattacharya / Fong</strong></td><td>Argonne National Lab</td><td>Oxide MBE, APS synchrotron, single crystal growth, in-situ XRD</td><td>P1, P2, P3, P5</td><td>public literature</td></tr>
-    <tr><td><strong>Michael Norman</strong></td><td>Argonne National Lab</td><td>Theory — electronic structure, cuprate-nickelate comparison</td><td>Cross-family analysis</td><td>public literature</td></tr>
-    <tr><td><strong>Narayanachari / Buchholz</strong></td><td>Northwestern University</td><td>Thin film growth, Argonne collaboration</td><td>P2, P3</td><td>public literature</td></tr>
-    <tr><td>Hwang group</td><td>Stanford / SLAC</td><td>PLD, MBE, ARPES, first ambient film, superstructures</td><td>P1, P5</td><td>published records</td></tr>
-    <tr><td>Chen / Xue group</td><td>ShanghaiTech / Tsinghua</td><td>GAE method, 63K record</td><td>P1, P2</td><td>published records</td></tr>
-    <tr><td>Nie group</td><td>Nanjing University</td><td>MBE, Sr-doping dome, superconducting dome PRL</td><td>P3</td><td>published records</td></tr>
-    <tr><td>Sun group</td><td>CAS Beijing / IOP</td><td>High-pressure on films, bulk crystals</td><td>P1</td><td>published records</td></tr>
+    <tr><td><strong>Oxide thin-film growth</strong></td><td>PLD, oxide MBE, GAE/non-equilibrium oxidation</td><td>P2, P3, P5</td><td>Current nickelate growth experience, oxygen-control window, substrate availability</td></tr>
+    <tr><td><strong>Moderate pressure on films</strong></td><td>Piston-cylinder or clamp cells, in-plane transport under pressure</td><td>P1</td><td>Film/substrate survival, pressure calibration, contact geometry</td></tr>
+    <tr><td><strong>Structure and strain metrology</strong></td><td>Synchrotron XRD, STEM, in-situ diffraction</td><td>P2, P5</td><td>Coherence at higher mismatch, c/a extraction, oxygen vacancy signatures</td></tr>
+    <tr><td><strong>Electronic-structure probes</strong></td><td>ARPES, Hall, magnetotransport, susceptibility</td><td>P3, P5</td><td>γII-pocket visibility, Hall sign change, diamagnetic/zero-R corroboration</td></tr>
+    <tr><td><strong>Electrostatic tuning</strong></td><td>Ionic-liquid or solid-gate devices on ultrathin films</td><td>P4</td><td>Device compatibility, electrochemistry controls, reversible field response</td></tr>
+    <tr><td><strong>Theory and modeling</strong></td><td>DFT/RPA/Hubbard modeling, strain and orbital-splitting analysis</td><td>Cross-family analysis, P4</td><td>Assumptions behind pairing symmetry and pressure/strain analogies</td></tr>
   </tbody>
 </table>
-<p style="font-size:13px;margin-top:10px">Groups are listed only because their published work suggests relevant capabilities. Anyone using this as a steering document should verify current equipment, interests, and willingness to engage directly with the groups.</p>
+<p style="font-size:13px;margin-top:10px">Readers should map these capabilities to institutions themselves and verify current equipment, interests, and willingness to engage directly.</p>
 </div>
 
 <div class="section">
 <h2>About this analysis</h2>
 <p class="small">This research brief was generated through extraction and cross-referencing of published experimental data from peer-reviewed journals and preprints (Nature, Nature Materials, Nature Physics, Nature Communications, Physical Review Letters, Communications Physics, National Science Review, and arXiv). All 23 curated records trace to specific publications cited in the dataset. Predictions are based on empirical trend extrapolation, not first-principles simulation, and should be treated as hypothesis generation for experimental follow-up. The interactive screening tools (substrate screener, data engine, timeline tracker) are available as companion artifacts.</p>
-<p class="small">Corrections and new measurements are reviewed before inclusion. Source verification is required. The pseudonymous authorship, small corpus, and heuristic ranking method should be visible in any reuse of this material.</p>
+<p class="small">Corrections and new measurements are reviewed before inclusion. Source verification is required. The pseudonymous authorship, private source repository, small corpus, and heuristic ranking method should be visible in any reuse of this material.</p>
 </div>
 
 </body>
