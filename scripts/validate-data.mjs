@@ -270,6 +270,36 @@ if (docsIndexHtml.includes('18 published thin-film and bulk data points')) {
   fail('documentation_drift', 'docs/index.html', 'stale 18-point table-of-contents summary remains');
 }
 
+// Trust-language drift: post-v0.1.0, the repo is public and has a Zenodo DOI.
+// The two public HTML pages must reflect that. The catch-22 here is that the
+// validator runs on the source files, not the deployed copy, so these checks
+// only fire if someone re-introduces the stale phrasing in source.
+const TRUST_STALE_PHRASES = [
+  'no DOI',
+  'source repository is private',
+  'source repository private',
+  'no public source repository',
+];
+
+for (const phrase of TRUST_STALE_PHRASES) {
+  if (researchBriefHtml.includes(phrase)) {
+    fail('documentation_drift', 'docs/research-brief.html',
+      `stale trust-language fragment "${phrase}" remains; the repo is now public and DOI-archived`);
+  }
+  if (docsIndexHtml.includes(phrase)) {
+    fail('documentation_drift', 'docs/index.html',
+      `stale trust-language fragment "${phrase}" remains; the repo is now public and DOI-archived`);
+  }
+}
+
+if (!docsIndexHtml.includes('10.5281/zenodo.20369923')) {
+  fail('documentation_drift', 'docs/index.html', 'landing page must surface the v0.1.0 Zenodo DOI');
+}
+
+if (!researchBriefHtml.includes('10.5281/zenodo.20369923')) {
+  fail('documentation_drift', 'docs/research-brief.html', 'research brief must surface the v0.1.0 Zenodo DOI');
+}
+
 const unknownModes = PRESSURE_MODE_IDS.filter(mode => !['ambient', 'film_pressure', 'bulk_pressure'].includes(mode));
 if (unknownModes.length > 0) {
   fail('pressure_class_ambiguity', 'src/utils/pressureModes.js', `unexpected pressure modes: ${unknownModes.join(', ')}`);

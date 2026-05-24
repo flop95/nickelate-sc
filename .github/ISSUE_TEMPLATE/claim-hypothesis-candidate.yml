@@ -1,14 +1,15 @@
-name: Claim Prediction
+name: Claim Hypothesis Candidate
 description: |
-  Signal that your group is attempting one of the ranked predictions.
-  Claims are reviewed by a maintainer and displayed on the predictions list.
+  Signal that your group is attempting one of the ranked hypothesis candidates
+  (formerly called "predictions" — they are experiment prompts, not forecasts).
+  Claims are reviewed by a maintainer and displayed on the candidates list.
 title: "[Claim] "
-labels: ["prediction-claim"]
+labels: ["hypothesis-candidate-claim"]
 body:
   - type: dropdown
-    id: prediction_id
+    id: candidate_id
     attributes:
-      label: Prediction ID
+      label: Hypothesis-candidate ID
       options:
         - "P1 — Pressure on GAE 63K films"
         - "P2 — GAE on SmAlO₃"

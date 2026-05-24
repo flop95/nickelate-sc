@@ -98,7 +98,7 @@ Use the GitHub issue templates:
 
 - [Submit a new measurement](../../issues/new?template=new-measurement.yml) — including negative results
 - [Add synthesis recipe details](../../issues/new?template=recipe-detail.yml) — fill in missing growth parameters
-- [Claim a hypothesis candidate](../../issues/new?template=claim-prediction.yml) — signal your lab is attempting an experiment
+- [Claim a hypothesis candidate](../../issues/new?template=claim-hypothesis-candidate.yml) — signal your lab is attempting an experiment
 
 ## Data sources
 

@@ -563,9 +563,9 @@ export default function NickelateEngine({ pressureMode }) {
       })()}</>}
 
       <div style={{ marginTop: 32, fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", lineHeight: 1.8 }}>
-        Data from published papers and preprints through April 2026. Click any row to expand. Empirical screening tool, not a simulation, forecast, or archival database.
+        Data from published papers and preprints through April 2026. Click any row to expand. Empirical screening tool, not a simulation, forecast, or peer-reviewed database.
         <br />
-        Pseudonymous authorship; source repository private. Corrections and new measurements are handled through private review. Source verification required before inclusion.
+        Pseudonymous authorship; source repository public and archived under a Zenodo DOI. Corrections and new measurements arrive through GitHub issues and require source verification before inclusion.
       </div>
 
       {/* About / Methodology */}
@@ -577,9 +577,10 @@ export default function NickelateEngine({ pressureMode }) {
           All data is from published papers and preprints through April 2026. It is not peer-reviewed infrastructure.
         </p>
         <p style={{ margin: "0 0 8px" }}>
-          Predictions are extrapolations from observed trends, not simulations.
-          They assume continuation of measured patterns (c/a vs Tc correlation,
-          pressure sensitivity ~3K/GPa) and have not been independently validated.
+          Hypothesis-candidate rows are extrapolations from observed trends, not
+          simulations or forecasts. They assume continuation of measured patterns
+          (c/a vs Tc correlation, pressure sensitivity ~3K/GPa) and have not been
+          independently validated.
         </p>
         <p style={{ margin: "0 0 8px" }}>
           Contradictions are auto-detected when the same material + substrate +

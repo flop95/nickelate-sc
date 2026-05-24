@@ -167,9 +167,10 @@ function EpistemicNotice() {
     >
       <div className="overline" style={{ marginBottom: 6 }}>status before use</div>
       <div className="voice-quiet" style={{ maxWidth: 980, color: 'var(--text-secondary)', fontSize: 12, lineHeight: 1.55 }}>
-        Personal synthesis by a pseudonymous author; no DOI, no peer review, no editorial board, and no public source repository.
-        The public surface is the rendered issue plus JSON export. Similarity scores organize the curator's feature choices;
-        they are not probabilities, forecasts, or evidence that a candidate will superconduct.
+        Personal synthesis by a pseudonymous author. Archived under a Zenodo DOI (cite the version, not the live URL),
+        but no peer review and no editorial board. The source repository is public; gate assignments and inclusion calls
+        remain the curator's. Similarity scores organize the curator's feature choices — they are not probabilities,
+        forecasts, or evidence that a candidate will superconduct.
       </div>
     </section>
   );
@@ -610,7 +611,7 @@ function ScopeNote() {
       <div className="overline" style={{ marginBottom: 6 }}>scope note</div>
       <div className="voice-quiet" style={{ maxWidth: 900, color: 'var(--text-secondary)', fontSize: 12, lineHeight: 1.55 }}>
         This issue is a personal literature synthesis, not an archival database, peer-reviewed venue, or consensus forecast.
-        Exported JSON exposes the curated measurements, gate definitions, gap candidates, failures, and prediction inputs so
+        Exported JSON exposes the curated measurements, gate definitions, gap candidates, failures, and screening-candidate inputs so
         references and rankings can be re-checked before use. Recompute gate assignments and re-pull primary sources before
         treating any ranking quantitatively.
       </div>
@@ -669,7 +670,7 @@ function StatsStrip() {
     { label: 'records', value: stats.total_drawers },
     { label: 'negative results', value: stats.total_failures },
     { label: 'hypotheses', value: Array.isArray(gaps) ? gaps.length : 0 },
-    { label: 'source repo', value: 'private' },
+    { label: 'source repo', value: 'public' },
     { label: 'lessons',   value: stats.total_lessons },
   ];
   return (
