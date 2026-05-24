@@ -65,13 +65,13 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
 
   return (
     <div className="palace-overview-root" style={{ padding: '28px 36px 40px', maxWidth: 1280 }}>
-      <div className="overline">Palace overview</div>
+      <div className="overline">curated issue</div>
       <h1 className="voice-authority" style={{ fontSize: 22, marginBottom: 4 }}>
         nickelate<span style={{ color: 'var(--fg-2)' }}>.</span><span style={{ color: 'var(--accent)' }}>sc</span>
       </h1>
       <div className="voice-quiet" style={{ marginBottom: 28, maxWidth: 640 }}>
-        The Palace is a sourced screening index: {pressureModeLabel(pressureMode)} records are measured observations,
-        screening-gate distances are inferred features, and candidates are hypotheses for follow-up.
+        A static, sourced screening review: {pressureModeLabel(pressureMode)} records are measured observations,
+        screening-gate distances are curator-assigned features, and candidates are hypotheses for follow-up.
       </div>
 
       {hero ? <HeroCandidate hero={hero} onSelect={onSelect} /> : <HeroEmpty />}
@@ -87,6 +87,7 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
         <FailureLane failures={recentFailures} onSelect={onSelect} onNavigate={onNavigate} />
       </div>
 
+      <ScopeNote />
       <ActionLinks onNavigate={onNavigate} />
       <StatsStrip />
     </div>
@@ -120,7 +121,7 @@ function HeroCandidate({ hero, onSelect }) {
       }}
     >
       <div>
-        <div className="overline" style={{ marginBottom: 10 }}>hypothesis candidate</div>
+        <div className="overline" style={{ marginBottom: 10 }}>feature-distance hypothesis</div>
         <div className="hero-fingerprint-wrap">
           <BitmaskStamp drawer={splitBitmask(hero.bitmask)} size="signature" diffGate={hero.diffIndex} />
         </div>
@@ -255,8 +256,8 @@ function riskColorFor(risk) {
 }
 
 function confidenceColorFor(conf) {
-  if (conf === 'high') return 'var(--color-accent)';
-  if (conf === 'medium') return 'var(--text-primary)';
+  if (conf === 'near') return 'var(--color-accent)';
+  if (conf === 'watch') return 'var(--text-primary)';
   return 'var(--text-faint)';
 }
 
@@ -274,7 +275,7 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
         nearest_success: g.nearest_success,
         nearest_success_tc: g.nearestDrawer?.properties?.onset_tc ?? g.nearest_onset,
         nearestDrawer: g.nearestDrawer,
-        confidence: g.distance <= 1 ? 'high' : 'medium',
+        confidence: g.distance <= 1 ? 'near' : 'watch',
         failure_risk: (g.riskLabel || 'LOW').toLowerCase(),
       }));
   }, [candidates]);
@@ -326,7 +327,7 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
     },
     {
       id: 'confidence',
-      header: 'confidence',
+      header: 'proximity',
       accessorKey: 'confidence',
       size: '88px',
       enableColumnFilter: false,
@@ -491,6 +492,30 @@ function FailureLane({ failures: recent, onSelect, onNavigate }) {
             </div>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+// ───────────────────────────────────────────────────────
+// Scope note — keeps the review status visible without blocking exploration.
+// ───────────────────────────────────────────────────────
+function ScopeNote() {
+  return (
+    <section
+      className="workspace-section"
+      style={{
+        marginTop: 24,
+        padding: '14px 18px',
+        borderTop: '1px solid var(--line)',
+        borderBottom: '1px solid var(--line)',
+      }}
+    >
+      <div className="overline" style={{ marginBottom: 6 }}>scope note</div>
+      <div className="voice-quiet" style={{ maxWidth: 900, color: 'var(--text-secondary)', fontSize: 12, lineHeight: 1.55 }}>
+        This issue is a personal literature synthesis, not an archival database or consensus forecast. Exported JSON exposes
+        the curated measurements, gate definitions, gap candidates, failures, and prediction inputs so references and rankings
+        can be re-checked before use.
       </div>
     </section>
   );

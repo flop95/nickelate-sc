@@ -90,7 +90,7 @@ export default function FigureOnePage() {
         </header>
 
         <div className="journal-running-head">
-          <span>A ranked screening platform for ambient-pressure superconductivity</span>
+          <span>A curated screening brief for ambient-pressure superconductivity</span>
           <span>FIG. 1 — The pressure-temperature landscape</span>
         </div>
 
@@ -99,7 +99,7 @@ export default function FigureOnePage() {
           <div>
             <h1>FIG. 1 — The pressure-temperature landscape</h1>
             <p>
-              All known and predicted superconductors plotted on a logarithmic pressure axis,
+              Curated measured records and hypothesis candidates plotted on a logarithmic pressure axis,
               with ambient-pressure candidates held against verified high-Tc anchors and known
               negative results.
             </p>
@@ -140,7 +140,7 @@ export default function FigureOnePage() {
                 <div className="inspector-note">
                   {selectedMaterial.isAnchor ? 'anchor' : 'comparison material'}
                   {selectedMaterial.isFailure ? ' · negative result' : ''}
-                  {selectedMaterial.measured ? ' · measured' : ' · predicted'}
+                  {selectedMaterial.measured ? ' · measured' : ' · hypothesis candidate'}
                   {' · '}
                   id: {selectedMaterial.id}
                 </div>

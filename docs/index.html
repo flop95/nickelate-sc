@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>nickelate.sc — Vol. 1, No. 1</title>
-<meta name="description" content="A ranked screening platform for ambient-pressure superconductivity. Vol. 1, No. 1 — April 2026.">
+<meta name="description" content="A curated screening brief and static dataset for ambient-pressure superconductivity. Vol. 1, No. 1 — April 2026.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,6 +135,37 @@
     font-size: 10px;
     opacity: 0.7;
     margin-top: var(--s-12);
+  }
+
+  /* ============================================================
+     Provenance note
+     ============================================================ */
+  .provenance {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--s-48);
+    padding: var(--s-20) 0 var(--s-24);
+    border-bottom: 0.5px solid var(--ink-25);
+    margin: calc(-1 * var(--s-24)) 0 var(--s-40);
+  }
+  .provenance .label {
+    font-family: var(--f-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-variant-caps: all-small-caps;
+    font-size: 11px;
+    color: var(--ink-emph);
+  }
+  .provenance .text {
+    font-size: 11.5px;
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+  .provenance .links {
+    margin-top: var(--s-8);
+    font-family: var(--f-cm);
+    font-style: italic;
+    font-size: 11px;
   }
 
   /* ============================================================
@@ -277,6 +308,7 @@
     .masthead { flex-direction: column; align-items: flex-start; gap: 4px; }
     .running-head { flex-direction: column; gap: 2px; }
     .editorial { grid-template-columns: 1fr; gap: var(--s-20); }
+    .provenance { grid-template-columns: 1fr; gap: var(--s-12); }
     .submit { grid-template-columns: 1fr; gap: var(--s-24); }
     .toc-entry { grid-template-columns: 40px 1fr; }
     .toc-entry .kind { grid-column: 2; justify-self: start; margin-top: 4px; }
@@ -295,7 +327,7 @@
   </header>
 
   <div class="running-head">
-    <span>A ranked screening platform for ambient-pressure superconductivity</span>
+    <span>A curated screening brief for ambient-pressure superconductivity</span>
     <span>Editorial preview — single issue</span>
   </div>
 
@@ -305,11 +337,24 @@
       Untested candidates sit closest to verified anchors. Failure memory constrains where not to look.
     </div>
     <div class="body t-body">
-      <p>This issue presents the first release of a structured screening platform for ambient-pressure high-temperature superconductivity, built around the bilayer nickelate La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> family. Every known superconductor, every published failure, and every candidate proposed by the platform's cascade screener is plotted on a single pressure–temperature landscape. Clicking a material opens its full catalog entry: measurement history, gate bitmask, nearest neighbors in feature space, and the ledger of how the platform's confidence in it evolved.</p>
+      <p>This issue presents the first release of a structured screening brief for ambient-pressure high-temperature superconductivity, built around the bilayer nickelate La<sub>3</sub>Ni<sub>2</sub>O<sub>7</sub> family. Curated public records, known failures, and candidate hypotheses proposed by the feature-distance screener are plotted on a single pressure–temperature landscape. Clicking a material opens its catalog entry: measurement history, gate bitmask, nearest neighbors in feature space, and the ledger of how the curator's confidence in it evolved.</p>
 
-      <p>The work is assembled from peer-reviewed literature. The platform does not aggregate private laboratory data; its value is in reasoning carefully across what is already public. The goal is to help a researcher who is closer to the experimental frontier notice a candidate they had not considered. Corrections, new measurements, and synthesis recipe details are handled through private review before inclusion.</p>
+      <p>The work is assembled from peer-reviewed literature and preprints. It does not aggregate private laboratory data; its value is in reasoning carefully across what is already public. The goal is to help a researcher who is closer to the experimental frontier notice a candidate they had not considered. Corrections, new measurements, and synthesis recipe details are reviewed before inclusion.</p>
 
       <div class="signoff">— flop95, April 2026</div>
+    </div>
+  </section>
+
+  <section class="provenance" aria-label="Provenance and use">
+    <div class="label">Provenance and use</div>
+    <div class="text">
+      <p>This is a pseudonymous, single-issue literature synthesis, not an archival journal article or consensus database. The corpus is small, ranking thresholds are heuristic, and prediction rows are experiment prompts rather than verified measurements.</p>
+      <p class="links">
+        Public JSON: <a href="./data/nickelate_dataset.json">measurements</a>,
+        <a href="./data/predictions.json">predictions</a>,
+        <a href="./data/palace/palace_gates.json">gate definitions</a>.
+        Re-check source_url and source_doi fields before citation.
+      </p>
     </div>
   </section>
 
@@ -326,7 +371,7 @@
         <div class="no">§&nbsp;1</div>
         <div>
           <a href="./app/#/overview?mode=ambient" class="entry-title">FIG. 1 — The pressure–temperature landscape</a>
-          <div class="entry-sub">Interactive figure. All known and predicted superconductors plotted on a logarithmic pressure axis. Three layouts: <i>The Plate</i>, <i>The Journal Page</i>, <i>The Specimen Sheet</i>. Click any point to anchor the inspector.</div>
+          <div class="entry-sub">Interactive figure. Curated measured records and hypothesis candidates plotted on a logarithmic pressure axis. Three layouts: <i>The Plate</i>, <i>The Journal Page</i>, <i>The Specimen Sheet</i>. Click any point to anchor the inspector.</div>
         </div>
         <div class="kind">Interactive</div>
       </div>
@@ -343,7 +388,7 @@
       <div class="toc-entry">
         <div class="no">§&nbsp;5</div>
         <div>
-          <a href="./research-brief.html" class="entry-title">Nickelate superconductivity — a systematic meta-analysis</a>
+          <a href="./research-brief.html" class="entry-title">Nickelate superconductivity — structured literature brief</a>
           <div class="entry-sub">Cross-referenced review of 23 curated measurements, separated into ambient films, film + applied pressure, and bulk pressure anchors. Seven empirical patterns, six research gaps, five hypothesis-generating predictions.</div>
         </div>
         <div class="kind">Brief</div>
@@ -382,7 +427,7 @@
       Typeset in Bodoni Moda, STIX Two Text, and Libre Caslon Text. Printed on ivory.
     </div>
     <div class="right">
-      Issue prepared for nickelate.sc. Source repository is private.
+      Issue prepared for nickelate.sc. Public JSON export staged at deploy.
     </div>
   </footer>
 

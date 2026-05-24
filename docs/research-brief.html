@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Nickelate Superconductivity: Systematic Thin Film Meta-Analysis</title>
+<title>Nickelate Superconductivity: Structured Thin Film Literature Brief</title>
 <style>
 :root {
   --ink: #1A1814;
@@ -19,6 +19,8 @@ h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; border-bottom: 
 h2 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--color-border-tertiary, #ddd); }
 h3 { font-size: 14px; font-weight: 600; margin: 16px 0 6px; }
 p { margin: 0 0 10px; font-size: 14px; }
+a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--ink-08); }
+a:hover { border-bottom-color: var(--gold); }
 .subtitle { font-size: 13px; color: var(--color-text-secondary, #666); margin-bottom: 16px; }
 .stat-row { display: flex; gap: 10px; margin: 12px 0 16px; flex-wrap: wrap; }
 .stat { flex: 1; min-width: 100px; padding: 10px 14px; background: var(--color-background-secondary, #f5f5f0); border-radius: 6px; }
@@ -28,6 +30,7 @@ table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 
 th { text-align: left; padding: 6px 8px; font-weight: 600; font-size: 11px; color: var(--color-text-secondary, #666); border-bottom: 2px solid var(--color-border-secondary, #ccc); }
 td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #eee); }
 .highlight { background: var(--color-background-secondary, #f5f5f0); padding: 12px 16px; border-radius: 6px; border-left: 3px solid var(--gold); margin: 12px 0; }
+.notice { background: var(--color-background-secondary, #f5f5f0); padding: 12px 16px; border-radius: 6px; border: 1px solid var(--ink-08); margin: 12px 0 18px; }
 .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; margin-right: 6px; }
 .tag-pattern { background: color-mix(in srgb, var(--d-super) 12%, transparent); color: var(--d-super); }
 .tag-gap { background: color-mix(in srgb, var(--d-prediction) 12%, transparent); color: var(--d-prediction); }
@@ -39,7 +42,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 </head>
 <body>
 
-<h1>Nickelate Superconductivity: Systematic Thin Film Meta-Analysis</h1>
+<h1>Nickelate Superconductivity: Structured Thin Film Literature Brief</h1>
 <p class="subtitle">April 2026<br>
 23 curated measurements · 12 ambient film · 7 film + pressure · 4 bulk pressure · Source-linked papers and preprints</p>
 
@@ -50,10 +53,15 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
   <div class="stat"><div class="stat-val">33 mo</div><div class="stat-label">Discovery → 63K film</div></div>
 </div>
 
+<div class="notice">
+  <p><strong>Status.</strong> This is a curator's static synthesis of a small, fast-moving literature, not an archival publication or consensus database. Ranking labels are empirical feature-distance heuristics. Prediction rows are experiment prompts, not verified outcomes.</p>
+  <p class="small">Machine-readable measurements are staged at <a href="./data/nickelate_dataset.json">data/nickelate_dataset.json</a>; prediction inputs and gate definitions are staged at <a href="./data/predictions.json">data/predictions.json</a> and <a href="./data/palace/palace_gates.json">data/palace/palace_gates.json</a>. Re-check source_url and source_doi fields before citing.</p>
+</div>
+
 <div class="section">
 <h2>Executive summary</h2>
 <p>La₃Ni₂O₇ bilayer nickelate superconductivity was discovered under high pressure in July 2023 (Tc ≈ 80K). Within 33 months, ambient-pressure superconductivity has been achieved in epitaxially strained thin films, with onset Tc rising from 42K (Dec 2024) to 63K (Mar 2026). Bulk records under pressure have reached 96K in Sm-substituted bilayer crystals. The gap between the ambient film record and the liquid nitrogen threshold (77K) is now only 14K.</p>
-<p>This brief presents a structured meta-analysis of published La₃Ni₂O₇ family measurements, with ambient thin films, films measured under applied pressure, and bulk-pressure anchors kept distinct. It identifies systematic patterns and research gaps, then generates five ranked, testable hypotheses for crossing the 77K threshold at ambient pressure. Those hypotheses are empirical extrapolations, not verified published measurements.</p>
+<p>This brief presents a structured literature synthesis of published La₃Ni₂O₇ family measurements, with ambient thin films, films measured under applied pressure, and bulk-pressure anchors kept distinct. It identifies empirical patterns and research gaps, then lists five ranked, testable hypotheses for crossing the 77K threshold at ambient pressure. Those hypotheses are empirical extrapolations, not verified published measurements.</p>
 </div>
 
 <div class="section">
@@ -66,18 +74,18 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><th>Material</th><th>Substrate</th><th>Strain</th><th>Onset Tc</th><th>Zero-R Tc</th><th>Growth</th><th>Source</th></tr>
   </thead>
   <tbody>
-    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42.4K</td><td class="mono">2.2K</td><td>PLD + O₃</td><td>Ko, Nature 638 (2025)</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">26.2K</td><td class="mono">—</td><td>PLD + O₃</td><td>Ko, Nature 638 (2025)</td></tr>
-    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">40K</td><td class="mono">—</td><td>MBE / GAE</td><td>Zhou, Nature 640 (2025)</td></tr>
-    <tr><td><strong>(La,Pr)₃Ni₂O₇</strong></td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono" style="color:var(--d-prediction);font-weight:700">63K</td><td class="mono">37K</td><td>GAE extreme</td><td>Zhou, NSR 2026</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>LAO</td><td class="mono">-0.47%</td><td class="mono">30K</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>NGO</td><td class="mono">+0.57%</td><td class="mono">10K</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>STO</td><td class="mono">+1.88%</td><td class="mono">0K</td><td class="mono">—</td><td>PLD</td><td>Comm. Phys. 2025</td></tr>
-    <tr><td>La₂PrNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">45K</td><td class="mono">9K</td><td>PLD</td><td>Liu, Nat. Mater. 24 (2025)</td></tr>
-    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td>Nat. Mater. / PRL 2025-26</td></tr>
-    <tr><td>Nickelate superstructures</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">46-50K</td><td class="mono">—</td><td>MBE</td><td>Hwang, Nature Apr 2026</td></tr>
-    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td>PRL 136 (2026)</td></tr>
-    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td>Nat. Mater. (2025)</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42.4K</td><td class="mono">2.2K</td><td>PLD + O₃</td><td><a href="https://www.nature.com/articles/s41586-024-08525-3">Nature 638, 935 (2025)</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">26.2K</td><td class="mono">—</td><td>PLD + O₃</td><td><a href="https://www.nature.com/articles/s41586-024-08525-3">Nature 638, 935 (2025)</a></td></tr>
+    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">40K</td><td class="mono">—</td><td>MBE / GAE</td><td><a href="https://www.nature.com/articles/s41586-025-08755-z">Nature 640, 641 (2025)</a></td></tr>
+    <tr><td><strong>(La,Pr)₃Ni₂O₇</strong></td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono" style="color:var(--d-prediction);font-weight:700">63K</td><td class="mono">37K</td><td>GAE extreme</td><td><a href="https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag151/8512895">NSR nwag151 (2026)</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>LAO</td><td class="mono">-0.47%</td><td class="mono">30K</td><td class="mono">—</td><td>PLD</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>NGO</td><td class="mono">+0.57%</td><td class="mono">10K</td><td class="mono">—</td><td>PLD</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>STO</td><td class="mono">+1.88%</td><td class="mono">0K</td><td class="mono">—</td><td>PLD</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
+    <tr><td>La₂PrNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">45K</td><td class="mono">9K</td><td>PLD</td><td><a href="https://www.nature.com/articles/s41563-025-02258-y">Nat. Mater. 24, 1221 (2025)</a></td></tr>
+    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td><a href="https://www.nature.com/articles/s41563-025-02327-2">Nat. Mater. (2025)</a></td></tr>
+    <tr><td>Nickelate superstructures</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">46-50K</td><td class="mono">—</td><td>MBE</td><td><a href="https://www.nature.com/articles/s41586-026-10352-7">Nature (2026)</a></td></tr>
+    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td><a href="https://journals.aps.org/prl/abstract/10.1103/qrkk-l2ng">PRL 136, 066002 (2026)</a></td></tr>
+    <tr><td>La₃₋ₓSrₓNi₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">42K</td><td class="mono">—</td><td>MBE</td><td><a href="https://www.nature.com/articles/s41563-025-02327-2">Nat. Mater. (2025)</a></td></tr>
   </tbody>
 </table>
 
@@ -87,13 +95,13 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><th>Material</th><th>Substrate</th><th>Pressure</th><th>Onset Tc</th><th>Growth / note</th><th>Source</th></tr>
   </thead>
   <tbody>
-    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">0.3 GPa</td><td class="mono">62K</td><td>film + pressure</td><td>arXiv:2603.29531</td></tr>
-    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">2 GPa</td><td class="mono">68.5K</td><td>film + pressure</td><td>arXiv:2603.29531</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">7 GPa</td><td class="mono">48.5K</td><td>compressive film</td><td>Nat. Commun. (2026)</td></tr>
-    <tr><td>La₃Ni₂O₇ film</td><td>not verified</td><td class="mono">9 GPa</td><td class="mono">61.5K</td><td>substrate / growth flagged for review</td><td>Nat. Commun. (2026)</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>LAO</td><td class="mono">20 GPa</td><td class="mono">60K</td><td>film + pressure</td><td>Comm. Phys. 2025</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>NGO</td><td class="mono">20 GPa</td><td class="mono">28K</td><td>film + pressure</td><td>Comm. Phys. 2025</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td>STO</td><td class="mono">20 GPa</td><td class="mono">10K</td><td>film + pressure</td><td>Comm. Phys. 2025</td></tr>
+    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">0.3 GPa</td><td class="mono">62K</td><td>film + pressure</td><td><a href="https://arxiv.org/abs/2603.29531">arXiv:2603.29531</a></td></tr>
+    <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">2 GPa</td><td class="mono">68.5K</td><td>film + pressure</td><td><a href="https://arxiv.org/abs/2603.29531">arXiv:2603.29531</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>SLAO</td><td class="mono">7 GPa</td><td class="mono">48.5K</td><td>compressive film</td><td><a href="https://www.nature.com/articles/s41467-026-69660-1">Nat. Commun. (2026)</a></td></tr>
+    <tr><td>La₃Ni₂O₇ film</td><td>not verified</td><td class="mono">9 GPa</td><td class="mono">61.5K</td><td>substrate / growth flagged for review</td><td><a href="https://www.nature.com/articles/s41467-026-69660-1">Nat. Commun. (2026)</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>LAO</td><td class="mono">20 GPa</td><td class="mono">60K</td><td>film + pressure</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>NGO</td><td class="mono">20 GPa</td><td class="mono">28K</td><td>film + pressure</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td>STO</td><td class="mono">20 GPa</td><td class="mono">10K</td><td>film + pressure</td><td><a href="https://www.nature.com/articles/s42005-025-02154-6">Commun. Phys. (2025)</a></td></tr>
   </tbody>
 </table>
 
@@ -103,10 +111,10 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><th>Material</th><th>Pressure</th><th>Onset Tc</th><th>Zero-R Tc</th><th>Source</th></tr>
   </thead>
   <tbody>
-    <tr><td>La₃Ni₂O₇</td><td class="mono">14-43 GPa</td><td class="mono">80K</td><td class="mono">—</td><td>Nature 621 (2023)</td></tr>
-    <tr><td>La₃Ni₂O₇</td><td class="mono">25 GPa</td><td class="mono">80K</td><td class="mono">—</td><td>Nat. Phys. (2024)</td></tr>
-    <tr><td>La₂PrNi₂O₇</td><td class="mono">18 GPa</td><td class="mono">82.5K</td><td class="mono">60K</td><td>Nature 634 (2024)</td></tr>
-    <tr><td>La₁.₅₇Sm₁.₄₃Ni₂O₇−δ</td><td class="mono">21.6 GPa</td><td class="mono">96K</td><td class="mono">—</td><td>Nature 649 (2026)</td></tr>
+    <tr><td>La₃Ni₂O₇</td><td class="mono">14-43 GPa</td><td class="mono">80K</td><td class="mono">—</td><td><a href="https://www.nature.com/articles/s41586-023-06408-7">Nature 621 (2023)</a></td></tr>
+    <tr><td>La₃Ni₂O₇</td><td class="mono">25 GPa</td><td class="mono">80K</td><td class="mono">—</td><td><a href="https://www.nature.com/articles/s41567-024-02515-y">Nat. Phys. (2024)</a></td></tr>
+    <tr><td>La₂PrNi₂O₇</td><td class="mono">18 GPa</td><td class="mono">82.5K</td><td class="mono">60K</td><td><a href="https://www.nature.com/articles/s41586-024-07996-8">Nature 634 (2024)</a></td></tr>
+    <tr><td>La₁.₅₇Sm₁.₄₃Ni₂O₇−δ</td><td class="mono">21.6 GPa</td><td class="mono">96K</td><td class="mono">—</td><td><a href="https://www.nature.com/articles/s41586-025-09954-4">Nature 649 (2026)</a></td></tr>
   </tbody>
 </table>
 <p class="small">Pressure-mode labels follow the curated dataset: ambient records are thin-film measurements at ambient pressure; film + pressure records are epitaxial films measured under applied pressure; bulk-pressure anchors are single-crystal or bulk measurements under pressure. SLAO = SrLaAlO₄ (a = 3.756 Å). The interactive data engine keeps the original 18 film entries; the repo dataset curates all 23 measurements.</p>
@@ -117,7 +125,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 
 <p><span class="tag tag-pattern">PATTERN 1</span> <strong>SLAO dominates high-Tc ambient films.</strong> Ambient LAO, NGO, and STO films are present in the curated dataset, but every ambient film above 40K uses SrLaAlO₄. No substrate with a &lt; 3.75Å has been tested (SmAlO₃ 3.734Å, EuAlO₃ 3.720Å remain untried).</p>
 
-<p><span class="tag tag-pattern">PATTERN 2</span> <strong>Growth method dominates over composition.</strong> GAE extreme non-equilibrium growth produced 63K onset on the same substrate where PLD gives 42K — a 50% increase from synthesis optimization alone.</p>
+<p><span class="tag tag-pattern">PATTERN 2</span> <strong>Growth method is a leading variable in the current dataset.</strong> GAE extreme non-equilibrium growth produced 63K onset on the same substrate where PLD gives 42K — a 50% increase associated with synthesis optimization alone.</p>
 
 <p><span class="tag tag-pattern">PATTERN 3</span> <strong>Oxygen vacancies occupy different sites in films vs. bulk.</strong> Compressive strain pushes vacancies from apical O (bulk) to planar NiO₂ sites (films), changing which oxygen sites are critical for SC optimization (Nat. Mater. 2025).</p>
 
@@ -183,7 +191,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 </div>
 
 <div class="section">
-<h2>Cross-family parallel: the "compress → trap → release" pattern</h2>
+<h2>Cross-family heuristic: the "compress → trap → release" pattern</h2>
 <table>
   <thead><tr><th>Family</th><th>Bulk Tc (pressure)</th><th>Ambient Tc (stabilized)</th><th>Stabilization method</th><th>Year achieved</th></tr></thead>
   <tbody>
@@ -192,30 +200,31 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><td>Iron-based (FeSe)</td><td>37K at 7 GPa</td><td class="mono">65K</td><td>Interface coupling</td><td>2013</td></tr>
   </tbody>
 </table>
-<p>Across these material families, a recurring strategy appears: compress the lattice into a high-Tc configuration, then use a physical trick (quenching, strain, interface coupling) to retain or mimic that configuration at lower pressure. This convergence suggests a useful heuristic that may apply to future material systems.</p>
+<p>Across these material families, a recurring strategy appears: compress the lattice into a high-Tc configuration, then use a physical trick (quenching, strain, interface coupling) to retain or mimic that configuration at lower pressure. This convergence is used here as a heuristic for hypothesis generation, not as a settled mechanism.</p>
 </div>
 
 <div class="section">
-<h2>Lab capability map — who can test these predictions</h2>
+<h2>Capability map — groups with relevant published tools</h2>
+<p class="small">This table is a literature-derived capability map, not an endorsement, invitation, or statement that the named groups have reviewed this issue. It is included to clarify what kind of equipment would be needed to test the hypotheses.</p>
 <table>
-  <thead><tr><th>Group</th><th>Institution</th><th>Capabilities</th><th>Relevant to</th><th>Distance from Chicago</th></tr></thead>
+  <thead><tr><th>Group</th><th>Institution</th><th>Capabilities</th><th>Relevant to</th><th>Evidence status</th></tr></thead>
   <tbody>
-    <tr><td><strong>Mitchell / Bhattacharya / Fong</strong></td><td>Argonne National Lab</td><td>Oxide MBE, APS synchrotron, single crystal growth, in-situ XRD</td><td>P1, P2, P3, P5</td><td style="color:var(--d-super);font-weight:600">30 mi</td></tr>
-    <tr><td><strong>Michael Norman</strong></td><td>Argonne National Lab</td><td>Theory — electronic structure, cuprate-nickelate comparison</td><td>Cross-family analysis</td><td style="color:var(--d-super);font-weight:600">30 mi</td></tr>
-    <tr><td><strong>Narayanachari / Buchholz</strong></td><td>Northwestern University</td><td>Thin film growth, Argonne collaboration</td><td>P2, P3</td><td style="color:var(--d-super);font-weight:600">15 mi</td></tr>
-    <tr><td>Hwang group</td><td>Stanford / SLAC</td><td>PLD, MBE, ARPES, first ambient film, superstructures</td><td>P1, P5</td><td>Remote</td></tr>
-    <tr><td>Chen / Xue group</td><td>ShanghaiTech / Tsinghua</td><td>GAE method (invented here), 63K record</td><td>P1, P2</td><td>Remote</td></tr>
-    <tr><td>Nie group</td><td>Nanjing University</td><td>MBE, Sr-doping dome, superconducting dome PRL</td><td>P3</td><td>Remote</td></tr>
-    <tr><td>Sun group</td><td>CAS Beijing / IOP</td><td>High-pressure on films, bulk crystals</td><td>P1</td><td>Remote</td></tr>
+    <tr><td><strong>Mitchell / Bhattacharya / Fong</strong></td><td>Argonne National Lab</td><td>Oxide MBE, APS synchrotron, single crystal growth, in-situ XRD</td><td>P1, P2, P3, P5</td><td>public literature</td></tr>
+    <tr><td><strong>Michael Norman</strong></td><td>Argonne National Lab</td><td>Theory — electronic structure, cuprate-nickelate comparison</td><td>Cross-family analysis</td><td>public literature</td></tr>
+    <tr><td><strong>Narayanachari / Buchholz</strong></td><td>Northwestern University</td><td>Thin film growth, Argonne collaboration</td><td>P2, P3</td><td>public literature</td></tr>
+    <tr><td>Hwang group</td><td>Stanford / SLAC</td><td>PLD, MBE, ARPES, first ambient film, superstructures</td><td>P1, P5</td><td>published records</td></tr>
+    <tr><td>Chen / Xue group</td><td>ShanghaiTech / Tsinghua</td><td>GAE method, 63K record</td><td>P1, P2</td><td>published records</td></tr>
+    <tr><td>Nie group</td><td>Nanjing University</td><td>MBE, Sr-doping dome, superconducting dome PRL</td><td>P3</td><td>published records</td></tr>
+    <tr><td>Sun group</td><td>CAS Beijing / IOP</td><td>High-pressure on films, bulk crystals</td><td>P1</td><td>published records</td></tr>
   </tbody>
 </table>
-<p style="font-size:13px;margin-top:10px"><strong>Recommended first contact:</strong> Argonne's Materials Science Division has the equipment to test predictions P1-P3 and P5. Their 2024 paper on topotactic reduction of nickelate films (Adv. Materials 36, 2402484) demonstrates active film growth capability. Michael Norman's theoretical expertise could evaluate the cross-family pattern analysis.</p>
+<p style="font-size:13px;margin-top:10px">Groups are listed only because their published work suggests relevant capabilities. Anyone using this as a steering document should verify current equipment, interests, and willingness to engage directly with the groups.</p>
 </div>
 
 <div class="section">
 <h2>About this analysis</h2>
-<p class="small">This research brief was generated through systematic extraction and cross-referencing of published experimental data from peer-reviewed journals and preprints (Nature, Nature Materials, Nature Physics, Nature Communications, Physical Review Letters, Communications Physics, National Science Review, and arXiv). All 23 curated records trace to specific publications cited in the dataset. Predictions are based on empirical trend extrapolation, not first-principles simulation, and should be treated as hypothesis generation for experimental follow-up. The interactive screening tools (substrate screener, data engine, timeline tracker) are available as companion artifacts.</p>
-<p class="small">Corrections and new measurements are reviewed through private intake before inclusion. Source verification is required.</p>
+<p class="small">This research brief was generated through extraction and cross-referencing of published experimental data from peer-reviewed journals and preprints (Nature, Nature Materials, Nature Physics, Nature Communications, Physical Review Letters, Communications Physics, National Science Review, and arXiv). All 23 curated records trace to specific publications cited in the dataset. Predictions are based on empirical trend extrapolation, not first-principles simulation, and should be treated as hypothesis generation for experimental follow-up. The interactive screening tools (substrate screener, data engine, timeline tracker) are available as companion artifacts.</p>
+<p class="small">Corrections and new measurements are reviewed before inclusion. Source verification is required. The pseudonymous authorship, small corpus, and heuristic ranking method should be visible in any reuse of this material.</p>
 </div>
 
 </body>

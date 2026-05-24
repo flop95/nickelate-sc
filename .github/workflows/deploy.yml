@@ -34,6 +34,13 @@ jobs:
           mkdir -p _site/app
           cp -r docs/. _site/
           cp -r dist/. _site/app/
+          mkdir -p _site/data/palace
+          cp src/data/nickelate_dataset.json _site/data/
+          cp src/data/patterns.json _site/data/
+          cp src/data/predictions.json _site/data/
+          cp src/data/arxiv_alerts.json _site/data/
+          cp src/data/landscape.json _site/data/
+          cp src/data/palace/*.json _site/data/palace/
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

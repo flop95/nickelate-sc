@@ -24,7 +24,16 @@ import NickelateEngine from './NickelateEngine.jsx';
 import NickelateTimeline from './NickelateTimeline.jsx';
 import NickelateScreener from './NickelateSubstrateScreener.jsx';
 
+import nickelateDataset from '../data/nickelate_dataset.json';
+import patterns from '../data/patterns.json';
+import predictions from '../data/predictions.json';
+import arxivAlerts from '../data/arxiv_alerts.json';
 import drawers from '../data/palace/palace_drawers.json';
+import gates from '../data/palace/palace_gates.json';
+import gaps from '../data/palace/palace_gaps_nickelates.json';
+import failures from '../data/palace/palace_failures.json';
+import lessons from '../data/palace/palace_lessons.json';
+import proposals from '../data/palace/palace_proposals.json';
 import stats from '../data/palace/palace_stats.json';
 import './PalaceShell.css';
 
@@ -216,17 +225,46 @@ export default function PalaceShell() {
   }, [modeDrawers, searchQuery]);
 
   const handleExport = () => {
+    const exportedAt = new Date().toISOString();
     const payload = {
-      route: activeRoute,
-      pressureMode,
-      stats,
-      drawers: modeDrawers,
+      schema: 'nickelate-sc.corpus.v2',
+      exported_at: exportedAt,
+      issue: {
+        title: 'nickelate.sc Vol. 1, No. 1',
+        date: 'April 2026',
+        status: 'curated static review index; hypothesis rankings are not verified measurements',
+      },
+      view: {
+        route: activeRoute,
+        pressure_mode: pressureMode,
+        filtered_drawers: modeDrawers,
+      },
+      corpus: {
+        nickelate_dataset: nickelateDataset,
+        patterns,
+        predictions,
+        arxiv_alerts: arxivAlerts,
+        palace: {
+          stats,
+          gates,
+          drawers,
+          gaps,
+          failures,
+          lessons,
+          proposals,
+        },
+      },
+      caveats: [
+        'Measurements and references are manually curated from public literature and preprints.',
+        'Gap candidates are feature-distance hypotheses, not forecasts or first-principles predictions.',
+        'Use source_url and source_doi fields to re-check references before citing this export.',
+      ],
     };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'nickelate-sc-export.json';
+    a.download = `nickelate-sc-corpus-${exportedAt.slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };

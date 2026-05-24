@@ -105,8 +105,9 @@ export default function BreadcrumbBar({
         <button
           onClick={onExport}
           className="palace-export"
+          title="Download the current public corpus JSON"
         >
-          export
+          export corpus
         </button>
       </div>
     </header>
