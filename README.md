@@ -1,5 +1,7 @@
 # nickelate-sc
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20369923.svg)](https://doi.org/10.5281/zenodo.20369923)
+
 Curated screening notebook for nickelate superconductor research.
 
 **Live:** https://flop95.github.io/nickelate-sc/
@@ -14,9 +16,9 @@ Curates 23 nickelate superconductivity measurements across ambient films, film +
 
 If you use this corpus, screening interface, or curated schema, cite the **archived release**, not the live URL:
 
-> flop95. (2026). *nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate screening corpus* (Version 0.1.0) [Data set and software]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+> flop95. (2026). *nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate screening corpus* (Version 0.1.0) [Data set and software]. Zenodo. https://doi.org/10.5281/zenodo.20369923
 
-The DOI above is a placeholder; it is replaced with the real Zenodo DOI once the v0.1.0 release is cut. See [`docs/release_procedure.md`](docs/release_procedure.md). GitHub renders a "Cite this repository" button from [`CITATION.cff`](CITATION.cff) at the repo root.
+GitHub also renders a "Cite this repository" button from [`CITATION.cff`](CITATION.cff) at the repo root.
 
 **Use note:** cite the primary literature (linked from each record's `source_doi`) for any scientific claim. Cite this corpus only for the curated schema, screening interface, and versioned data aggregation.
 

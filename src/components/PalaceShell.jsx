@@ -232,11 +232,10 @@ export default function PalaceShell() {
       release: {
         version: '0.1.0',
         date: '2026-05-24',
-        doi: '10.5281/zenodo.XXXXXXX',
-        doi_status: 'placeholder until first Zenodo deposit',
+        doi: '10.5281/zenodo.20369923',
         suggested_citation:
           'flop95. (2026). nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate screening corpus ' +
-          '(Version 0.1.0) [Data set and software]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX',
+          '(Version 0.1.0) [Data set and software]. Zenodo. https://doi.org/10.5281/zenodo.20369923',
         license: { code: 'MIT', data: 'CC-BY-4.0' },
       },
       issue: {

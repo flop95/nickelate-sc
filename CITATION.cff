@@ -15,8 +15,8 @@ repository-code: "https://github.com/flop95/nickelate-sc"
 license: "CC-BY-4.0"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.XXXXXXX"
-    description: "Zenodo archival DOI for the v0.1.0 release (placeholder until first Zenodo deposit)"
+    value: "10.5281/zenodo.20369923"
+    description: "Zenodo archival DOI for the v0.1.0 release"
 keywords:
   - nickelates
   - superconductivity

@@ -95,7 +95,7 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
 
 const RELEASE_VERSION = '0.1.0';
 const RELEASE_DATE = '2026-05-24';
-const RELEASE_DOI = '10.5281/zenodo.XXXXXXX';
+const RELEASE_DOI = '10.5281/zenodo.20369923';
 
 function CitationFooter() {
   const doiUrl = `https://doi.org/${RELEASE_DOI}`;
@@ -123,7 +123,6 @@ function CitationFooter() {
         >
           {RELEASE_DOI}
         </a>
-        {' '}<span style={{ color: 'var(--text-faint)' }}>(placeholder until first Zenodo deposit)</span>
       </div>
       <pre
         className="voice-mono"

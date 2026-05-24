@@ -139,7 +139,7 @@ const corpus = {
   citation: {
     suggested:
       'flop95. (2026). nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate screening corpus ' +
-      `(Version ${pkg.version}) [Data set and software]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX`,
+      `(Version ${pkg.version}) [Data set and software]. Zenodo. https://doi.org/10.5281/zenodo.20369923`,
     license: { code: 'MIT', data: 'CC-BY-4.0' },
     note:
       'Cite the primary literature (linked from each record\'s source_doi) for any ' +
