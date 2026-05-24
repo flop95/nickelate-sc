@@ -77,8 +77,8 @@ export const predictions = rawPredictions;
 
 // Timeline milestones (static reference lines)
 export const timelineMilestones = [
-  { tc: 77, label: "Liquid nitrogen (77K)", color: "#5B9BD5" },
-  { tc: 96, label: "Current bulk record (96K)", color: "#E24B4A" },
+  { tc: 77, label: "Liquid nitrogen (77K)", color: "var(--color-accent)" },
+  { tc: 96, label: "Current bulk record (96K)", color: "var(--d-contradict)" },
 ];
 
 // arXiv alerts — imported statically (run `python scripts/arxiv_watcher.py` to generate/update)

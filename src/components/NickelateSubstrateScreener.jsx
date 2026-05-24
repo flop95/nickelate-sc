@@ -3,6 +3,15 @@ import { screenerPublished, candidateSubstrates as rawCandidates } from "../data
 
 const LNO_BULK_A = 3.833;
 
+const DATA_COLOR = {
+  super: "var(--d-super)",
+  prediction: "var(--d-prediction)",
+  contradiction: "var(--d-contradict)",
+  accent: "var(--color-accent)",
+  neutral: "var(--color-text-secondary)",
+  customBg: "var(--color-accent-dim)",
+};
+
 const Rule = ({ label }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "32px 0 24px" }}>
     {label && (
@@ -34,11 +43,11 @@ function getConfidence(strain) {
 }
 
 function getStrainColor(strain) {
-  if (strain < -3.0) return "#7F77DD";
-  if (strain < -1.5) return "#1D9E75";
-  if (strain < 0) return "#5B9BD5";
-  if (strain < 1.0) return "#D4A843";
-  return "#E24B4A";
+  if (strain < -3.0) return DATA_COLOR.neutral;
+  if (strain < -1.5) return DATA_COLOR.super;
+  if (strain < 0) return DATA_COLOR.accent;
+  if (strain < 1.0) return DATA_COLOR.prediction;
+  return DATA_COLOR.contradiction;
 }
 
 export default function NickelateScreener() {
@@ -109,10 +118,10 @@ export default function NickelateScreener() {
           ))}
           <line x1={xScale(0)} y1={padT} x2={xScale(0)} y2={chartHeight - padB} stroke="var(--line-strong)" strokeWidth={0.5} strokeDasharray="4 3" />
           <line x1={xScale(trendX1)} y1={yScale(trendY1)} x2={xScale(trendX2)} y2={yScale(trendY2)} stroke="var(--color-accent)" strokeWidth={1} strokeDasharray="6 4" opacity={0.3} />
-          <line x1={padL} y1={yScale(77)} x2={chartWidth - padR} y2={yScale(77)} stroke="#5B9BD5" strokeWidth={0.5} strokeDasharray="4 4" opacity={0.4} />
-          <text x={chartWidth - padR - 4} y={yScale(77) - 4} textAnchor="end" fontSize={9} fill="#5B9BD5" opacity={0.5} fontFamily="'DM Mono', monospace">77K LN₂</text>
+          <line x1={padL} y1={yScale(77)} x2={chartWidth - padR} y2={yScale(77)} stroke={DATA_COLOR.accent} strokeWidth={0.5} strokeDasharray="4 4" opacity={0.4} />
+          <text x={chartWidth - padR - 4} y={yScale(77) - 4} textAnchor="end" fontSize={9} fill={DATA_COLOR.accent} opacity={0.5} fontFamily="'DM Mono', monospace">77K LN₂</text>
           {allPoints.filter(p => p.type === "published").map((p, i) => (
-            <circle key={`pub-${i}`} cx={xScale(p.strain)} cy={yScale(p.predictedTc)} r={3.5} fill="#1D9E75" stroke="none" opacity={0.85} />
+            <circle key={`pub-${i}`} cx={xScale(p.strain)} cy={yScale(p.predictedTc)} r={3.5} fill={DATA_COLOR.super} stroke="none" opacity={0.85} />
           ))}
           {allPoints.filter(p => p.type === "candidate").map((p, i) => (
             <g key={`cand-${i}`}>
@@ -126,9 +135,9 @@ export default function NickelateScreener() {
               <text x={xScale(p.strain)} y={yScale(p.predictedTc) - 10} textAnchor="middle" fontSize={10} fontWeight={600} fill="var(--color-accent)" fontFamily="'DM Mono', monospace">{p.substrate}</text>
             </g>
           ))}
-          <circle cx={padL + 8} cy={padT + 8} r={2.5} fill="#1D9E75" />
+          <circle cx={padL + 8} cy={padT + 8} r={2.5} fill={DATA_COLOR.super} />
           <text x={padL + 16} y={padT + 12} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">published</text>
-          <circle cx={padL + 88} cy={padT + 8} r={2.5} fill="#5B9BD5" />
+          <circle cx={padL + 88} cy={padT + 8} r={2.5} fill={DATA_COLOR.accent} />
           <text x={padL + 96} y={padT + 12} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">candidate</text>
           <rect x={padL + 163} y={padT + 4.5} width={6} height={6} fill="var(--color-accent)" transform={`rotate(45, ${padL + 166}, ${padT + 7.5})`} />
           <text x={padL + 176} y={padT + 12} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">custom</text>
@@ -163,8 +172,8 @@ export default function NickelateScreener() {
               <button key={c.name} onClick={() => toggleCandidate(c.name)} style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 padding: "4px 8px", fontSize: 11, fontFamily: "var(--font-mono)",
-                border: active ? "1px solid rgba(212,168,67,0.4)" : "1px solid var(--line)",
-                borderRadius: 0, background: active ? "rgba(212,168,67,0.06)" : "transparent",
+                border: active ? "1px solid var(--color-accent)" : "1px solid var(--line)",
+                borderRadius: 0, background: active ? DATA_COLOR.customBg : "transparent",
                 color: active ? "var(--color-text)" : "var(--color-text-muted)", cursor: "pointer",
               }}>
                 <span>{c.name}</span>
@@ -192,15 +201,15 @@ export default function NickelateScreener() {
               </thead>
               <tbody>
                 {allPoints.map((p, i) => (
-                  <tr key={i} style={{ background: p.type === "custom" ? "rgba(212,168,67,0.04)" : "transparent" }}>
+                  <tr key={i} style={{ background: p.type === "custom" ? DATA_COLOR.customBg : "transparent" }}>
                     <td style={{ fontWeight: p.type !== "published" ? 600 : 400, borderLeft: p.type === "custom" ? "2px solid var(--color-accent)" : undefined }}>{p.substrate}</td>
                     <td style={{ fontFamily: "var(--font-mono)" }}>{p.a.toFixed(3)}</td>
                     <td style={{ color: getStrainColor(p.strain), fontWeight: 600, fontFamily: "var(--font-mono)" }}>{p.strain > 0 ? "+" : ""}{p.strain.toFixed(2)}%</td>
-                    <td style={{ fontWeight: 600, fontFamily: "var(--font-mono)", color: p.predictedTc >= 77 ? "#1D9E75" : "var(--color-text)" }}>
+                    <td style={{ fontWeight: 600, fontFamily: "var(--font-mono)", color: p.predictedTc >= 77 ? DATA_COLOR.super : "var(--color-text)" }}>
                       {p.predictedTc.toFixed(0)}K{p.predictedTc >= 77 ? " ✦" : ""}
                     </td>
                     <td>
-                      <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: p.type === "published" ? "#1D9E75" : p.type === "custom" ? "var(--color-accent)" : "#5B9BD5" }}>{p.type}</span>
+                      <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: p.type === "published" ? DATA_COLOR.super : p.type === "custom" ? "var(--color-accent)" : DATA_COLOR.accent }}>{p.type}</span>
                     </td>
                     <td style={{ fontSize: 11, color: "var(--color-text-muted)" }}>{p.confidence || "Measured"}</td>
                   </tr>

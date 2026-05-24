@@ -1,5 +1,13 @@
 <style>
-:root { --gold: #d4a843; --dark: #1a1a1a; --mid: #2a2a2a; }
+:root {
+  --ink: #1A1814;
+  --ink-08: rgba(26, 24, 20, 0.08);
+  --d-super: #236A72;
+  --d-prediction: #806B18;
+  --gold: var(--d-prediction);
+  --dark: var(--ink);
+  --mid: rgba(26, 24, 20, 0.82);
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'DM Sans', 'Helvetica Neue', sans-serif; color: var(--color-text-primary, #1a1a1a); line-height: 1.7; max-width: 680px; }
 h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; border-bottom: 2px solid var(--gold); padding-bottom: 8px; margin-bottom: 6px; }
@@ -16,9 +24,9 @@ th { text-align: left; padding: 6px 8px; font-weight: 600; font-size: 11px; colo
 td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #eee); }
 .highlight { background: var(--color-background-secondary, #f5f5f0); padding: 12px 16px; border-radius: 6px; border-left: 3px solid var(--gold); margin: 12px 0; }
 .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; margin-right: 6px; }
-.tag-pattern { background: rgba(29,158,117,0.12); color: #1D9E75; }
-.tag-gap { background: rgba(212,168,67,0.12); color: #d4a843; }
-.tag-prediction { background: rgba(127,119,221,0.12); color: #7F77DD; }
+.tag-pattern { background: color-mix(in srgb, var(--d-super) 12%, transparent); color: var(--d-super); }
+.tag-gap { background: color-mix(in srgb, var(--d-prediction) 12%, transparent); color: var(--d-prediction); }
+.tag-prediction { background: var(--ink-08); color: var(--ink); }
 .mono { font-family: 'DM Mono', monospace; }
 .small { font-size: 11px; color: var(--color-text-tertiary, #999); }
 .section { margin-bottom: 20px; }
@@ -48,7 +56,7 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
     <tr><th>Material</th><th>Substrate</th><th>Strain</th><th>Onset Tc</th><th>Zero-R Tc</th><th>Growth</th><th>Source</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>(La,Pr)₃Ni₂O₇</strong></td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono" style="color:#d4a843;font-weight:700">63K</td><td class="mono">37K</td><td>GAE extreme</td><td>Zhou, NSR 2026</td></tr>
+    <tr><td><strong>(La,Pr)₃Ni₂O₇</strong></td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono" style="color:var(--d-prediction);font-weight:700">63K</td><td class="mono">37K</td><td>GAE extreme</td><td>Zhou, NSR 2026</td></tr>
     <tr><td>(La,Pr)₃Ni₂O₇</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">45K</td><td class="mono">9K (T_BKT)</td><td>GAE</td><td>Zhou, Nature 640 (2025)</td></tr>
     <!-- VERIFICATION PENDING: Hwang, Nature Apr 2026 citation for superstructures / γII pocket -->
     <tr><td>Superstructures</td><td>SLAO</td><td class="mono">-2.01%</td><td class="mono">46-50K</td><td class="mono">—</td><td>MBE</td><td>Hwang, Nature Apr 2026</td></tr>
@@ -156,9 +164,9 @@ td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary, #ee
 <table>
   <thead><tr><th>Group</th><th>Institution</th><th>Capabilities</th><th>Relevant to</th><th>Distance from Chicago</th></tr></thead>
   <tbody>
-    <tr><td><strong>Mitchell / Bhattacharya / Fong</strong></td><td>Argonne National Lab</td><td>Oxide MBE, APS synchrotron, single crystal growth, in-situ XRD</td><td>P1, P2, P3, P5</td><td style="color:#1D9E75;font-weight:600">30 mi</td></tr>
-    <tr><td><strong>Michael Norman</strong></td><td>Argonne National Lab</td><td>Theory — electronic structure, cuprate-nickelate comparison</td><td>Cross-family analysis</td><td style="color:#1D9E75;font-weight:600">30 mi</td></tr>
-    <tr><td><strong>Narayanachari / Buchholz</strong></td><td>Northwestern University</td><td>Thin film growth, Argonne collaboration</td><td>P2, P3</td><td style="color:#1D9E75;font-weight:600">15 mi</td></tr>
+    <tr><td><strong>Mitchell / Bhattacharya / Fong</strong></td><td>Argonne National Lab</td><td>Oxide MBE, APS synchrotron, single crystal growth, in-situ XRD</td><td>P1, P2, P3, P5</td><td style="color:var(--d-super);font-weight:600">30 mi</td></tr>
+    <tr><td><strong>Michael Norman</strong></td><td>Argonne National Lab</td><td>Theory — electronic structure, cuprate-nickelate comparison</td><td>Cross-family analysis</td><td style="color:var(--d-super);font-weight:600">30 mi</td></tr>
+    <tr><td><strong>Narayanachari / Buchholz</strong></td><td>Northwestern University</td><td>Thin film growth, Argonne collaboration</td><td>P2, P3</td><td style="color:var(--d-super);font-weight:600">15 mi</td></tr>
     <tr><td>Hwang group</td><td>Stanford / SLAC</td><td>PLD, MBE, ARPES, first ambient film, superstructures</td><td>P1, P5</td><td>Remote</td></tr>
     <tr><td>Chen / Xue group</td><td>ShanghaiTech / Tsinghua</td><td>GAE method (invented here), 63K record</td><td>P1, P2</td><td>Remote</td></tr>
     <tr><td>Nie group</td><td>Nanjing University</td><td>MBE, Sr-doping dome, superconducting dome PRL</td><td>P3</td><td>Remote</td></tr>

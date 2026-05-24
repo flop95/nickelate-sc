@@ -4,6 +4,20 @@ import { findContradictions } from "../utils/findContradictions.js";
 
 const Sep = () => <span style={{ color: "var(--color-text-muted)", margin: "0 12px" }}>·</span>;
 
+const DATA_COLOR = {
+  super: "var(--d-super)",
+  warm: "var(--d-warm)",
+  pressure: "var(--d-pressure)",
+  prediction: "var(--d-prediction)",
+  contradiction: "var(--d-contradict)",
+  accent: "var(--color-accent)",
+  neutral: "var(--color-text-secondary)",
+  muted: "var(--color-text-muted)",
+  passBg: "var(--color-gate-pass-bg-subtle, var(--color-surface-hover))",
+  failBg: "var(--color-failure-bg)",
+  activeBorder: "var(--color-accent)",
+};
+
 const Rule = ({ label, collapsible, expanded, onToggle }) => (
   <div
     style={{ display: "flex", alignItems: "center", gap: 12, margin: "32px 0 24px", cursor: collapsible ? "pointer" : undefined }}
@@ -68,7 +82,7 @@ export default function NickelateEngine() {
   const sx = (v) => pL + ((v - xMin) / (xMax - xMin)) * (chartW - pL - pR);
   const sy = (v) => pT + ((yMax - v) / yMax) * (chartH - pT - pB);
 
-  const nodeColors = { pattern: "#1D9E75", breakthrough: "#7F77DD", gap: "#d4a843" };
+  const nodeColors = { pattern: DATA_COLOR.super, breakthrough: DATA_COLOR.neutral, gap: DATA_COLOR.prediction };
   const nodeSymbols = { pattern: "●", breakthrough: "◆", gap: "○" };
 
   return (
@@ -89,7 +103,7 @@ export default function NickelateEngine() {
       {arxivAlerts.alerts && arxivAlerts.alerts.length > 0 && (() => {
         const meaningful = arxivAlerts.alerts.filter(a => a.diff_type !== "INFO");
         if (meaningful.length === 0) return null;
-        const diffColors = { RECORD: "#d4a843", NEW: "#1D9E75", UPDATE: "#d4a843", CONFIRMS: "var(--color-text-muted)" };
+        const diffColors = { RECORD: DATA_COLOR.prediction, NEW: DATA_COLOR.super, UPDATE: DATA_COLOR.prediction, CONFIRMS: DATA_COLOR.muted };
         return (
           <div style={{ marginBottom: 24 }}>
             <Rule label="arxiv alerts" collapsible expanded={isOpen("arxiv")} onToggle={() => toggle("arxiv")} />
@@ -168,18 +182,18 @@ export default function NickelateEngine() {
                 </g>
               ))}
               {!isCa && <line x1={csx(0)} y1={pT} x2={csx(0)} y2={chartH - pB} stroke="var(--line-strong)" strokeWidth={0.5} strokeDasharray="3 3" />}
-              <line x1={pL} y1={sy(77)} x2={chartW - pR} y2={sy(77)} stroke="#5B9BD5" strokeWidth={0.5} strokeDasharray="4 4" opacity={0.4} />
-              <text x={chartW - pR - 4} y={sy(77) - 4} textAnchor="end" fontSize={9} fill="#5B9BD5" opacity={0.5} fontFamily="'DM Mono', monospace">77K LN₂</text>
+              <line x1={pL} y1={sy(77)} x2={chartW - pR} y2={sy(77)} stroke={DATA_COLOR.accent} strokeWidth={0.5} strokeDasharray="4 4" opacity={0.4} />
+              <text x={chartW - pR - 4} y={sy(77) - 4} textAnchor="end" fontSize={9} fill={DATA_COLOR.accent} opacity={0.5} fontFamily="'DM Mono', monospace">77K LN₂</text>
               {chartData.map((d, i) => {
-                const colors = { "La₃Ni₂O₇": "#1D9E75", "(La,Pr)₃Ni₂O₇": "#d4a843", "La₂PrNi₂O₇": "#D85A30", "La₃₋ₓSrₓNi₂O₇": "#7F77DD", "Nickelate superstructures": "#5B9BD5" };
-                const c = colors[d.material] || "#888";
+                const colors = { "La₃Ni₂O₇": DATA_COLOR.super, "(La,Pr)₃Ni₂O₇": DATA_COLOR.prediction, "La₂PrNi₂O₇": DATA_COLOR.warm, "La₃₋ₓSrₓNi₂O₇": DATA_COLOR.neutral, "Nickelate superstructures": DATA_COLOR.accent };
+                const c = colors[d.material] || DATA_COLOR.muted;
                 return (
                   <g key={i} style={{ cursor: "pointer" }} onClick={() => setExpandedId(expandedId === d.id ? null : d.id)}>
                     <circle cx={csx(d._x)} cy={sy(d.onsetTc)} r={d.onsetTc === stats.maxTc ? 5 : 3.5} fill={c} stroke="none" opacity={0.85} />
                   </g>
                 );
               })}
-              {[["La₃Ni₂O₇", "#1D9E75"], ["(La,Pr)₃Ni₂O₇", "#d4a843"], ["La₂PrNi₂O₇", "#D85A30"], ["Sr-doped", "#7F77DD"], ["Superstruct.", "#5B9BD5"]].map(([label, col], i) => (
+              {[["La₃Ni₂O₇", DATA_COLOR.super], ["(La,Pr)₃Ni₂O₇", DATA_COLOR.prediction], ["La₂PrNi₂O₇", DATA_COLOR.warm], ["Sr-doped", DATA_COLOR.neutral], ["Superstruct.", DATA_COLOR.accent]].map(([label, col], i) => (
                 <g key={label}>
                   <circle cx={pL + 6 + i * 140} cy={chartH - 10} r={2.5} fill={col} />
                   <text x={pL + 14 + i * 140} y={chartH - 6} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{label}</text>
@@ -222,7 +236,7 @@ export default function NickelateEngine() {
                 <tr onClick={() => setExpandedId(expandedId === d.id ? null : d.id)} style={{ cursor: "pointer" }}>
                   <td style={{ fontWeight: 500, maxWidth: 140, borderLeft: expandedId === d.id ? "2px solid var(--color-accent)" : undefined }}>{d.material}</td>
                   <td style={{ fontSize: 11 }}>{d.substrate}</td>
-                  <td style={{ fontFamily: "var(--font-mono)", color: d.strain < 0 ? "#1D9E75" : d.strain > 0 ? "#E24B4A" : "var(--color-text)" }}>{d.strain > 0 ? "+" : ""}{d.strain.toFixed(2)}%</td>
+                  <td style={{ fontFamily: "var(--font-mono)", color: d.strain < 0 ? DATA_COLOR.super : d.strain > 0 ? DATA_COLOR.contradiction : "var(--color-text)" }}>{d.strain > 0 ? "+" : ""}{d.strain.toFixed(2)}%</td>
                   <td style={{ fontWeight: 700, fontFamily: "var(--font-mono)", color: d.onsetTc >= 60 ? "var(--color-accent)" : "var(--color-text)" }}>{d.onsetTc}K</td>
                   <td style={{ fontFamily: "var(--font-mono)" }}>{d.zeroRTc != null ? `${d.zeroRTc}K` : "—"}</td>
                   <td style={{ fontSize: 11 }}>{d.growth || "—"}</td>
@@ -308,9 +322,9 @@ export default function NickelateEngine() {
           <div style={{ borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4 }}>
             {contradictions.map((c, i) => (
               <div key={i} style={{ position: "relative", paddingBottom: i < contradictions.length - 1 ? 12 : 0 }}>
-                <span style={{ position: "absolute", left: -20, top: 3, fontSize: 8, color: "#E24B4A" }}>⚬</span>
+                <span style={{ position: "absolute", left: -20, top: 3, fontSize: 8, color: DATA_COLOR.contradiction }}>⚬</span>
                 <div style={{ marginBottom: 4 }}>
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 500, color: "#E24B4A", marginRight: 8 }}>contradiction</span>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 500, color: DATA_COLOR.contradiction, marginRight: 8 }}>contradiction</span>
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)" }}>
                     {c.material} on {c.substrate || "bulk"} ({c.strain != null ? c.strain.toFixed(1) + "%" : "n/a"})
                   </span>
@@ -365,8 +379,8 @@ export default function NickelateEngine() {
                   <td key={j} style={{
                     textAlign: j === 0 ? "left" : "center", fontWeight: j === 0 ? 500 : 400,
                     fontSize: j === 0 ? 12 : 11, fontFamily: j > 0 ? "var(--font-mono)" : "inherit",
-                    background: cell === "—" ? "var(--color-surface-hover)" : cell.startsWith("✓") ? "rgba(29,158,117,0.06)" : cell.startsWith("✗") ? "rgba(226,75,74,0.06)" : "transparent",
-                    color: cell === "—" ? "var(--color-text-muted)" : cell.startsWith("✓") ? "#1D9E75" : cell.startsWith("✗") ? "#E24B4A" : "var(--color-text)",
+                    background: cell === "—" ? "var(--color-surface-hover)" : cell.startsWith("✓") ? DATA_COLOR.passBg : cell.startsWith("✗") ? DATA_COLOR.failBg : "transparent",
+                    color: cell === "—" ? "var(--color-text-muted)" : cell.startsWith("✓") ? DATA_COLOR.super : cell.startsWith("✗") ? DATA_COLOR.contradiction : "var(--color-text)",
                   }}>{cell === "—" ? "—" : cell}</td>
                 ))}
               </tr>
@@ -419,7 +433,7 @@ export default function NickelateEngine() {
         <button
           onClick={() => setAmbientOnly(!ambientOnly)}
           style={{
-            background: "none", border: ambientOnly ? "1px solid rgba(212,168,67,0.4)" : "1px solid var(--line)",
+            background: "none", border: ambientOnly ? `1px solid ${DATA_COLOR.activeBorder}` : "1px solid var(--line)",
             padding: "4px 8px", fontSize: 10, fontFamily: "var(--font-mono)", cursor: "pointer",
             color: ambientOnly ? "var(--color-accent)" : "var(--color-text-muted)",
           }}
@@ -457,7 +471,7 @@ export default function NickelateEngine() {
                 <div key={g.method} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 4 }}>
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-text-muted)", width: 80 }}>{g.method}</span>
                   <div style={{ flex: 1, height: 4, background: "var(--line)", position: "relative" }}>
-                    <div style={{ height: 4, width: `${(g.avg / 70) * 100}%`, background: g.avg > 50 ? "var(--color-accent)" : "#1D9E75" }} />
+                    <div style={{ height: 4, width: `${(g.avg / 70) * 100}%`, background: g.avg > 50 ? "var(--color-accent)" : DATA_COLOR.super }} />
                   </div>
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-text)", fontWeight: 600, width: 48, textAlign: "right" }}>{g.avg.toFixed(0)}K</span>
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)" }}>n={g.n}</span>
@@ -517,7 +531,7 @@ export default function NickelateEngine() {
               />
               {/* Points */}
               {points.map((p, i) => (
-                <circle key={i} cx={scX(p.x)} cy={scY(p.y)} r={3} fill="#1D9E75" opacity={0.8} />
+                <circle key={i} cx={scX(p.x)} cy={scY(p.y)} r={3} fill={DATA_COLOR.super} opacity={0.8} />
               ))}
               {/* X axis labels */}
               {(() => {

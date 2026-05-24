@@ -86,8 +86,8 @@ function HeroCandidate({ hero, onSelect }) {
   const substrate = hero.nearestDrawer?.properties?.substrate || '';
   const riskColor =
     hero.riskLabel === 'LOW' ? 'var(--text-secondary)' :
-    hero.riskLabel === 'MODERATE' ? '#f0c775' :
-    '#f09595';
+    hero.riskLabel === 'MODERATE' ? 'var(--d-prediction)' :
+    'var(--d-contradict)';
 
   return (
     <div
@@ -154,12 +154,12 @@ function HeroCandidate({ hero, onSelect }) {
           <div className="hero-warning" style={{
             marginTop: 12,
             padding: '6px 10px',
-            background: 'rgba(200,96,96,0.08)',
-            border: '1px solid rgba(200,96,96,0.3)',
+            background: 'var(--color-failure-bg)',
+            border: '1px solid var(--color-failure-border)',
             borderRadius: 4,
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
-            color: '#f09595',
+            color: 'var(--d-contradict)',
           }}>
             ⚠ sits Δ{hero.minFailDist} from a known failure pattern
           </div>
@@ -234,8 +234,8 @@ function Row({ label, children }) {
 // gap map so this lane stays live even before a proposal round is generated.
 // ───────────────────────────────────────────────────────
 function riskColorFor(risk) {
-  if (risk === 'high') return '#f09595';
-  if (risk === 'medium' || risk === 'moderate') return '#f0c775';
+  if (risk === 'high') return 'var(--d-contradict)';
+  if (risk === 'medium' || risk === 'moderate') return 'var(--d-prediction)';
   return 'var(--text-secondary)';
 }
 

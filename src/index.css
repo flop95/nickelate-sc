@@ -29,7 +29,7 @@
   /* ─── Data-viz semantic palette ─── */
   --d-super:      #6AD4E0;    /* superconducting / confirmed */
   --d-warm:       #D97B3A;    /* normal state / failed SC */
-  --d-pressure:   #B98AE8;    /* pressure-class */
+  --d-pressure:   var(--fg-2); /* pressure-class */
   --d-prediction: #E8C85A;    /* predicted, un-measured */
   --d-contradict: #E04F4F;    /* contradiction / outlier */
 
@@ -80,7 +80,7 @@
   --color-failure-bg:     rgba(224, 79, 79, 0.10);
   --color-failure-border: rgba(224, 79, 79, 0.40);
   --color-diff:           var(--d-pressure);
-  --color-diff-border:    rgba(185, 138, 232, 0.55);
+  --color-diff-border:    rgba(169, 162, 152, 0.55);
 
   --color-surface-raised: var(--bg-panel);
   --color-surface-hover:  var(--bg-overlay);
@@ -88,17 +88,17 @@
   /* Failure-type palette — mapped onto dataviz semantic hues */
   --fail-nonsupercon-bg: rgba(224, 79, 79, 0.10);
   --fail-nonsupercon-fg: var(--d-contradict);
-  --fail-pressure-bg:    rgba(185, 138, 232, 0.10);
+  --fail-pressure-bg:    rgba(169, 162, 152, 0.10);
   --fail-pressure-fg:    var(--d-pressure);
   --fail-irreprod-bg:    rgba(232, 200, 90, 0.10);
   --fail-irreprod-fg:    var(--d-prediction);
-  --fail-unstable-bg:    rgba(185, 138, 232, 0.10);
+  --fail-unstable-bg:    rgba(169, 162, 152, 0.10);
   --fail-unstable-fg:    var(--d-pressure);
   --fail-tclow-bg:       rgba(255, 255, 255, 0.03);
   --fail-tclow-fg:       var(--fg-3);
   --fail-synth-bg:       rgba(217, 123, 58, 0.10);
   --fail-synth-fg:       var(--d-warm);
-  --fail-wrongstruct-bg: rgba(106, 212, 224, 0.08);
+  --fail-wrongstruct-bg: color-mix(in srgb, var(--accent) 8%, transparent);
   --fail-wrongstruct-fg: var(--accent);
 
   /* Spacing scale — 4px base grid */
@@ -179,7 +179,7 @@ table tbody tr td:first-child {
   transition: border-color 150ms ease;
 }
 table tbody tr:hover td:first-child {
-  border-left-color: rgba(212,168,67,0.3);
+  border-left-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
 }
 table tbody tr td[colspan] {
   background: var(--color-bg) !important;
@@ -202,12 +202,12 @@ input, select {
 }
 input:focus, select:focus {
   outline: none;
-  border-color: rgba(255,255,255,0.12) !important;
+  border-color: var(--color-border-strong) !important;
 }
 
 /* ── Links ── */
 a {
-  color: #5B9BD5;
+  color: var(--color-accent);
   text-decoration: none;
 }
 a:hover {
@@ -300,7 +300,7 @@ a:hover {
 .fail-tag.t-Tc_too_low {
   background: var(--fail-tclow-bg);
   color: var(--fail-tclow-fg);
-  border-color: rgba(255,255,255,0.1);
+  border-color: var(--color-border-strong);
 }
 .fail-tag.t-synthesis_failed {
   background: var(--fail-synth-bg);
@@ -315,7 +315,7 @@ a:hover {
 .fail-tag.t-default {
   background: var(--fail-tclow-bg);
   color: var(--fail-tclow-fg);
-  border-color: rgba(255,255,255,0.1);
+  border-color: var(--color-border-strong);
 }
 
 /* ── Tc value emphasis — cryogenic cyan === superconducting ── */
@@ -326,7 +326,7 @@ a:hover {
 .tc-exceptional {
   color: var(--accent);
   font-weight: 500;
-  text-shadow: 0 0 8px rgba(106, 212, 224, 0.45);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
 /* ── Hover micro-interactions (always on — no motion required) ── */
@@ -393,7 +393,7 @@ a:hover {
     animation: gateOn 220ms ease-out;
   }
   .bit.is-diff {
-    box-shadow: 0 0 0 1.5px rgba(212,168,67,0.75);
+    box-shadow: 0 0 0 1.5px var(--color-diff-border);
     transform: scale(1.06);
     transition: box-shadow 180ms ease-out, transform 140ms ease-out;
   }
@@ -442,7 +442,7 @@ a:hover {
 /* Reduced-motion static fallbacks — the .is-diff state must remain
    VISIBLE even without animation (it's the primary visual signal). */
 .bit.is-diff {
-  box-shadow: 0 0 0 1.5px rgba(212,168,67,0.75);
+  box-shadow: 0 0 0 1.5px var(--color-diff-border);
 }
 
 /* Hero fingerprint warmth glow — static, not animated */
@@ -454,7 +454,7 @@ a:hover {
   content: '';
   position: absolute;
   inset: -20px;
-  background: radial-gradient(circle, rgba(212,168,67,0.045) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 5%, transparent) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }

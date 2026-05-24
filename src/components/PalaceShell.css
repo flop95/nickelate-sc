@@ -39,7 +39,7 @@
 
   --d-super: #236A72;
   --d-warm: #9B542B;
-  --d-pressure: #695481;
+  --d-pressure: var(--ink-70);
   --d-prediction: #806B18;
   --d-contradict: #993A32;
 
@@ -75,7 +75,7 @@
   --color-failure-bg: rgba(153, 58, 50, 0.08);
   --color-failure-border: rgba(153, 58, 50, 0.35);
   --color-diff: var(--d-pressure);
-  --color-diff-border: rgba(105, 84, 129, 0.45);
+  --color-diff-border: var(--ink-35);
 
   --table-head-bg: rgba(26, 24, 20, 0.035);
   --sort-idle-color: rgba(26, 24, 20, 0.22);
@@ -344,7 +344,7 @@
 }
 
 .palace-shell .bit.is-diff {
-  box-shadow: 0 0 0 1.5px rgba(105, 84, 129, 0.62);
+  box-shadow: 0 0 0 1.5px var(--ink-55);
 }
 
 .palace-shell a {
@@ -366,6 +366,7 @@
   .palace-shell.is-mobile {
     height: auto;
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
   .palace-masthead {
@@ -390,6 +391,8 @@
   .palace-overview-root {
     max-width: none !important;
     padding: 24px 20px 32px !important;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .palace-mobile-center .workspace-section,
@@ -401,6 +404,8 @@
     gap: 18px !important;
     padding: 18px !important;
     min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
   }
 
   .palace-mobile-center .datatable-row,
@@ -411,6 +416,7 @@
   .palace-mobile-center .hero-claim,
   .palace-mobile-center .voice-authority,
   .palace-mobile-center .voice-quiet {
+    max-width: 100%;
     overflow-wrap: anywhere;
   }
 }

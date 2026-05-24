@@ -3,6 +3,13 @@ import { timelineEvents as timeline, timelineMilestones as milestones } from "..
 
 const Sep = () => <span style={{ color: "var(--color-text-muted)", margin: "0 12px" }}>·</span>;
 
+const DATA_COLOR = {
+  super: "var(--d-super)",
+  warm: "var(--d-warm)",
+  pressure: "var(--d-pressure)",
+  prediction: "var(--d-prediction)",
+};
+
 const Rule = ({ label }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "32px 0 24px" }}>
     {label && (
@@ -95,7 +102,7 @@ export default function NickelateTimeline() {
               </g>
             );
           })()}
-          {[["Bulk (pressure)", "#D85A30"], ["Film (ambient)", "#1D9E75"], ["Film + pressure", "#7F77DD"], ["Record", "#d4a843"]].map(([l, c], i) => (
+          {[["Bulk (pressure)", DATA_COLOR.warm], ["Film (ambient)", DATA_COLOR.super], ["Film + pressure", DATA_COLOR.pressure], ["Record", DATA_COLOR.prediction]].map(([l, c], i) => (
             <g key={l}>
               <circle cx={pL + 8 + i * 160} cy={H - 12} r={2.5} fill={c} />
               <text x={pL + 15 + i * 160} y={H - 8} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{l}</text>

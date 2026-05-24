@@ -70,7 +70,7 @@ function Cell({ gate, pass, tier, disabled, isDiff, profile }) {
   const { bg, border } = cellVisual({ pass, tier, disabled, isDiff });
   const isPhysical = tier === 'physical';
   const labelColor = (pass && isPhysical && !disabled)
-    ? 'var(--color-gate-label-pass, rgba(212,168,67,0.85))'
+    ? 'var(--color-gate-label-pass, var(--color-accent))'
     : 'var(--text-faint)';
 
   return (

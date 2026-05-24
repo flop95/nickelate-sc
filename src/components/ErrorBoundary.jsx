@@ -19,9 +19,9 @@ export default class ErrorBoundary extends Component {
           padding: 16,
           fontFamily: 'var(--font-mono)',
           fontSize: 11,
-          color: '#f09595',
-          background: 'rgba(200,96,96,0.08)',
-          border: '1px solid rgba(200,96,96,0.3)',
+          color: 'var(--d-contradict)',
+          background: 'var(--color-failure-bg)',
+          border: '1px solid var(--color-failure-border)',
           margin: 16,
           maxWidth: 280,
         }}>
@@ -34,8 +34,8 @@ export default class ErrorBoundary extends Component {
             style={{
               marginTop: 10,
               background: 'transparent',
-              border: '1px solid rgba(200,96,96,0.5)',
-              color: '#f09595',
+              border: '1px solid var(--color-failure-border)',
+              color: 'var(--d-contradict)',
               padding: '4px 10px',
               cursor: 'pointer',
               fontFamily: 'inherit',
