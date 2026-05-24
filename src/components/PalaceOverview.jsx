@@ -10,6 +10,7 @@ import FailureTag from './FailureTag.jsx';
 import TcValue from './TcValue.jsx';
 import DataTable from './DataTable.jsx';
 import { GATE_COUNT, hammingDistance } from '../utils/bitmask.js';
+import { formatGateList, formatGateName } from '../utils/displayLabels.js';
 
 // palace_gates.json is now a dict {count, categories, gates} — read the gates array.
 const GATE_NAME_TO_INDEX = Object.fromEntries(gateDefs.gates.map(g => [g.name, g.index]));
@@ -55,7 +56,7 @@ export default function PalaceOverview({ onNavigate, onSelect }) {
       </h1>
       <div className="voice-quiet" style={{ marginBottom: 28, maxWidth: 640 }}>
         ranked screening for ambient-pressure superconductivity · untested candidates sit closest
-        to known success anchors · failure memory constrains where not to look
+        to known success anchors · negative results constrain where not to look
       </div>
 
       {hero ? <HeroCandidate hero={hero} onSelect={onSelect} /> : <HeroEmpty />}
@@ -82,12 +83,9 @@ export default function PalaceOverview({ onNavigate, onSelect }) {
 // ───────────────────────────────────────────────────────
 function HeroCandidate({ hero, onSelect }) {
   const headlineK = Math.round(hero.nearest_onset || 0);
-  const diffGateName = hero.gates_flipped?.[0];
+  const diffGateName = formatGateName(hero.gates_flipped?.[0]);
   const substrate = hero.nearestDrawer?.properties?.substrate || '';
-  const riskColor =
-    hero.riskLabel === 'LOW' ? 'var(--text-secondary)' :
-    hero.riskLabel === 'MODERATE' ? 'var(--d-prediction)' :
-    'var(--d-contradict)';
+  const riskColor = 'var(--text-secondary)';
 
   return (
     <div
@@ -136,9 +134,9 @@ function HeroCandidate({ hero, onSelect }) {
           </Row>
         </div>
         <div className="hero-evidence-item">
-          <Row label="failure risk">
+          <Row label="risk">
             <span className="voice-mono" style={{ fontSize: 12, color: riskColor }}>
-              {hero.riskLabel} · nearest known failure Δ{hero.minFailDist}
+              {hero.riskLabel} · nearest negative result Δ{hero.minFailDist}
             </span>
           </Row>
         </div>
@@ -154,14 +152,14 @@ function HeroCandidate({ hero, onSelect }) {
           <div className="hero-warning" style={{
             marginTop: 12,
             padding: '6px 10px',
-            background: 'var(--color-failure-bg)',
-            border: '1px solid var(--color-failure-border)',
+            background: 'var(--color-surface-hover)',
+            border: '1px solid var(--line)',
             borderRadius: 4,
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
-            color: 'var(--d-contradict)',
+            color: 'var(--text-secondary)',
           }}>
-            ⚠ sits Δ{hero.minFailDist} from a known failure pattern
+            ⚠ sits Δ{hero.minFailDist} from a known negative pattern
           </div>
         )}
 
@@ -234,8 +232,8 @@ function Row({ label, children }) {
 // gap map so this lane stays live even before a proposal round is generated.
 // ───────────────────────────────────────────────────────
 function riskColorFor(risk) {
-  if (risk === 'high') return 'var(--d-contradict)';
-  if (risk === 'medium' || risk === 'moderate') return 'var(--d-prediction)';
+  if (risk === 'high') return 'var(--text-primary)';
+  if (risk === 'medium' || risk === 'moderate') return 'var(--text-secondary)';
   return 'var(--text-secondary)';
 }
 
@@ -283,7 +281,7 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
               {p.material_pattern}
             </div>
             <div className="voice-mono" style={{ fontSize: 9, color: 'var(--text-faint)', marginTop: 2 }}>
-              flip {p.differing_gates?.join(', ')}
+              differs by {formatGateList(p.differing_gates)}
             </div>
           </div>
         );
@@ -402,7 +400,7 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
 }
 
 // ───────────────────────────────────────────────────────
-// Failure memory (narrow right lane, quieter)
+// Negative results (narrow right lane, quieter)
 // ───────────────────────────────────────────────────────
 function FailureLane({ failures: recent, onSelect, onNavigate }) {
   return (
@@ -417,9 +415,9 @@ function FailureLane({ failures: recent, onSelect, onNavigate }) {
     >
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 14 }}>
         <div>
-          <div className="overline">known traps</div>
+          <div className="overline">negative evidence</div>
           <div className="voice-authority" style={{ fontSize: 14 }}>
-            failure memory
+            failed claims
           </div>
         </div>
         <span
@@ -433,12 +431,12 @@ function FailureLane({ failures: recent, onSelect, onNavigate }) {
           }}
           onClick={() => onNavigate && onNavigate('failures')}
         >
-          [all ↗]
+          view all ↗
         </span>
       </div>
 
       {recent.length === 0 && (
-        <div className="voice-quiet" style={{ color: 'var(--text-faint)' }}>no failures on record</div>
+        <div className="voice-quiet" style={{ color: 'var(--text-faint)' }}>no failed claims on record</div>
       )}
 
       <div>
@@ -488,7 +486,7 @@ function FailureLane({ failures: recent, onSelect, onNavigate }) {
 const LINKS = [
   { key: 'nickelates/experimental_results', label: 'explore palace' },
   { key: 'search',                          label: 'search materials' },
-  { key: 'failures',                        label: 'browse failures' },
+  { key: 'failures',                        label: 'negative results' },
   { key: 'nickelates/gap_candidates',       label: 'gap map' },
   { key: 'stats',                           label: 'palace statistics' },
 ];
@@ -531,7 +529,7 @@ function ActionLinks({ onNavigate }) {
 function StatsStrip() {
   const items = [
     { label: 'materials', value: stats.total_drawers },
-    { label: 'failures',  value: stats.total_failures },
+    { label: 'negative results', value: stats.total_failures },
     { label: 'gaps',      value: Array.isArray(gaps) ? gaps.length : 0 },
     { label: 'lessons',   value: stats.total_lessons },
   ];

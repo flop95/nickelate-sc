@@ -4,6 +4,7 @@ import FailureTag from './FailureTag.jsx';
 import TcValue from './TcValue.jsx';
 import { GATE_COUNT, passCount } from '../utils/bitmask.js';
 import stats from '../data/palace/palace_stats.json';
+import { formatPropertyLabel, formatPropertyValue, formatRoomLabel, formatWingLabel } from '../utils/displayLabels.js';
 
 export default function InspectorPanel({ selection, collapsed, onToggle, onNavigate }) {
   if (collapsed) {
@@ -93,12 +94,12 @@ function EmptyState() {
           textAlign: 'center',
           lineHeight: 1.6,
         }}>
-          Select a material or failure<br />to inspect
+          Select a material or negative result<br />to inspect
         </div>
       </div>
       <div className="overline" style={{ marginBottom: 10 }}>Palace</div>
       <StatRow label="drawers"  value={stats.total_drawers} />
-      <StatRow label="failures" value={stats.total_failures} />
+      <StatRow label="negative results" value={stats.total_failures} />
       <StatRow label="lessons"  value={stats.total_lessons} />
       <StatRow label="tunnels"  value={stats.total_tunnels} />
     </div>
@@ -146,7 +147,7 @@ function PropsTable({ props }) {
             padding: '3px 0',
             fontSize: 11,
           }}>
-            <span className="voice-quiet" style={{ fontSize: 11, color: 'var(--text-faint)' }}>{k}</span>
+            <span className="voice-quiet" style={{ fontSize: 11, color: 'var(--text-faint)' }}>{formatPropertyLabel(k)}</span>
             {isTc
               ? <TcValue value={Number(v)} size={11} />
               : <span className="voice-mono" style={{
@@ -156,7 +157,7 @@ function PropsTable({ props }) {
                   maxWidth: 180,
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
-                }}>{String(v)}</span>
+                }}>{formatPropertyValue(k, v)}</span>
             }
           </div>
         );
@@ -181,7 +182,7 @@ function DrawerInspector({ drawer, onNavigate }) {
           {drawer.material}
         </div>
         <div className="voice-mono" style={{ fontSize: 10, color: 'var(--text-faint)' }}>
-          {drawer.wing} / {drawer.room}{p.year ? ` · ${p.year}` : ''}
+          {formatWingLabel(drawer.wing)} / {formatRoomLabel(drawer.room)}{p.year ? ` · ${p.year}` : ''}
         </div>
       </div>
 

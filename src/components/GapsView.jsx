@@ -1,6 +1,7 @@
 import gaps from '../data/palace/palace_gaps_nickelates.json';
 import BitmaskStamp, { splitBitmask } from './BitmaskStamp.jsx';
 import { useState } from 'react';
+import { formatGateList } from '../utils/displayLabels.js';
 
 export default function GapsView() {
   const list = Array.isArray(gaps) ? gaps : [];
@@ -9,7 +10,7 @@ export default function GapsView() {
   return (
     <div style={{ padding: '24px 32px', fontFamily: 'var(--font-body)', maxWidth: 1100 }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
-        gap candidates — nickelates
+        Gap Candidates — Nickelates
       </div>
       <h1 style={{ fontSize: 20, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 4 }}>
         untested neighborhoods
@@ -48,7 +49,7 @@ export default function GapsView() {
                     near {g.nearest_success}
                   </div>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-accent)' }}>
-                    flip: {g.gates_flipped?.join(', ')}
+                    differs by {formatGateList(g.gates_flipped)}
                   </div>
                 </div>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)', textAlign: 'right' }}>
@@ -74,7 +75,7 @@ export default function GapsView() {
               <div style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
                 Distance: <span style={{ color: 'var(--color-text)' }}>{selected.distance}</span><br />
                 Anchor: <span style={{ color: 'var(--color-text)' }}>{selected.nearest_success}</span> ({selected.nearest_onset}K)<br />
-                Flip: <span style={{ color: 'var(--color-accent)' }}>{selected.gates_flipped?.join(', ')}</span>
+                Gate change: <span style={{ color: 'var(--color-accent)' }}>{formatGateList(selected.gates_flipped)}</span>
               </div>
             </>
           )}

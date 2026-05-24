@@ -3,6 +3,8 @@ import stats from '../data/palace/palace_stats.json';
 import drawers from '../data/palace/palace_drawers.json';
 import gates from '../data/palace/palace_gates.json';
 import DataTable from './DataTable.jsx';
+import FailureTag from './FailureTag.jsx';
+import { formatWingLabel } from '../utils/displayLabels.js';
 
 export default function StatsView() {
   const total = drawers.length;
@@ -17,7 +19,7 @@ export default function StatsView() {
   const wingColumns = useMemo(() => [
     {
       id: 'wing', header: 'wing', accessorKey: 'wing', size: '140px',
-      cell: info => <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)' }}>{info.getValue()}</span>,
+      cell: info => <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)' }}>{formatWingLabel(info.getValue())}</span>,
     },
     {
       id: 'bar', header: 'distribution', size: '1fr',
@@ -39,25 +41,15 @@ export default function StatsView() {
     },
   ], [maxWing]);
 
-  // --- Failures by type
+  // --- Negative results by mode
   const failRows = useMemo(
     () => Object.entries(stats.failures_by_type).map(([type, count]) => ({ type, count })),
     []
   );
   const failColumns = useMemo(() => [
     {
-      id: 'type', header: 'failure type', accessorKey: 'type', size: '180px',
-      cell: info => (
-        <span style={{
-          display: 'inline-block',
-          fontFamily: 'var(--font-mono)',
-          fontSize: 10,
-          color: 'var(--color-failure)',
-          background: 'var(--color-failure-bg)',
-          border: '1px solid var(--color-failure-border)',
-          padding: '2px 6px',
-        }}>{info.getValue()}</span>
-      ),
+      id: 'type', header: 'mode', accessorKey: 'type', size: '180px',
+      cell: info => <FailureTag type={info.getValue()} />,
     },
     {
       id: 'bar', header: 'distribution', size: '1fr',
@@ -101,7 +93,7 @@ export default function StatsView() {
       cell: info => <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-muted)' }}>[{String(info.getValue()).padStart(2, '0')}]</span>,
     },
     {
-      id: 'name', header: 'gate', accessorKey: 'name', size: '200px',
+      id: 'label', header: 'gate', accessorKey: 'label', size: '200px',
       cell: info => <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-secondary)' }}>{info.getValue()}</span>,
     },
     {
@@ -160,7 +152,7 @@ export default function StatsView() {
           />
         </div>
         <div>
-          <Label>Failures by type</Label>
+          <Label>Negative results by mode</Label>
           {failRows.length === 0 ? (
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)' }}>none recorded</div>
           ) : (

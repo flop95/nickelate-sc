@@ -8,6 +8,7 @@ import drawers from '../data/palace/palace_drawers.json';
 import failures from '../data/palace/palace_failures.json';
 import normData from '../data/palace/palace_normalizer.json';
 import { searchSimilar } from '../utils/retrieval.js';
+import { formatPropertyLabel, formatPropertyValue, formatRoomLabel, formatWingLabel } from '../utils/displayLabels.js';
 
 // Center-pane detail view. Takes a drawer directly OR a material name + wing filter.
 export default function MaterialPage({ drawer, onSelect }) {
@@ -31,7 +32,7 @@ export default function MaterialPage({ drawer, onSelect }) {
   return (
     <div style={{ padding: '24px 32px', maxWidth: 1100, fontFamily: 'var(--font-body)' }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
-        {drawer.wing} / {drawer.room}
+        {formatWingLabel(drawer.wing)} / {formatRoomLabel(drawer.room)}
       </div>
       <h1 style={{ fontSize: 22, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 20 }}>
         {drawer.material}
@@ -86,7 +87,7 @@ export default function MaterialPage({ drawer, onSelect }) {
         </div>
 
         <div>
-          <Label>Related failures</Label>
+          <Label>Related negative results</Label>
           <div style={{ border: '1px solid var(--color-border-subtle)', padding: 12 }}>
             {relatedFailures.length === 0 && (
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)' }}>
@@ -106,7 +107,7 @@ export default function MaterialPage({ drawer, onSelect }) {
                 <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--color-text)', marginBottom: 2 }}>
                   {f.material}
                 </div>
-<FailureTag type={f.failure_type} />
+                <FailureTag type={f.failure_type} />
               </div>
             ))}
           </div>
@@ -225,8 +226,8 @@ function PropsTable({ props }) {
           padding: '4px 0',
           borderBottom: '1px solid var(--color-border-subtle)',
         }}>
-          <span style={{ color: 'var(--color-text-muted)' }}>{k}</span>
-          <span style={{ color: 'var(--color-text)' }}>{String(props[k])}</span>
+          <span style={{ color: 'var(--color-text-muted)' }}>{formatPropertyLabel(k)}</span>
+          <span style={{ color: 'var(--color-text)' }}>{formatPropertyValue(k, props[k])}</span>
         </div>
       ))}
     </div>

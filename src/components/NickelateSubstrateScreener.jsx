@@ -101,7 +101,7 @@ export default function NickelateScreener() {
       {/* Full-width chart */}
       <div style={{ marginBottom: 8 }}>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8, letterSpacing: "0.04em" }}>
-          strain vs predicted_tc
+          strain vs predicted Tc
         </div>
         <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} style={{ width: "100%" }}>
           {[0, 20, 40, 60, 80, 100].map(t => (

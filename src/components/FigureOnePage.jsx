@@ -101,7 +101,7 @@ export default function FigureOnePage() {
             <p>
               All known and predicted superconductors plotted on a logarithmic pressure axis,
               with ambient-pressure candidates held against verified high-Tc anchors and known
-              failure memory.
+              negative results.
             </p>
           </div>
         </section>
@@ -139,7 +139,7 @@ export default function FigureOnePage() {
                 <div className="inspector-label">Record state</div>
                 <div className="inspector-note">
                   {selectedMaterial.isAnchor ? 'anchor' : 'comparison material'}
-                  {selectedMaterial.isFailure ? ' · failure memory' : ''}
+                  {selectedMaterial.isFailure ? ' · negative result' : ''}
                   {selectedMaterial.measured ? ' · measured' : ' · predicted'}
                   {' · '}
                   id: {selectedMaterial.id}

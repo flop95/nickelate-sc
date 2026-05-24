@@ -1,18 +1,20 @@
 import MaterialCard from './MaterialCard.jsx';
 import drawers from '../data/palace/palace_drawers.json';
+import { formatWingLabel } from '../utils/displayLabels.js';
 
 // Generic listing: shows all drawers for a given wing.
 // Used for `{wing}/experimental_results` routes.
 export default function WingRoomView({ wing, onSelect, selection }) {
   const list = drawers.filter(d => d.wing === wing);
+  const wingLabel = formatWingLabel(wing);
 
   return (
     <div style={{ padding: '24px 32px', fontFamily: 'var(--font-body)', maxWidth: 900 }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
-        {wing} / experimental results
+        {wingLabel} / Experimental Results
       </div>
       <h1 style={{ fontSize: 20, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 4 }}>
-        {wing}
+        {wingLabel}
       </h1>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
         {list.length} drawers

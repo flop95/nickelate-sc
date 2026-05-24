@@ -150,7 +150,7 @@ export default function NickelateEngine() {
           <div style={{ marginBottom: 8 }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 8 }}>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", letterSpacing: "0.04em" }}>
-                {isCa ? "c/a ratio" : "strain"} vs onset_tc
+                {isCa ? "c/a ratio" : "strain"} vs onset Tc
                 {isCa && <span style={{ marginLeft: 8, color: "var(--color-text-muted)" }}>{caCount} of {dataset.length} entries have c/a data</span>}
               </span>
               <div style={{ display: "flex", gap: 4 }}>
@@ -250,23 +250,23 @@ export default function NickelateEngine() {
                       <div style={{ display: "grid", gridTemplateColumns: "120px 1fr", gap: "2px 16px", fontFamily: "var(--font-mono)", fontSize: 11 }}>
                         <span style={{ color: "var(--color-text-muted)" }}>journal</span>
                         <span>{d.journal}</span>
-                        {d.arxiv && <><span style={{ color: "var(--color-text-muted)" }}>arxiv</span><span><a href={`https://arxiv.org/abs/${d.arxiv}`} target="_blank" rel="noopener noreferrer">{d.arxiv}</a></span></>}
-                        <span style={{ color: "var(--color-text-muted)" }}>growth_method</span>
+                        {d.arxiv && <><span style={{ color: "var(--color-text-muted)" }}>arXiv</span><span><a href={`https://arxiv.org/abs/${d.arxiv}`} target="_blank" rel="noopener noreferrer">{d.arxiv}</a></span></>}
+                        <span style={{ color: "var(--color-text-muted)" }}>growth method</span>
                         <span>{d.growth || "—"}</span>
                         <span style={{ color: "var(--color-text-muted)" }}>doping</span>
                         <span>{d.doping || "—"}</span>
-                        <span style={{ color: "var(--color-text-muted)" }}>growth_temp</span>
+                        <span style={{ color: "var(--color-text-muted)" }}>growth temperature</span>
                         <span style={{ color: "var(--color-text-muted)" }}>—</span>
-                        <span style={{ color: "var(--color-text-muted)" }}>deposition_rate</span>
+                        <span style={{ color: "var(--color-text-muted)" }}>deposition rate</span>
                         <span style={{ color: "var(--color-text-muted)" }}>—</span>
-                        <span style={{ color: "var(--color-text-muted)" }}>o2_pressure</span>
+                        <span style={{ color: "var(--color-text-muted)" }}>O2 pressure</span>
                         <span style={{ color: "var(--color-text-muted)" }}>—</span>
                         <span style={{ color: "var(--color-text-muted)" }}>anneal</span>
                         <span>{d.oxygenTreat || <span style={{ color: "var(--color-text-muted)" }}>—</span>}</span>
-                        <span style={{ color: "var(--color-text-muted)" }}>post_growth</span>
+                        <span style={{ color: "var(--color-text-muted)" }}>post-growth</span>
                         <span style={{ color: "var(--color-text-muted)" }}>—</span>
-                        {d.filmA && <><span style={{ color: "var(--color-text-muted)" }}>film_a</span><span>{d.filmA}Å</span></>}
-                        {d.filmC && <><span style={{ color: "var(--color-text-muted)" }}>film_c</span><span>{d.filmC}Å</span></>}
+                        {d.filmA && <><span style={{ color: "var(--color-text-muted)" }}>film a</span><span>{d.filmA}Å</span></>}
+                        {d.filmC && <><span style={{ color: "var(--color-text-muted)" }}>film c</span><span>{d.filmC}Å</span></>}
                         {d.thickness && <><span style={{ color: "var(--color-text-muted)" }}>thickness</span><span>{d.thickness}</span></>}
                       </div>
                       {d.notes && (
@@ -465,7 +465,7 @@ export default function NickelateEngine() {
           return (
             <div>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8 }}>
-                avg onset_tc by growth method // {sensData.length} entries
+                average onset Tc by growth method // {sensData.length} entries
               </div>
               {sorted.map(g => (
                 <div key={g.method} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 4 }}>
@@ -513,14 +513,14 @@ export default function NickelateEngine() {
         const scX = (v) => sL + ((v - (xMin - xPad)) / ((xMax + xPad) - (xMin - xPad))) * (sW - sL - sR);
         const scY = (v) => sT + ((yMax - v) / yMax) * (sH - sT - sB);
 
-        const varLabel = sweepVar === "strain" ? "strain" : "substrate_a";
+        const varLabel = sweepVar === "strain" ? "strain" : "substrate a-axis";
         const unit = sweepVar === "strain" ? "% strain" : "Å";
         const slopeLabel = `${slope >= 0 ? "+" : ""}${slope.toFixed(1)}K per 1${unit}`;
 
         return (
           <div>
             <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8 }}>
-              onset_tc vs {varLabel} // {points.length} entries, r²={r2.toFixed(2)}, slope={slopeLabel}
+              onset Tc vs {varLabel} // {points.length} entries, r²={r2.toFixed(2)}, slope={slopeLabel}
             </div>
             <svg viewBox={`0 0 ${sW} ${sH}`} style={{ width: "100%" }}>
               {/* Regression line */}

@@ -3,7 +3,7 @@ import LatticeSpin from './LatticeSpin.jsx';
 const ROUTE_LABELS = {
   overview: ['Palace Overview'],
   search: ['Search Materials'],
-  failures: ['Failure Browser'],
+  failures: ['Negative Results'],
   stats: ['Palace Statistics'],
   'history/timeline': ['History', 'Tc Timeline'],
   'history/brief': ['History', 'Research Brief'],
@@ -16,13 +16,13 @@ const WING_LABELS = {
   hydrides: 'Hydrides',
   conventional: 'Conventional',
   wildcards: 'Wildcards',
-  failures: 'Failures',
+  failures: 'Negative Results',
   history: 'History',
 };
 
 const ROOM_LABELS = {
   experimental_results: 'Experimental Results',
-  failure_memory: 'Failure Memory',
+  failure_memory: 'Negative Results',
   gap_candidates: 'Gap Candidates',
   substrate_room: 'Substrate Room',
   data_engine: 'Data Engine',

@@ -137,7 +137,7 @@ export default function SearchView({ onSelect }) {
       size: '36px',
       enableColumnFilter: false,
       cell: info => info.getValue() > 0 ? (
-        <span title="related failures" style={{ color: 'var(--color-failure)', fontFamily: 'var(--font-mono)', fontSize: 12 }}>!</span>
+        <span title="related negative results" style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-mono)', fontSize: 12 }}>!</span>
       ) : null,
     },
   ], []);
@@ -197,7 +197,7 @@ export default function SearchView({ onSelect }) {
           <Field label="film a" value={query.film_a} onChange={v => setQuery({ ...query, film_a: v })} />
           <Field label="film c" value={query.film_c} onChange={v => setQuery({ ...query, film_c: v })} />
           <Field label="doping" value={query.doping} onChange={v => setQuery({ ...query, doping: v })} />
-          <Field label="pressure class" value={query.pressure_class} onChange={v => setQuery({ ...query, pressure_class: v })} />
+          <Field label="pressure" value={query.pressure_class} onChange={v => setQuery({ ...query, pressure_class: v })} />
           <Field label="year" value={query.year} onChange={v => setQuery({ ...query, year: v })} />
         </div>
 

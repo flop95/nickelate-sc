@@ -4,7 +4,8 @@ import drawers from '../data/palace/palace_drawers.json';
 import BitmaskStamp from './BitmaskStamp.jsx';
 import DataTable from './DataTable.jsx';
 import MultiSelectFilter, { FilterChip } from './MultiSelectFilter.jsx';
-import FailureTag from './FailureTag.jsx';
+import FailureTag, { formatFailureType } from './FailureTag.jsx';
+import { formatWingLabel } from '../utils/displayLabels.js';
 
 // Augment failures with a substrate field pulled from the parent drawer so the
 // substrate filter can work off a single source.
@@ -88,7 +89,7 @@ export default function FailureBrowser({ onSelect, selection }) {
     },
     {
       id: 'failure_type',
-      header: 'type',
+      header: 'mode',
       accessorKey: 'failure_type',
       size: '170px',
       enableColumnFilter: true, // controlled via multi-select above
@@ -106,7 +107,7 @@ export default function FailureBrowser({ onSelect, selection }) {
       meta: { hideFilterInput: true },
       cell: info => (
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-muted)' }}>
-          {info.getValue()}
+          {formatWingLabel(info.getValue())}
         </span>
       ),
     },
@@ -178,16 +179,16 @@ export default function FailureBrowser({ onSelect, selection }) {
   return (
     <div style={{ padding: '24px 32px', fontFamily: 'var(--font-body)', maxWidth: 1250 }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
-        failure memory
+        negative evidence
       </div>
       <h1 style={{ fontSize: 20, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 20 }}>
-        falsified & failed claims
+        failed claims
       </h1>
 
       {/* Filter bar */}
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
-        <MultiSelectFilter label="Failure Type" options={typeOptions} selected={typeSel} onChange={setTypeSel} />
-        <MultiSelectFilter label="Wing" options={wingOptions} selected={wingSel} onChange={setWingSel} />
+        <MultiSelectFilter label="Mode" options={typeOptions} selected={typeSel} onChange={setTypeSel} formatValue={formatFailureType} />
+        <MultiSelectFilter label="Wing" options={wingOptions} selected={wingSel} onChange={setWingSel} formatValue={formatWingLabel} />
         <MultiSelectFilter label="Substrate" options={substrateOptions} selected={substrateSel} onChange={setSubstrateSel} />
         <MultiSelectFilter label="Confidence" options={confOptions} selected={confSel} onChange={setConfSel} />
       </div>
@@ -195,8 +196,8 @@ export default function FailureBrowser({ onSelect, selection }) {
       {/* Chip row */}
       {anySelected && (
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16, alignItems: 'center' }}>
-          {typeSel.map(v => <FilterChip key={'t' + v} label={v} onRemove={() => setTypeSel(typeSel.filter(x => x !== v))} />)}
-          {wingSel.map(v => <FilterChip key={'w' + v} label={v} onRemove={() => setWingSel(wingSel.filter(x => x !== v))} />)}
+          {typeSel.map(v => <FilterChip key={'t' + v} label={formatFailureType(v)} onRemove={() => setTypeSel(typeSel.filter(x => x !== v))} />)}
+          {wingSel.map(v => <FilterChip key={'w' + v} label={formatWingLabel(v)} onRemove={() => setWingSel(wingSel.filter(x => x !== v))} />)}
           {substrateSel.map(v => <FilterChip key={'s' + v} label={v || '(empty)'} onRemove={() => setSubstrateSel(substrateSel.filter(x => x !== v))} />)}
           {confSel.map(v => <FilterChip key={'c' + v} label={v} onRemove={() => setConfSel(confSel.filter(x => x !== v))} />)}
           <span

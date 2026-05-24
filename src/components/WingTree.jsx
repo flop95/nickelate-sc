@@ -6,14 +6,14 @@ import { Tree } from 'react-arborist';
 const TREE_DATA = [
   { id: 'overview', name: 'Palace Overview' },
   { id: 'search', name: 'Search Materials' },
-  { id: 'failures', name: 'Failure Browser' },
+  { id: 'failures', name: 'Negative Results' },
   { id: 'stats', name: 'Palace Statistics' },
   {
     id: 'nickelates',
     name: 'Nickelates',
     children: [
       { id: 'nickelates/experimental_results', name: 'Experimental Results' },
-      { id: 'nickelates/failure_memory', name: 'Failure Memory' },
+      { id: 'nickelates/failure_memory', name: 'Negative Results' },
       { id: 'nickelates/gap_candidates', name: 'Gap Candidates' },
       { id: 'nickelates/substrate_room', name: 'Substrate Room' },
       { id: 'nickelates/data_engine', name: 'Data Engine' },

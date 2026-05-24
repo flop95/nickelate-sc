@@ -46,7 +46,7 @@ export default function MaterialCard({ drawer, onClick, selected = false, compac
           {p.substrate && <span>/ {p.substrate}</span>}
           {p.year && <span>{p.year}</span>}
           {p.strain != null && <span>{Number(p.strain).toFixed(2)}%</span>}
-          {!isAmbient && <span style={{ color: 'var(--color-failure)' }}>HP</span>}
+          {!isAmbient && <span style={{ color: 'var(--color-text-muted)' }}>pressure</span>}
         </div>
         <div style={{ marginTop: 6 }}>
           <BitmaskStamp drawer={drawer} size="inline" />

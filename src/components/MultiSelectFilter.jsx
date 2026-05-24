@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 // options: [{ value: string, count: number }]
 // selected: string[]
 // onChange: (nextSelected) => void
-export default function MultiSelectFilter({ label, options, selected, onChange }) {
+export default function MultiSelectFilter({ label, options, selected, onChange, formatValue = value => value || '(empty)' }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
 
@@ -70,7 +70,7 @@ export default function MultiSelectFilter({ label, options, selected, onChange }
               >
                 <span className="ms-checkbox">{isSel ? '✓' : ''}</span>
                 <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  {opt.value || '(empty)'}
+                  {formatValue(opt.value)}
                 </span>
                 <span className="ms-count">{opt.count}</span>
               </div>
