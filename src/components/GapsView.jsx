@@ -1,11 +1,24 @@
 import gaps from '../data/palace/palace_gaps_nickelates.json';
+import drawers from '../data/palace/palace_drawers.json';
 import BitmaskStamp, { splitBitmask } from './BitmaskStamp.jsx';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { formatGateList } from '../utils/displayLabels.js';
+import { matchesPressureMode, pressureModeLabel } from '../utils/pressureModes.js';
 
-export default function GapsView() {
-  const list = Array.isArray(gaps) ? gaps : [];
+export default function GapsView({ pressureMode }) {
+  const list = useMemo(() => {
+    const all = Array.isArray(gaps) ? gaps : [];
+    return all.filter(g => {
+      const anchor = drawers.find(d => d.material === g.nearest_success && d.wing === 'nickelates')
+        || drawers.find(d => d.material === g.nearest_success);
+      return matchesPressureMode(anchor, pressureMode);
+    });
+  }, [pressureMode]);
   const [selected, setSelected] = useState(list[0] || null);
+
+  useEffect(() => {
+    if (!list.includes(selected)) setSelected(list[0] || null);
+  }, [list, selected]);
 
   return (
     <div style={{ padding: '24px 32px', fontFamily: 'var(--font-body)', maxWidth: 1100 }}>
@@ -16,7 +29,7 @@ export default function GapsView() {
         untested neighborhoods
       </h1>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
-        {list.length} gaps within Hamming 2 of a known high-Tc success
+        {list.length} {pressureModeLabel(pressureMode)} gaps within Hamming 2 of a known high-Tc success
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 24 }}>

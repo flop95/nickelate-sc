@@ -1,21 +1,29 @@
 import { useMemo } from 'react';
-import stats from '../data/palace/palace_stats.json';
 import drawers from '../data/palace/palace_drawers.json';
+import failures from '../data/palace/palace_failures.json';
 import gates from '../data/palace/palace_gates.json';
 import DataTable from './DataTable.jsx';
 import FailureTag from './FailureTag.jsx';
 import { formatWingLabel } from '../utils/displayLabels.js';
+import { filterByPressureMode, matchesPressureMode, pressureModeLabel } from '../utils/pressureModes.js';
 
-export default function StatsView() {
-  const total = drawers.length;
-  const maxWing = Math.max(...Object.values(stats.drawers_per_wing));
-  const failTypeMax = Math.max(1, ...Object.values(stats.failures_by_type));
+export default function StatsView({ pressureMode }) {
+  const modeDrawers = useMemo(() => filterByPressureMode(drawers, pressureMode), [pressureMode]);
+  const drawerById = useMemo(() => new Map(drawers.map(d => [d.id, d])), []);
+  const modeFailures = useMemo(
+    () => failures.filter(f => matchesPressureMode(drawerById.get(f.drawer_id), pressureMode)),
+    [drawerById, pressureMode]
+  );
+  const total = modeDrawers.length;
+  const totalForRate = Math.max(1, total);
 
   // --- Wings table
-  const wingRows = useMemo(
-    () => Object.entries(stats.drawers_per_wing).map(([wing, count]) => ({ wing, count })),
-    []
-  );
+  const wingRows = useMemo(() => {
+    const counts = {};
+    for (const d of modeDrawers) counts[d.wing] = (counts[d.wing] || 0) + 1;
+    return Object.entries(counts).map(([wing, count]) => ({ wing, count }));
+  }, [modeDrawers]);
+  const maxWing = Math.max(1, ...wingRows.map(r => r.count));
   const wingColumns = useMemo(() => [
     {
       id: 'wing', header: 'wing', accessorKey: 'wing', size: '140px',
@@ -42,10 +50,12 @@ export default function StatsView() {
   ], [maxWing]);
 
   // --- Negative results by mode
-  const failRows = useMemo(
-    () => Object.entries(stats.failures_by_type).map(([type, count]) => ({ type, count })),
-    []
-  );
+  const failRows = useMemo(() => {
+    const counts = {};
+    for (const f of modeFailures) counts[f.failure_type] = (counts[f.failure_type] || 0) + 1;
+    return Object.entries(counts).map(([type, count]) => ({ type, count }));
+  }, [modeFailures]);
+  const failTypeMax = Math.max(1, ...failRows.map(r => r.count));
   const failColumns = useMemo(() => [
     {
       id: 'type', header: 'mode', accessorKey: 'type', size: '180px',
@@ -74,7 +84,7 @@ export default function StatsView() {
   // --- Gate pass rates
   const gateRows = useMemo(() => {
     const counts = new Array(gates.count).fill(0);
-    for (const d of drawers) {
+    for (const d of modeDrawers) {
       for (let i = 0; i < gates.count; i++) if ((d.bitmask >>> i) & 1) counts[i]++;
     }
     return gates.gates.map(g => ({
@@ -82,9 +92,9 @@ export default function StatsView() {
       name: g.name,
       label: g.label,
       count: counts[g.index],
-      rate: counts[g.index] / total,
+      rate: counts[g.index] / totalForRate,
     }));
-  }, [total]);
+  }, [modeDrawers, totalForRate]);
 
   const gateColumns = useMemo(() => [
     {
@@ -123,7 +133,7 @@ export default function StatsView() {
 
   // --- Year coverage
   const yearMap = {};
-  for (const d of drawers) {
+  for (const d of modeDrawers) {
     const y = d.properties?.year;
     if (y) yearMap[y] = (yearMap[y] || 0) + 1;
   }
@@ -138,6 +148,9 @@ export default function StatsView() {
       <h1 style={{ fontSize: 20, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 24 }}>
         coverage & distribution
       </h1>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
+        {total} {pressureModeLabel(pressureMode)} drawers
+      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, marginBottom: 32 }}>
         <div>

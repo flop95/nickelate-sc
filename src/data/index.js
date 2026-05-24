@@ -2,6 +2,7 @@
 import rawDataset from './nickelate_dataset.json';
 import rawPatterns from './patterns.json';
 import rawPredictions from './predictions.json';
+import { pressureModeFor } from '../utils/pressureModes.js';
 
 // Map a measurement from JSON schema to the engine component's expected shape
 function mapMeasurement(m) {
@@ -25,6 +26,12 @@ function mapMeasurement(m) {
     arxiv: m.arxiv,
     notes: m.notes,
     pressureClass: m.pressure_class,
+    pressureMode: pressureModeFor(m),
+    pressureGpa: m.pressure_gpa,
+    pressureRange: m.pressure_range,
+    pressureConfidence: m.pressure_confidence,
+    sourceUrl: m.source_url,
+    sourceDoi: m.source_doi,
     tags: m.tags,
   };
 }
@@ -46,6 +53,8 @@ export const timelineEvents = rawDataset.timeline.map(t => {
     detail: measurement.notes,
     color: t.color,
     measurementId: t.measurement_id,
+    pressureMode: measurement.pressureMode,
+    pressureClass: measurement.pressureClass,
   };
 });
 

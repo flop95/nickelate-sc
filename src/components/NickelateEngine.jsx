@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { engineDataset as dataset, patterns, predictions as rawPredictions, arxivAlerts } from "../data/index.js";
 import { findContradictions } from "../utils/findContradictions.js";
+import { filterByPressureMode, pressureModeLabel } from "../utils/pressureModes.js";
 
 const Sep = () => <span style={{ color: "var(--color-text-muted)", margin: "0 12px" }}>·</span>;
 
@@ -33,12 +34,11 @@ const Rule = ({ label, collapsible, expanded, onToggle }) => (
   </div>
 );
 
-export default function NickelateEngine() {
+export default function NickelateEngine({ pressureMode }) {
   const [expandedId, setExpandedId] = useState(null);
   const [sortBy, setSortBy] = useState("onsetTc");
   const [filterMaterial, setFilterMaterial] = useState("all");
   const [sweepVar, setSweepVar] = useState("strain");
-  const [ambientOnly, setAmbientOnly] = useState(true);
   const [chartXAxis, setChartXAxis] = useState("strain");
   const [collapsed, setCollapsed] = useState({
     patterns: true, contradictions: true, untested: true, sensitivity: true,
@@ -46,25 +46,31 @@ export default function NickelateEngine() {
   const isOpen = (key) => !collapsed[key];
   const toggle = (key) => setCollapsed(prev => ({ ...prev, [key]: !prev[key] }));
 
-  const materials = [...new Set(dataset.map(d => d.material))];
+  const modeDataset = useMemo(() => filterByPressureMode(dataset, pressureMode), [pressureMode]);
+  const materials = [...new Set(modeDataset.map(d => d.material))];
+
+  useEffect(() => {
+    setFilterMaterial("all");
+    setExpandedId(null);
+  }, [pressureMode]);
 
   const filtered = useMemo(() => {
-    let d = [...dataset];
+    let d = [...modeDataset];
     if (filterMaterial !== "all") d = d.filter(r => r.material === filterMaterial);
     d.sort((a, b) => (b[sortBy] || 0) - (a[sortBy] || 0));
     return d;
-  }, [filterMaterial, sortBy]);
+  }, [filterMaterial, modeDataset, sortBy]);
 
   const stats = useMemo(() => {
-    const tcs = dataset.map(d => d.onsetTc).filter(t => t > 0);
-    const maxTc = Math.max(...tcs);
-    const maxEntry = dataset.find(d => d.onsetTc === maxTc);
-    const zeroRs = dataset.map(d => d.zeroRTc).filter(t => t != null && t > 0);
+    const tcs = modeDataset.map(d => d.onsetTc).filter(t => t > 0);
+    const maxTc = tcs.length ? Math.max(...tcs) : 0;
+    const maxEntry = modeDataset.find(d => d.onsetTc === maxTc);
+    const zeroRs = modeDataset.map(d => d.zeroRTc).filter(t => t != null && t > 0);
     const maxZeroR = zeroRs.length ? Math.max(...zeroRs) : 0;
-    const groups = [...new Set(dataset.map(d => d.group))];
-    const substrates = [...new Set(dataset.map(d => d.substrate))];
-    return { maxTc, maxEntry, maxZeroR, total: dataset.length, groups: groups.length, substrates: substrates.length, materials: materials.length };
-  }, []);
+    const groups = [...new Set(modeDataset.map(d => d.group).filter(Boolean))];
+    const substrates = [...new Set(modeDataset.map(d => d.substrate).filter(Boolean))];
+    return { maxTc, maxEntry, maxZeroR, total: modeDataset.length, groups: groups.length, substrates: substrates.length, materials: materials.length };
+  }, [materials.length, modeDataset]);
 
   // Data sourced from JSON — patterns and predictions mapped to component shape
   const findings = patterns;
@@ -74,7 +80,7 @@ export default function NickelateEngine() {
   }));
 
   // Contradiction detection
-  const contradictions = useMemo(() => findContradictions(dataset), []);
+  const contradictions = useMemo(() => findContradictions(modeDataset), [modeDataset]);
 
   // Chart dimensions — wide and short, Bloomberg-style
   const chartW = 720, chartH = 200, pL = 48, pR = 16, pT = 16, pB = 48;
@@ -93,6 +99,7 @@ export default function NickelateEngine() {
       </div>
       <div style={{ fontSize: 13, color: "var(--color-text-secondary)", marginBottom: 32, lineHeight: 1.8 }}>
         record onset Tc
+        <Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{pressureModeLabel(pressureMode)}</span>
         <Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{stats.maxZeroR}K</span> zero-R
         <Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{stats.total}</span> data points
         <Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{stats.groups}</span> groups
@@ -134,7 +141,7 @@ export default function NickelateEngine() {
         const chartData = isCa
           ? filtered.filter(d => d.filmA && d.filmC).map(d => ({ ...d, _x: d.filmC / d.filmA }))
           : filtered.map(d => ({ ...d, _x: d.strain }));
-        const caCount = dataset.filter(d => d.filmA && d.filmC).length;
+        const caCount = modeDataset.filter(d => d.filmA && d.filmC).length;
 
         // Dynamic x-axis range based on mode
         const cXMin = isCa ? 5.1 : xMin;
@@ -151,7 +158,7 @@ export default function NickelateEngine() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 8 }}>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", letterSpacing: "0.04em" }}>
                 {isCa ? "c/a ratio" : "strain"} vs onset Tc
-                {isCa && <span style={{ marginLeft: 8, color: "var(--color-text-muted)" }}>{caCount} of {dataset.length} entries have c/a data</span>}
+                {isCa && <span style={{ marginLeft: 8, color: "var(--color-text-muted)" }}>{caCount} of {modeDataset.length} entries have c/a data</span>}
               </span>
               <div style={{ display: "flex", gap: 4 }}>
                 {["strain", "ca_ratio"].map(mode => (
@@ -286,6 +293,13 @@ export default function NickelateEngine() {
                 )}
               </React.Fragment>
             ))}
+            {filtered.length === 0 && (
+              <tr>
+                <td colSpan={8} style={{ padding: 18, color: "var(--color-text-muted)", fontFamily: "var(--font-mono)", fontSize: 11 }}>
+                  no {pressureModeLabel(pressureMode)} entries
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
@@ -430,22 +444,12 @@ export default function NickelateEngine() {
           <option value="subA">sweep: substrate a-axis (Å)</option>
           <option value="growth">sweep: growth method</option>
         </select>
-        <button
-          onClick={() => setAmbientOnly(!ambientOnly)}
-          style={{
-            background: "none", border: ambientOnly ? `1px solid ${DATA_COLOR.activeBorder}` : "1px solid var(--line)",
-            padding: "4px 8px", fontSize: 10, fontFamily: "var(--font-mono)", cursor: "pointer",
-            color: ambientOnly ? "var(--color-accent)" : "var(--color-text-muted)",
-          }}
-        >
-          {ambientOnly ? "ambient only" : "all pressures"}
-        </button>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)" }}>{pressureModeLabel(pressureMode)}</span>
       </div>
 
       {(() => {
         // Filter dataset for sensitivity analysis
-        const sensData = dataset.filter(d => {
-          if (ambientOnly && d.pressureClass !== "Ambient") return false;
+        const sensData = modeDataset.filter(d => {
           if (d.onsetTc == null) return false;
           return true;
         });

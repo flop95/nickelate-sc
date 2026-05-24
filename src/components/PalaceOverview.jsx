@@ -11,6 +11,7 @@ import TcValue from './TcValue.jsx';
 import DataTable from './DataTable.jsx';
 import { GATE_COUNT, hammingDistance } from '../utils/bitmask.js';
 import { formatGateList, formatGateName } from '../utils/displayLabels.js';
+import { matchesPressureMode, pressureModeLabel } from '../utils/pressureModes.js';
 
 // palace_gates.json is now a dict {count, categories, gates} — read the gates array.
 const GATE_NAME_TO_INDEX = Object.fromEntries(gateDefs.gates.map(g => [g.name, g.index]));
@@ -41,12 +42,21 @@ function buildCandidates(gapsList) {
   });
 }
 
-export default function PalaceOverview({ onNavigate, onSelect }) {
-  const candidates = useMemo(() => buildCandidates(gaps), []);
+export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
+  const candidates = useMemo(
+    () => buildCandidates(gaps).filter(g => matchesPressureMode(g.nearestDrawer, pressureMode)),
+    [pressureMode]
+  );
   const hero = candidates[0];
   const more = candidates.slice(1, 7);
 
-  const recentFailures = failures.slice(-6).reverse();
+  const recentFailures = failures
+    .filter(f => {
+      const drawer = drawers.find(d => d.id === f.drawer_id);
+      return matchesPressureMode(drawer, pressureMode);
+    })
+    .slice(-6)
+    .reverse();
 
   return (
     <div className="palace-overview-root" style={{ padding: '28px 36px 40px', maxWidth: 1280 }}>
@@ -55,7 +65,7 @@ export default function PalaceOverview({ onNavigate, onSelect }) {
         nickelate<span style={{ color: 'var(--fg-2)' }}>.</span><span style={{ color: 'var(--accent)' }}>sc</span>
       </h1>
       <div className="voice-quiet" style={{ marginBottom: 28, maxWidth: 640 }}>
-        ranked screening for ambient-pressure superconductivity · untested candidates sit closest
+        {pressureModeLabel(pressureMode)} screening · untested candidates sit closest
         to known success anchors · negative results constrain where not to look
       </div>
 

@@ -1,11 +1,15 @@
 import MaterialCard from './MaterialCard.jsx';
 import drawers from '../data/palace/palace_drawers.json';
 import { formatWingLabel } from '../utils/displayLabels.js';
+import { filterByPressureMode, pressureModeLabel } from '../utils/pressureModes.js';
 
 // Generic listing: shows all drawers for a given wing.
 // Used for `{wing}/experimental_results` routes.
-export default function WingRoomView({ wing, onSelect, selection }) {
-  const list = drawers.filter(d => d.wing === wing);
+export default function WingRoomView({ wing, onSelect, selection, pressureMode }) {
+  const list = filterByPressureMode(
+    drawers.filter(d => d.wing === wing),
+    pressureMode
+  );
   const wingLabel = formatWingLabel(wing);
 
   return (
@@ -17,7 +21,7 @@ export default function WingRoomView({ wing, onSelect, selection }) {
         {wingLabel}
       </h1>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
-        {list.length} drawers
+        {list.length} {pressureModeLabel(pressureMode)} drawers
       </div>
 
       <div style={{ border: '1px solid var(--color-border-subtle)' }}>

@@ -12,6 +12,12 @@ import WingRoomView from './WingRoomView.jsx';
 import GapsView from './GapsView.jsx';
 import MaterialCard from './MaterialCard.jsx';
 import ErrorBoundary from './ErrorBoundary.jsx';
+import {
+  DEFAULT_PRESSURE_MODE,
+  countByPressureMode,
+  filterByPressureMode,
+  pressureModeLabel,
+} from '../utils/pressureModes.js';
 
 import NickelateEngine from './NickelateEngine.jsx';
 import NickelateTimeline from './NickelateTimeline.jsx';
@@ -28,6 +34,7 @@ export default function PalaceShell() {
   const [inspectorCollapsed, setInspectorCollapsed] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isNarrow, setIsNarrow] = useState(false);
+  const [pressureMode, setPressureMode] = useState(DEFAULT_PRESSURE_MODE);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 760px)');
@@ -36,6 +43,12 @@ export default function PalaceShell() {
     mq.addEventListener('change', update);
     return () => mq.removeEventListener('change', update);
   }, []);
+
+  const pressureModeCounts = useMemo(() => countByPressureMode(drawers), []);
+  const modeDrawers = useMemo(
+    () => filterByPressureMode(drawers, pressureMode),
+    [pressureMode]
+  );
 
   const navigate = route => {
     setActiveRoute(route);
@@ -54,17 +67,18 @@ export default function PalaceShell() {
   const searchFiltered = useMemo(() => {
     if (!searchQuery.trim()) return null;
     const q = searchQuery.toLowerCase();
-    return drawers.filter(d =>
+    return modeDrawers.filter(d =>
       (d.material || '').toLowerCase().includes(q) ||
       (d.properties?.substrate || '').toLowerCase().includes(q)
     );
-  }, [searchQuery]);
+  }, [modeDrawers, searchQuery]);
 
   const handleExport = () => {
     const payload = {
       route: activeRoute,
+      pressureMode,
       stats,
-      drawers,
+      drawers: modeDrawers,
     };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -77,20 +91,26 @@ export default function PalaceShell() {
 
   const wingCounts = useMemo(() => {
     const c = {};
-    for (const d of drawers) c[d.wing] = (c[d.wing] || 0) + 1;
-    c['nickelates/experimental_results'] = drawers.filter(d => d.wing === 'nickelates').length;
-    c['cuprates/experimental_results'] = drawers.filter(d => d.wing === 'cuprates').length;
-    c['pnictides/experimental_results'] = drawers.filter(d => d.wing === 'pnictides').length;
-    c['hydrides/experimental_results'] = drawers.filter(d => d.wing === 'hydrides').length;
-    c['conventional/experimental_results'] = drawers.filter(d => d.wing === 'conventional').length;
-    c['wildcards/experimental_results'] = drawers.filter(d => d.wing === 'wildcards').length;
+    for (const d of modeDrawers) c[d.wing] = (c[d.wing] || 0) + 1;
+    c['nickelates/experimental_results'] = modeDrawers.filter(d => d.wing === 'nickelates').length;
+    c['cuprates/experimental_results'] = modeDrawers.filter(d => d.wing === 'cuprates').length;
+    c['pnictides/experimental_results'] = modeDrawers.filter(d => d.wing === 'pnictides').length;
+    c['hydrides/experimental_results'] = modeDrawers.filter(d => d.wing === 'hydrides').length;
+    c['conventional/experimental_results'] = modeDrawers.filter(d => d.wing === 'conventional').length;
+    c['wildcards/experimental_results'] = modeDrawers.filter(d => d.wing === 'wildcards').length;
     return c;
-  }, []);
+  }, [modeDrawers]);
 
   const centerContent = searchFiltered ? (
-    <SearchResultsInline results={searchFiltered} onSelect={select} selection={selection} query={searchQuery} />
+    <SearchResultsInline results={searchFiltered} onSelect={select} selection={selection} query={searchQuery} pressureMode={pressureMode} />
   ) : (
-    <RouteContent route={activeRoute} onNavigate={navigate} onSelect={select} selection={selection} />
+    <RouteContent
+      route={activeRoute}
+      onNavigate={navigate}
+      onSelect={select}
+      selection={selection}
+      pressureMode={pressureMode}
+    />
   );
 
   const inspectorContent = (
@@ -112,6 +132,9 @@ export default function PalaceShell() {
         searchQuery={searchQuery}
         onSearch={setSearchQuery}
         onExport={handleExport}
+        pressureMode={pressureMode}
+        onPressureModeChange={setPressureMode}
+        pressureModeCounts={pressureModeCounts}
       />
 
       {isNarrow ? (
@@ -159,23 +182,23 @@ export default function PalaceShell() {
   );
 }
 
-function RouteContent({ route, onNavigate, onSelect, selection }) {
-  if (route === 'overview') return <PalaceOverview onNavigate={onNavigate} onSelect={onSelect} />;
-  if (route === 'search') return <SearchView onSelect={onSelect} />;
-  if (route === 'failures') return <FailureBrowser onSelect={onSelect} selection={selection} />;
-  if (route === 'stats') return <StatsView />;
+function RouteContent({ route, onNavigate, onSelect, selection, pressureMode }) {
+  if (route === 'overview') return <PalaceOverview onNavigate={onNavigate} onSelect={onSelect} pressureMode={pressureMode} />;
+  if (route === 'search') return <SearchView onSelect={onSelect} pressureMode={pressureMode} />;
+  if (route === 'failures') return <FailureBrowser onSelect={onSelect} selection={selection} pressureMode={pressureMode} />;
+  if (route === 'stats') return <StatsView pressureMode={pressureMode} />;
 
-  if (route === 'history/timeline') return <Wrap><NickelateTimeline /></Wrap>;
+  if (route === 'history/timeline') return <Wrap><NickelateTimeline pressureMode={pressureMode} /></Wrap>;
   if (route === 'history/brief') return <ResearchBriefView />;
 
-  if (route === 'nickelates/data_engine') return <Wrap><NickelateEngine /></Wrap>;
-  if (route === 'nickelates/substrate_room') return <Wrap><NickelateScreener /></Wrap>;
-  if (route === 'nickelates/gap_candidates') return <GapsView />;
-  if (route === 'nickelates/failure_memory') return <FailureBrowser onSelect={onSelect} selection={selection} />;
+  if (route === 'nickelates/data_engine') return <Wrap><NickelateEngine pressureMode={pressureMode} /></Wrap>;
+  if (route === 'nickelates/substrate_room') return <Wrap><NickelateScreener pressureMode={pressureMode} /></Wrap>;
+  if (route === 'nickelates/gap_candidates') return <GapsView pressureMode={pressureMode} />;
+  if (route === 'nickelates/failure_memory') return <FailureBrowser onSelect={onSelect} selection={selection} pressureMode={pressureMode} />;
 
   if (route.endsWith('/experimental_results')) {
     const wing = route.split('/')[0];
-    return <WingRoomView wing={wing} onSelect={onSelect} selection={selection} />;
+    return <WingRoomView wing={wing} onSelect={onSelect} selection={selection} pressureMode={pressureMode} />;
   }
 
   if (route.startsWith('material/')) {
@@ -187,7 +210,7 @@ function RouteContent({ route, onNavigate, onSelect, selection }) {
       ? drawers.find(d => d.id === id)
       : drawers.find(d => d.material === name);
     return drawer
-      ? <MaterialPage drawer={drawer} onSelect={onSelect} />
+      ? <MaterialPage drawer={drawer} onSelect={onSelect} pressureMode={pressureMode} />
       : <Empty msg={`material not found: ${name}`} />;
   }
 
@@ -248,7 +271,7 @@ function ResearchBriefView() {
   );
 }
 
-function SearchResultsInline({ results, onSelect, selection, query }) {
+function SearchResultsInline({ results, onSelect, selection, query, pressureMode }) {
   return (
     <div style={{ padding: '24px 32px', fontFamily: 'var(--font-body)', maxWidth: 900 }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
@@ -258,7 +281,7 @@ function SearchResultsInline({ results, onSelect, selection, query }) {
         "{query}"
       </h1>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
-        {results.length} matches across all wings
+        {results.length} {pressureModeLabel(pressureMode)} matches across all wings
       </div>
       <div style={{ border: '1px solid var(--color-border-subtle)' }}>
         {results.map(d => (

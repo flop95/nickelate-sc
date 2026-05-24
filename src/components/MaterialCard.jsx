@@ -1,11 +1,11 @@
 import BitmaskStamp from './BitmaskStamp.jsx';
 import TcValue from './TcValue.jsx';
+import { pressureModeFor, pressureModeLabel } from '../utils/pressureModes.js';
 
 export default function MaterialCard({ drawer, onClick, selected = false, compact = false }) {
   const p = drawer.properties || {};
   const onset = p.onset_tc;
-  const pressureClass = (p.pressure_class || '').toLowerCase();
-  const isAmbient = !pressureClass || pressureClass.startsWith('ambient');
+  const pressureMode = pressureModeFor(drawer);
 
   return (
     <div
@@ -46,7 +46,7 @@ export default function MaterialCard({ drawer, onClick, selected = false, compac
           {p.substrate && <span>/ {p.substrate}</span>}
           {p.year && <span>{p.year}</span>}
           {p.strain != null && <span>{Number(p.strain).toFixed(2)}%</span>}
-          {!isAmbient && <span style={{ color: 'var(--color-text-muted)' }}>pressure</span>}
+          <span style={{ color: 'var(--color-text-muted)' }}>{pressureModeLabel(pressureMode)}</span>
         </div>
         <div style={{ marginTop: 6 }}>
           <BitmaskStamp drawer={drawer} size="inline" />

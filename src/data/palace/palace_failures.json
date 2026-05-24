@@ -9,7 +9,8 @@
     "structural_change_from": "La₃Ni₂O₇ on SrLaAlO₄",
     "confidence": "reported",
     "source": "Commun. Phys. (2025)",
-    "wing": "nickelates"
+    "wing": "nickelates",
+    "source_url": "https://www.nature.com/articles/s42005-025-02154-6"
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "structural_change_from": null,
     "confidence": "reported",
     "source": "multiple replication studies (2023)",
-    "wing": "failures"
+    "wing": "failures",
+    "source_url": "https://www.nature.com/articles/d41586-023-02585-7"
   },
   {
     "id": 3,
@@ -33,6 +35,7 @@
     "structural_change_from": "H₃S at ~150 GPa",
     "confidence": "reported",
     "source": "Drozdov et al. (2015)",
-    "wing": "hydrides"
+    "wing": "hydrides",
+    "source_url": "https://www.nature.com/articles/nature14964"
   }
 ]

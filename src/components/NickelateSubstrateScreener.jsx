@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { screenerPublished, candidateSubstrates as rawCandidates } from "../data/index.js";
+import { pressureModeLabel } from "../utils/pressureModes.js";
 
 const LNO_BULK_A = 3.833;
 
@@ -50,7 +51,7 @@ function getStrainColor(strain) {
   return DATA_COLOR.contradiction;
 }
 
-export default function NickelateScreener() {
+export default function NickelateScreener({ pressureMode }) {
   const [customA, setCustomA] = useState("");
   const [customName, setCustomName] = useState("");
   const [selectedCandidates, setSelectedCandidates] = useState(new Set());
@@ -90,6 +91,25 @@ export default function NickelateScreener() {
   const trendX1 = strainMin, trendX2 = strainMax;
   const trendY1 = Math.max(0, Math.min(100, 22 - 20 * trendX1));
   const trendY2 = Math.max(0, Math.min(100, 22 - 20 * trendX2));
+
+  if (pressureMode !== "ambient") {
+    return (
+      <div>
+        <div style={{ fontSize: 13, color: "var(--color-text-muted)", marginBottom: 24 }}>
+          {pressureModeLabel(pressureMode)} substrate screening
+        </div>
+        <div style={{
+          border: "1px solid var(--line)",
+          padding: 18,
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          color: "var(--color-text-muted)",
+        }}>
+          no sourced substrate-screening model registered for this pressure mode
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>

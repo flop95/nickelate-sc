@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:demo": "vite --open /demo/",
+    "validate:data": "node scripts/validate-data.mjs",
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",

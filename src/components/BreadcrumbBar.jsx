@@ -1,4 +1,5 @@
 import LatticeSpin from './LatticeSpin.jsx';
+import PressureModeTabs from './PressureModeTabs.jsx';
 
 const ROUTE_LABELS = {
   overview: ['Palace Overview'],
@@ -44,7 +45,16 @@ export function routeToCrumbs(route) {
   return out.length ? out : [route];
 }
 
-export default function BreadcrumbBar({ route, onNavigate, onSearch, searchQuery, onExport }) {
+export default function BreadcrumbBar({
+  route,
+  onNavigate,
+  onSearch,
+  searchQuery,
+  onExport,
+  pressureMode,
+  onPressureModeChange,
+  pressureModeCounts,
+}) {
   const crumbs = routeToCrumbs(route);
 
   return (
@@ -80,6 +90,11 @@ export default function BreadcrumbBar({ route, onNavigate, onSearch, searchQuery
       </div>
 
       <div className="palace-tools">
+        <PressureModeTabs
+          value={pressureMode}
+          onChange={onPressureModeChange}
+          counts={pressureModeCounts}
+        />
         <input
           type="text"
           value={searchQuery || ''}

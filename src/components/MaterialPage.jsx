@@ -9,15 +9,16 @@ import failures from '../data/palace/palace_failures.json';
 import normData from '../data/palace/palace_normalizer.json';
 import { searchSimilar } from '../utils/retrieval.js';
 import { formatPropertyLabel, formatPropertyValue, formatRoomLabel, formatWingLabel } from '../utils/displayLabels.js';
+import { filterByPressureMode, matchesPressureMode, pressureModeLabel } from '../utils/pressureModes.js';
 
 // Center-pane detail view. Takes a drawer directly OR a material name + wing filter.
-export default function MaterialPage({ drawer, onSelect }) {
+export default function MaterialPage({ drawer, onSelect, pressureMode }) {
   if (!drawer) return null;
   const p = drawer.properties || {};
   const passes = passCount(drawer.bitmask);
 
   // Similar materials in the same wing (skip self).
-  const pool = drawers.filter(d => d.id !== drawer.id);
+  const pool = filterByPressureMode(drawers.filter(d => d.id !== drawer.id), pressureMode);
   const sim = searchSimilar(p, pool, failures, normData.normalizer, { topK: 5, maxHamming: 4 });
   const nearestHighTc = [...pool]
     .filter(d => (d.properties?.onset_tc ?? 0) > 30)
@@ -25,8 +26,9 @@ export default function MaterialPage({ drawer, onSelect }) {
     .sort((a, b) => a.h - b.h)[0];
 
   const relatedFailures = failures.filter(f =>
-    f.drawer_id === drawer.id ||
-    (f.structural_change_from && f.structural_change_from.includes(drawer.material))
+    matchesPressureMode(drawers.find(d => d.id === f.drawer_id), pressureMode) &&
+    (f.drawer_id === drawer.id ||
+      (f.structural_change_from && f.structural_change_from.includes(drawer.material)))
   );
 
   return (
@@ -37,6 +39,9 @@ export default function MaterialPage({ drawer, onSelect }) {
       <h1 style={{ fontSize: 22, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 20 }}>
         {drawer.material}
       </h1>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
+        {pressureModeLabel(pressureMode)}
+      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 40, marginBottom: 32 }}>
         <div>

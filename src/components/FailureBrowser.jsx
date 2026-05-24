@@ -6,6 +6,7 @@ import DataTable from './DataTable.jsx';
 import MultiSelectFilter, { FilterChip } from './MultiSelectFilter.jsx';
 import FailureTag, { formatFailureType } from './FailureTag.jsx';
 import { formatWingLabel } from '../utils/displayLabels.js';
+import { matchesPressureMode, pressureModeLabel } from '../utils/pressureModes.js';
 
 // Augment failures with a substrate field pulled from the parent drawer so the
 // substrate filter can work off a single source.
@@ -27,14 +28,18 @@ function countByField(rows, field) {
     .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value));
 }
 
-export default function FailureBrowser({ onSelect, selection }) {
+export default function FailureBrowser({ onSelect, selection, pressureMode }) {
   const drawerById = useMemo(() => {
     const m = new Map();
     for (const d of drawers) m.set(d.id, d);
     return m;
   }, []);
 
-  const rows = useMemo(() => decorate(failures, drawerById), [drawerById]);
+  const rows = useMemo(
+    () => decorate(failures, drawerById)
+      .filter(f => matchesPressureMode(drawerById.get(f.drawer_id), pressureMode)),
+    [drawerById, pressureMode]
+  );
 
   // Multi-select filter state lives here — we push it down to the DataTable
   // as controlled `columnFilters`.
@@ -184,6 +189,9 @@ export default function FailureBrowser({ onSelect, selection }) {
       <h1 style={{ fontSize: 20, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 20 }}>
         failed claims
       </h1>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 16 }}>
+        {pressureModeLabel(pressureMode)}
+      </div>
 
       {/* Filter bar */}
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import drawers from '../data/palace/palace_drawers.json';
 import failures from '../data/palace/palace_failures.json';
 import normData from '../data/palace/palace_normalizer.json';
@@ -6,6 +6,7 @@ import BitmaskStamp from './BitmaskStamp.jsx';
 import DataTable from './DataTable.jsx';
 import TcValue from './TcValue.jsx';
 import { searchSimilar } from '../utils/retrieval.js';
+import { filterByPressureMode, pressureClassForMode, pressureModeLabel } from '../utils/pressureModes.js';
 
 const EMPTY_QUERY = {
   material: '',
@@ -22,26 +23,33 @@ const EMPTY_QUERY = {
   _family: 'nickelates',
 };
 
-export default function SearchView({ onSelect }) {
+export default function SearchView({ onSelect, pressureMode }) {
   const [query, setQuery] = useState(EMPTY_QUERY);
   const [seedId, setSeedId] = useState('');
 
+  const pool = useMemo(() => filterByPressureMode(drawers, pressureMode), [pressureMode]);
+
+  useEffect(() => {
+    setSeedId('');
+    setQuery({ ...EMPTY_QUERY, pressure_class: pressureClassForMode(pressureMode) });
+  }, [pressureMode]);
+
   const materialOptions = useMemo(() =>
-    drawers.map(d => ({ id: d.id, label: `${d.material}${d.properties?.substrate ? ' / ' + d.properties.substrate : ''}` })),
-    []
+    pool.map(d => ({ id: d.id, label: `${d.material}${d.properties?.substrate ? ' / ' + d.properties.substrate : ''}` })),
+    [pool]
   );
 
   const parsed = useMemo(() => {
-    const out = { ...query };
+    const out = { ...query, pressure_class: pressureClassForMode(pressureMode) };
     for (const k of ['strain', 'onset_tc', 'zero_r_tc', 'film_a', 'film_c', 'thickness', 'year']) {
       out[k] = out[k] === '' ? null : Number(out[k]);
     }
     return out;
-  }, [query]);
+  }, [pressureMode, query]);
 
   const result = useMemo(
-    () => searchSimilar(parsed, drawers, failures, normData.normalizer, { topK: 12, maxHamming: 4 }),
-    [parsed]
+    () => searchSimilar(parsed, pool, failures, normData.normalizer, { topK: 12, maxHamming: 4 }),
+    [parsed, pool]
   );
 
   // Flatten results for the table
@@ -145,7 +153,7 @@ export default function SearchView({ onSelect }) {
   const loadSeed = id => {
     setSeedId(id);
     if (!id) { setQuery(EMPTY_QUERY); return; }
-    const d = drawers.find(x => x.id === Number(id));
+    const d = pool.find(x => x.id === Number(id));
     if (!d) return;
     const p = d.properties || {};
     setQuery({
@@ -173,6 +181,9 @@ export default function SearchView({ onSelect }) {
       <h1 style={{ fontSize: 20, fontWeight: 500, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 20 }}>
         search materials
       </h1>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-text-muted)', marginBottom: 20 }}>
+        {pressureModeLabel(pressureMode)}
+      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: 32 }}>
         <div>
@@ -197,7 +208,7 @@ export default function SearchView({ onSelect }) {
           <Field label="film a" value={query.film_a} onChange={v => setQuery({ ...query, film_a: v })} />
           <Field label="film c" value={query.film_c} onChange={v => setQuery({ ...query, film_c: v })} />
           <Field label="doping" value={query.doping} onChange={v => setQuery({ ...query, doping: v })} />
-          <Field label="pressure" value={query.pressure_class} onChange={v => setQuery({ ...query, pressure_class: v })} />
+          <ReadOnlyField label="mode" value={pressureModeLabel(pressureMode)} />
           <Field label="year" value={query.year} onChange={v => setQuery({ ...query, year: v })} />
         </div>
 
@@ -254,6 +265,31 @@ function Field({ label, value, onChange }) {
         onChange={e => onChange(e.target.value)}
         style={{ width: '100%' }}
       />
+    </div>
+  );
+}
+
+function ReadOnlyField({ label, value }) {
+  return (
+    <div style={{ marginBottom: 8 }}>
+      <div style={{
+        fontFamily: 'var(--font-mono)',
+        fontSize: 9,
+        color: 'var(--color-text-muted)',
+        marginBottom: 2,
+      }}>{label}</div>
+      <div style={{
+        width: '100%',
+        minHeight: 30,
+        border: '1px solid var(--line)',
+        padding: '6px 8px',
+        boxSizing: 'border-box',
+        fontFamily: 'var(--font-mono)',
+        fontSize: 11,
+        color: 'var(--color-text-secondary)',
+      }}>
+        {value}
+      </div>
     </div>
   );
 }

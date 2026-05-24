@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { timelineEvents as timeline, timelineMilestones as milestones } from "../data/index.js";
+import { pressureModeLabel } from "../utils/pressureModes.js";
 
 const Sep = () => <span style={{ color: "var(--color-text-muted)", margin: "0 12px" }}>·</span>;
 
@@ -21,35 +22,43 @@ const Rule = ({ label }) => (
   </div>
 );
 
-export default function NickelateTimeline() {
+export default function NickelateTimeline({ pressureMode }) {
   const [hovered, setHovered] = useState(null);
+  const modeTimeline = useMemo(
+    () => timeline.filter(t => t.pressureMode === pressureMode),
+    [pressureMode]
+  );
+
+  useEffect(() => {
+    setHovered(null);
+  }, [pressureMode]);
 
   const W = 720, H = 280, pL = 48, pR = 24, pT = 32, pB = 64;
   const tcMax = 110;
-  const points = timeline.map((t, i) => ({
+  const pointDenom = Math.max(1, modeTimeline.length - 1);
+  const points = modeTimeline.map((t, i) => ({
     ...t,
-    x: pL + (i / (timeline.length - 1)) * (W - pL - pR),
+    x: pL + (i / pointDenom) * (W - pL - pR),
     y: pT + ((tcMax - t.tc) / tcMax) * (H - pT - pB),
   }));
 
   const sy = (tc) => pT + ((tcMax - tc) / tcMax) * (H - pT - pB);
 
+  const modeRecord = points.length ? Math.max(...points.map(p => p.tc || 0)) : 0;
   const bulkRecord = 96;
-  const filmRecord = 63;
-  const gapToLN2 = 77 - filmRecord;
-  const gapToBulk = bulkRecord - filmRecord;
+  const gapToLN2 = modeRecord ? 77 - modeRecord : null;
 
   return (
     <div>
       {/* Dominant number */}
       <div style={{ marginBottom: 4 }}>
-        <span style={{ fontSize: 48, fontWeight: 700, color: "var(--color-accent)", fontFamily: "var(--font-mono)", lineHeight: 1, letterSpacing: "-0.03em" }}>{filmRecord}K</span>
+        <span style={{ fontSize: 48, fontWeight: 700, color: "var(--color-accent)", fontFamily: "var(--font-mono)", lineHeight: 1, letterSpacing: "-0.03em" }}>{modeRecord}K</span>
       </div>
       <div style={{ fontSize: 13, color: "var(--color-text-secondary)", marginBottom: 32, lineHeight: 1.8 }}>
-        film ambient record
+        {pressureModeLabel(pressureMode)} record
         <Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{bulkRecord}K</span> bulk under pressure
-        <Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{gapToLN2}K</span> gap to LN₂
-        <Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{gapToBulk}K</span> bulk-film gap
+        {gapToLN2 != null && <><Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{gapToLN2}K</span> gap to LN₂</>}
+        <Sep /><span style={{ fontFamily: "var(--font-mono)", color: "var(--color-text)", fontWeight: 500 }}>{points.length}</span> milestones
       </div>
 
       {/* Full-width timeline chart */}
@@ -102,6 +111,9 @@ export default function NickelateTimeline() {
               </g>
             );
           })()}
+          {points.length === 0 && (
+            <text x={pL} y={pT + 40} fontSize={11} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">no {pressureModeLabel(pressureMode)} milestones</text>
+          )}
           {[["Bulk (pressure)", DATA_COLOR.warm], ["Film (ambient)", DATA_COLOR.super], ["Film + pressure", DATA_COLOR.pressure], ["Record", DATA_COLOR.prediction]].map(([l, c], i) => (
             <g key={l}>
               <circle cx={pL + 8 + i * 160} cy={H - 12} r={2.5} fill={c} />
