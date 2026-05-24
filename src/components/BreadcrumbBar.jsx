@@ -48,48 +48,30 @@ export default function BreadcrumbBar({ route, onNavigate, onSearch, searchQuery
   const crumbs = routeToCrumbs(route);
 
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: '12px 20px',
-      borderBottom: '1px solid var(--line-strong)',
-      background: 'var(--bg-base)',
-      gap: 20,
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+    <header className="palace-masthead">
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 22, minWidth: 0 }}>
         <div
           onClick={() => onNavigate && onNavigate('overview')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
-            cursor: 'pointer',
+          className="palace-brand-lockup"
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              onNavigate && onNavigate('overview');
+            }
           }}
         >
           <LatticeSpin size={22} />
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 15,
-            fontWeight: 500,
-            color: 'var(--fg-1)',
-            letterSpacing: '-0.01em',
-          }}>
-            nickelate<span style={{ color: 'var(--fg-2)' }}>.</span><span style={{ color: 'var(--accent)' }}>sc</span>
+          <span className="palace-brand">
+            nickelate<span style={{ color: 'var(--ink-55)' }}>.</span>sc
           </span>
         </div>
-        <div style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 11,
-          color: 'var(--color-text-muted)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 6,
-        }}>
+        <div className="palace-crumbs" aria-label="Current route">
           {crumbs.map((c, i) => (
-            <span key={i} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              {i > 0 && <span style={{ opacity: 0.4 }}>/</span>}
-              <span style={{ color: i === crumbs.length - 1 ? 'var(--color-text-secondary)' : 'var(--color-text-muted)' }}>
+            <span key={i} className="palace-crumb">
+              {i > 0 && <span className="palace-crumb-separator">/</span>}
+              <span className={i === crumbs.length - 1 ? 'palace-crumb-current' : undefined}>
                 {c}
               </span>
             </span>
@@ -97,35 +79,21 @@ export default function BreadcrumbBar({ route, onNavigate, onSearch, searchQuery
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <div className="palace-tools">
         <input
           type="text"
           value={searchQuery || ''}
           onChange={e => onSearch && onSearch(e.target.value)}
           placeholder="search materials…"
-          style={{
-            width: 200,
-            padding: '6px 10px',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 11,
-          }}
+          className="palace-search"
         />
         <button
           onClick={onExport}
-          style={{
-            background: 'transparent',
-            border: '1px solid var(--color-border-strong)',
-            color: 'var(--color-text-secondary)',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 11,
-            padding: '6px 12px',
-            cursor: 'pointer',
-            letterSpacing: '0.02em',
-          }}
+          className="palace-export"
         >
           export
         </button>
       </div>
-    </div>
+    </header>
   );
 }

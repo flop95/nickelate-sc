@@ -44,7 +44,7 @@ function cellVisual({ pass, tier, disabled, isDiff }) {
   }
   if (isDiff) {
     return {
-      bg: pass ? (tier === 'physical' ? 'var(--color-gate-pass-bg)' : 'rgba(255,255,255,0.14)') : 'transparent',
+      bg: pass ? (tier === 'physical' ? 'var(--color-gate-pass-bg)' : 'var(--color-gate-pass-bg-subtle, rgba(255,255,255,0.14))') : 'transparent',
       border: '1px solid var(--color-diff-border)',
     };
   }
@@ -56,7 +56,7 @@ function cellVisual({ pass, tier, disabled, isDiff }) {
       };
     }
     return {
-      bg: 'rgba(255, 255, 255, 0.14)',
+      bg: 'var(--color-gate-pass-bg-subtle, rgba(255, 255, 255, 0.14))',
       border: '1px solid var(--color-gate-fail-border)',
     };
   }
@@ -70,7 +70,7 @@ function Cell({ gate, pass, tier, disabled, isDiff, profile }) {
   const { bg, border } = cellVisual({ pass, tier, disabled, isDiff });
   const isPhysical = tier === 'physical';
   const labelColor = (pass && isPhysical && !disabled)
-    ? 'rgba(212,168,67,0.85)'
+    ? 'var(--color-gate-label-pass, rgba(212,168,67,0.85))'
     : 'var(--text-faint)';
 
   return (

@@ -5,7 +5,7 @@
   --ink-25: rgba(26, 24, 20, 0.25);
   --f-display: 'Bodoni Moda', 'Bodoni 72', 'Didot', serif;
   --f-journal-body: 'STIX Two Text', 'Libre Caslon Text', 'New Century Schoolbook', 'Century Schoolbook', Georgia, serif;
-  --f-cm: 'Latin Modern Roman', 'CMU Serif', 'Computer Modern', 'STIX Two Text', Cambria, serif;
+  --f-cm: 'STIX Two Text', 'Libre Caslon Text', Cambria, serif;
 
   min-height: 100vh;
   background: var(--paper);

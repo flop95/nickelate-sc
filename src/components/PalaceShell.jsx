@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { SplitPane, Pane } from 'react-split-pane';
 import WingTree from './WingTree.jsx';
 import BreadcrumbBar from './BreadcrumbBar.jsx';
@@ -19,6 +19,7 @@ import NickelateScreener from './NickelateSubstrateScreener.jsx';
 
 import drawers from '../data/palace/palace_drawers.json';
 import stats from '../data/palace/palace_stats.json';
+import './PalaceShell.css';
 
 export default function PalaceShell() {
   const [activeRoute, setActiveRoute] = useState('overview');
@@ -26,6 +27,15 @@ export default function PalaceShell() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [inspectorCollapsed, setInspectorCollapsed] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isNarrow, setIsNarrow] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 760px)');
+    const update = () => setIsNarrow(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   const navigate = route => {
     setActiveRoute(route);
@@ -77,13 +87,25 @@ export default function PalaceShell() {
     return c;
   }, []);
 
+  const centerContent = searchFiltered ? (
+    <SearchResultsInline results={searchFiltered} onSelect={select} selection={selection} query={searchQuery} />
+  ) : (
+    <RouteContent route={activeRoute} onNavigate={navigate} onSelect={select} selection={selection} />
+  );
+
+  const inspectorContent = (
+    <ErrorBoundary>
+      <InspectorPanel
+        selection={selection}
+        collapsed={inspectorCollapsed}
+        onToggle={() => setInspectorCollapsed(c => !c)}
+        onNavigate={navigate}
+      />
+    </ErrorBoundary>
+  );
+
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100vh',
-      background: 'var(--bg-base)',
-    }}>
+    <div className={`palace-shell${isNarrow ? ' is-mobile' : ''}`}>
       <BreadcrumbBar
         route={activeRoute}
         onNavigate={navigate}
@@ -92,9 +114,24 @@ export default function PalaceShell() {
         onExport={handleExport}
       />
 
-      <div style={{ flex: 1, minHeight: 0 }}>
+      {isNarrow ? (
+        <div className="palace-mobile-workspace">
+          <nav className="pane-sidebar palace-mobile-nav" aria-label="Palace navigation">
+            <WingTree activeRoute={activeRoute} onNavigate={navigate} counts={wingCounts} />
+          </nav>
+
+          <main className="pane-center palace-mobile-center">
+            {centerContent}
+          </main>
+
+          <aside className="pane-inspector palace-mobile-inspector">
+            {inspectorContent}
+          </aside>
+        </div>
+      ) : (
+        <div className="palace-workspace">
         <SplitPane direction="horizontal" className="palace-split">
-          <Pane defaultSize="220px" minSize="160px" maxSize="400px">
+          <Pane defaultSize="248px" minSize="180px" maxSize="420px">
             <div className="pane-sidebar" style={{ height: '100%', overflowY: 'auto' }}>
               <WingTree activeRoute={activeRoute} onNavigate={navigate} counts={wingCounts} />
             </div>
@@ -102,32 +139,22 @@ export default function PalaceShell() {
 
           <Pane minSize="320px">
             <main className="pane-center" style={{ height: '100%', overflowY: 'auto', minWidth: 0 }}>
-              {searchFiltered ? (
-                <SearchResultsInline results={searchFiltered} onSelect={select} selection={selection} query={searchQuery} />
-              ) : (
-                <RouteContent route={activeRoute} onNavigate={navigate} onSelect={select} selection={selection} />
-              )}
+              {centerContent}
             </main>
           </Pane>
 
           <Pane
-            defaultSize={inspectorCollapsed ? '16px' : '320px'}
+            defaultSize={inspectorCollapsed ? '16px' : '340px'}
             minSize={inspectorCollapsed ? '16px' : '240px'}
             maxSize="520px"
           >
             <div className="pane-inspector" style={{ height: '100%', overflowY: 'auto' }}>
-              <ErrorBoundary>
-                <InspectorPanel
-                  selection={selection}
-                  collapsed={inspectorCollapsed}
-                  onToggle={() => setInspectorCollapsed(c => !c)}
-                  onNavigate={navigate}
-                />
-              </ErrorBoundary>
+              {inspectorContent}
             </div>
           </Pane>
         </SplitPane>
-      </div>
+        </div>
+      )}
     </div>
   );
 }

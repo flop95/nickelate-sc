@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { timelineEvents as timeline, timelineMilestones as milestones } from "../data/index.js";
 
-const Sep = () => <span style={{ color: "rgba(255,255,255,0.3)", margin: "0 12px" }}>·</span>;
+const Sep = () => <span style={{ color: "var(--color-text-muted)", margin: "0 12px" }}>·</span>;
 
 const Rule = ({ label }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "32px 0 24px" }}>
     {label && (
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.06em" }}>
+      <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", letterSpacing: "0.06em" }}>
         {label}
       </span>
     )}
-    <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.04)" }} />
+    <div style={{ flex: 1, height: 1, background: "var(--line)" }} />
   </div>
 );
 
@@ -47,14 +47,14 @@ export default function NickelateTimeline() {
 
       {/* Full-width timeline chart */}
       <div style={{ marginBottom: 8 }}>
-        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", marginBottom: 8, letterSpacing: "0.04em" }}>
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8, letterSpacing: "0.04em" }}>
           tc progression // jul 2023 → apr 2026
         </div>
         <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%" }}>
           {[0, 20, 40, 60, 80, 100].map(t => (
             <g key={t}>
-              <line x1={pL} y1={sy(t)} x2={W - pR} y2={sy(t)} stroke="rgba(255,255,255,0.03)" strokeWidth={0.5} />
-              <text x={pL - 6} y={sy(t) + 4} textAnchor="end" fontSize={10} fill="rgba(255,255,255,0.4)" fontFamily="'DM Mono', monospace">{t}</text>
+              <line x1={pL} y1={sy(t)} x2={W - pR} y2={sy(t)} stroke="var(--line)" strokeWidth={0.5} />
+              <text x={pL - 6} y={sy(t) + 4} textAnchor="end" fontSize={10} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{t}</text>
             </g>
           ))}
           {milestones.map(m => (
@@ -66,14 +66,14 @@ export default function NickelateTimeline() {
           {points.map((p, i) => {
             if (i === 0) return null;
             const prev = points[i - 1];
-            return <line key={`line-${i}`} x1={prev.x} y1={prev.y} x2={p.x} y2={p.y} stroke="rgba(255,255,255,0.04)" strokeWidth={0.5} />;
+            return <line key={`line-${i}`} x1={prev.x} y1={prev.y} x2={p.x} y2={p.y} stroke="var(--line)" strokeWidth={0.5} />;
           })}
           {points.map((p, i) => (
             <g key={i} onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)} style={{ cursor: "pointer" }}>
               {/* Invisible larger hit area for reliable hover */}
               <circle cx={p.x} cy={p.y} r={12} fill="transparent" />
               <circle cx={p.x} cy={p.y} r={hovered === i ? 5 : 3.5} fill={p.color} stroke="none" opacity={0.85} />
-              <text x={p.x} y={H - pB + 16} textAnchor="end" fontSize={9} fill="rgba(255,255,255,0.4)" fontFamily="'DM Mono', monospace" transform={`rotate(-45, ${p.x}, ${H - pB + 16})`}>{p.date}</text>
+              <text x={p.x} y={H - pB + 16} textAnchor="end" fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace" transform={`rotate(-45, ${p.x}, ${H - pB + 16})`}>{p.date}</text>
             </g>
           ))}
           {hovered !== null && (() => {
@@ -88,7 +88,7 @@ export default function NickelateTimeline() {
             const detailText = (p.detail || p.label || "").slice(0, 70);
             return (
               <g>
-                <rect x={tx} y={ty} width={tw} height={th} rx={0} fill="rgba(20,20,20,0.95)" stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} />
+                <rect x={tx} y={ty} width={tw} height={th} rx={0} fill="var(--color-surface)" stroke="var(--line-strong)" strokeWidth={0.5} />
                 <text x={tx + 8} y={ty + 16} fontSize={11} fontWeight={600} fill="var(--color-text)" fontFamily="'DM Mono', monospace">{p.label} — {p.tc}K</text>
                 <text x={tx + 8} y={ty + 30} fontSize={9} fill="var(--color-text-secondary)">{typeLabel}</text>
                 <text x={tx + 8} y={ty + 44} fontSize={9} fill="var(--color-text-muted)">{detailText}</text>
@@ -98,7 +98,7 @@ export default function NickelateTimeline() {
           {[["Bulk (pressure)", "#D85A30"], ["Film (ambient)", "#1D9E75"], ["Film + pressure", "#7F77DD"], ["Record", "#d4a843"]].map(([l, c], i) => (
             <g key={l}>
               <circle cx={pL + 8 + i * 160} cy={H - 12} r={2.5} fill={c} />
-              <text x={pL + 15 + i * 160} y={H - 8} fontSize={9} fill="rgba(255,255,255,0.5)" fontFamily="'DM Mono', monospace">{l}</text>
+              <text x={pL + 15 + i * 160} y={H - 8} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{l}</text>
             </g>
           ))}
         </svg>
@@ -117,7 +117,7 @@ export default function NickelateTimeline() {
       {/* Pipeline: paths to 77K */}
       <Rule label="paths to liquid nitrogen" />
 
-      <div style={{ borderLeft: "1px solid rgba(255,255,255,0.06)", paddingLeft: 16, marginLeft: 4 }}>
+      <div style={{ borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4 }}>
         {[
           { id: "A", label: "Strain alone", text: "Need substrate with a ≈ 3.72Å (strain ≈ -3.0%). SmAlO₃ or EuAlO₃. Risk: coherent film growth at high mismatch. Nobody has tried." },
           { id: "B", label: "Film + pressure", text: "Current 63K GAE films + 4-5 GPa. Pressure cells are cheap. Predicted: 75-80K onset. This could be done tomorrow by any group with a piston-cylinder cell." },
@@ -135,7 +135,7 @@ export default function NickelateTimeline() {
         ))}
       </div>
 
-      <div style={{ marginTop: 32, fontSize: 10, fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
+      <div style={{ marginTop: 32, fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", lineHeight: 1.6 }}>
         Timeline data from published papers and preprints. Hover for details. Projections assume continuation of observed trends.
       </div>
     </div>

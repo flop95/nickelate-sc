@@ -90,7 +90,7 @@ export default function DataTable({
           display: 'grid',
           gridTemplateColumns: columns.map(c => c.size || '1fr').join(' '),
           borderBottom: '1px solid var(--line)',
-          background: 'rgba(255,255,255,0.015)',
+          background: 'var(--table-head-bg, rgba(255,255,255,0.015))',
         }}>
           {headerGroups[0]?.headers.map(header => {
             const canSort = header.column.getCanSort();
@@ -115,7 +115,7 @@ export default function DataTable({
               >
                 {flexRender(header.column.columnDef.header, header.getContext())}
                 {canSort && (
-                  <span style={{ color: sortDir ? 'var(--color-accent)' : 'rgba(255,255,255,0.15)' }}>
+                  <span style={{ color: sortDir ? 'var(--color-accent)' : 'var(--sort-idle-color, rgba(255,255,255,0.15))' }}>
                     {sortDir === 'asc' ? '▲' : sortDir === 'desc' ? '▼' : '▲▼'}
                   </span>
                 )}

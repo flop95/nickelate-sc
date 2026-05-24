@@ -6,11 +6,11 @@ const LNO_BULK_A = 3.833;
 const Rule = ({ label }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "32px 0 24px" }}>
     {label && (
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.06em" }}>
+      <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", letterSpacing: "0.06em" }}>
         {label}
       </span>
     )}
-    <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.04)" }} />
+    <div style={{ flex: 1, height: 1, background: "var(--line)" }} />
   </div>
 );
 
@@ -91,23 +91,23 @@ export default function NickelateScreener() {
 
       {/* Full-width chart */}
       <div style={{ marginBottom: 8 }}>
-        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", marginBottom: 8, letterSpacing: "0.04em" }}>
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8, letterSpacing: "0.04em" }}>
           strain vs predicted_tc
         </div>
         <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} style={{ width: "100%" }}>
           {[0, 20, 40, 60, 80, 100].map(t => (
             <g key={t}>
-              <line x1={padL} y1={yScale(t)} x2={chartWidth - padR} y2={yScale(t)} stroke="rgba(255,255,255,0.03)" strokeWidth={0.5} />
-              <text x={padL - 6} y={yScale(t) + 4} textAnchor="end" fontSize={10} fill="rgba(255,255,255,0.4)" fontFamily="'DM Mono', monospace">{t}</text>
+              <line x1={padL} y1={yScale(t)} x2={chartWidth - padR} y2={yScale(t)} stroke="var(--line)" strokeWidth={0.5} />
+              <text x={padL - 6} y={yScale(t) + 4} textAnchor="end" fontSize={10} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{t}</text>
             </g>
           ))}
           {[-4, -3, -2, -1, 0, 1, 2].map(s => (
             <g key={s}>
-              <line x1={xScale(s)} y1={padT} x2={xScale(s)} y2={chartHeight - padB} stroke="rgba(255,255,255,0.03)" strokeWidth={0.5} />
-              <text x={xScale(s)} y={chartHeight - padB + 14} textAnchor="middle" fontSize={10} fill="rgba(255,255,255,0.4)" fontFamily="'DM Mono', monospace">{s}%</text>
+              <line x1={xScale(s)} y1={padT} x2={xScale(s)} y2={chartHeight - padB} stroke="var(--line)" strokeWidth={0.5} />
+              <text x={xScale(s)} y={chartHeight - padB + 14} textAnchor="middle" fontSize={10} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{s}%</text>
             </g>
           ))}
-          <line x1={xScale(0)} y1={padT} x2={xScale(0)} y2={chartHeight - padB} stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} strokeDasharray="4 3" />
+          <line x1={xScale(0)} y1={padT} x2={xScale(0)} y2={chartHeight - padB} stroke="var(--line-strong)" strokeWidth={0.5} strokeDasharray="4 3" />
           <line x1={xScale(trendX1)} y1={yScale(trendY1)} x2={xScale(trendX2)} y2={yScale(trendY2)} stroke="var(--color-accent)" strokeWidth={1} strokeDasharray="6 4" opacity={0.3} />
           <line x1={padL} y1={yScale(77)} x2={chartWidth - padR} y2={yScale(77)} stroke="#5B9BD5" strokeWidth={0.5} strokeDasharray="4 4" opacity={0.4} />
           <text x={chartWidth - padR - 4} y={yScale(77) - 4} textAnchor="end" fontSize={9} fill="#5B9BD5" opacity={0.5} fontFamily="'DM Mono', monospace">77K LN₂</text>
@@ -117,7 +117,7 @@ export default function NickelateScreener() {
           {allPoints.filter(p => p.type === "candidate").map((p, i) => (
             <g key={`cand-${i}`}>
               <circle cx={xScale(p.strain)} cy={yScale(p.predictedTc)} r={3.5} fill={getStrainColor(p.strain)} stroke="none" opacity={0.85} />
-              <text x={xScale(p.strain)} y={yScale(p.predictedTc) - 8} textAnchor="middle" fontSize={9} fill="rgba(255,255,255,0.5)" fontFamily="'DM Mono', monospace">{p.substrate.split(" ")[0]}</text>
+              <text x={xScale(p.strain)} y={yScale(p.predictedTc) - 8} textAnchor="middle" fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{p.substrate.split(" ")[0]}</text>
             </g>
           ))}
           {allPoints.filter(p => p.type === "custom").map((p, i) => (
@@ -127,11 +127,11 @@ export default function NickelateScreener() {
             </g>
           ))}
           <circle cx={padL + 8} cy={padT + 8} r={2.5} fill="#1D9E75" />
-          <text x={padL + 16} y={padT + 12} fontSize={9} fill="rgba(255,255,255,0.5)" fontFamily="'DM Mono', monospace">published</text>
+          <text x={padL + 16} y={padT + 12} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">published</text>
           <circle cx={padL + 88} cy={padT + 8} r={2.5} fill="#5B9BD5" />
-          <text x={padL + 96} y={padT + 12} fontSize={9} fill="rgba(255,255,255,0.5)" fontFamily="'DM Mono', monospace">candidate</text>
+          <text x={padL + 96} y={padT + 12} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">candidate</text>
           <rect x={padL + 163} y={padT + 4.5} width={6} height={6} fill="var(--color-accent)" transform={`rotate(45, ${padL + 166}, ${padT + 7.5})`} />
-          <text x={padL + 176} y={padT + 12} fontSize={9} fill="rgba(255,255,255,0.5)" fontFamily="'DM Mono', monospace">custom</text>
+          <text x={padL + 176} y={padT + 12} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">custom</text>
         </svg>
       </div>
 
@@ -140,18 +140,18 @@ export default function NickelateScreener() {
       {/* Custom substrate input — compact inline */}
       <div style={{ display: "flex", gap: 12, marginBottom: 24, alignItems: "flex-end" }}>
         <div style={{ flex: 1 }}>
-          <label style={{ fontSize: 10, fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.55)", display: "block", marginBottom: 4, letterSpacing: "0.04em" }}>substrate name</label>
+          <label style={{ fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", display: "block", marginBottom: 4, letterSpacing: "0.04em" }}>substrate name</label>
           <input value={customName} onChange={e => setCustomName(e.target.value)} placeholder="e.g. MySubstrate" />
         </div>
         <div style={{ flex: 1 }}>
-          <label style={{ fontSize: 10, fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.55)", display: "block", marginBottom: 4, letterSpacing: "0.04em" }}>a-axis (Å)</label>
+          <label style={{ fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", display: "block", marginBottom: 4, letterSpacing: "0.04em" }}>a-axis (Å)</label>
           <input value={customA} onChange={e => setCustomA(e.target.value)} placeholder="e.g. 3.75" type="number" step="0.001" />
         </div>
       </div>
 
       {/* Candidate substrates — compact toggles */}
       <div style={{ marginBottom: 8 }}>
-        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", marginBottom: 8, letterSpacing: "0.04em" }}>
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8, letterSpacing: "0.04em" }}>
           candidate substrates
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
@@ -163,12 +163,12 @@ export default function NickelateScreener() {
               <button key={c.name} onClick={() => toggleCandidate(c.name)} style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 padding: "4px 8px", fontSize: 11, fontFamily: "var(--font-mono)",
-                border: active ? "1px solid rgba(212,168,67,0.4)" : "1px solid rgba(255,255,255,0.04)",
+                border: active ? "1px solid rgba(212,168,67,0.4)" : "1px solid var(--line)",
                 borderRadius: 0, background: active ? "rgba(212,168,67,0.06)" : "transparent",
                 color: active ? "var(--color-text)" : "var(--color-text-muted)", cursor: "pointer",
               }}>
                 <span>{c.name}</span>
-                <span style={{ fontSize: 10, color: active ? "var(--color-accent)" : "rgba(255,255,255,0.5)" }}>
+                <span style={{ fontSize: 10, color: active ? "var(--color-accent)" : "var(--color-text-muted)" }}>
                   {tc.toFixed(0)}K
                 </span>
               </button>
@@ -220,7 +220,7 @@ export default function NickelateScreener() {
           {showMethod ? "hide" : "show"} methodology
         </button>
         {showMethod && (
-          <div style={{ marginTop: 12, padding: 16, background: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.03)", fontSize: 12, lineHeight: 1.6, color: "var(--color-text-secondary)" }}>
+          <div style={{ marginTop: 12, padding: 16, background: "var(--color-surface-hover)", border: "1px solid var(--line)", fontSize: 12, lineHeight: 1.6, color: "var(--color-text-secondary)" }}>
             <p style={{ margin: "0 0 8px" }}><strong>Model:</strong> Linear regression fit to published La₃Ni₂O₇ thin film data points (onset Tc vs. epitaxial strain). Tc ≈ 22 - 20×(strain%). La₃Ni₂O₇ bulk a-axis = 3.833 Å (pseudo-tetragonal, ambient pressure).</p>
             <p style={{ margin: "0 0 8px" }}><strong>Data sources:</strong> Ko et al. Nature 2025, Zhou et al. NSR 2025/2026, strain-tuning study (Comm. Physics 2025). Total: 6 published data points across 4 substrates.</p>
             <p style={{ margin: "0 0 8px" }}><strong>What this is NOT:</strong> Not a first-principles simulation. It fits an empirical trend line to published experimental data and uses it to screen substrates by lattice mismatch.</p>
@@ -230,7 +230,7 @@ export default function NickelateScreener() {
         )}
       </div>
 
-      <div style={{ marginTop: 16, borderLeft: "1px solid rgba(255,255,255,0.06)", paddingLeft: 16, marginLeft: 4, fontSize: 13, color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
+      <div style={{ marginTop: 16, borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4, fontSize: 13, color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 500, color: "var(--color-text-muted)", marginBottom: 4 }}>key finding</div>
         Substrates with a-axis below ~3.72 Å predict onset Tc at or above the liquid nitrogen threshold (77K). EuAlO₃ (3.720 Å), SmAlO₃ (3.734 Å), and YAlO₃ (3.680 Å) are the strongest candidates — but extreme mismatch may prevent coherent film growth.
       </div>

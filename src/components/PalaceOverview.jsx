@@ -48,7 +48,7 @@ export default function PalaceOverview({ onNavigate, onSelect }) {
   const recentFailures = failures.slice(-6).reverse();
 
   return (
-    <div style={{ padding: '28px 36px 40px', maxWidth: 1280 }}>
+    <div className="palace-overview-root" style={{ padding: '28px 36px 40px', maxWidth: 1280 }}>
       <div className="overline">command center</div>
       <h1 className="voice-authority" style={{ fontSize: 22, marginBottom: 4 }}>
         nickelate<span style={{ color: 'var(--fg-2)' }}>.</span><span style={{ color: 'var(--accent)' }}>sc</span>
@@ -60,7 +60,7 @@ export default function PalaceOverview({ onNavigate, onSelect }) {
 
       {hero ? <HeroCandidate hero={hero} onSelect={onSelect} /> : <HeroEmpty />}
 
-      <div style={{
+      <div className="palace-overview-lanes" style={{
         display: 'grid',
         gridTemplateColumns: '1.85fr 1fr',
         gap: 20,

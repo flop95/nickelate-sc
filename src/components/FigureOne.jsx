@@ -9,7 +9,7 @@ const INK_EMPH = '#0A0907';
 const INK_25 = 'rgba(26, 24, 20, 0.25)';
 
 const F_BODY = "'STIX Two Text', 'New Century Schoolbook', 'Century Schoolbook', Georgia, serif";
-const F_CM = "'Latin Modern Roman', 'CMU Serif', 'Computer Modern', 'STIX Two Text', Cambria, serif";
+const F_CM = "'STIX Two Text', 'Libre Caslon Text', Cambria, serif";
 
 // ============================================================
 // Defaults

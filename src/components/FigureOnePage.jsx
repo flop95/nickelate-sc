@@ -153,7 +153,7 @@ export default function FigureOnePage() {
 
         <footer className="journal-colophon">
           <div className="left">
-            Typeset in Bodoni Moda, STIX Two Text, and Latin Modern Roman. Printed on ivory.
+            Typeset in Bodoni Moda, STIX Two Text, and Libre Caslon Text. Printed on ivory.
           </div>
           <div className="right">
             Issue prepared by <a href="https://github.com/flop95" target="_blank" rel="noopener">flop95</a>.

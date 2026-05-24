@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { engineDataset as dataset, patterns, predictions as rawPredictions, arxivAlerts } from "../data/index.js";
 import { findContradictions } from "../utils/findContradictions.js";
 
-const Sep = () => <span style={{ color: "rgba(255,255,255,0.3)", margin: "0 12px" }}>·</span>;
+const Sep = () => <span style={{ color: "var(--color-text-muted)", margin: "0 12px" }}>·</span>;
 
 const Rule = ({ label, collapsible, expanded, onToggle }) => (
   <div
@@ -10,12 +10,12 @@ const Rule = ({ label, collapsible, expanded, onToggle }) => (
     onClick={collapsible ? onToggle : undefined}
   >
     {label && (
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.06em", whiteSpace: "nowrap" }}>
+      <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", letterSpacing: "0.06em", whiteSpace: "nowrap" }}>
         {collapsible && <span style={{ marginRight: 6 }}>{expanded ? "▾" : "▸"}</span>}
         {label}
       </span>
     )}
-    <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.04)" }} />
+    <div style={{ flex: 1, height: 1, background: "var(--line)" }} />
   </div>
 );
 
@@ -89,7 +89,7 @@ export default function NickelateEngine() {
       {arxivAlerts.alerts && arxivAlerts.alerts.length > 0 && (() => {
         const meaningful = arxivAlerts.alerts.filter(a => a.diff_type !== "INFO");
         if (meaningful.length === 0) return null;
-        const diffColors = { RECORD: "#d4a843", NEW: "#1D9E75", UPDATE: "#d4a843", CONFIRMS: "rgba(255,255,255,0.5)" };
+        const diffColors = { RECORD: "#d4a843", NEW: "#1D9E75", UPDATE: "#d4a843", CONFIRMS: "var(--color-text-muted)" };
         return (
           <div style={{ marginBottom: 24 }}>
             <Rule label="arxiv alerts" collapsible expanded={isOpen("arxiv")} onToggle={() => toggle("arxiv")} />
@@ -101,12 +101,12 @@ export default function NickelateEngine() {
                     color: diffColors[a.diff_type] || "var(--color-text-muted)", whiteSpace: "nowrap",
                   }}>{a.diff_type.toLowerCase()}</span>
                   <span style={{ fontSize: 12, color: "var(--color-text-secondary)", lineHeight: 1.4 }}>{a.diff_detail}</span>
-                  <a href={a.url} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.6)", whiteSpace: "nowrap", flexShrink: 0 }}>
+                  <a href={a.url} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-secondary)", whiteSpace: "nowrap", flexShrink: 0 }}>
                     {a.arxiv_id}
                   </a>
                 </div>
               ))}
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "rgba(255,255,255,0.5)", marginTop: 4 }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--color-text-muted)", marginTop: 4 }}>
                 last updated: {arxivAlerts.generated || "never"} · run python scripts/arxiv_watcher.py to refresh
               </div>
             </>}
@@ -135,16 +135,16 @@ export default function NickelateEngine() {
         return (
           <div style={{ marginBottom: 8 }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 8 }}>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.04em" }}>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", letterSpacing: "0.04em" }}>
                 {isCa ? "c/a ratio" : "strain"} vs onset_tc
-                {isCa && <span style={{ marginLeft: 8, color: "rgba(255,255,255,0.5)" }}>{caCount} of {dataset.length} entries have c/a data</span>}
+                {isCa && <span style={{ marginLeft: 8, color: "var(--color-text-muted)" }}>{caCount} of {dataset.length} entries have c/a data</span>}
               </span>
               <div style={{ display: "flex", gap: 4 }}>
                 {["strain", "ca_ratio"].map(mode => (
                   <button key={mode} onClick={() => setChartXAxis(mode)} style={{
                     background: "none", border: "none", padding: "2px 6px", cursor: "pointer",
                     fontFamily: "var(--font-mono)", fontSize: 10,
-                    color: chartXAxis === mode ? "var(--color-text)" : "rgba(255,255,255,0.5)",
+                    color: chartXAxis === mode ? "var(--color-text)" : "var(--color-text-muted)",
                     borderBottom: chartXAxis === mode ? "1px solid var(--color-text)" : "1px solid transparent",
                   }}>
                     {mode === "strain" ? "x: strain" : "x: c/a ratio"}
@@ -155,19 +155,19 @@ export default function NickelateEngine() {
             <svg viewBox={`0 0 ${chartW} ${chartH}`} style={{ width: "100%" }}>
               {[0, 20, 40, 60, 80].map(t => (
                 <g key={t}>
-                  <line x1={pL} y1={sy(t)} x2={chartW - pR} y2={sy(t)} stroke="rgba(255,255,255,0.03)" strokeWidth={0.5} />
-                  <text x={pL - 6} y={sy(t) + 4} textAnchor="end" fontSize={10} fill="rgba(255,255,255,0.4)" fontFamily="'DM Mono', monospace">{t}</text>
+                  <line x1={pL} y1={sy(t)} x2={chartW - pR} y2={sy(t)} stroke="var(--line)" strokeWidth={0.5} />
+                  <text x={pL - 6} y={sy(t) + 4} textAnchor="end" fontSize={10} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{t}</text>
                 </g>
               ))}
               {xTicks.map(s => (
                 <g key={s}>
-                  <line x1={csx(s)} y1={pT} x2={csx(s)} y2={chartH - pB} stroke="rgba(255,255,255,0.03)" strokeWidth={0.5} />
-                  <text x={csx(s)} y={chartH - pB + 14} textAnchor="middle" fontSize={10} fill="rgba(255,255,255,0.4)" fontFamily="'DM Mono', monospace">
+                  <line x1={csx(s)} y1={pT} x2={csx(s)} y2={chartH - pB} stroke="var(--line)" strokeWidth={0.5} />
+                  <text x={csx(s)} y={chartH - pB + 14} textAnchor="middle" fontSize={10} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">
                     {isCa ? s.toFixed(2) : s + "%"}
                   </text>
                 </g>
               ))}
-              {!isCa && <line x1={csx(0)} y1={pT} x2={csx(0)} y2={chartH - pB} stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} strokeDasharray="3 3" />}
+              {!isCa && <line x1={csx(0)} y1={pT} x2={csx(0)} y2={chartH - pB} stroke="var(--line-strong)" strokeWidth={0.5} strokeDasharray="3 3" />}
               <line x1={pL} y1={sy(77)} x2={chartW - pR} y2={sy(77)} stroke="#5B9BD5" strokeWidth={0.5} strokeDasharray="4 4" opacity={0.4} />
               <text x={chartW - pR - 4} y={sy(77) - 4} textAnchor="end" fontSize={9} fill="#5B9BD5" opacity={0.5} fontFamily="'DM Mono', monospace">77K LN₂</text>
               {chartData.map((d, i) => {
@@ -182,7 +182,7 @@ export default function NickelateEngine() {
               {[["La₃Ni₂O₇", "#1D9E75"], ["(La,Pr)₃Ni₂O₇", "#d4a843"], ["La₂PrNi₂O₇", "#D85A30"], ["Sr-doped", "#7F77DD"], ["Superstruct.", "#5B9BD5"]].map(([label, col], i) => (
                 <g key={label}>
                   <circle cx={pL + 6 + i * 140} cy={chartH - 10} r={2.5} fill={col} />
-                  <text x={pL + 14 + i * 140} y={chartH - 6} fontSize={9} fill="rgba(255,255,255,0.5)" fontFamily="'DM Mono', monospace">{label}</text>
+                  <text x={pL + 14 + i * 140} y={chartH - 6} fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">{label}</text>
                 </g>
               ))}
             </svg>
@@ -242,15 +242,15 @@ export default function NickelateEngine() {
                         <span style={{ color: "var(--color-text-muted)" }}>doping</span>
                         <span>{d.doping || "—"}</span>
                         <span style={{ color: "var(--color-text-muted)" }}>growth_temp</span>
-                        <span style={{ color: "rgba(255,255,255,0.35)" }}>—</span>
+                        <span style={{ color: "var(--color-text-muted)" }}>—</span>
                         <span style={{ color: "var(--color-text-muted)" }}>deposition_rate</span>
-                        <span style={{ color: "rgba(255,255,255,0.35)" }}>—</span>
+                        <span style={{ color: "var(--color-text-muted)" }}>—</span>
                         <span style={{ color: "var(--color-text-muted)" }}>o2_pressure</span>
-                        <span style={{ color: "rgba(255,255,255,0.35)" }}>—</span>
+                        <span style={{ color: "var(--color-text-muted)" }}>—</span>
                         <span style={{ color: "var(--color-text-muted)" }}>anneal</span>
-                        <span>{d.oxygenTreat || <span style={{ color: "rgba(255,255,255,0.35)" }}>—</span>}</span>
+                        <span>{d.oxygenTreat || <span style={{ color: "var(--color-text-muted)" }}>—</span>}</span>
                         <span style={{ color: "var(--color-text-muted)" }}>post_growth</span>
-                        <span style={{ color: "rgba(255,255,255,0.35)" }}>—</span>
+                        <span style={{ color: "var(--color-text-muted)" }}>—</span>
                         {d.filmA && <><span style={{ color: "var(--color-text-muted)" }}>film_a</span><span>{d.filmA}Å</span></>}
                         {d.filmC && <><span style={{ color: "var(--color-text-muted)" }}>film_c</span><span>{d.filmC}Å</span></>}
                         {d.thickness && <><span style={{ color: "var(--color-text-muted)" }}>thickness</span><span>{d.thickness}</span></>}
@@ -258,12 +258,12 @@ export default function NickelateEngine() {
                       {d.notes && (
                         <div style={{ marginTop: 8, padding: "8px 12px", borderLeft: "2px solid var(--color-accent)", background: "var(--color-bg)", fontSize: 12 }}>{d.notes}</div>
                       )}
-                      <div style={{ marginTop: 8, fontSize: 10, color: "rgba(255,255,255,0.5)" }}>
+                      <div style={{ marginTop: 8, fontSize: 10, color: "var(--color-text-muted)" }}>
                         Know these parameters?{" "}
                         <a
                           href={`https://github.com/flop95/nickelate-sc/issues/new?template=recipe-detail.yml&title=${encodeURIComponent(`Recipe: ${d.material} on ${d.substrate} (id:${d.id})`)}&entry=${encodeURIComponent(`${d.material} on ${d.substrate} (id:${d.id})`)}`}
                           target="_blank" rel="noopener noreferrer"
-                          style={{ color: "rgba(255,255,255,0.6)" }}
+                          style={{ color: "var(--color-text-secondary)" }}
                         >Submit via GitHub.</a>
                         {" "}Submissions require source verification.
                       </div>
@@ -280,7 +280,7 @@ export default function NickelateEngine() {
       <Rule label="patterns + gaps" collapsible expanded={isOpen("patterns")} onToggle={() => toggle("patterns")} />
 
       {isOpen("patterns") && (
-        <div style={{ borderLeft: "1px solid rgba(255,255,255,0.06)", paddingLeft: 16, marginLeft: 4 }}>
+        <div style={{ borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4 }}>
           {findings.map((f, i) => (
             <div key={i} style={{ position: "relative", paddingBottom: i < findings.length - 1 ? 12 : 0 }}>
               <span style={{
@@ -305,7 +305,7 @@ export default function NickelateEngine() {
 
       {isOpen("contradictions") && (
         contradictions.length > 0 ? (
-          <div style={{ borderLeft: "1px solid rgba(255,255,255,0.06)", paddingLeft: 16, marginLeft: 4 }}>
+          <div style={{ borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4 }}>
             {contradictions.map((c, i) => (
               <div key={i} style={{ position: "relative", paddingBottom: i < contradictions.length - 1 ? 12 : 0 }}>
                 <span style={{ position: "absolute", left: -20, top: 3, fontSize: 8, color: "#E24B4A" }}>⚬</span>
@@ -320,19 +320,19 @@ export default function NickelateEngine() {
                     <span key={j}>
                       <span style={{ color: "var(--color-text)", fontWeight: 600 }}>{e.onsetTc}K</span>
                       <span style={{ color: "var(--color-text-muted)", marginLeft: 4 }}>id:{e.id}</span>
-                      {e.growth && <span style={{ color: "rgba(255,255,255,0.5)", marginLeft: 4 }}>{e.growth.split(" ")[0]}</span>}
+                      {e.growth && <span style={{ color: "var(--color-text-muted)", marginLeft: 4 }}>{e.growth.split(" ")[0]}</span>}
                     </span>
                   ))}
                 </div>
                 <div style={{ fontSize: 12, lineHeight: 1.5, color: "var(--color-text-secondary)" }}>
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.5)", marginRight: 6 }}>Δ{c.tc_diff.toFixed(0)}K</span>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginRight: 6 }}>Δ{c.tc_diff.toFixed(0)}K</span>
                   {c.hypothesis}
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.5)" }}>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)" }}>
             No unexplained contradictions detected.
           </div>
         )
@@ -365,21 +365,21 @@ export default function NickelateEngine() {
                   <td key={j} style={{
                     textAlign: j === 0 ? "left" : "center", fontWeight: j === 0 ? 500 : 400,
                     fontSize: j === 0 ? 12 : 11, fontFamily: j > 0 ? "var(--font-mono)" : "inherit",
-                    background: cell === "—" ? "rgba(255,255,255,0.008)" : cell.startsWith("✓") ? "rgba(29,158,117,0.06)" : cell.startsWith("✗") ? "rgba(226,75,74,0.06)" : "transparent",
-                    color: cell === "—" ? "rgba(255,255,255,0.35)" : cell.startsWith("✓") ? "#1D9E75" : cell.startsWith("✗") ? "#E24B4A" : "var(--color-text)",
+                    background: cell === "—" ? "var(--color-surface-hover)" : cell.startsWith("✓") ? "rgba(29,158,117,0.06)" : cell.startsWith("✗") ? "rgba(226,75,74,0.06)" : "transparent",
+                    color: cell === "—" ? "var(--color-text-muted)" : cell.startsWith("✓") ? "#1D9E75" : cell.startsWith("✗") ? "#E24B4A" : "var(--color-text)",
                   }}>{cell === "—" ? "—" : cell}</td>
                 ))}
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ fontSize: 10, fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.5)", marginTop: 8 }}>✓ tested (Tc shown) | ✗ tested, no SC | — untested | * under 20 GPa</div>
+        <div style={{ fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", marginTop: 8 }}>✓ tested (Tc shown) | ✗ tested, no SC | — untested | * under 20 GPa</div>
       </div>}
 
       {/* Pipeline predictions */}
       <Rule label="ranked predictions" collapsible expanded={isOpen("predictions")} onToggle={() => toggle("predictions")} />
 
-      {isOpen("predictions") && <div style={{ borderLeft: "1px solid rgba(255,255,255,0.06)", paddingLeft: 16, marginLeft: 4 }}>
+      {isOpen("predictions") && <div style={{ borderLeft: "1px solid var(--line-strong)", paddingLeft: 16, marginLeft: 4 }}>
         {predictions.map((p, i) => (
           <div key={i} style={{ position: "relative", paddingBottom: i < predictions.length - 1 ? 16 : 0 }}>
             <span style={{ position: "absolute", left: -20, top: 4, fontSize: 9, color: "var(--color-accent)" }}>▸</span>
@@ -389,17 +389,17 @@ export default function NickelateEngine() {
               <a
                 href={`https://github.com/flop95/nickelate-sc/issues/new?template=claim-prediction.yml&title=${encodeURIComponent(`[Claim] ${p.id}`)}`}
                 target="_blank" rel="noopener noreferrer"
-                style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.6)", marginLeft: 12 }}
+                style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-secondary)", marginLeft: 12 }}
               >claim →</a>
             </div>
             <div style={{ fontSize: 13, lineHeight: 1.6, color: "var(--color-text-secondary)" }}>{p.text}</div>
             {p.difficulty && (
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.5)", marginTop: 4 }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginTop: 4 }}>
                 {p.difficulty.equipment}{" · "}{p.difficulty.substrate} substrate{" · "}{p.difficulty.growth} ({p.difficulty.growth_complexity}){" · "}{p.difficulty.cost_tier}
               </div>
             )}
             {p.claimed_by.length > 0 && (
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.5)", marginTop: 2 }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginTop: 2 }}>
                 {p.claimed_by.length} group{p.claimed_by.length > 1 ? "s" : ""} attempting
               </div>
             )}
@@ -419,7 +419,7 @@ export default function NickelateEngine() {
         <button
           onClick={() => setAmbientOnly(!ambientOnly)}
           style={{
-            background: "none", border: ambientOnly ? "1px solid rgba(212,168,67,0.4)" : "1px solid rgba(255,255,255,0.04)",
+            background: "none", border: ambientOnly ? "1px solid rgba(212,168,67,0.4)" : "1px solid var(--line)",
             padding: "4px 8px", fontSize: 10, fontFamily: "var(--font-mono)", cursor: "pointer",
             color: ambientOnly ? "var(--color-accent)" : "var(--color-text-muted)",
           }}
@@ -450,17 +450,17 @@ export default function NickelateEngine() {
 
           return (
             <div>
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", marginBottom: 8 }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8 }}>
                 avg onset_tc by growth method // {sensData.length} entries
               </div>
               {sorted.map(g => (
                 <div key={g.method} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 4 }}>
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-text-muted)", width: 80 }}>{g.method}</span>
-                  <div style={{ flex: 1, height: 4, background: "rgba(255,255,255,0.03)", position: "relative" }}>
+                  <div style={{ flex: 1, height: 4, background: "var(--line)", position: "relative" }}>
                     <div style={{ height: 4, width: `${(g.avg / 70) * 100}%`, background: g.avg > 50 ? "var(--color-accent)" : "#1D9E75" }} />
                   </div>
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-text)", fontWeight: 600, width: 48, textAlign: "right" }}>{g.avg.toFixed(0)}K</span>
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.5)" }}>n={g.n}</span>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)" }}>n={g.n}</span>
                 </div>
               ))}
             </div>
@@ -505,7 +505,7 @@ export default function NickelateEngine() {
 
         return (
           <div>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "rgba(255,255,255,0.55)", marginBottom: 8 }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-text-muted)", marginBottom: 8 }}>
               onset_tc vs {varLabel} // {points.length} entries, r²={r2.toFixed(2)}, slope={slopeLabel}
             </div>
             <svg viewBox={`0 0 ${sW} ${sH}`} style={{ width: "100%" }}>
@@ -527,7 +527,7 @@ export default function NickelateEngine() {
                   ticks.push(v);
                 }
                 return ticks.slice(0, 8).map(v => (
-                  <text key={v} x={scX(v)} y={sH - 4} textAnchor="middle" fontSize={9} fill="rgba(255,255,255,0.4)" fontFamily="'DM Mono', monospace">
+                  <text key={v} x={scX(v)} y={sH - 4} textAnchor="middle" fontSize={9} fill="var(--color-text-muted)" fontFamily="'DM Mono', monospace">
                     {sweepVar === "strain" ? v.toFixed(0) + "%" : v.toFixed(2)}
                   </text>
                 ));
@@ -535,19 +535,19 @@ export default function NickelateEngine() {
             </svg>
             <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-text-muted)", marginTop: 4 }}>
               ΔTc = <span style={{ color: "var(--color-text)", fontWeight: 600 }}>{slopeLabel}</span>
-              <span style={{ marginLeft: 12, color: "rgba(255,255,255,0.5)" }}>r² = {r2.toFixed(2)}</span>
+              <span style={{ marginLeft: 12, color: "var(--color-text-muted)" }}>r² = {r2.toFixed(2)}</span>
             </div>
           </div>
         );
       })()}</>}
 
-      <div style={{ marginTop: 32, fontSize: 10, fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.5)", lineHeight: 1.8 }}>
+      <div style={{ marginTop: 32, fontSize: 10, fontFamily: "var(--font-mono)", color: "var(--color-text-muted)", lineHeight: 1.8 }}>
         Data from published papers and preprints through April 2026. Click any row to expand. Empirical screening tool, not a simulation.
         <br />
         <a
           href="https://github.com/flop95/nickelate-sc/issues/new?template=new-measurement.yml"
           target="_blank" rel="noopener noreferrer"
-          style={{ color: "rgba(255,255,255,0.6)" }}
+          style={{ color: "var(--color-text-secondary)" }}
         >Contribute data → GitHub</a>
         <span style={{ marginLeft: 12 }}>All submissions are validated and reviewed before inclusion. Source verification required.</span>
       </div>
@@ -555,7 +555,7 @@ export default function NickelateEngine() {
       {/* About / Methodology */}
       <Rule label="about this tool" />
 
-      <div style={{ fontSize: 12, lineHeight: 1.7, color: "rgba(255,255,255,0.75)", maxWidth: 800 }}>
+      <div style={{ fontSize: 12, lineHeight: 1.7, color: "var(--color-text-secondary)", maxWidth: 800 }}>
         <p style={{ margin: "0 0 8px" }}>
           nickelate-sc is an empirical screening tool for nickelate superconductor research.
           All data is from published papers and preprints through April 2026.
@@ -577,7 +577,7 @@ export default function NickelateEngine() {
           <a
             href="https://github.com/flop95/nickelate-sc/issues"
             target="_blank" rel="noopener noreferrer"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            style={{ color: "var(--color-text-secondary)" }}
           >Contribute data or corrections → GitHub</a>
         </p>
       </div>
