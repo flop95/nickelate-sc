@@ -32,9 +32,6 @@ const FAMILY_SHAPE = {
   wildcard: 'pentagon',
 };
 
-// ============================================================
-// Shape geometry — same convention as the Claude Design bundle
-// ============================================================
 function shapePath(shape, r) {
   switch (shape) {
     case 'square': { const s = r * 1.65; return `M${-s/2} ${-s/2} h${s} v${s} h${-s} Z`; }

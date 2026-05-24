@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+title: "nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate screening corpus"
+message: >-
+  If you use this corpus, screening interface, or curated schema, please cite
+  the archived release. For any specific scientific claim, also cite the
+  primary literature linked from each record.
+type: dataset
+authors:
+  - name: "flop95"
+    # ORCID intentionally omitted; author is pseudonymous for v0.1.0.
+version: "0.1.0"
+date-released: "2026-05-24"
+url: "https://flop95.github.io/nickelate-sc/"
+repository-code: "https://github.com/flop95/nickelate-sc"
+license: "CC-BY-4.0"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.XXXXXXX"
+    description: "Zenodo archival DOI for the v0.1.0 release (placeholder until first Zenodo deposit)"
+keywords:
+  - nickelates
+  - superconductivity
+  - La3Ni2O7
+  - bilayer nickelate
+  - high-Tc
+  - materials screening
+  - curated dataset
+  - epitaxial strain
+  - applied pressure
+abstract: >-
+  A pseudonymous, manually curated screening notebook over the published
+  bilayer-nickelate superconductivity literature. Includes 23 measurements
+  (ambient films, films under applied pressure, bulk under pressure), a
+  22-gate physical/control/evidence schema, gap candidates derived as
+  Hamming-distance neighbors of measured anchors, negative results, and a
+  weekly arXiv watcher. Distances and ranks are retrieval scores, not
+  probability estimates of Tc.

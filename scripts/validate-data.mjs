@@ -167,27 +167,37 @@ for (const failure of failures) {
 
 gaps.forEach((gap, index) => {
   const path = `src/data/palace/palace_gaps_nickelates.json:gaps[${index}]`;
-  const anchorId = gap.nearest_success_drawer_id;
+  const anchorId = gap.anchor_drawer_id;
 
   if (!Number.isInteger(anchorId)) {
-    fail('gap_anchor_mismatch', `${path}.nearest_success_drawer_id`, 'missing concrete nearest-success drawer id');
+    fail('gap_anchor_mismatch', `${path}.anchor_drawer_id`, 'missing concrete anchor drawer id');
     return;
   }
 
   const anchor = drawerById.get(anchorId);
   if (!anchor) {
-    fail('gap_anchor_mismatch', `${path}.nearest_success_drawer_id`, `unknown drawer_id ${anchorId}`);
+    fail('gap_anchor_mismatch', `${path}.anchor_drawer_id`, `unknown drawer_id ${anchorId}`);
     return;
   }
 
-  if (anchor.material !== gap.nearest_success) {
-    fail('gap_anchor_mismatch', path, `nearest_success ${gap.nearest_success} points to drawer ${anchorId} (${anchor.material})`);
+  if (anchor.material !== gap.anchor_material) {
+    fail('gap_anchor_mismatch', path, `anchor_material ${gap.anchor_material} points to drawer ${anchorId} (${anchor.material})`);
   }
 
   const anchorOnset = Number(anchor.properties?.onset_tc);
-  const gapOnset = Number(gap.nearest_onset);
+  const gapOnset = Number(gap.anchor_onset_tc_K);
   if (!Number.isFinite(anchorOnset) || !Number.isFinite(gapOnset) || Math.abs(anchorOnset - gapOnset) > 0.001) {
-    fail('gap_anchor_mismatch', path, `nearest_onset ${gap.nearest_onset} disagrees with drawer ${anchorId} onset ${anchor.properties?.onset_tc}`);
+    fail('gap_anchor_mismatch', path, `anchor_onset_tc_K ${gap.anchor_onset_tc_K} disagrees with drawer ${anchorId} onset ${anchor.properties?.onset_tc}`);
+  }
+
+  if (gap.candidate_predicted_tc_K !== null) {
+    fail('gap_forecast_present', `${path}.candidate_predicted_tc_K`,
+      `v0.1.0 forbids candidate Tc forecasts; field must be null, got ${JSON.stringify(gap.candidate_predicted_tc_K)}`);
+  }
+
+  if (typeof gap.tc_display_warning !== 'string' || gap.tc_display_warning.trim() === '') {
+    fail('gap_anchor_mismatch', `${path}.tc_display_warning`,
+      'tc_display_warning is required to keep the anchor Tc from being read as a forecast');
   }
 });
 

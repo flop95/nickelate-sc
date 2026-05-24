@@ -1,0 +1,37 @@
+{
+  "title": "nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate screening corpus",
+  "version": "0.1.0",
+  "upload_type": "dataset",
+  "publication_date": "2026-05-24",
+  "description": "<p>A pseudonymous, manually curated screening notebook over the published bilayer-nickelate superconductivity literature. Includes 23 measurements (ambient films, films under applied pressure, bulk under pressure), a 22-gate physical/control/evidence schema, gap candidates derived as Hamming-distance neighbors of measured anchors, negative results, and a weekly arXiv watcher.</p><p>Distances and ranks are <em>retrieval scores</em>, not probability estimates of Tc. Nearest-neighbor anchor Tc values surfaced for each gap candidate are values measured on the anchor, not forecasts for the candidate. Cite the primary literature (linked in each record's <code>source_doi</code> field) for any scientific claim.</p><p>See <code>docs/inclusion_criteria.md</code>, <code>docs/gate_definitions.md</code>, <code>docs/ranking_method.md</code>, and <code>AUDIT.md</code> for the full schema, criteria, and known limitations.</p>",
+  "creators": [
+    {
+      "name": "flop95"
+    }
+  ],
+  "keywords": [
+    "nickelates",
+    "superconductivity",
+    "La3Ni2O7",
+    "bilayer nickelate",
+    "high-Tc",
+    "materials screening",
+    "curated dataset",
+    "epitaxial strain",
+    "applied pressure"
+  ],
+  "license": "CC-BY-4.0",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/flop95/nickelate-sc",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://flop95.github.io/nickelate-sc/",
+      "relation": "isDocumentedBy",
+      "resource_type": "other"
+    }
+  ]
+}

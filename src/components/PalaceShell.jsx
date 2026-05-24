@@ -229,10 +229,20 @@ export default function PalaceShell() {
     const payload = {
       schema: 'nickelate-sc.corpus.v2',
       exported_at: exportedAt,
+      release: {
+        version: '0.1.0',
+        date: '2026-05-24',
+        doi: '10.5281/zenodo.XXXXXXX',
+        doi_status: 'placeholder until first Zenodo deposit',
+        suggested_citation:
+          'flop95. (2026). nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate screening corpus ' +
+          '(Version 0.1.0) [Data set and software]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX',
+        license: { code: 'MIT', data: 'CC-BY-4.0' },
+      },
       issue: {
         title: 'nickelate.sc Vol. 1, No. 1',
         date: 'April 2026',
-        status: 'pseudonymous curated static review index; no DOI, no peer review, source repository private; hypothesis rankings are not verified measurements',
+        status: 'pseudonymous curated static review index; rankings are retrieval scores, not forecasts',
       },
       view: {
         route: activeRoute,
@@ -257,9 +267,9 @@ export default function PalaceShell() {
       caveats: [
         'Measurements and references are manually curated from public literature and preprints.',
         'Gap candidates are feature-distance hypotheses, not forecasts or first-principles predictions.',
-        'Similarity scores and priority labels are curator heuristics, not probabilities.',
-        'The rendered site and JSON export are public; the source repository and review history are private.',
-        'Use source URL and source DOI fields to re-check references before citing this export.',
+        'Anchor Tc fields on gap candidates are measured values on the anchor, not predictions for the candidate.',
+        'Similarity scores and risk labels are curator heuristics, not probabilities.',
+        'Use source URL and source DOI fields to re-check references; cite the primary literature for any scientific claim, not this export.',
       ],
     };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });

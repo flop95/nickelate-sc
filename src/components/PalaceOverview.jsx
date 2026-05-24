@@ -17,19 +17,16 @@ import { matchesPressureMode, pressureModeFor, pressureModeLabel } from '../util
 const GATE_NAME_TO_INDEX = Object.fromEntries(gateDefs.gates.map(g => [g.name, g.index]));
 const DRAWER_BY_ID = new Map(drawers.map(d => [d.id, d]));
 
-function resolveNearestSuccessDrawer(gap) {
-  return DRAWER_BY_ID.get(gap.nearest_success_drawer_id)
-    || drawers.find(d => d.material === gap.nearest_success && d.wing === 'nickelates')
-    || drawers.find(d => d.material === gap.nearest_success);
+function resolveAnchorDrawer(gap) {
+  return DRAWER_BY_ID.get(gap.anchor_drawer_id)
+    || drawers.find(d => d.material === gap.anchor_material && d.wing === 'nickelates')
+    || drawers.find(d => d.material === gap.anchor_material);
 }
 
-// Compute the full ranked candidate list once. Each entry carries the gap
-// data plus the resolved nearest-success drawer (for substrate etc.) and
-// the min-Hamming distance to any known failure (risk signal).
 function buildCandidates(gapsList) {
   if (!Array.isArray(gapsList)) return [];
   return gapsList.map(g => {
-    const nearestDrawer = resolveNearestSuccessDrawer(g);
+    const anchorDrawer = resolveAnchorDrawer(g);
     const diffIndex = GATE_NAME_TO_INDEX[g.gates_flipped?.[0]];
     const minFailDist = failures.length
       ? Math.min(...failures.map(f => {
@@ -40,7 +37,7 @@ function buildCandidates(gapsList) {
     return {
       ...g,
       diffIndex,
-      nearestDrawer,
+      anchorDrawer,
       minFailDist,
       riskLabel: minFailDist <= 1 ? 'HIGH' : minFailDist <= 2 ? 'MODERATE' : 'LOW',
     };
@@ -91,7 +88,70 @@ export default function PalaceOverview({ onNavigate, onSelect, pressureMode }) {
       <ScopeNote />
       <ActionLinks onNavigate={onNavigate} />
       <StatsStrip />
+      <CitationFooter />
     </div>
+  );
+}
+
+const RELEASE_VERSION = '0.1.0';
+const RELEASE_DATE = '2026-05-24';
+const RELEASE_DOI = '10.5281/zenodo.XXXXXXX';
+
+function CitationFooter() {
+  const doiUrl = `https://doi.org/${RELEASE_DOI}`;
+  return (
+    <section
+      className="workspace-section"
+      style={{
+        marginTop: 32,
+        paddingTop: 20,
+        borderTop: '1px solid var(--line)',
+      }}
+    >
+      <div className="overline" style={{ marginBottom: 8 }}>how to cite</div>
+      <div
+        className="voice-mono"
+        style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 10, lineHeight: 1.55 }}
+      >
+        Version {RELEASE_VERSION} — archived {RELEASE_DATE} ·{' '}
+        DOI:{' '}
+        <a
+          href={doiUrl}
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: 'var(--text-secondary)', textDecoration: 'underline' }}
+        >
+          {RELEASE_DOI}
+        </a>
+        {' '}<span style={{ color: 'var(--text-faint)' }}>(placeholder until first Zenodo deposit)</span>
+      </div>
+      <pre
+        className="voice-mono"
+        style={{
+          fontSize: 11,
+          color: 'var(--text-secondary)',
+          background: 'var(--bg-raised)',
+          border: '1px solid var(--line)',
+          padding: '12px 14px',
+          margin: 0,
+          whiteSpace: 'pre-wrap',
+          lineHeight: 1.55,
+          maxWidth: 880,
+        }}
+      >
+{`flop95. (2026). nickelate.sc: Vol. 1, No. 1 — Bilayer nickelate screening
+corpus (Version ${RELEASE_VERSION}) [Data set and software]. Zenodo.
+https://doi.org/${RELEASE_DOI}`}
+      </pre>
+      <div
+        className="voice-quiet"
+        style={{ marginTop: 10, fontSize: 11, color: 'var(--text-faint)', maxWidth: 880, lineHeight: 1.55 }}
+      >
+        Use note: cite the primary literature (linked from each record's source DOI) for any
+        scientific claim. This corpus should be cited only for the curated schema, screening
+        interface, and versioned data aggregation. License: code MIT, data and docs CC-BY-4.0.
+      </div>
+    </section>
   );
 }
 
@@ -120,11 +180,11 @@ function EpistemicNotice() {
 // Hero candidate panel — the dramatic center
 // ───────────────────────────────────────────────────────
 function HeroCandidate({ hero, onSelect }) {
-  const anchorOnset = hero.nearestDrawer?.properties?.onset_tc ?? hero.nearest_onset;
+  const anchorOnset = hero.anchorDrawer?.properties?.onset_tc ?? hero.anchor_onset_tc_K;
   const headlineK = Math.round(anchorOnset || 0);
   const diffGateName = formatGateName(hero.gates_flipped?.[0]);
-  const substrate = hero.nearestDrawer?.properties?.substrate || '';
-  const anchorMode = pressureModeLabel(pressureModeFor(hero.nearestDrawer));
+  const substrate = hero.anchorDrawer?.properties?.substrate || '';
+  const anchorMode = pressureModeLabel(pressureModeFor(hero.anchorDrawer));
   const riskColor = 'var(--text-secondary)';
 
   return (
@@ -152,17 +212,30 @@ function HeroCandidate({ hero, onSelect }) {
       <div style={{ minWidth: 0 }}>
         <div
           className="voice-authority hero-claim"
-          style={{ fontSize: 18, marginBottom: 10, lineHeight: 1.35 }}
+          style={{ fontSize: 18, marginBottom: 4, lineHeight: 1.35 }}
         >
-          {hero.distance === 1 ? '1 screening gate' : `${hero.distance} screening gates`} from the measured{' '}
+          {hero.distance === 1 ? '1 screening gate' : `${hero.distance} screening gates`} from{' '}
           <span className="tc-strong">{headlineK}K</span>{' '}
-          {hero.nearest_success} anchor.
+          {hero.anchor_material} anchor.
+        </div>
+        <div
+          className="voice-mono"
+          style={{ fontSize: 10, color: 'var(--text-faint)', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 10 }}
+        >
+          {headlineK}K is the anchor's measured Tc — not a forecast for this candidate.
         </div>
 
         <div className="hero-evidence-item">
-          <Row label="nearest measured anchor">
+          <Row label="nearest-neighbor anchor">
             <span className="voice-mono" style={{ fontSize: 13, color: 'var(--text-primary)' }}>
-              {hero.nearest_success}{substrate ? ` on ${substrate}` : ''}
+              {hero.anchor_material}{substrate ? ` on ${substrate}` : ''}
+            </span>
+          </Row>
+        </div>
+        <div className="hero-evidence-item">
+          <Row label="anchor Tc (measured)">
+            <span className="voice-mono" style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
+              {anchorOnset}K · {hero.tc_display_warning || 'Anchor value only; not a forecast.'}
             </span>
           </Row>
         </div>
@@ -204,9 +277,9 @@ function HeroCandidate({ hero, onSelect }) {
         )}
 
         <div className="hero-evidence-item" style={{ marginTop: 16, display: 'flex', gap: 12 }}>
-          {hero.nearestDrawer && (
+          {hero.anchorDrawer && (
             <button
-              onClick={() => onSelect && onSelect({ kind: 'drawer', drawer: hero.nearestDrawer })}
+              onClick={() => onSelect && onSelect({ kind: 'drawer', drawer: hero.anchorDrawer })}
               className="voice-mono"
               style={{
                 background: 'transparent',
@@ -288,15 +361,15 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
     const all = Array.isArray(candidates) ? candidates : [];
     return all
       .slice()
-      .sort((a, b) => (a.distance - b.distance) || ((b.nearest_onset || 0) - (a.nearest_onset || 0)))
+      .sort((a, b) => (a.distance - b.distance) || ((b.anchor_onset_tc_K || 0) - (a.anchor_onset_tc_K || 0)))
       .slice(0, 6)
       .map(g => ({
         id: `gap-${g.bitmask}`,
         material_pattern: `${g.distance === 1 ? 'one' : g.distance}-gate hypothesis`,
         differing_gates: g.gates_flipped || [],
-        nearest_success: g.nearest_success,
-        nearest_success_tc: g.nearestDrawer?.properties?.onset_tc ?? g.nearest_onset,
-        nearestDrawer: g.nearestDrawer,
+        anchor_material: g.anchor_material,
+        anchor_tc: g.anchorDrawer?.properties?.onset_tc ?? g.anchor_onset_tc_K,
+        anchorDrawer: g.anchorDrawer,
         confidence: g.distance <= 1 ? 'near' : 'watch',
         failure_risk: (g.riskLabel || 'LOW').toLowerCase(),
       }));
@@ -329,19 +402,22 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
       },
     },
     {
-      id: 'nearest_success',
-      header: 'measured anchor',
-      accessorKey: 'nearest_success',
+      id: 'anchor_material',
+      header: 'anchor (measured)',
+      accessorKey: 'anchor_material',
       size: '1fr',
       cell: info => {
         const p = info.row.original;
         return (
           <div>
             <div className="voice-mono" style={{ fontSize: 11, color: 'var(--text-secondary)' }}>
-              {p.nearest_success}
+              {p.anchor_material}
             </div>
-            <div style={{ marginTop: 2 }}>
-              <TcValue value={p.nearest_success_tc} size={11} align="left" />
+            <div style={{ marginTop: 2, display: 'flex', alignItems: 'baseline', gap: 6 }}>
+              <TcValue value={p.anchor_tc} size={11} align="left" />
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 8, color: 'var(--text-faint)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                anchor · not forecast
+              </span>
             </div>
           </div>
         );
@@ -384,9 +460,8 @@ function PromisingLane({ candidates, onSelect, onNavigate }) {
   ], []);
 
   const handleRowClick = row => {
-    // Jump the inspector to the measured anchor drawer of this gap candidate.
     if (!onSelect) return;
-    if (row.nearestDrawer) onSelect({ kind: 'drawer', drawer: row.nearestDrawer });
+    if (row.anchorDrawer) onSelect({ kind: 'drawer', drawer: row.anchorDrawer });
   };
 
   return (

@@ -3,8 +3,6 @@
     "bitmask": 2212923,
     "bitmask_binary": "0b1000011100010000111011",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "metastable"
     ],
@@ -35,14 +33,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2212985,
     "bitmask_binary": "0b1000011100010001111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "Pr_substituted"
     ],
@@ -73,14 +73,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2213049,
     "bitmask_binary": "0b1000011100010010111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "Sr_substituted"
     ],
@@ -111,14 +113,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2213177,
     "bitmask_binary": "0b1000011100010100111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "infinite_layer_phase"
     ],
@@ -149,14 +153,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2213433,
     "bitmask_binary": "0b1000011100011000111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "trilayer_rp"
     ],
@@ -187,14 +193,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2211897,
     "bitmask_binary": "0b1000011100000000111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "tweakable"
     ],
@@ -225,14 +233,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2214969,
     "bitmask_binary": "0b1000011100110000111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "compressive_gt_0.5pct"
     ],
@@ -263,14 +273,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2217017,
     "bitmask_binary": "0b1000011101010000111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "compressive_gt_1pct"
     ],
@@ -301,14 +313,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2221113,
     "bitmask_binary": "0b1000011110010000111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "ambient_pressure"
     ],
@@ -339,14 +353,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 2196537,
     "bitmask_binary": "0b1000011000010000111001",
     "distance": 1,
-    "nearest_success": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
-    "nearest_onset": 96,
     "gates_flipped": [
       "doping_explored"
     ],
@@ -377,14 +393,16 @@
       "[20] N  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 22
+    "anchor_drawer_id": 22,
+    "anchor_material": "La₁.₅₇Sm₁.₄₃Ni₂O₇−δ",
+    "anchor_onset_tc_K": 96,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4047995,
     "bitmask_binary": "0b1111011100010001111011",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "metastable"
     ],
@@ -415,14 +433,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4047929,
     "bitmask_binary": "0b1111011100010000111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "Pr_substituted"
     ],
@@ -453,14 +473,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4048121,
     "bitmask_binary": "0b1111011100010011111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "Sr_substituted"
     ],
@@ -491,14 +513,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4048249,
     "bitmask_binary": "0b1111011100010101111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "infinite_layer_phase"
     ],
@@ -529,14 +553,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4048505,
     "bitmask_binary": "0b1111011100011001111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "trilayer_rp"
     ],
@@ -567,14 +593,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4046969,
     "bitmask_binary": "0b1111011100000001111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "tweakable"
     ],
@@ -605,14 +633,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4050041,
     "bitmask_binary": "0b1111011100110001111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "compressive_gt_0.5pct"
     ],
@@ -643,14 +673,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4052089,
     "bitmask_binary": "0b1111011101010001111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "compressive_gt_1pct"
     ],
@@ -681,14 +713,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4056185,
     "bitmask_binary": "0b1111011110010001111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "ambient_pressure"
     ],
@@ -719,14 +753,16 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   },
   {
     "bitmask": 4031609,
     "bitmask_binary": "0b1111011000010001111001",
     "distance": 1,
-    "nearest_success": "La₂PrNi₂O₇",
-    "nearest_onset": 82.5,
     "gates_flipped": [
       "doping_explored"
     ],
@@ -757,6 +793,10 @@
       "[20] Y  zero_resistance_seen",
       "[21] Y  data_2024_or_later"
     ],
-    "nearest_success_drawer_id": 21
+    "anchor_drawer_id": 21,
+    "anchor_material": "La₂PrNi₂O₇",
+    "anchor_onset_tc_K": 82.5,
+    "candidate_predicted_tc_K": null,
+    "tc_display_warning": "Anchor value only; not a forecast."
   }
 ]

@@ -1,6 +1,6 @@
 {
   "_note": "Reference materials for chart rendering in FigureOne. Literature values curated for plotting context; cite primary sources before using these numbers for research claims. See nickelate_dataset.json for the peer-reviewed nickelate measurement record. Pressures in GPa, Tc in K. Ambient pressure = 0.0001 GPa (≈ 1 atm).",
-  "_provenance": "Ported from the nickelate.sc Claude Design bundle (data.js, MATERIALS array), 2026-04-19. Ambient convention changed from design-bundle 0.001 GPa to physically accurate 0.0001 GPa. One entry (Sr3Ni2O7) was design-bundle internal scratch and has been re-labeled as such in its ref.",
+  "_provenance": "Ported from an earlier internal design draft (data.js, MATERIALS array), 2026-04-19. Ambient convention changed from the draft's 0.001 GPa to physically accurate 0.0001 GPa. One entry (Sr3Ni2O7) was internal scratch in that draft and has been re-labeled as such in its ref.",
   "_schema": {
     "id": "string — stable identifier",
     "formula": "string — Unicode subscript-aware formula",

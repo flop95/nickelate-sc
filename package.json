@@ -1,13 +1,14 @@
 {
   "name": "nickelate-research-platform",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "dev:demo": "vite --open /demo/",
     "alerts": "python3 scripts/arxiv*.py",
     "validate:data": "node scripts/validate-data.mjs",
+    "build:rankings": "node scripts/build_rankings.mjs",
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
