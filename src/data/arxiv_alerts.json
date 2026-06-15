@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-08T12:28:07Z",
+  "generated": "2026-06-15T13:55:23Z",
   "window_days": 7,
   "method_note": "Regex-based arXiv abstract extraction. No alerts means no regex-extractable dataset-relevant alerts, not exhaustive recall.",
   "alert_count": 0,
